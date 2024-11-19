@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class LibXML::XML::Attributes - libxml-ruby-5.0.3 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/navigation.js" defer></script>
+<script src="../../js/search.js" defer></script>
+<script src="../../js/search_index.js" defer></script>
+<script src="../../js/searcher.js" defer></script>
+<script src="../../js/darkfish.js" defer></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../Object.html">Object</a>
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><span class="include">Enumerable</span>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-5B-5D">#[]</a>
+    
+    <li ><a href="#method-i-5B-5D-3D">#[]=</a>
+    
+    <li ><a href="#method-i-each">#each</a>
+    
+    <li ><a href="#method-i-first">#first</a>
+    
+    <li ><a href="#method-i-get_attribute">#get_attribute</a>
+    
+    <li ><a href="#method-i-get_attribute_ns">#get_attribute_ns</a>
+    
+    <li ><a href="#method-i-length">#length</a>
+    
+    <li ><a href="#method-i-node">#node</a>
+    
+    <li ><a href="#method-i-to_h">#to_h</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-LibXML::XML::Attributes">
+  <h1 id="class-LibXML::XML::Attributes" class="class">
+    class LibXML::XML::Attributes
+  </h1>
+
+  <section class="description">
+    
+<p>Provides access to an element&#39;s attributes (XML::Attr).</p>
+
+<p>Basic Usage:</p>
+
+<pre>require &#39;test_helper&#39;
+
+doc = XML::Document.new(&lt;some_file&gt;)
+attributes = doc.root.attributes
+
+attributes.each do |attribute|
+  ..
+end
+
+attributes[&#39;foo&#39;] = &#39;bar&#39;
+attribute = attributes.get_attribute[&#39;foo&#39;]
+attribute.value == &#39;foo&#39;</pre>
+
+<p>To access a namespaced attribute:</p>
+
+<pre class="ruby"><span class="ruby-constant">XLINK_URI</span> = <span class="ruby-string">&#39;http://www.w3.org/1999/xlink&#39;</span>
+
+<span class="ruby-identifier">attribute</span> = <span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">get_attribute_ns</span>(<span class="ruby-constant">XLINK_URI</span>, <span class="ruby-string">&#39;title&#39;</span>)
+<span class="ruby-identifier">attribute</span>.<span class="ruby-identifier">value</span> = <span class="ruby-string">&#39;My title&#39;</span>
+</pre>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-5B-5D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            attributes[&quot;name&quot;] &rarr; String
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Fetches an attribute value. If you want to access the underlying Attribute itself use get_attribute.</p>
+
+<p>name: The name of the attribute, not including any namespaces.</p>
+
+<pre>doc.root.attributes[&#39;att&#39;] -&gt; &#39;some value&#39;</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="5B-5D-source">
+            <pre>VALUE rxml_attributes_attribute_get(VALUE self, VALUE name)
+{
+  VALUE xattr = rxml_attributes_get_attribute(self, name);
+  
+  if (NIL_P(xattr))
+    return Qnil;
+  else
+    return rxml_attr_value_get(xattr);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-5B-5D-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            attributes[&quot;name&quot;] = &quot;value&quot;
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Sets an attribute value. If you want to get the Attribute itself, use get_attribute.</p>
+
+<p>name: The name of the attribute, not including any namespaces. value: The new value of the namespace.</p>
+
+<pre class="ruby"><span class="ruby-identifier">doc</span>.<span class="ruby-identifier">root</span>.<span class="ruby-identifier">attributes</span>[<span class="ruby-string">&#39;att&#39;</span>] = <span class="ruby-string">&#39;some value&#39;</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="5B-5D-3D-source">
+            <pre>VALUE rxml_attributes_attribute_set(VALUE self, VALUE name, VALUE value)
+{
+  VALUE xattr = rxml_attributes_get_attribute(self, name);
+  if (NIL_P(xattr))
+  {
+    VALUE args[3];
+
+    args[0] = rxml_attributes_node_get(self);
+    args[1] = name;
+    args[2] = value;
+
+    return rb_class_new_instance(sizeof(args)/sizeof(VALUE), args, cXMLAttr);
+  }
+  else
+  {
+    return rxml_attr_value_set(xattr, value);
+  }
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-each" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            each {block} &rarr; XML::Attr
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Iterates over each attribute.</p>
+
+<pre class="ruby"><span class="ruby-identifier">doc</span>.<span class="ruby-identifier">root</span>.<span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">attribute</span><span class="ruby-operator">|</span> <span class="ruby-identifier">puts</span> <span class="ruby-identifier">attribute</span>.<span class="ruby-identifier">name</span>}
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="each-source">
+            <pre>static VALUE rxml_attributes_each(VALUE self)
+{
+  xmlNodePtr xnode;
+  xmlAttrPtr xattr;
+  Data_Get_Struct(self, xmlNode, xnode);
+
+  xattr = xnode-&gt;properties;
+
+  while (xattr)
+  {
+    /* Get the next attribute while we still can - the user
+       may remove the yielded attribute. */
+    xmlAttrPtr next = xattr-&gt;next;
+
+    VALUE attr = rxml_attr_wrap(xattr);
+    rb_yield(attr);
+    xattr = next;
+  }
+
+  return self;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-first" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            first &rarr; XML::Attr
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns the first attribute.</p>
+
+<pre class="ruby"><span class="ruby-identifier">doc</span>.<span class="ruby-identifier">root</span>.<span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">first</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="first-source">
+            <pre>static VALUE rxml_attributes_first(VALUE self)
+{
+  xmlNodePtr xnode;
+  Data_Get_Struct(self, xmlNode, xnode);
+
+  if (xnode-&gt;type == XML_ELEMENT_NODE)
+  {
+    xmlAttrPtr xattr = xnode-&gt;properties;
+
+    if (xattr)
+    {
+      return rxml_attr_wrap(xattr);
+    }
+  }
+  return Qnil;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_attribute" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            get_attribute(&quot;name&quot;) &rarr; (XML::Attr | XML::AtrrDecl)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns the specified attribute.  If the attribute does not  exist but the document has an associated DTD that defines a default value for the attribute, then a <a href="AttrDecl.html"><code>XML::AttrDecl</code></a> is returned.</p>
+
+<p>name: The name of the attribute, not including a namespace.</p>
+
+<pre class="ruby"><span class="ruby-identifier">doc</span>.<span class="ruby-identifier">root</span>.<span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">get_attribute</span>(<span class="ruby-string">&quot;foo&quot;</span>)
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="get_attribute-source">
+            <pre>static VALUE rxml_attributes_get_attribute(VALUE self, VALUE name)
+{
+  xmlNodePtr xnode;
+  xmlAttrPtr xattr;
+
+  name = rb_obj_as_string(name);
+
+  Data_Get_Struct(self, xmlNode, xnode);
+
+  xattr = xmlHasProp(xnode, (xmlChar*) StringValuePtr(name));
+
+  if (!xattr)
+    return Qnil;
+  else if (xattr-&gt;type == XML_ATTRIBUTE_DECL)
+    return rxml_attr_decl_wrap((xmlAttributePtr)xattr);
+  else
+    return rxml_attr_wrap(xattr);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_attribute_ns" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            get_attribute_ns(&quot;namespace&quot;, &quot;name&quot;) &rarr; (XML::Attr | XML::AtrrDecl)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns the specified attribute.  If the attribute does not  exist but the document has an associated DTD that defines a default value for the attribute, then a <a href="AttrDecl.html"><code>XML::AttrDecl</code></a> is returned.</p>
+
+<p>namespace: The URI of the attribute&#39;s namespace. name: The name of the attribute, not including a namespace.</p>
+
+<pre class="ruby"><span class="ruby-identifier">doc</span>.<span class="ruby-identifier">root</span>.<span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">get_attribute_ns</span>(<span class="ruby-string">&#39;http://www.w3.org/1999/xlink&#39;</span>, <span class="ruby-string">&#39;href&#39;</span>)
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="get_attribute_ns-source">
+            <pre>static VALUE rxml_attributes_get_attribute_ns(VALUE self, VALUE namespace,
+    VALUE name)
+{
+  xmlNodePtr xnode;
+  xmlAttrPtr xattr;
+
+  name = rb_obj_as_string(name);
+
+  Data_Get_Struct(self, xmlNode, xnode);
+
+  xattr = xmlHasNsProp(xnode, (xmlChar*) StringValuePtr(name),
+                      (xmlChar*) StringValuePtr(namespace));
+
+  if (!xattr)
+    return Qnil;
+  else if (xattr-&gt;type == XML_ATTRIBUTE_DECL)
+    return rxml_attr_decl_wrap((xmlAttributePtr)xattr);
+  else
+    return rxml_attr_wrap(xattr);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-length" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            length &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns the number of attributes.</p>
+
+<pre class="ruby"><span class="ruby-identifier">doc</span>.<span class="ruby-identifier">root</span>.<span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">length</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="length-source">
+            <pre>static VALUE rxml_attributes_length(VALUE self)
+{
+  int length = 0;
+  xmlNodePtr xnode;
+  xmlAttrPtr xattr;
+  Data_Get_Struct(self, xmlNode, xnode);
+
+  xattr = xnode-&gt;properties;
+
+  while (xattr)
+  {
+    length++;
+    xattr = xattr-&gt;next;
+  }
+  
+  return INT2NUM(length);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-node" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            node &rarr; XML::Node
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Return the node that owns this attributes list.</p>
+
+<pre class="ruby"><span class="ruby-identifier">doc</span>.<span class="ruby-identifier">root</span>.<span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">node</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">root</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="node-source">
+            <pre>VALUE rxml_attributes_node_get(VALUE self)
+{
+  xmlNodePtr xnode;
+  Data_Get_Struct(self, xmlNode, xnode);
+  return rxml_node_wrap(xnode);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_h" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_h</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_h-source">
+            <pre><span class="ruby-comment"># File lib/libxml/attributes.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_h</span>
+  <span class="ruby-identifier">inject</span>({}) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">hash</span>, <span class="ruby-identifier">attr</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">hash</span>[<span class="ruby-identifier">attr</span>.<span class="ruby-identifier">name</span>] = <span class="ruby-identifier">attr</span>.<span class="ruby-identifier">value</span>
+    <span class="ruby-identifier">hash</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,36 @@
+status_line:add_part("│  {cursor_y} / {line_count}  ")  -- The right side of the status line
+status_line:add_part("  {file_name}{modified}  │") -- The left side of the status line
+
+-- Enable bracket / quote pairs and autoindentation for a slick code editing experience!
+load_plugin("pairs.lua")
+load_plugin("autoindent.lua")
+tab_line.enabled = false
+terminal.mouse_enabled = true
+
+-- Configure Colours --
+colors.editor_bg = {239, 241, 245}  -- Latte Base
+colors.editor_fg = {76, 79, 105}    -- Latte Text
+colors.line_number_fg = {156, 160, 176}  -- Latte Subtext0
+colors.line_number_bg = {239, 241, 245}  -- Latte Base
+
+colors.status_bg = {239, 241, 245}  -- Latte Surface0
+colors.status_fg = {239, 241, 245}   -- Latte Teal
+
+colors.highlight = {23, 146, 153}   -- Latte Teal
+
+colors.tab_inactive_fg = {76, 79, 105}    -- Latte Text
+colors.tab_inactive_bg = {204, 208, 218}  -- Latte Surface0
+colors.tab_active_fg = {76, 79, 105}      -- Latte Text
+colors.tab_active_bg = {239, 241, 245}    -- Latte Base
+
+colors.info_fg = {64, 160, 43}   -- Latte Green
+colors.info_bg = {239, 241, 245} -- Latte Base
+colors.warning_fg = {223, 142, 29}  -- Latte Peach
+colors.warning_bg = {239, 241, 245} -- Latte Base
+colors.error_fg = {210, 15, 57}     -- Latte Red
+colors.error_bg = {239, 241, 245}   -- Latte Base
+
+colors.selection_fg = {76, 79, 105}    -- Latte Text
+colors.selection_bg = {204, 208, 218}  -- Latte Surface0
+
+greeting_message.enabled = false

@@ -1,0 +1,1 @@
+{"Name":"orbstack","Metadata":{"Description":"OrbStack"},"Endpoints":{"docker":{"Host":"unix:///Users/checkra1n/.orbstack/run/docker.sock","SkipTLSVerify":false}}}

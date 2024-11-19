@@ -1,0 +1,2307 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class LibXML::XML::Parser::Context - libxml-ruby-5.0.3 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+  var index_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/navigation.js" defer></script>
+<script src="../../../js/search.js" defer></script>
+<script src="../../../js/search_index.js" defer></script>
+<script src="../../../js/searcher.js" defer></script>
+<script src="../../../js/darkfish.js" defer></script>
+
+<link href="../../../css/fonts.css" rel="stylesheet">
+<link href="../../../css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-document">::document</a>
+    
+    <li ><a href="#method-c-file">::file</a>
+    
+    <li ><a href="#method-c-io">::io</a>
+    
+    <li ><a href="#method-c-string">::string</a>
+    
+    <li ><a href="#method-i-base_uri">#base_uri</a>
+    
+    <li ><a href="#method-i-base_uri-3D">#base_uri=</a>
+    
+    <li ><a href="#method-i-close">#close</a>
+    
+    <li ><a href="#method-i-data_directory">#data_directory</a>
+    
+    <li ><a href="#method-i-depth">#depth</a>
+    
+    <li ><a href="#method-i-disable_cdata-3D">#disable_cdata=</a>
+    
+    <li ><a href="#method-i-disable_cdata-3F">#disable_cdata?</a>
+    
+    <li ><a href="#method-i-disable_sax-3F">#disable_sax?</a>
+    
+    <li ><a href="#method-i-docbook-3F">#docbook?</a>
+    
+    <li ><a href="#method-i-encoding">#encoding</a>
+    
+    <li ><a href="#method-i-encoding-3D">#encoding=</a>
+    
+    <li ><a href="#method-i-errno">#errno</a>
+    
+    <li ><a href="#method-i-html-3F">#html?</a>
+    
+    <li ><a href="#method-i-io_max_num_streams">#io_max_num_streams</a>
+    
+    <li ><a href="#method-i-io_num_streams">#io_num_streams</a>
+    
+    <li ><a href="#method-i-keep_blanks-3F">#keep_blanks?</a>
+    
+    <li ><a href="#method-i-name_depth">#name_depth</a>
+    
+    <li ><a href="#method-i-name_depth_max">#name_depth_max</a>
+    
+    <li ><a href="#method-i-name_node">#name_node</a>
+    
+    <li ><a href="#method-i-name_tab">#name_tab</a>
+    
+    <li ><a href="#method-i-node">#node</a>
+    
+    <li ><a href="#method-i-node_depth">#node_depth</a>
+    
+    <li ><a href="#method-i-node_depth_max">#node_depth_max</a>
+    
+    <li ><a href="#method-i-num_chars">#num_chars</a>
+    
+    <li ><a href="#method-i-options">#options</a>
+    
+    <li ><a href="#method-i-options-3D">#options=</a>
+    
+    <li ><a href="#method-i-recovery-3D">#recovery=</a>
+    
+    <li ><a href="#method-i-recovery-3F">#recovery?</a>
+    
+    <li ><a href="#method-i-replace_entities-3D">#replace_entities=</a>
+    
+    <li ><a href="#method-i-replace_entities-3F">#replace_entities?</a>
+    
+    <li ><a href="#method-i-space_depth">#space_depth</a>
+    
+    <li ><a href="#method-i-space_depth_max">#space_depth_max</a>
+    
+    <li ><a href="#method-i-standalone-3F">#standalone?</a>
+    
+    <li ><a href="#method-i-stats-3F">#stats?</a>
+    
+    <li ><a href="#method-i-subset_external-3F">#subset_external?</a>
+    
+    <li ><a href="#method-i-subset_external_system_id">#subset_external_system_id</a>
+    
+    <li ><a href="#method-i-subset_external_uri">#subset_external_uri</a>
+    
+    <li ><a href="#method-i-subset_internal-3F">#subset_internal?</a>
+    
+    <li ><a href="#method-i-subset_internal_name">#subset_internal_name</a>
+    
+    <li ><a href="#method-i-valid">#valid</a>
+    
+    <li ><a href="#method-i-validate-3F">#validate?</a>
+    
+    <li ><a href="#method-i-version">#version</a>
+    
+    <li ><a href="#method-i-well_formed-3F">#well_formed?</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-LibXML::XML::Parser::Context">
+  <h1 id="class-LibXML::XML::Parser::Context" class="class">
+    class LibXML::XML::Parser::Context
+  </h1>
+
+  <section class="description">
+    
+<p>The <a href="Context.html"><code>XML::Parser::Context</code></a> class provides in-depth control over how a document is parsed.</p>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-document" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            XML::Parser::Context.document(document) &rarr; XML::Parser::Context
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Creates a new parser context based on the specified document.</p>
+
+<p>Parameters:</p>
+
+<pre>document - An XML::Document instance
+options - A or&#39;ed together list of LibXML::XML::Parser::Options values</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="document-source">
+            <pre>static VALUE rxml_parser_context_document(int argc, VALUE* argv, VALUE klass)
+{
+  VALUE document, options;
+  rb_scan_args(argc, argv, &quot;11&quot;, &amp;document, &amp;options);
+
+  if (rb_obj_is_kind_of(document, cXMLDocument) == Qfalse)
+    rb_raise(rb_eTypeError, &quot;Must pass an LibXML::XML::Document object&quot;);
+
+  xmlDocPtr xdoc;
+  xmlChar *buffer;
+  int length;
+  Data_Get_Struct(document, xmlDoc, xdoc);
+  xmlDocDumpFormatMemoryEnc(xdoc, &amp;buffer, &amp;length, (const char*)xdoc-&gt;encoding, 0);
+
+  xmlParserCtxtPtr ctxt = xmlCreateDocParserCtxt(buffer);
+
+  if (!ctxt)
+    rxml_raise(xmlGetLastError());
+
+  /* This is annoying, but xmlInitParserCtxt (called indirectly above) and 
+     xmlCtxtUseOptionsInternal (called below) initialize slightly different
+     context options, in particular XML_PARSE_NODICT which xmlInitParserCtxt
+     sets to 0 and xmlCtxtUseOptionsInternal sets to 1.  So we have to call both. */
+  xmlCtxtUseOptions(ctxt, options == Qnil ? 0 : NUM2INT(options));
+
+  return rxml_parser_context_wrap(ctxt);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-file" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            XML::Parser::Context.file(file) &rarr; XML::Parser::Context
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Creates a new parser context based on the specified file or uri.</p>
+
+<p>Parameters:</p>
+
+<pre>file - A filename or uri
+options - A or&#39;ed together list of LibXML::XML::Parser::Options values</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="file-source">
+            <pre>static VALUE rxml_parser_context_file(int argc, VALUE* argv, VALUE klass)
+{
+  VALUE file, options;
+  rb_scan_args(argc, argv, &quot;11&quot;, &amp;file, &amp;options);
+
+  xmlParserCtxtPtr ctxt = xmlCreateURLParserCtxt(StringValuePtr(file), 0);
+
+  if (!ctxt)
+    rxml_raise(xmlGetLastError());
+
+  /* This is annoying, but xmlInitParserCtxt (called indirectly above) and 
+     xmlCtxtUseOptionsInternal (called below) initialize slightly different
+     context options, in particular XML_PARSE_NODICT which xmlInitParserCtxt
+     sets to 0 and xmlCtxtUseOptionsInternal sets to 1.  So we have to call both. */
+  xmlCtxtUseOptions(ctxt, options == Qnil ? 0 : NUM2INT(options));
+
+  return rxml_parser_context_wrap(ctxt);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-io" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            XML::Parser::Context.io(io) &rarr; XML::Parser::Context
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Creates a new parser context based on the specified io object.</p>
+
+<p>Parameters:</p>
+
+<pre>io - A ruby IO object
+options - A or&#39;ed together list of LibXML::XML::Parser::Options values</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="io-source">
+            <pre>static VALUE rxml_parser_context_io(int argc, VALUE* argv, VALUE klass)
+{
+  VALUE io, options;
+  rb_scan_args(argc, argv, &quot;11&quot;, &amp;io, &amp;options);
+
+  if (NIL_P(io))
+    rb_raise(rb_eTypeError, &quot;Must pass in an IO object&quot;);
+
+  xmlParserInputBufferPtr input = xmlParserInputBufferCreateIO((xmlInputReadCallback) rxml_read_callback, NULL,
+                                       (void*)io, XML_CHAR_ENCODING_NONE);
+
+  xmlParserCtxtPtr ctxt = xmlNewParserCtxt();
+
+  if (!ctxt)
+  {
+    xmlFreeParserInputBuffer(input);
+    rxml_raise(xmlGetLastError());
+  }
+
+  /* This is annoying, but xmlInitParserCtxt (called indirectly above) and 
+     xmlCtxtUseOptionsInternal (called below) initialize slightly different
+     context options, in particular XML_PARSE_NODICT which xmlInitParserCtxt
+     sets to 0 and xmlCtxtUseOptionsInternal sets to 1.  So we have to call both. */
+  xmlCtxtUseOptions(ctxt, options == Qnil ? 0 : NUM2INT(options));
+
+  xmlParserInputPtr stream = xmlNewIOInputStream(ctxt, input, XML_CHAR_ENCODING_NONE);
+
+  if (!stream)
+  {
+    xmlFreeParserInputBuffer(input);
+    xmlFreeParserCtxt(ctxt);
+    rxml_raise(xmlGetLastError());
+  }
+  inputPush(ctxt, stream);
+  VALUE result = rxml_parser_context_wrap(ctxt);
+
+  /* Attach io object to parser so it won&#39;t get freed.*/
+  rb_ivar_set(result, IO_ATTR, io);
+
+  return result;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-string" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            XML::Parser::Context.string(string) &rarr; XML::Parser::Context
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Creates a new parser context based on the specified string.</p>
+
+<p>Parameters:</p>
+
+<pre>string - A string that contains the data to parse
+options - A or&#39;ed together list of LibXML::XML::Parser::Options values</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="string-source">
+            <pre>static VALUE rxml_parser_context_string(int argc, VALUE* argv, VALUE klass)
+{
+  VALUE string, options;
+  rb_scan_args(argc, argv, &quot;11&quot;, &amp;string, &amp;options);
+
+  Check_Type(string, T_STRING);
+
+  if (RSTRING_LEN(string) == 0)
+    rb_raise(rb_eArgError, &quot;Must specify a string with one or more characters&quot;);
+
+  xmlParserCtxtPtr ctxt = xmlCreateMemoryParserCtxt(StringValuePtr(string), (int)RSTRING_LEN(string));
+  
+  if (!ctxt)
+    rxml_raise(xmlGetLastError());
+
+  /* This is annoying, but xmlInitParserCtxt (called indirectly above) and 
+     xmlCtxtUseOptionsInternal (called below) initialize slightly different
+     context options, in particular XML_PARSE_NODICT which xmlInitParserCtxt
+     sets to 0 and xmlCtxtUseOptionsInternal sets to 1.  So we have to call both. */
+  xmlCtxtUseOptions(ctxt, options == Qnil ? 0 : NUM2INT(options));
+
+  return rxml_parser_context_wrap(ctxt);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-base_uri" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            base_uri &rarr; &quot;http:://libxml.org&quot;
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain the base url for this parser context.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="base_uri-source">
+            <pre>static VALUE rxml_parser_context_base_uri_get(VALUE self)
+{
+  xmlParserCtxtPtr ctxt;
+  Data_Get_Struct(self, xmlParserCtxt, ctxt);
+
+  if (ctxt-&gt;input &amp;&amp; ctxt-&gt;input-&gt;filename)
+    return rxml_new_cstr((const xmlChar*)ctxt-&gt;input-&gt;filename, ctxt-&gt;encoding);
+  else
+    return Qnil;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-base_uri-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            base_uri = &quot;http:://libxml.org&quot;
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Sets the base url for this parser context.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="base_uri-3D-source">
+            <pre>static VALUE rxml_parser_context_base_uri_set(VALUE self, VALUE url)
+{
+  xmlParserCtxtPtr ctxt;
+  Data_Get_Struct(self, xmlParserCtxt, ctxt);
+
+  Check_Type(url, T_STRING);
+
+  if (ctxt-&gt;input &amp;&amp; !ctxt-&gt;input-&gt;filename)
+  {
+    const char* xurl = StringValuePtr(url);
+    ctxt-&gt;input-&gt;filename = (const char*)xmlStrdup((const xmlChar*)xurl);
+  }
+  return self;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-close" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            close &rarr; nil
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Closes the underlying input streams.  This is useful when parsing a large amount of files and you want to close the files without relying on Ruby&#39;s garbage collector to run.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="close-source">
+            <pre>static VALUE rxml_parser_context_close(VALUE self)
+{
+  xmlParserCtxtPtr ctxt;
+  xmlParserInputPtr xinput;
+  Data_Get_Struct(self, xmlParserCtxt, ctxt);
+
+  while ((xinput = inputPop(ctxt)) != NULL)
+  {
+         xmlFreeInputStream(xinput);
+  }
+  return Qnil;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-data_directory" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            data_directory &rarr; &quot;dir&quot;
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain the data directory associated with this context.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="data_directory-source">
+            <pre>static VALUE rxml_parser_context_data_directory_get(VALUE self)
+{
+  xmlParserCtxtPtr ctxt;
+  Data_Get_Struct(self, xmlParserCtxt, ctxt);
+
+  if (ctxt-&gt;directory == NULL)
+    return (Qnil);
+  else
+    return (rxml_new_cstr((const xmlChar*)ctxt-&gt;directory, ctxt-&gt;encoding));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-depth" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            depth &rarr; num
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain the depth of this context.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="depth-source">
+            <pre>static VALUE rxml_parser_context_depth_get(VALUE self)
+{
+  xmlParserCtxtPtr ctxt;
+  Data_Get_Struct(self, xmlParserCtxt, ctxt);
+
+  return (INT2NUM(ctxt-&gt;depth));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-disable_cdata-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            disable_cdata = (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Control whether CDATA nodes will be created in this context.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="disable_cdata-3D-source">
+            <pre>static VALUE rxml_parser_context_disable_cdata_set(VALUE self, VALUE value)
+{
+  xmlParserCtxtPtr ctxt;
+  Data_Get_Struct(self, xmlParserCtxt, ctxt);
+
+  if (ctxt-&gt;sax == NULL)
+    rb_raise(rb_eRuntimeError, &quot;Sax handler is not yet set&quot;);
+
+  /* LibXML controls this internally with the default SAX handler. */ 
+  if (value)
+    ctxt-&gt;sax-&gt;cdataBlock = NULL;
+  else
+    ctxt-&gt;sax-&gt;cdataBlock = xmlSAX2CDataBlock;
+
+  return value;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-disable_cdata-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            disable_cdata? &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether CDATA nodes will be created in this context.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="disable_cdata-3F-source">
+            <pre>static VALUE rxml_parser_context_disable_cdata_q(VALUE self)
+{
+  xmlParserCtxtPtr ctxt;
+  Data_Get_Struct(self, xmlParserCtxt, ctxt);
+
+  /* LibXML controls this internally with the default SAX handler. */
+  if (ctxt-&gt;sax &amp;&amp; ctxt-&gt;sax-&gt;cdataBlock)
+    return (Qfalse);
+  else
+    return (Qtrue);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-disable_sax-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            disable_sax? &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether SAX-based processing is disabled in this context.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="disable_sax-3F-source">
+            <pre>static VALUE rxml_parser_context_disable_sax_q(VALUE self)
+{
+  xmlParserCtxtPtr ctxt;
+  Data_Get_Struct(self, xmlParserCtxt, ctxt);
+
+  if (ctxt-&gt;disableSAX)
+    return (Qtrue);
+  else
+    return (Qfalse);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-docbook-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            docbook? &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether this is a docbook context.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="docbook-3F-source">
+            <pre>static VALUE rxml_parser_context_docbook_q(VALUE self)
+{
+  xmlParserCtxtPtr ctxt;
+  Data_Get_Struct(self, xmlParserCtxt, ctxt);
+
+  if (ctxt-&gt;html == 2) // TODO check this
+    return (Qtrue);
+  else
+    return (Qfalse);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-encoding" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            encoding &rarr; XML::Encoding::UTF_8
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain the character encoding identifier used in this context.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="encoding-source">
+            <pre>static VALUE rxml_parser_context_encoding_get(VALUE self)
+{
+  xmlParserCtxtPtr ctxt;
+  Data_Get_Struct(self, xmlParserCtxt, ctxt);
+  return INT2NUM(xmlParseCharEncoding((const char*)ctxt-&gt;encoding));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-encoding-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            encoding = XML::Encoding::UTF_8
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Sets the character encoding for this context.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="encoding-3D-source">
+            <pre>static VALUE rxml_parser_context_encoding_set(VALUE self, VALUE encoding)
+{
+  xmlParserCtxtPtr ctxt;
+  int result;
+  const char* xencoding = xmlGetCharEncodingName((xmlCharEncoding)NUM2INT(encoding));
+  xmlCharEncodingHandlerPtr hdlr = xmlFindCharEncodingHandler(xencoding);
+  
+  if (!hdlr)
+    rb_raise(rb_eArgError, &quot;Unknown encoding: %i&quot;, NUM2INT(encoding));
+
+  Data_Get_Struct(self, xmlParserCtxt, ctxt);
+  result = xmlSwitchToEncoding(ctxt, hdlr);
+
+  if (result != 0)
+    rxml_raise(xmlGetLastError());
+
+  if (ctxt-&gt;encoding != NULL)
+    xmlFree((xmlChar *) ctxt-&gt;encoding);
+
+  ctxt-&gt;encoding = xmlStrdup((const xmlChar *) xencoding);
+  return self;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-errno" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            errno &rarr; num
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain the last-error number in this context.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="errno-source">
+            <pre>static VALUE rxml_parser_context_errno_get(VALUE self)
+{
+  xmlParserCtxtPtr ctxt;
+  Data_Get_Struct(self, xmlParserCtxt, ctxt);
+
+  return (INT2NUM(ctxt-&gt;errNo));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-html-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            html? &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether this is an html context.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="html-3F-source">
+            <pre>static VALUE rxml_parser_context_html_q(VALUE self)
+{
+  xmlParserCtxtPtr ctxt;
+  Data_Get_Struct(self, xmlParserCtxt, ctxt);
+
+  if (ctxt-&gt;html == 1)
+    return (Qtrue);
+  else
+    return (Qfalse);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-io_max_num_streams" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            max_num_streams &rarr; num
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain the limit on the number of IO streams opened in this context.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="io_max_num_streams-source">
+            <pre>static VALUE rxml_parser_context_io_max_num_streams_get(VALUE self)
+{
+  // TODO alias to max_streams and dep this?
+  xmlParserCtxtPtr ctxt;
+  Data_Get_Struct(self, xmlParserCtxt, ctxt);
+
+  return (INT2NUM(ctxt-&gt;inputMax));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-io_num_streams" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            num_streams &rarr; &quot;dir&quot;
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain the actual number of IO streams in this context.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="io_num_streams-source">
+            <pre>static VALUE rxml_parser_context_io_num_streams_get(VALUE self)
+{
+  xmlParserCtxtPtr ctxt;
+  Data_Get_Struct(self, xmlParserCtxt, ctxt);
+
+  return (INT2NUM(ctxt-&gt;inputNr));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-keep_blanks-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            keep_blanks? &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether parsers in this context retain whitespace.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="keep_blanks-3F-source">
+            <pre>static VALUE rxml_parser_context_keep_blanks_q(VALUE self)
+{
+  xmlParserCtxtPtr ctxt;
+  Data_Get_Struct(self, xmlParserCtxt, ctxt);
+
+  if (ctxt-&gt;keepBlanks)
+    return (Qtrue);
+  else
+    return (Qfalse);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-name_depth" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            name_depth &rarr; num
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain the name depth for this context.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="name_depth-source">
+            <pre>static VALUE rxml_parser_context_name_depth_get(VALUE self)
+{
+  xmlParserCtxtPtr ctxt;
+  Data_Get_Struct(self, xmlParserCtxt, ctxt);
+
+  return (INT2NUM(ctxt-&gt;nameNr));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-name_depth_max" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            name_depth_max &rarr; num
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain the maximum name depth for this context.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="name_depth_max-source">
+            <pre>static VALUE rxml_parser_context_name_depth_max_get(VALUE self)
+{
+  xmlParserCtxtPtr ctxt;
+  Data_Get_Struct(self, xmlParserCtxt, ctxt);
+
+  return (INT2NUM(ctxt-&gt;nameMax));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-name_node" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            name_node &rarr; &quot;name&quot;
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain the name node for this context.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="name_node-source">
+            <pre>static VALUE rxml_parser_context_name_node_get(VALUE self)
+{
+  xmlParserCtxtPtr ctxt;
+  Data_Get_Struct(self, xmlParserCtxt, ctxt);
+
+  if (ctxt-&gt;name == NULL)
+    return (Qnil);
+  else
+    return (rxml_new_cstr( ctxt-&gt;name, ctxt-&gt;encoding));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-name_tab" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            name_tab &rarr; [&quot;name&quot;, ..., &quot;name&quot;]
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain the name table for this context.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="name_tab-source">
+            <pre>static VALUE rxml_parser_context_name_tab_get(VALUE self)
+{
+  int i;
+  xmlParserCtxtPtr ctxt;
+  VALUE tab_ary;
+
+  Data_Get_Struct(self, xmlParserCtxt, ctxt);
+
+  if (ctxt-&gt;nameTab == NULL)
+    return (Qnil);
+
+  tab_ary = rb_ary_new();
+
+  for (i = (ctxt-&gt;nameNr - 1); i &gt;= 0; i--)
+  {
+    if (ctxt-&gt;nameTab[i] == NULL)
+      continue;
+    else
+      rb_ary_push(tab_ary, rxml_new_cstr( ctxt-&gt;nameTab[i], ctxt-&gt;encoding));
+  }
+
+  return (tab_ary);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-node" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            node &rarr; node
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain the root node of this context.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="node-source">
+            <pre>static VALUE rxml_parser_context_node_get(VALUE self)
+{
+  xmlParserCtxtPtr ctxt;
+  Data_Get_Struct(self, xmlParserCtxt, ctxt);
+
+  if (ctxt-&gt;node == NULL)
+    return (Qnil);
+  else
+    return (rxml_node_wrap(ctxt-&gt;node));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-node_depth" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            node_depth &rarr; num
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain the node depth for this context.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="node_depth-source">
+            <pre>static VALUE rxml_parser_context_node_depth_get(VALUE self)
+{
+  xmlParserCtxtPtr ctxt;
+  Data_Get_Struct(self, xmlParserCtxt, ctxt);
+
+  return (INT2NUM(ctxt-&gt;nodeNr));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-node_depth_max" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            node_depth_max &rarr; num
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain the maximum node depth for this context.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="node_depth_max-source">
+            <pre>static VALUE rxml_parser_context_node_depth_max_get(VALUE self)
+{
+  xmlParserCtxtPtr ctxt;
+  Data_Get_Struct(self, xmlParserCtxt, ctxt);
+
+  return (INT2NUM(ctxt-&gt;nodeMax));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-num_chars" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            num_chars &rarr; num
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain the number of characters in this context.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="num_chars-source">
+            <pre>static VALUE rxml_parser_context_num_chars_get(VALUE self)
+{
+  xmlParserCtxtPtr ctxt;
+  Data_Get_Struct(self, xmlParserCtxt, ctxt);
+
+  return (LONG2NUM(ctxt-&gt;nbChars));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-options" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            options &gt; XML::Parser::Options::NOENT
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns the parser options for this context.  Multiple options can be combined by using Bitwise OR (|).</p>
+          
+          
+
+          
+          <div class="method-source-code" id="options-source">
+            <pre>static VALUE rxml_parser_context_options_get(VALUE self)
+{
+  xmlParserCtxtPtr ctxt;
+  Data_Get_Struct(self, xmlParserCtxt, ctxt);
+
+  return INT2NUM(ctxt-&gt;options);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-options-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            options = XML::Parser::Options::NOENT |
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            XML::Parser::Options::NOCDATA
+          </span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Provides control over the execution of a parser.  Valid values  are the constants defined on <a href="Options.html"><code>XML::Parser::Options</code></a>.  Multiple options can be combined by using Bitwise OR (|).</p>
+          
+          
+
+          
+          <div class="method-source-code" id="options-3D-source">
+            <pre>static VALUE rxml_parser_context_options_set(VALUE self, VALUE options)
+{
+  xmlParserCtxtPtr ctxt;
+  Check_Type(options, T_FIXNUM);
+
+  Data_Get_Struct(self, xmlParserCtxt, ctxt);
+  xmlCtxtUseOptions(ctxt, NUM2INT(options));
+
+  return self;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-recovery-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            recovery = true|false
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Control whether recovery mode is enabled in this context.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="recovery-3D-source">
+            <pre>static VALUE rxml_parser_context_recovery_set(VALUE self, VALUE value)
+{
+  xmlParserCtxtPtr ctxt;
+  Data_Get_Struct(self, xmlParserCtxt, ctxt);
+
+  if (value == Qfalse)
+  {
+    ctxt-&gt;recovery = 0;
+    return (Qfalse);
+  }
+  else
+  {
+    ctxt-&gt;recovery = 1;
+    return (Qtrue);
+  }
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-recovery-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            recovery? &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether recovery mode is enabled in this context.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="recovery-3F-source">
+            <pre>static VALUE rxml_parser_context_recovery_q(VALUE self)
+{
+  xmlParserCtxtPtr ctxt;
+  Data_Get_Struct(self, xmlParserCtxt, ctxt);
+
+  if (ctxt-&gt;recovery)
+    return (Qtrue);
+  else
+    return (Qfalse);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-replace_entities-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            replace_entities = true|false
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Control whether external entity replacement is enabled in this context.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="replace_entities-3D-source">
+            <pre>static VALUE rxml_parser_context_replace_entities_set(VALUE self, VALUE value)
+{
+  xmlParserCtxtPtr ctxt;
+  Data_Get_Struct(self, xmlParserCtxt, ctxt);
+
+  if (value == Qfalse)
+  {
+    ctxt-&gt;replaceEntities = 0;
+    return (Qfalse);
+  }
+  else
+  {
+    ctxt-&gt;replaceEntities = 1;
+    return (Qtrue);
+  }
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-replace_entities-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            replace_entities? &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether external entity replacement is enabled in this context.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="replace_entities-3F-source">
+            <pre>static VALUE rxml_parser_context_replace_entities_q(VALUE self)
+{
+  xmlParserCtxtPtr ctxt;
+  Data_Get_Struct(self, xmlParserCtxt, ctxt);
+
+  if (ctxt-&gt;replaceEntities)
+    return (Qtrue);
+  else
+    return (Qfalse);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-space_depth" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            space_depth &rarr; num
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain the space depth for this context.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="space_depth-source">
+            <pre>static VALUE rxml_parser_context_space_depth_get(VALUE self)
+{
+  xmlParserCtxtPtr ctxt;
+  Data_Get_Struct(self, xmlParserCtxt, ctxt);
+
+  return (INT2NUM(ctxt-&gt;spaceNr));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-space_depth_max" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            space_depth &rarr; num
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain the maximum space depth for this context.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="space_depth_max-source">
+            <pre>static VALUE rxml_parser_context_space_depth_max_get(VALUE self)
+{
+  xmlParserCtxtPtr ctxt;
+  Data_Get_Struct(self, xmlParserCtxt, ctxt);
+
+  return (INT2NUM(ctxt-&gt;spaceMax));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-standalone-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            standalone? &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether this is a standalone context.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="standalone-3F-source">
+            <pre>static VALUE rxml_parser_context_standalone_q(VALUE self)
+{
+  xmlParserCtxtPtr ctxt;
+  Data_Get_Struct(self, xmlParserCtxt, ctxt);
+
+  if (ctxt-&gt;standalone)
+    return (Qtrue);
+  else
+    return (Qfalse);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-stats-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            stats? &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether this context maintains statistics.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="stats-3F-source">
+            <pre>static VALUE rxml_parser_context_stats_q(VALUE self)
+{
+  xmlParserCtxtPtr ctxt;
+  Data_Get_Struct(self, xmlParserCtxt, ctxt);
+
+  if (ctxt-&gt;record_info)
+    return (Qtrue);
+  else
+    return (Qfalse);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-subset_external-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            subset_external? &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether this context is a subset of an external context.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="subset_external-3F-source">
+            <pre>static VALUE rxml_parser_context_subset_external_q(VALUE self)
+{
+  xmlParserCtxtPtr ctxt;
+  Data_Get_Struct(self, xmlParserCtxt, ctxt);
+
+  if (ctxt-&gt;inSubset == 2)
+    return (Qtrue);
+  else
+    return (Qfalse);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-subset_external_system_id" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            subset_external_system_id &rarr; &quot;system_id&quot;
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain this context&#39;s external subset system identifier. (valid only if either of subset_external? or subset_internal? is true).</p>
+          
+          
+
+          
+          <div class="method-source-code" id="subset_external_system_id-source">
+            <pre>static VALUE rxml_parser_context_subset_external_system_id_get(VALUE self)
+{
+  xmlParserCtxtPtr ctxt;
+  Data_Get_Struct(self, xmlParserCtxt, ctxt);
+
+  if (ctxt-&gt;extSubSystem == NULL)
+    return (Qnil);
+  else
+    return (rxml_new_cstr( ctxt-&gt;extSubSystem, ctxt-&gt;encoding));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-subset_external_uri" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            subset_external_uri &rarr; &quot;uri&quot;
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain this context&#39;s external subset URI. (valid only if either of subset_external? or subset_internal? is true).</p>
+          
+          
+
+          
+          <div class="method-source-code" id="subset_external_uri-source">
+            <pre>static VALUE rxml_parser_context_subset_external_uri_get(VALUE self)
+{
+  xmlParserCtxtPtr ctxt;
+  Data_Get_Struct(self, xmlParserCtxt, ctxt);
+
+  if (ctxt-&gt;extSubURI == NULL)
+    return (Qnil);
+  else
+    return (rxml_new_cstr( ctxt-&gt;extSubURI, ctxt-&gt;encoding));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-subset_internal-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            subset_internal? &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether this context is a subset of an internal context.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="subset_internal-3F-source">
+            <pre>static VALUE rxml_parser_context_subset_internal_q(VALUE self)
+{
+  xmlParserCtxtPtr ctxt;
+  Data_Get_Struct(self, xmlParserCtxt, ctxt);
+
+  if (ctxt-&gt;inSubset == 1)
+    return (Qtrue);
+  else
+    return (Qfalse);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-subset_internal_name" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            subset_internal_name &rarr; &quot;name&quot;
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain this context&#39;s subset name (valid only if either of subset_external? or subset_internal? is true).</p>
+          
+          
+
+          
+          <div class="method-source-code" id="subset_internal_name-source">
+            <pre>static VALUE rxml_parser_context_subset_name_get(VALUE self)
+{
+  xmlParserCtxtPtr ctxt;
+  Data_Get_Struct(self, xmlParserCtxt, ctxt);
+
+  if (ctxt-&gt;intSubName == NULL)
+    return (Qnil);
+  else
+    return (rxml_new_cstr(ctxt-&gt;intSubName, ctxt-&gt;encoding));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-valid" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            valid? &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether this context is valid.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="valid-source">
+            <pre>static VALUE rxml_parser_context_valid_q(VALUE self)
+{
+  xmlParserCtxtPtr ctxt;
+  Data_Get_Struct(self, xmlParserCtxt, ctxt);
+
+  if (ctxt-&gt;valid)
+    return (Qtrue);
+  else
+    return (Qfalse);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-validate-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            validate? &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether validation is enabled in this context.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="validate-3F-source">
+            <pre>static VALUE rxml_parser_context_validate_q(VALUE self)
+{
+  xmlParserCtxtPtr ctxt;
+  Data_Get_Struct(self, xmlParserCtxt, ctxt);
+
+  if (ctxt-&gt;validate)
+    return (Qtrue);
+  else
+    return (Qfalse);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-version" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            version &rarr; &quot;version&quot;
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain this context&#39;s version identifier.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="version-source">
+            <pre>static VALUE rxml_parser_context_version_get(VALUE self)
+{
+  xmlParserCtxtPtr ctxt;
+  Data_Get_Struct(self, xmlParserCtxt, ctxt);
+
+  if (ctxt-&gt;version == NULL)
+    return (Qnil);
+  else
+    return (rxml_new_cstr( ctxt-&gt;version, ctxt-&gt;encoding));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-well_formed-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            well_formed? &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether this context contains well-formed <a href="../../XML.html"><code>XML</code></a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="well_formed-3F-source">
+            <pre>static VALUE rxml_parser_context_well_formed_q(VALUE self)
+{
+  xmlParserCtxtPtr ctxt;
+  Data_Get_Struct(self, xmlParserCtxt, ctxt);
+
+  if (ctxt-&gt;wellFormed)
+    return (Qtrue);
+  else
+    return (Qfalse);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

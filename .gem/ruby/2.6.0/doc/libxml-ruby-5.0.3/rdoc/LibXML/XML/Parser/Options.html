@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module LibXML::XML::Parser::Options - libxml-ruby-5.0.3 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+  var index_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/navigation.js" defer></script>
+<script src="../../../js/search.js" defer></script>
+<script src="../../../js/search_index.js" defer></script>
+<script src="../../../js/searcher.js" defer></script>
+<script src="../../../js/darkfish.js" defer></script>
+
+<link href="../../../css/fonts.css" rel="stylesheet">
+<link href="../../../css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-LibXML::XML::Parser::Options">
+  <h1 id="module-LibXML::XML::Parser::Options" class="module">
+    module LibXML::XML::Parser::Options
+  </h1>
+
+  <section class="description">
+    
+<p><a href="Options.html"><code>Options</code></a> that control the operation of the <a href="../HTMLParser.html"><code>HTMLParser</code></a>.  The easiest way to set a parser&#39;s options is to use the methods <a href="../Parser.html#method-c-file"><code>XML::Parser.file</code></a>, <a href="../Parser.html#method-c-io"><code>XML::Parser.io</code></a> or <a href="../Parser.html#method-c-string"><code>XML::Parser.string</code></a>. For additional control, see <a href="Context.html#method-i-options-3D"><code>XML::Parser::Context#options=</code></a>.</p>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="BIG_LINES">BIG_LINES
+        
+        <dd><p>Store big lines numbers in text PSVI field</p>
+        
+      
+        <dt id="COMPACT">COMPACT
+        
+        <dd><p>compact small text nodes</p>
+        
+      
+        <dt id="DTDATTR">DTDATTR
+        
+        <dd><p>default DTD attributes</p>
+        
+      
+        <dt id="DTDLOAD">DTDLOAD
+        
+        <dd><p>load the external subset</p>
+        
+      
+        <dt id="DTDVALID">DTDVALID
+        
+        <dd><p>validate with the DTD</p>
+        
+      
+        <dt id="HUGE">HUGE
+        
+        <dd><p>relax any hardcoded limit from the parser</p>
+        
+      
+        <dt id="IGNORE_ENC">IGNORE_ENC
+        
+        <dd><p>ignore internal document encoding hint</p>
+        
+      
+        <dt id="NOBASEFIX">NOBASEFIX
+        
+        <dd><p>base uris</p>
+        
+      
+        <dt id="NOBLANKS">NOBLANKS
+        
+        <dd><p>remove blank nodes</p>
+        
+      
+        <dt id="NOCDATA">NOCDATA
+        
+        <dd><p>merge CDATA as text nodes</p>
+        
+      
+        <dt id="NODICT">NODICT
+        
+        <dd><p>Do not reuse the context dictionnary</p>
+        
+      
+        <dt id="NOENT">NOENT
+        
+        <dd><p>substitute entities</p>
+        
+      
+        <dt id="NOERROR">NOERROR
+        
+        <dd><p>suppress error reports</p>
+        
+      
+        <dt id="NONET">NONET
+        
+        <dd><p>Forbid network access</p>
+        
+      
+        <dt id="NOWARNING">NOWARNING
+        
+        <dd><p>suppress warning reports</p>
+        
+      
+        <dt id="NOXINCNODE">NOXINCNODE
+        
+        <dd><p>do not generate <a href="Options.html#XINCLUDE"><code>XINCLUDE</code></a> START/END nodes</p>
+        
+      
+        <dt id="NSCLEAN">NSCLEAN
+        
+        <dd><p>remove redundant namespaces declarations</p>
+        
+      
+        <dt id="OLD10">OLD10
+        
+        <dd><p>parse using XML-1.0 before update 5</p>
+        
+      
+        <dt id="OLDSAX">OLDSAX
+        
+        <dd><p>parse using SAX2 interface before 2.7.0</p>
+        
+      
+        <dt id="PEDANTIC">PEDANTIC
+        
+        <dd><p>pedantic error reporting</p>
+        
+      
+        <dt id="RECOVER">RECOVER
+        
+        <dd><p>recover on errors  </p>
+        
+      
+        <dt id="SAX1">SAX1
+        
+        <dd><p>use the <a href="Options.html#SAX1"><code>SAX1</code></a> interface internally</p>
+        
+      
+        <dt id="XINCLUDE">XINCLUDE
+        
+        <dd><p>Implement <a href="../XInclude.html"><code>XInclude</code></a> substitition </p>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

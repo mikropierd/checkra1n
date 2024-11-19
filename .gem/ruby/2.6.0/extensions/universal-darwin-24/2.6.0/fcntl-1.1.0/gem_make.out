@@ -1,0 +1,16 @@
+current directory: /Users/checkra1n/.gem/ruby/2.6.0/gems/fcntl-1.1.0/ext/fcntl
+/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/bin/ruby -I /System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0 -r ./siteconf20241009-38875-aibj4g.rb extconf.rb
+creating Makefile
+
+current directory: /Users/checkra1n/.gem/ruby/2.6.0/gems/fcntl-1.1.0/ext/fcntl
+make "DESTDIR=" clean
+
+current directory: /Users/checkra1n/.gem/ruby/2.6.0/gems/fcntl-1.1.0/ext/fcntl
+make "DESTDIR="
+compiling fcntl.c
+linking shared-object fcntl.bundle
+ld: warning: search path '/AppleInternal/Library/BuildRoots/e0873e53-5185-11ef-9a51-9ab6d782fe32/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.Internal.sdk/usr/local/lib' not found
+
+current directory: /Users/checkra1n/.gem/ruby/2.6.0/gems/fcntl-1.1.0/ext/fcntl
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 fcntl.bundle ./.gem.20241009-38875-q81i25

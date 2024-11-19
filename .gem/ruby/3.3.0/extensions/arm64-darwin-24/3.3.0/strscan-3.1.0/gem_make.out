@@ -1,0 +1,20 @@
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/strscan-3.1.0/ext/strscan
+/opt/homebrew/opt/ruby/bin/ruby extconf.rb
+checking for onig_region_memsize() in ruby.h... yes
+checking for rb_reg_onig_match() in ruby.h... yes
+creating Makefile
+
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/strscan-3.1.0/ext/strscan
+make DESTDIR\= sitearchdir\=./.gem.20241009-47292-ezznkw sitelibdir\=./.gem.20241009-47292-ezznkw clean
+
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/strscan-3.1.0/ext/strscan
+make DESTDIR\= sitearchdir\=./.gem.20241009-47292-ezznkw sitelibdir\=./.gem.20241009-47292-ezznkw
+compiling strscan.c
+linking shared-object strscan.bundle
+
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/strscan-3.1.0/ext/strscan
+make DESTDIR\= sitearchdir\=./.gem.20241009-47292-ezznkw sitelibdir\=./.gem.20241009-47292-ezznkw install
+/usr/bin/install -c -m 0755 strscan.bundle ./.gem.20241009-47292-ezznkw
+
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/strscan-3.1.0/ext/strscan
+make DESTDIR\= sitearchdir\=./.gem.20241009-47292-ezznkw sitelibdir\=./.gem.20241009-47292-ezznkw clean

@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class LibXML::XML::Dtd - libxml-ruby-5.0.3 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/navigation.js" defer></script>
+<script src="../../js/search.js" defer></script>
+<script src="../../js/search_index.js" defer></script>
+<script src="../../js/searcher.js" defer></script>
+<script src="../../js/darkfish.js" defer></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-external_id">#external_id</a>
+    
+    <li ><a href="#method-i-name">#name</a>
+    
+    <li ><a href="#method-i-node_type">#node_type</a>
+    
+    <li ><a href="#method-i-system_id">#system_id</a>
+    
+    <li ><a href="#method-i-uri">#uri</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-LibXML::XML::Dtd">
+  <h1 id="class-LibXML::XML::Dtd" class="class">
+    class LibXML::XML::Dtd
+  </h1>
+
+  <section class="description">
+    
+<p>The <a href="Dtd.html"><code>XML::Dtd</code></a> class is used to prepare DTD&#39;s for validation of xml documents.</p>
+
+<p>DTDs can be created from a string or a pair of public and system identifiers. Once a <a href="Dtd.html"><code>Dtd</code></a> object is instantiated, an <a href="../XML.html"><code>XML</code></a> document can be validated by the <a href="Document.html#method-i-validate"><code>XML::Document#validate</code></a> method providing the <a href="Dtd.html"><code>XML::Dtd</code></a> object as parameeter. The method will raise an exception if the document is not valid.</p>
+
+<p>Basic usage:</p>
+
+<pre class="ruby"><span class="ruby-comment"># parse DTD</span>
+<span class="ruby-identifier">dtd</span> = <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Dtd</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">&lt;&lt;EOF</span>)
+<span class="ruby-value">&lt;!ELEMENT root (item*) &gt;
+&lt;!ELEMENT item (#PCDATA) &gt;
+</span><span class="ruby-identifier">EOF</span>
+
+<span class="ruby-comment"># parse xml document to be validated</span>
+<span class="ruby-identifier">instance</span> = <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>.<span class="ruby-identifier">file</span>(<span class="ruby-string">&#39;instance.xml&#39;</span>)
+
+<span class="ruby-comment"># validate</span>
+<span class="ruby-identifier">instance</span>.<span class="ruby-identifier">validate</span>(<span class="ruby-identifier">dtd</span>)
+</pre>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            XML::Dtd.new(dtd_string) &rarr; dtd
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            XML::Dtd.new(external_id, system_id) &rarr; dtd
+          </span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            XML::Dtd.new(external_id, system_id, name, document, internal) &rarr; dtd
+          </span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Create a new <a href="Dtd.html"><code>Dtd</code></a> from the specified public and system identifiers:</p>
+
+<pre>* The first usage creates a DTD from a string and requires 1 parameter.
+* The second usage loads and parses an external DTD and requires 2 parameters.
+* The third usage creates a new internal or external DTD and requires 2 parameters and 3 optional parameters.
+  The DTD is then attached to the specified document if it is not nil.</pre>
+
+<p>Parameters:</p>
+
+<pre>dtd_string - A string that contains a complete DTD
+external_id - A string that specifies the DTD&#39;s external name. For example, &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot;
+system_id - A string that specififies the DTD&#39;s system name. For example, &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;
+name - A string that specifies the DTD&#39;s name. For example &quot;xhtml1&quot;.
+document - A xml document.
+internal - Boolean value indicating whether this is an internal or external DTD. Optional. If not specified
+           then external is assumed.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre>static VALUE rxml_dtd_initialize(int argc, VALUE *argv, VALUE self)
+{
+  xmlDtdPtr xdtd;
+  VALUE external, system;
+
+  switch (argc)
+  {
+      case 3:
+      case 4:
+      case 5:
+      {
+          const xmlChar *xname = NULL, *xpublic = NULL, *xsystem = NULL;
+          xmlDocPtr xdoc = NULL;
+
+          VALUE name, doc, internal;
+          rb_scan_args(argc, argv, &quot;23&quot;, &amp;external, &amp;system, &amp;name, &amp;doc, &amp;internal);
+
+          Check_Type(external, T_STRING);
+          xpublic = (const xmlChar*) StringValuePtr(external);
+
+          Check_Type(system, T_STRING);
+          xsystem = (const xmlChar*) StringValuePtr(system);
+
+          if (name != Qnil)
+          {
+            Check_Type(name, T_STRING);
+            xname = (const xmlChar*)StringValuePtr(name);
+          }
+
+          if (doc != Qnil)
+          {
+            if (rb_obj_is_kind_of(doc, cXMLDocument) == Qfalse)
+              rb_raise(rb_eTypeError, &quot;Must pass an LibXML::XML::Document object&quot;);
+            Data_Get_Struct(doc, xmlDoc, xdoc);
+          }
+
+          if (internal == Qnil || internal == Qfalse)
+            xdtd = xmlNewDtd(xdoc, xname, xpublic, xsystem);
+          else
+            xdtd = xmlCreateIntSubset(xdoc, xname, xpublic, xsystem);
+
+          if (xdtd == NULL)
+            rxml_raise(xmlGetLastError());
+
+          /* The document will free the dtd so Ruby should not */
+          RDATA(self)-&gt;dfree = NULL;
+          DATA_PTR(self) = xdtd;
+
+          xmlSetTreeDoc((xmlNodePtr) xdtd, xdoc);
+        }
+        break;
+
+      case 2:
+      {
+        rb_scan_args(argc, argv, &quot;20&quot;, &amp;external, &amp;system);
+
+        Check_Type(external, T_STRING);
+        Check_Type(system, T_STRING);
+
+        xdtd = xmlParseDTD((xmlChar*) StringValuePtr(external), (xmlChar*) StringValuePtr(system));
+
+        if (xdtd == NULL)
+          rxml_raise(xmlGetLastError());
+
+        DATA_PTR(self) = xdtd;
+
+        xmlSetTreeDoc((xmlNodePtr) xdtd, NULL);
+        break;
+      }
+      case 1:
+      {
+        VALUE dtd_string;
+        rb_scan_args(argc, argv, &quot;10&quot;, &amp;dtd_string);
+        Check_Type(dtd_string, T_STRING);
+
+        /* Note that buffer is freed by xmlParserInputBufferPush*/
+        xmlCharEncoding enc = XML_CHAR_ENCODING_NONE;
+        xmlParserInputBufferPtr buffer = xmlAllocParserInputBuffer(enc);
+        xmlChar *new_string = xmlStrdup((xmlChar*) StringValuePtr(dtd_string));
+        xmlParserInputBufferPush(buffer, xmlStrlen(new_string),
+            (const char*) new_string);
+
+        xdtd = xmlIOParseDTD(NULL, buffer, enc);
+
+        if (xdtd == NULL)
+          rxml_raise(xmlGetLastError());
+
+        xmlFree(new_string);
+
+        DATA_PTR(self) = xdtd;
+        break;
+      }
+      default:
+        rb_raise(rb_eArgError, &quot;wrong number of arguments&quot;);
+  }
+
+  return self;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-external_id" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            external_id &rarr; &quot;string&quot;
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain this dtd&#39;s external identifer (for a PUBLIC DTD).</p>
+          
+          
+
+          
+          <div class="method-source-code" id="external_id-source">
+            <pre>static VALUE rxml_dtd_external_id_get(VALUE self)
+{
+  xmlDtdPtr xdtd;
+  Data_Get_Struct(self, xmlDtd, xdtd);
+
+
+  if (xdtd-&gt;ExternalID == NULL)
+    return (Qnil);
+  else
+    return (rxml_new_cstr( xdtd-&gt;ExternalID, NULL));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-name" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            name &rarr; &quot;string&quot;
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain this dtd&#39;s name.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="name-source">
+            <pre>static VALUE rxml_dtd_name_get(VALUE self)
+{
+  xmlDtdPtr xdtd;
+  Data_Get_Struct(self, xmlDtd, xdtd);
+
+
+  if (xdtd-&gt;name == NULL)
+    return (Qnil);
+  else
+    return (rxml_new_cstr( xdtd-&gt;name, NULL));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-node_type" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            type &rarr; num
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain this node&#39;s type identifier.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="node_type-source">
+            <pre>static VALUE rxml_dtd_type(VALUE self)
+{
+  xmlDtdPtr xdtd;
+  Data_Get_Struct(self, xmlDtd, xdtd);
+  return (INT2NUM(xdtd-&gt;type));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-system_id" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">system_id</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Dtd.html#method-i-uri">uri</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-uri" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            uri &rarr; &quot;string&quot;
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain this dtd&#39;s URI (for a SYSTEM or PUBLIC DTD).</p>
+          
+          
+
+          
+          <div class="method-source-code" id="uri-source">
+            <pre>static VALUE rxml_dtd_uri_get(VALUE self)
+{
+  xmlDtdPtr xdtd;
+  Data_Get_Struct(self, xmlDtd, xdtd);
+
+  if (xdtd-&gt;SystemID == NULL)
+    return (Qnil);
+  else
+    return (rxml_new_cstr( xdtd-&gt;SystemID, NULL));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Dtd.html#method-i-system_id">system_id</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

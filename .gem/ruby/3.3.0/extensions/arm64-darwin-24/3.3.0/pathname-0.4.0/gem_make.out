@@ -1,0 +1,18 @@
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/pathname-0.4.0/ext/pathname
+/opt/homebrew/Cellar/ruby/3.3.6/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/pathname-0.4.0/ext/pathname
+make DESTDIR\= sitearchdir\=./.gem.20241113-3992-oe34s0 sitelibdir\=./.gem.20241113-3992-oe34s0 clean
+
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/pathname-0.4.0/ext/pathname
+make DESTDIR\= sitearchdir\=./.gem.20241113-3992-oe34s0 sitelibdir\=./.gem.20241113-3992-oe34s0
+compiling pathname.c
+linking shared-object pathname.bundle
+
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/pathname-0.4.0/ext/pathname
+make DESTDIR\= sitearchdir\=./.gem.20241113-3992-oe34s0 sitelibdir\=./.gem.20241113-3992-oe34s0 install
+/usr/bin/install -c -m 0755 pathname.bundle ./.gem.20241113-3992-oe34s0
+
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/pathname-0.4.0/ext/pathname
+make DESTDIR\= sitearchdir\=./.gem.20241113-3992-oe34s0 sitelibdir\=./.gem.20241113-3992-oe34s0 clean

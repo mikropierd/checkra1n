@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class LibXML::XML::Schema::Type - libxml-ruby-5.0.3 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+  var index_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/navigation.js" defer></script>
+<script src="../../../js/search.js" defer></script>
+<script src="../../../js/search_index.js" defer></script>
+<script src="../../../js/searcher.js" defer></script>
+<script src="../../../js/darkfish.js" defer></script>
+
+<link href="../../../css/fonts.css" rel="stylesheet">
+<link href="../../../css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-annonymus_subtypes">#annonymus_subtypes</a>
+    
+    <li ><a href="#method-i-annonymus_subtypes_recursively">#annonymus_subtypes_recursively</a>
+    
+    <li ><a href="#method-i-annotation">#annotation</a>
+    
+    <li ><a href="#method-i-attributes">#attributes</a>
+    
+    <li ><a href="#method-i-base">#base</a>
+    
+    <li ><a href="#method-i-elements">#elements</a>
+    
+    <li ><a href="#method-i-facets">#facets</a>
+    
+    <li ><a href="#method-i-kind_name">#kind_name</a>
+    
+    <li ><a href="#method-i-node">#node</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-LibXML::XML::Schema::Type">
+  <h1 id="class-LibXML::XML::Schema::Type" class="class">
+    class LibXML::XML::Schema::Type
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-kind" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">kind</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-name" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">name</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-namespace" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">namespace</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-annonymus_subtypes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">annonymus_subtypes</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="annonymus_subtypes-source">
+            <pre><span class="ruby-comment"># File lib/libxml/schema/type.rb, line 8</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">annonymus_subtypes</span>
+  <span class="ruby-identifier">elements</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">_</span>, <span class="ruby-identifier">e</span><span class="ruby-operator">|</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">type</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">nil?</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-annonymus_subtypes_recursively" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">annonymus_subtypes_recursively</span><span
+            class="method-args">(parent=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="annonymus_subtypes_recursively-source">
+            <pre><span class="ruby-comment"># File lib/libxml/schema/type.rb, line 12</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">annonymus_subtypes_recursively</span>(<span class="ruby-identifier">parent</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">annonymus_subtypes</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">element_name</span>, <span class="ruby-identifier">e</span><span class="ruby-operator">|</span>
+    [{[<span class="ruby-identifier">parent</span>, <span class="ruby-identifier">element_name</span>].<span class="ruby-identifier">compact</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;::&#39;</span>) <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">type</span>},
+     <span class="ruby-identifier">e</span>.<span class="ruby-identifier">type</span>.<span class="ruby-identifier">annonymus_subtypes_recursively</span>(<span class="ruby-identifier">element_name</span>)]
+  <span class="ruby-keyword">end</span>.<span class="ruby-identifier">flatten</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-annotation" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">annotation</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="annotation-source">
+            <pre>static VALUE rxml_schema_type_annot(VALUE self)
+{
+  VALUE result = Qnil;
+  xmlSchemaTypePtr xtype;
+
+  Data_Get_Struct(self, xmlSchemaType, xtype);
+
+  if(xtype != NULL &amp;&amp; xtype-&gt;annot != NULL &amp;&amp; xtype-&gt;annot-&gt;content != NULL)
+  {
+    xmlChar *content = xmlNodeGetContent(xtype-&gt;annot-&gt;content);
+        if (content)
+        {
+          result = rxml_new_cstr(content, NULL);
+          xmlFree(content);
+    }
+  }
+  return result;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-attributes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">attributes</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="attributes-source">
+            <pre>static VALUE rxml_schema_type_attributes(VALUE self)
+{
+  VALUE result = rb_ary_new();
+  xmlSchemaTypePtr xtype;
+  xmlSchemaAttributeUsePtr xuse;
+  xmlSchemaItemListPtr xuses;
+  int i;
+
+  Data_Get_Struct(self, xmlSchemaType, xtype);
+  xuses = xtype-&gt;attrUses;
+
+  if (xuses != NULL)
+  {
+    for (i = 0; i &lt; xuses-&gt;nbItems; i++)
+        {
+      xuse = (xmlSchemaAttributeUsePtr)xuses-&gt;items[i];
+      rb_ary_push(result, rxml_wrap_schema_attribute(xuse));
+    }
+  }
+
+  return result;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-base" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">base</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="base-source">
+            <pre>static VALUE rxml_schema_type_base(VALUE self)
+{
+  xmlSchemaTypePtr xtype;
+
+  Data_Get_Struct(self, xmlSchemaType, xtype);
+
+  return (xtype-&gt;baseType != xtype) ? rxml_wrap_schema_type(xtype-&gt;baseType) : Qnil;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-elements" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">elements</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="elements-source">
+            <pre>static VALUE rxml_schema_type_elements(VALUE self)
+{
+  VALUE result = rb_hash_new();
+  xmlSchemaTypePtr xtype;
+
+  Data_Get_Struct(self, xmlSchemaType, xtype);
+  rxmlSchemaCollectElements((xmlSchemaParticlePtr) xtype-&gt;subtypes, result);
+
+  return result;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-facets" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">facets</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="facets-source">
+            <pre>static VALUE rxml_schema_type_facets(VALUE self)
+{
+  xmlSchemaTypePtr xtype;
+  xmlSchemaFacetPtr xfacet;
+  VALUE result = rb_ary_new();
+  VALUE facet;
+
+  Data_Get_Struct(self, xmlSchemaType, xtype);
+
+  xfacet = xtype-&gt;facets;
+
+  while (xfacet != NULL)
+  {
+    facet = rxml_wrap_schema_facet((xmlSchemaFacetPtr)xfacet);
+    rb_ary_push(result, facet);
+    xfacet = xfacet-&gt;next;
+  }
+
+  return result;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-kind_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">kind_name</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="kind_name-source">
+            <pre><span class="ruby-comment"># File lib/libxml/schema/type.rb, line 4</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">kind_name</span>
+  <span class="ruby-constant">Schema</span><span class="ruby-operator">::</span><span class="ruby-constant">Types</span>.<span class="ruby-identifier">constants</span>.<span class="ruby-identifier">find</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">k</span><span class="ruby-operator">|</span> <span class="ruby-constant">Schema</span><span class="ruby-operator">::</span><span class="ruby-constant">Types</span>.<span class="ruby-identifier">const_get</span>(<span class="ruby-identifier">k</span>) <span class="ruby-operator">==</span> <span class="ruby-identifier">kind</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-node" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">node</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="node-source">
+            <pre>static VALUE rxml_schema_type_node(VALUE self)
+{
+  xmlSchemaTypePtr xtype;
+
+  Data_Get_Struct(self, xmlSchemaType, xtype);
+
+  return (xtype-&gt;node != NULL) ? rxml_node_wrap(xtype-&gt;node) : Qnil;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

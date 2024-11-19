@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class LibXML::XML::AttrDecl - libxml-ruby-5.0.3 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/navigation.js" defer></script>
+<script src="../../js/search.js" defer></script>
+<script src="../../js/search_index.js" defer></script>
+<script src="../../js/searcher.js" defer></script>
+<script src="../../js/darkfish.js" defer></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../Object.html">Object</a>
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><span class="include">Enumerable</span>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-child">#child</a>
+    
+    <li ><a href="#method-i-child-3F">#child?</a>
+    
+    <li ><a href="#method-i-doc">#doc</a>
+    
+    <li ><a href="#method-i-doc-3F">#doc?</a>
+    
+    <li ><a href="#method-i-name">#name</a>
+    
+    <li ><a href="#method-i-next">#next</a>
+    
+    <li ><a href="#method-i-next-3F">#next?</a>
+    
+    <li ><a href="#method-i-node_type">#node_type</a>
+    
+    <li ><a href="#method-i-node_type_name">#node_type_name</a>
+    
+    <li ><a href="#method-i-parent">#parent</a>
+    
+    <li ><a href="#method-i-parent-3F">#parent?</a>
+    
+    <li ><a href="#method-i-prev">#prev</a>
+    
+    <li ><a href="#method-i-prev-3F">#prev?</a>
+    
+    <li ><a href="#method-i-to_s">#to_s</a>
+    
+    <li ><a href="#method-i-value">#value</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-LibXML::XML::AttrDecl">
+  <h1 id="class-LibXML::XML::AttrDecl" class="class">
+    class LibXML::XML::AttrDecl
+  </h1>
+
+  <section class="description">
+    
+<p>At attribute declaration is used in XML::Dtds to define  what attributes are allowed on an element.  An attribute declaration defines an attribues name, data type and default value (if any).</p>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-child" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            child &rarr; nil
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain this attribute declaration&#39;s child attribute(s). It will always be nil.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="child-source">
+            <pre><span class="ruby-comment"># File lib/libxml/attr_decl.rb, line 13</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">child</span>
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-child-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            child? &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns whether this attribute declaration has child attributes.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="child-3F-source">
+            <pre><span class="ruby-comment"># File lib/libxml/attr_decl.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">child?</span>
+  <span class="ruby-keyword">not</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">children</span>.<span class="ruby-identifier">nil?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-doc" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            doc &rarr; XML::Document
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns this attribute declaration&#39;s document.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="doc-source">
+            <pre>static VALUE rxml_attr_decl_doc_get(VALUE self)
+{
+  xmlAttributePtr xattr;
+  Data_Get_Struct(self, xmlAttribute, xattr);
+  if (xattr-&gt;doc == NULL)
+    return Qnil;
+  else
+    return rxml_document_wrap(xattr-&gt;doc);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-doc-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            doc? &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether this attribute declaration is associated with an <a href="Document.html"><code>XML::Document</code></a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="doc-3F-source">
+            <pre><span class="ruby-comment"># File lib/libxml/attr_decl.rb, line 31</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">doc?</span>
+  <span class="ruby-keyword">not</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">doc</span>.<span class="ruby-identifier">nil?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-name" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            name &rarr; &quot;name&quot;
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain this attribute declaration&#39;s name.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="name-source">
+            <pre>static VALUE rxml_attr_decl_name_get(VALUE self)
+{
+  xmlAttributePtr xattr;
+  Data_Get_Struct(self, xmlAttribute, xattr);
+
+  if (xattr-&gt;name == NULL)
+    return Qnil;
+  else
+    return rxml_new_cstr( xattr-&gt;name, xattr-&gt;doc-&gt;encoding);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-next" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            next &rarr; XML::AttrDecl
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain the next attribute declaration.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="next-source">
+            <pre>static VALUE rxml_attr_decl_next_get(VALUE self)
+{
+  xmlAttributePtr xattr;
+  Data_Get_Struct(self, xmlAttribute, xattr);
+  if (xattr-&gt;next == NULL)
+    return Qnil;
+  else
+    return rxml_attr_decl_wrap((xmlAttributePtr)xattr-&gt;next);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-next-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            next? &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether there is a next attribute declaration.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="next-3F-source">
+            <pre><span class="ruby-comment"># File lib/libxml/attr_decl.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">next?</span>
+  <span class="ruby-keyword">not</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">next</span>.<span class="ruby-identifier">nil?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-node_type" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            type &rarr; num
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain this attribute declaration&#39;s type node type.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="node_type-source">
+            <pre>static VALUE rxml_attr_decl_node_type(VALUE self)
+{
+  xmlAttrPtr xattr;
+  Data_Get_Struct(self, xmlAttr, xattr);
+  return INT2NUM(xattr-&gt;type);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-node_type_name" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            node_type_name &rarr; &#39;attribute declaration&#39;
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns this attribute declaration&#39;s node type name.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="node_type_name-source">
+            <pre><span class="ruby-comment"># File lib/libxml/attr_decl.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">node_type_name</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">node_type</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Node</span><span class="ruby-operator">::</span><span class="ruby-constant">ATTRIBUTE_DECL</span>
+    <span class="ruby-string">&#39;attribute declaration&#39;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span>(<span class="ruby-constant">UnknownType</span>, <span class="ruby-string">&quot;Unknown node type: %n&quot;</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">node_type</span>);
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-parent" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            parent &rarr; XML::Dtd
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain this attribute declaration&#39;s parent which is an instance of a XML::DTD.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="parent-source">
+            <pre>static VALUE rxml_attr_decl_parent_get(VALUE self)
+{
+  xmlAttributePtr xattr;
+  Data_Get_Struct(self, xmlAttribute, xattr);
+
+  if (xattr-&gt;parent == NULL)
+    return Qnil;
+  else
+    return rxml_dtd_wrap(xattr-&gt;parent);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-parent-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            parent? &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether this attribute declaration has a parent .</p>
+          
+          
+
+          
+          <div class="method-source-code" id="parent-3F-source">
+            <pre><span class="ruby-comment"># File lib/libxml/attr_decl.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">parent?</span>
+  <span class="ruby-keyword">not</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">parent</span>.<span class="ruby-identifier">nil?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-prev" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            prev &rarr; (XML::AttrDecl | XML::ElementDecl)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain the previous attribute declaration or the owning element declration (not implemented).</p>
+          
+          
+
+          
+          <div class="method-source-code" id="prev-source">
+            <pre>static VALUE rxml_attr_decl_prev_get(VALUE self)
+{
+  xmlAttributePtr xattr;
+  Data_Get_Struct(self, xmlAttribute, xattr);
+
+  if (xattr-&gt;prev == NULL)
+    return Qnil;
+  else
+    return rxml_attr_decl_wrap((xmlAttributePtr)xattr-&gt;prev);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-prev-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            prev? &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether there is a previous attribute declaration.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="prev-3F-source">
+            <pre><span class="ruby-comment"># File lib/libxml/attr_decl.rb, line 55</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">prev?</span>
+  <span class="ruby-keyword">not</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">prev</span>.<span class="ruby-identifier">nil?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_s" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            to_s &rarr; string
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns a string representation of this attribute declaration.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="to_s-source">
+            <pre><span class="ruby-comment"># File lib/libxml/attr_decl.rb, line 75</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_s</span>
+  <span class="ruby-node">&quot;#{name} = #{value}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-value" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            value &rarr; &quot;value&quot;
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain the default value of this attribute declaration.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="value-source">
+            <pre>VALUE rxml_attr_decl_value_get(VALUE self)
+{
+  xmlAttributePtr xattr;
+
+  Data_Get_Struct(self, xmlAttribute, xattr);
+
+  if (xattr-&gt;defaultValue)
+    return rxml_new_cstr(xattr-&gt;defaultValue, NULL);
+  else
+    return Qnil;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

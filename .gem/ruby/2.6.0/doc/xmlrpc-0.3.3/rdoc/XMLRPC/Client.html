@@ -1,0 +1,1553 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class XMLRPC::Client - xmlrpc-0.3.3 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/navigation.js" defer></script>
+<script src="../js/search.js" defer></script>
+<script src="../js/search_index.js" defer></script>
+<script src="../js/searcher.js" defer></script>
+<script src="../js/darkfish.js" defer></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Object
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="ParserWriterChooseMixin.html">XMLRPC::ParserWriterChooseMixin</a>
+  
+  
+  
+    <li><a class="include" href="ParseContentType.html">XMLRPC::ParseContentType</a>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-c-new2">::new2</a>
+    
+    <li ><a href="#method-c-new3">::new3</a>
+    
+    <li ><a href="#method-c-new_from_hash">::new_from_hash</a>
+    
+    <li ><a href="#method-c-new_from_uri">::new_from_uri</a>
+    
+    <li ><a href="#method-i-call">#call</a>
+    
+    <li ><a href="#method-i-call2">#call2</a>
+    
+    <li ><a href="#method-i-call2_async">#call2_async</a>
+    
+    <li ><a href="#method-i-call_async">#call_async</a>
+    
+    <li ><a href="#method-i-do_rpc">#do_rpc</a>
+    
+    <li ><a href="#method-i-dup_net_http">#dup_net_http</a>
+    
+    <li ><a href="#method-i-gen_multicall">#gen_multicall</a>
+    
+    <li ><a href="#method-i-multicall">#multicall</a>
+    
+    <li ><a href="#method-i-multicall2">#multicall2</a>
+    
+    <li ><a href="#method-i-multicall2_async">#multicall2_async</a>
+    
+    <li ><a href="#method-i-multicall_async">#multicall_async</a>
+    
+    <li ><a href="#method-i-net_http">#net_http</a>
+    
+    <li ><a href="#method-i-parse_set_cookies">#parse_set_cookies</a>
+    
+    <li ><a href="#method-i-password-3D">#password=</a>
+    
+    <li ><a href="#method-i-proxy">#proxy</a>
+    
+    <li ><a href="#method-i-proxy2">#proxy2</a>
+    
+    <li ><a href="#method-i-proxy2_async">#proxy2_async</a>
+    
+    <li ><a href="#method-i-proxy_async">#proxy_async</a>
+    
+    <li ><a href="#method-i-set_auth">#set_auth</a>
+    
+    <li ><a href="#method-i-timeout-3D">#timeout=</a>
+    
+    <li ><a href="#method-i-user-3D">#user=</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-XMLRPC::Client">
+  <h1 id="class-XMLRPC::Client" class="class">
+    class XMLRPC::Client
+  </h1>
+
+  <section class="description">
+    
+<p>Provides remote procedure calls to a XML-RPC server.</p>
+
+<p>After setting the connection-parameters with <a href="Client.html#method-c-new"><code>XMLRPC::Client.new</code></a> which creates a new <a href="Client.html"><code>XMLRPC::Client</code></a> instance, you can execute a remote procedure by sending the <a href="Client.html#method-i-call"><code>XMLRPC::Client#call</code></a> or <a href="Client.html#method-i-call2"><code>XMLRPC::Client#call2</code></a> message to this new instance.</p>
+
+<p>The given parameters indicate which method to call on the remote-side and of course the parameters for the remote procedure.</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&quot;xmlrpc/client&quot;</span>
+
+<span class="ruby-identifier">server</span> = <span class="ruby-constant">XMLRPC</span><span class="ruby-operator">::</span><span class="ruby-constant">Client</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;www.ruby-lang.org&quot;</span>, <span class="ruby-string">&quot;/RPC2&quot;</span>, <span class="ruby-value">80</span>)
+<span class="ruby-keyword">begin</span>
+  <span class="ruby-identifier">param</span> = <span class="ruby-identifier">server</span>.<span class="ruby-identifier">call</span>(<span class="ruby-string">&quot;michael.add&quot;</span>, <span class="ruby-value">4</span>, <span class="ruby-value">5</span>)
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;4 + 5 = #{param}&quot;</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">XMLRPC</span><span class="ruby-operator">::</span><span class="ruby-constant">FaultException</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">e</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Error:&quot;</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">faultCode</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">faultString</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>or</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&quot;xmlrpc/client&quot;</span>
+
+<span class="ruby-identifier">server</span> = <span class="ruby-constant">XMLRPC</span><span class="ruby-operator">::</span><span class="ruby-constant">Client</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;www.ruby-lang.org&quot;</span>, <span class="ruby-string">&quot;/RPC2&quot;</span>, <span class="ruby-value">80</span>)
+<span class="ruby-identifier">ok</span>, <span class="ruby-identifier">param</span> = <span class="ruby-identifier">server</span>.<span class="ruby-identifier">call2</span>(<span class="ruby-string">&quot;michael.add&quot;</span>, <span class="ruby-value">4</span>, <span class="ruby-value">5</span>)
+<span class="ruby-keyword">if</span> <span class="ruby-identifier">ok</span> <span class="ruby-keyword">then</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;4 + 5 = #{param}&quot;</span>
+<span class="ruby-keyword">else</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Error:&quot;</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-identifier">param</span>.<span class="ruby-identifier">faultCode</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-identifier">param</span>.<span class="ruby-identifier">faultString</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="USER_AGENT">USER_AGENT
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-cookie" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">cookie</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Get and set the HTTP Cookie header.</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-http" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">http</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Returns the Net::HTTP object for the client. If you want to change HTTP client options except header, cookie, timeout, user and password, use Net::HTTP directly.</p>
+
+<p>Since 2.1.0.</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-http_header_extra" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">http_header_extra</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Add additional HTTP headers to the request</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-http_last_response" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">http_last_response</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Returns the Net::HTTPResponse object of the last RPC.</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-password" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">password</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Return the corresponding attributes.</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-timeout" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">timeout</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Return the corresponding attributes.</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-user" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">user</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Return the corresponding attributes.</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(host=nil, path=nil, port=nil, proxy_host=nil, proxy_port=nil, user=nil, password=nil, use_ssl=nil, timeout=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Creates an object which represents the remote XML-RPC server on the given <code>host</code>. If the server is CGI-based, <code>path</code> is the path to the CGI-script, which will be called, otherwise (in the case of a standalone server) <code>path</code> should be <code>&quot;/RPC2&quot;</code>. <code>port</code> is the port on which the XML-RPC server listens.</p>
+
+<p>If <code>proxy_host</code> is given, then a proxy server listening at <code>proxy_host</code> is used. <code>proxy_port</code> is the port of the proxy server.</p>
+
+<p>Default values for <code>host</code>, <code>path</code> and <code>port</code> are &#39;localhost&#39;, &#39;/RPC2&#39; and &#39;80&#39; respectively using SSL &#39;443&#39;.</p>
+
+<p>If <code>user</code> and <code>password</code> are given, each time a request is sent, an Authorization header is sent. Currently only Basic Authentication is implemented, no Digest.</p>
+
+<p>If <code>use_ssl</code> is set to <code>true</code>, communication over SSL is enabled.</p>
+
+<p>Parameter <code>timeout</code> is the time to wait for a XML-RPC response, defaults to 30.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/xmlrpc/client.rb, line 82</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">host</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">path</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">port</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">proxy_host</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">proxy_port</span>=<span class="ruby-keyword">nil</span>,
+               <span class="ruby-identifier">user</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">password</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">use_ssl</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">timeout</span>=<span class="ruby-keyword">nil</span>)
+
+  <span class="ruby-ivar">@http_header_extra</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@http_last_response</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@cookie</span> = <span class="ruby-keyword">nil</span>
+
+  <span class="ruby-ivar">@host</span>       = <span class="ruby-identifier">host</span> <span class="ruby-operator">||</span> <span class="ruby-string">&quot;localhost&quot;</span>
+  <span class="ruby-ivar">@path</span>       = <span class="ruby-identifier">path</span> <span class="ruby-operator">||</span> <span class="ruby-string">&quot;/RPC2&quot;</span>
+  <span class="ruby-ivar">@proxy_host</span> = <span class="ruby-identifier">proxy_host</span>
+  <span class="ruby-ivar">@proxy_port</span> = <span class="ruby-identifier">proxy_port</span>
+  <span class="ruby-ivar">@proxy_host</span> <span class="ruby-operator">||=</span> <span class="ruby-string">&#39;localhost&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@proxy_port</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@proxy_port</span> <span class="ruby-operator">||=</span> <span class="ruby-value">8080</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@proxy_host</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@use_ssl</span>    = <span class="ruby-identifier">use_ssl</span> <span class="ruby-operator">||</span> <span class="ruby-keyword">false</span>
+  <span class="ruby-ivar">@timeout</span>    = <span class="ruby-identifier">timeout</span> <span class="ruby-operator">||</span> <span class="ruby-value">30</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">use_ssl</span>
+    <span class="ruby-identifier">require</span> <span class="ruby-string">&quot;net/https&quot;</span>
+    <span class="ruby-ivar">@port</span> = <span class="ruby-identifier">port</span> <span class="ruby-operator">||</span> <span class="ruby-value">443</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@port</span> = <span class="ruby-identifier">port</span> <span class="ruby-operator">||</span> <span class="ruby-value">80</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@user</span>, <span class="ruby-ivar">@password</span> = <span class="ruby-identifier">user</span>, <span class="ruby-identifier">password</span>
+
+  <span class="ruby-identifier">set_auth</span>
+
+  <span class="ruby-comment"># convert ports to integers</span>
+  <span class="ruby-ivar">@port</span> = <span class="ruby-ivar">@port</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@port</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@proxy_port</span> = <span class="ruby-ivar">@proxy_port</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@proxy_port</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">nil</span>
+
+  <span class="ruby-comment"># HTTP object for synchronous calls</span>
+  <span class="ruby-ivar">@http</span> = <span class="ruby-identifier">net_http</span>(<span class="ruby-ivar">@host</span>, <span class="ruby-ivar">@port</span>, <span class="ruby-ivar">@proxy_host</span>, <span class="ruby-ivar">@proxy_port</span>)
+  <span class="ruby-ivar">@http</span>.<span class="ruby-identifier">use_ssl</span> = <span class="ruby-ivar">@use_ssl</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@use_ssl</span>
+  <span class="ruby-ivar">@http</span>.<span class="ruby-identifier">read_timeout</span> = <span class="ruby-ivar">@timeout</span>
+  <span class="ruby-ivar">@http</span>.<span class="ruby-identifier">open_timeout</span> = <span class="ruby-ivar">@timeout</span>
+
+  <span class="ruby-ivar">@parser</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@create</span> = <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new2" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new2</span><span
+            class="method-args">(uri, proxy=nil, timeout=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Creates an object which represents the remote XML-RPC server at the given <code>uri</code>. The URI should have a host, port, path, user and password. Example: <a href="https://user:password@host:port/path">user:password@host:port/path</a></p>
+
+<p>Raises an ArgumentError if the <code>uri</code> is invalid, or if the protocol isn&#39;t http or https.</p>
+
+<p>If a <code>proxy</code> is given it should be in the form of “host:port”.</p>
+
+<p>The optional <code>timeout</code> defaults to 30 seconds.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new2-source">
+            <pre><span class="ruby-comment"># File lib/xmlrpc/client.rb, line 136</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">new2</span>(<span class="ruby-identifier">uri</span>, <span class="ruby-identifier">proxy</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">timeout</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">url</span> = <span class="ruby-constant">URI</span>(<span class="ruby-identifier">uri</span>)
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">URI</span><span class="ruby-operator">::</span><span class="ruby-constant">InvalidURIError</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-identifier">e</span>.<span class="ruby-identifier">message</span>, <span class="ruby-identifier">e</span>.<span class="ruby-identifier">backtrace</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">unless</span> <span class="ruby-constant">URI</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">url</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;Wrong protocol specified. Only http or https allowed!&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">proto</span>  = <span class="ruby-identifier">url</span>.<span class="ruby-identifier">scheme</span>
+  <span class="ruby-identifier">user</span>   = <span class="ruby-identifier">url</span>.<span class="ruby-identifier">user</span>
+  <span class="ruby-identifier">passwd</span> = <span class="ruby-identifier">url</span>.<span class="ruby-identifier">password</span>
+  <span class="ruby-identifier">host</span>   = <span class="ruby-identifier">url</span>.<span class="ruby-identifier">host</span>
+  <span class="ruby-identifier">port</span>   = <span class="ruby-identifier">url</span>.<span class="ruby-identifier">port</span>
+  <span class="ruby-identifier">path</span>   = <span class="ruby-identifier">url</span>.<span class="ruby-identifier">path</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">url</span>.<span class="ruby-identifier">request_uri</span>
+
+  <span class="ruby-identifier">proxy_host</span>, <span class="ruby-identifier">proxy_port</span> = (<span class="ruby-identifier">proxy</span> <span class="ruby-operator">||</span> <span class="ruby-string">&quot;&quot;</span>).<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;:&quot;</span>)
+  <span class="ruby-identifier">proxy_port</span> = <span class="ruby-identifier">proxy_port</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">proxy_port</span>
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">host</span>, <span class="ruby-identifier">path</span>, <span class="ruby-identifier">port</span>, <span class="ruby-identifier">proxy_host</span>, <span class="ruby-identifier">proxy_port</span>, <span class="ruby-identifier">user</span>, <span class="ruby-identifier">passwd</span>, (<span class="ruby-identifier">proto</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;https&quot;</span>), <span class="ruby-identifier">timeout</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Client.html#method-c-new_from_uri">new_from_uri</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new3" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new3</span><span
+            class="method-args">(hash={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Receives a Hash and calls <a href="Client.html#method-c-new"><code>XMLRPC::Client.new</code></a> with the corresponding values.</p>
+
+<p>The <code>hash</code> parameter has following case-insensitive keys:</p>
+<ul><li>
+<p>host</p>
+</li><li>
+<p>path</p>
+</li><li>
+<p>port</p>
+</li><li>
+<p>proxy_host</p>
+</li><li>
+<p>proxy_port</p>
+</li><li>
+<p>user</p>
+</li><li>
+<p>password</p>
+</li><li>
+<p>use_ssl</p>
+</li><li>
+<p>timeout</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="new3-source">
+            <pre><span class="ruby-comment"># File lib/xmlrpc/client.rb, line 175</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">new3</span>(<span class="ruby-identifier">hash</span>={})
+
+  <span class="ruby-comment"># convert all keys into lowercase strings</span>
+  <span class="ruby-identifier">h</span> = {}
+  <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>,<span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">h</span>[<span class="ruby-identifier">k</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">downcase</span>] = <span class="ruby-identifier">v</span> }
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">h</span>[<span class="ruby-string">&#39;host&#39;</span>], <span class="ruby-identifier">h</span>[<span class="ruby-string">&#39;path&#39;</span>], <span class="ruby-identifier">h</span>[<span class="ruby-string">&#39;port&#39;</span>], <span class="ruby-identifier">h</span>[<span class="ruby-string">&#39;proxy_host&#39;</span>], <span class="ruby-identifier">h</span>[<span class="ruby-string">&#39;proxy_port&#39;</span>], <span class="ruby-identifier">h</span>[<span class="ruby-string">&#39;user&#39;</span>], <span class="ruby-identifier">h</span>[<span class="ruby-string">&#39;password&#39;</span>],
+           <span class="ruby-identifier">h</span>[<span class="ruby-string">&#39;use_ssl&#39;</span>], <span class="ruby-identifier">h</span>[<span class="ruby-string">&#39;timeout&#39;</span>])
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Client.html#method-c-new_from_hash">new_from_hash</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new_from_hash" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">new_from_hash</span><span
+            class="method-args">(hash={})</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Client.html#method-c-new3">new3</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-c-new_from_uri" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">new_from_uri</span><span
+            class="method-args">(uri, proxy=nil, timeout=nil)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Client.html#method-c-new2">new2</a>
+        </div>
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-call" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">call</span><span
+            class="method-args">(method, *args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Invokes the method named <code>method</code> with the parameters given by <code>args</code> on the XML-RPC server.</p>
+
+<p>The <code>method</code> parameter is converted into a String and should be a valid XML-RPC method-name.</p>
+
+<p>Each parameter of <code>args</code> must be of one of the following types, where Hash, Struct and Array can contain any of these listed <em>types</em>:</p>
+<ul><li>
+<p>Integer</p>
+</li><li>
+<p>TrueClass, FalseClass, <code>true</code>, <code>false</code></p>
+</li><li>
+<p>String, Symbol</p>
+</li><li>
+<p>Float</p>
+</li><li>
+<p>Hash, Struct</p>
+</li><li>
+<p>Array</p>
+</li><li>
+<p>Date, Time, <a href="DateTime.html"><code>XMLRPC::DateTime</code></a></p>
+</li><li>
+<p><a href="Base64.html"><code>XMLRPC::Base64</code></a></p>
+</li><li>
+<p>A Ruby object which class includes <a href="Marshallable.html"><code>XMLRPC::Marshallable</code></a> (only if Config::ENABLE_MARSHALLING is <code>true</code>). That object is converted into a hash, with one additional key/value pair <code><em>_</em>class___</code> which contains the class name for restoring that object later.</p>
+</li></ul>
+
+<p>The method returns the return-value from the Remote Procedure Call.</p>
+
+<p>The type of the return-value is one of the types shown above.</p>
+
+<p>An Integer is only allowed when it fits in 32-bit. A XML-RPC <code>dateTime.iso8601</code> type is always returned as a <a href="DateTime.html"><code>XMLRPC::DateTime</code></a> object. Struct is never returned, only a Hash, the same for a Symbol, where as a String is always returned. <a href="Base64.html"><code>XMLRPC::Base64</code></a> is returned as a String from xmlrpc4r version 1.6.1 on.</p>
+
+<p>If the remote procedure returned a fault-structure, then a <a href="FaultException.html"><code>XMLRPC::FaultException</code></a> exception is raised, which has two accessor-methods <code>faultCode</code> an Integer, and <code>faultString</code> a String.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="call-source">
+            <pre><span class="ruby-comment"># File lib/xmlrpc/client.rb, line 267</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">call</span>(<span class="ruby-identifier">method</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">ok</span>, <span class="ruby-identifier">param</span> = <span class="ruby-identifier">call2</span>(<span class="ruby-identifier">method</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">ok</span>
+    <span class="ruby-identifier">param</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-identifier">param</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-call2" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">call2</span><span
+            class="method-args">(method, *args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The difference between this method and <a href="Client.html#method-i-call"><code>XMLRPC::Client#call</code></a> is, that this method will <strong>NOT</strong> raise a <a href="FaultException.html"><code>XMLRPC::FaultException</code></a> exception.</p>
+
+<p>The method returns an array of two values. The first value indicates if the second value is <code>true</code> or an <a href="FaultException.html"><code>XMLRPC::FaultException</code></a>.</p>
+
+<p>Both are explained in <a href="Client.html#method-i-call"><code>XMLRPC::Client#call</code></a>.</p>
+
+<p>Simple to remember: The “2” in “call2” denotes the number of values it returns.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="call2-source">
+            <pre><span class="ruby-comment"># File lib/xmlrpc/client.rb, line 285</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">call2</span>(<span class="ruby-identifier">method</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">request</span> = <span class="ruby-identifier">create</span>().<span class="ruby-identifier">methodCall</span>(<span class="ruby-identifier">method</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">data</span> = <span class="ruby-identifier">do_rpc</span>(<span class="ruby-identifier">request</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">parser</span>().<span class="ruby-identifier">parseMethodResponse</span>(<span class="ruby-identifier">data</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-call2_async" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">call2_async</span><span
+            class="method-args">(method, *args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Same as <a href="Client.html#method-i-call2"><code>XMLRPC::Client#call2</code></a>, but can be called concurrently.</p>
+
+<p>See also <a href="Client.html#method-i-call_async"><code>XMLRPC::Client#call_async</code></a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="call2_async-source">
+            <pre><span class="ruby-comment"># File lib/xmlrpc/client.rb, line 319</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">call2_async</span>(<span class="ruby-identifier">method</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">request</span> = <span class="ruby-identifier">create</span>().<span class="ruby-identifier">methodCall</span>(<span class="ruby-identifier">method</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">data</span> = <span class="ruby-identifier">do_rpc</span>(<span class="ruby-identifier">request</span>, <span class="ruby-keyword">true</span>)
+  <span class="ruby-identifier">parser</span>().<span class="ruby-identifier">parseMethodResponse</span>(<span class="ruby-identifier">data</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-call_async" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">call_async</span><span
+            class="method-args">(method, *args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Similar to <a href="Client.html#method-i-call"><code>XMLRPC::Client#call</code></a>, however can be called concurrently and use a new connection for each request. In contrast to the corresponding method without the <code>_async</code> suffix, which use connect-alive (one connection for all requests).</p>
+
+<p>Note, that you have to use Thread to call these methods concurrently. The following example calls two methods concurrently:</p>
+
+<pre class="ruby"><span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> {
+  <span class="ruby-identifier">p</span> <span class="ruby-identifier">client</span>.<span class="ruby-identifier">call_async</span>(<span class="ruby-string">&quot;michael.add&quot;</span>, <span class="ruby-value">4</span>, <span class="ruby-value">5</span>)
+}
+
+<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> {
+  <span class="ruby-identifier">p</span> <span class="ruby-identifier">client</span>.<span class="ruby-identifier">call_async</span>(<span class="ruby-string">&quot;michael.div&quot;</span>, <span class="ruby-value">7</span>, <span class="ruby-value">9</span>)
+}
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="call_async-source">
+            <pre><span class="ruby-comment"># File lib/xmlrpc/client.rb, line 307</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">call_async</span>(<span class="ruby-identifier">method</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">ok</span>, <span class="ruby-identifier">param</span> = <span class="ruby-identifier">call2_async</span>(<span class="ruby-identifier">method</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">ok</span>
+    <span class="ruby-identifier">param</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-identifier">param</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-multicall" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">multicall</span><span
+            class="method-args">(*methods)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>You can use this method to execute several methods on a <a href="../XMLRPC.html"><code>XMLRPC</code></a> server which support the multi-call extension.</p>
+
+<pre class="ruby"><span class="ruby-identifier">s</span>.<span class="ruby-identifier">multicall</span>(
+  [<span class="ruby-string">&#39;michael.add&#39;</span>, <span class="ruby-value">3</span>, <span class="ruby-value">4</span>],
+  [<span class="ruby-string">&#39;michael.sub&#39;</span>, <span class="ruby-value">4</span>, <span class="ruby-value">5</span>]
+)
+<span class="ruby-comment"># =&gt; [7, -1]</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="multicall-source">
+            <pre><span class="ruby-comment"># File lib/xmlrpc/client.rb, line 334</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">multicall</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">methods</span>)
+  <span class="ruby-identifier">ok</span>, <span class="ruby-identifier">params</span> = <span class="ruby-identifier">multicall2</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">methods</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">ok</span>
+    <span class="ruby-identifier">params</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-identifier">params</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-multicall2" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">multicall2</span><span
+            class="method-args">(*methods)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Same as <a href="Client.html#method-i-multicall"><code>XMLRPC::Client#multicall</code></a>, but returns two parameters instead of raising an <a href="FaultException.html"><code>XMLRPC::FaultException</code></a>.</p>
+
+<p>See <a href="Client.html#method-i-call2"><code>XMLRPC::Client#call2</code></a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="multicall2-source">
+            <pre><span class="ruby-comment"># File lib/xmlrpc/client.rb, line 347</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">multicall2</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">methods</span>)
+  <span class="ruby-identifier">gen_multicall</span>(<span class="ruby-identifier">methods</span>, <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-multicall2_async" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">multicall2_async</span><span
+            class="method-args">(*methods)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Same as <a href="Client.html#method-i-multicall2"><code>XMLRPC::Client#multicall2</code></a>, but can be called concurrently.</p>
+
+<p>See also <a href="Client.html#method-i-multicall_async"><code>XMLRPC::Client#multicall_async</code></a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="multicall2_async-source">
+            <pre><span class="ruby-comment"># File lib/xmlrpc/client.rb, line 379</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">multicall2_async</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">methods</span>)
+  <span class="ruby-identifier">gen_multicall</span>(<span class="ruby-identifier">methods</span>, <span class="ruby-keyword">true</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-multicall_async" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">multicall_async</span><span
+            class="method-args">(*methods)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Similar to <a href="Client.html#method-i-multicall"><code>XMLRPC::Client#multicall</code></a>, however can be called concurrently and use a new connection for each request. In contrast to the corresponding method without the <code>_async</code> suffix, which use connect-alive (one connection for all requests).</p>
+
+<p>Note, that you have to use Thread to call these methods concurrently. The following example calls two methods concurrently:</p>
+
+<pre class="ruby"><span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> {
+  <span class="ruby-identifier">p</span> <span class="ruby-identifier">client</span>.<span class="ruby-identifier">multicall_async</span>(<span class="ruby-string">&quot;michael.add&quot;</span>, <span class="ruby-value">4</span>, <span class="ruby-value">5</span>)
+}
+
+<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> {
+  <span class="ruby-identifier">p</span> <span class="ruby-identifier">client</span>.<span class="ruby-identifier">multicall_async</span>(<span class="ruby-string">&quot;michael.div&quot;</span>, <span class="ruby-value">7</span>, <span class="ruby-value">9</span>)
+}
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="multicall_async-source">
+            <pre><span class="ruby-comment"># File lib/xmlrpc/client.rb, line 367</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">multicall_async</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">methods</span>)
+  <span class="ruby-identifier">ok</span>, <span class="ruby-identifier">params</span> = <span class="ruby-identifier">multicall2_async</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">methods</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">ok</span>
+    <span class="ruby-identifier">params</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-identifier">params</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-password-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">password=</span><span
+            class="method-args">(new_password)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Changes the password for the Basic Authentication header to <code>new_password</code></p>
+          
+          
+
+          
+          <div class="method-source-code" id="password-3D-source">
+            <pre><span class="ruby-comment"># File lib/xmlrpc/client.rb, line 226</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">password=</span>(<span class="ruby-identifier">new_password</span>)
+  <span class="ruby-ivar">@password</span> = <span class="ruby-identifier">new_password</span>
+  <span class="ruby-identifier">set_auth</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-proxy" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">proxy</span><span
+            class="method-args">(prefix=nil, *args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns an object of class <a href="Client/Proxy.html"><code>XMLRPC::Client::Proxy</code></a>, initialized with <code>prefix</code> and <code>args</code>.</p>
+
+<p>A proxy object returned by this method behaves like <a href="Client.html#method-i-call"><code>XMLRPC::Client#call</code></a>, i.e. a call on that object will raise a <a href="FaultException.html"><code>XMLRPC::FaultException</code></a> when a fault-structure is returned by that call.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="proxy-source">
+            <pre><span class="ruby-comment"># File lib/xmlrpc/client.rb, line 390</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">proxy</span>(<span class="ruby-identifier">prefix</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-constant">Proxy</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">prefix</span>, <span class="ruby-identifier">args</span>, <span class="ruby-value">:call</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-proxy2" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">proxy2</span><span
+            class="method-args">(prefix=nil, *args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Almost the same like <a href="Client.html#method-i-proxy"><code>XMLRPC::Client#proxy</code></a> only that a call on the returned <a href="Client/Proxy.html"><code>XMLRPC::Client::Proxy</code></a> object will return two parameters.</p>
+
+<p>See <a href="Client.html#method-i-call2"><code>XMLRPC::Client#call2</code></a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="proxy2-source">
+            <pre><span class="ruby-comment"># File lib/xmlrpc/client.rb, line 398</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">proxy2</span>(<span class="ruby-identifier">prefix</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-constant">Proxy</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">prefix</span>, <span class="ruby-identifier">args</span>, <span class="ruby-value">:call2</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-proxy2_async" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">proxy2_async</span><span
+            class="method-args">(prefix=nil, *args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Same as <a href="Client.html#method-i-proxy2"><code>XMLRPC::Client#proxy2</code></a>, but can be called concurrently.</p>
+
+<p>See also <a href="Client.html#method-i-proxy_async"><code>XMLRPC::Client#proxy_async</code></a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="proxy2_async-source">
+            <pre><span class="ruby-comment"># File lib/xmlrpc/client.rb, line 425</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">proxy2_async</span>(<span class="ruby-identifier">prefix</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-constant">Proxy</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">prefix</span>, <span class="ruby-identifier">args</span>, <span class="ruby-value">:call2_async</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-proxy_async" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">proxy_async</span><span
+            class="method-args">(prefix=nil, *args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Similar to <a href="Client.html#method-i-proxy"><code>XMLRPC::Client#proxy</code></a>, however can be called concurrently and use a new connection for each request. In contrast to the corresponding method without the <code>_async</code> suffix, which use connect-alive (one connection for all requests).</p>
+
+<p>Note, that you have to use Thread to call these methods concurrently. The following example calls two methods concurrently:</p>
+
+<pre class="ruby"><span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> {
+  <span class="ruby-identifier">p</span> <span class="ruby-identifier">client</span>.<span class="ruby-identifier">proxy_async</span>(<span class="ruby-string">&quot;michael.add&quot;</span>, <span class="ruby-value">4</span>, <span class="ruby-value">5</span>)
+}
+
+<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> {
+  <span class="ruby-identifier">p</span> <span class="ruby-identifier">client</span>.<span class="ruby-identifier">proxy_async</span>(<span class="ruby-string">&quot;michael.div&quot;</span>, <span class="ruby-value">7</span>, <span class="ruby-value">9</span>)
+}
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="proxy_async-source">
+            <pre><span class="ruby-comment"># File lib/xmlrpc/client.rb, line 418</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">proxy_async</span>(<span class="ruby-identifier">prefix</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-constant">Proxy</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">prefix</span>, <span class="ruby-identifier">args</span>, <span class="ruby-value">:call_async</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-timeout-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">timeout=</span><span
+            class="method-args">(new_timeout)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Sets the Net::HTTP#read_timeout and Net::HTTP#open_timeout to <code>new_timeout</code></p>
+          
+          
+
+          
+          <div class="method-source-code" id="timeout-3D-source">
+            <pre><span class="ruby-comment"># File lib/xmlrpc/client.rb, line 212</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">timeout=</span>(<span class="ruby-identifier">new_timeout</span>)
+  <span class="ruby-ivar">@timeout</span> = <span class="ruby-identifier">new_timeout</span>
+  <span class="ruby-ivar">@http</span>.<span class="ruby-identifier">read_timeout</span> = <span class="ruby-ivar">@timeout</span>
+  <span class="ruby-ivar">@http</span>.<span class="ruby-identifier">open_timeout</span> = <span class="ruby-ivar">@timeout</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-user-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">user=</span><span
+            class="method-args">(new_user)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Changes the user for the Basic Authentication header to <code>new_user</code></p>
+          
+          
+
+          
+          <div class="method-source-code" id="user-3D-source">
+            <pre><span class="ruby-comment"># File lib/xmlrpc/client.rb, line 219</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">user=</span>(<span class="ruby-identifier">new_user</span>)
+  <span class="ruby-ivar">@user</span> = <span class="ruby-identifier">new_user</span>
+  <span class="ruby-identifier">set_auth</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-do_rpc" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">do_rpc</span><span
+            class="method-args">(request, async=false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="do_rpc-source">
+            <pre><span class="ruby-comment"># File lib/xmlrpc/client.rb, line 464</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">do_rpc</span>(<span class="ruby-identifier">request</span>, <span class="ruby-identifier">async</span>=<span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">header</span> = {
+   <span class="ruby-string">&quot;User-Agent&quot;</span>     <span class="ruby-operator">=&gt;</span>  <span class="ruby-constant">USER_AGENT</span>,
+   <span class="ruby-string">&quot;Content-Type&quot;</span>   <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;text/xml; charset=utf-8&quot;</span>,
+   <span class="ruby-string">&quot;Content-Length&quot;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">bytesize</span>.<span class="ruby-identifier">to_s</span>,
+   <span class="ruby-string">&quot;Connection&quot;</span>     <span class="ruby-operator">=&gt;</span> (<span class="ruby-identifier">async</span> <span class="ruby-operator">?</span> <span class="ruby-string">&quot;close&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&quot;keep-alive&quot;</span>)
+  }
+
+  <span class="ruby-identifier">header</span>[<span class="ruby-string">&quot;Cookie&quot;</span>] = <span class="ruby-ivar">@cookie</span>        <span class="ruby-keyword">if</span> <span class="ruby-ivar">@cookie</span>
+  <span class="ruby-identifier">header</span>.<span class="ruby-identifier">update</span>(<span class="ruby-ivar">@http_header_extra</span>) <span class="ruby-keyword">if</span> <span class="ruby-ivar">@http_header_extra</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@auth</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">nil</span>
+    <span class="ruby-comment"># add authorization header</span>
+    <span class="ruby-identifier">header</span>[<span class="ruby-string">&quot;Authorization&quot;</span>] = <span class="ruby-ivar">@auth</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">resp</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@http_last_response</span> = <span class="ruby-keyword">nil</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">async</span>
+    <span class="ruby-comment"># use a new HTTP object for each call</span>
+    <span class="ruby-identifier">http</span> = <span class="ruby-identifier">dup_net_http</span>
+
+    <span class="ruby-comment"># post request</span>
+    <span class="ruby-identifier">http</span>.<span class="ruby-identifier">start</span> {
+      <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">http</span>.<span class="ruby-identifier">request_post</span>(<span class="ruby-ivar">@path</span>, <span class="ruby-identifier">request</span>, <span class="ruby-identifier">header</span>)
+    }
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-comment"># reuse the HTTP object for each call =&gt; connection alive is possible</span>
+    <span class="ruby-comment"># we must start connection explicitly first time so that http.request</span>
+    <span class="ruby-comment"># does not assume that we don&#39;t want keepalive</span>
+    <span class="ruby-ivar">@http</span>.<span class="ruby-identifier">start</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">not</span> <span class="ruby-ivar">@http</span>.<span class="ruby-identifier">started?</span>
+
+    <span class="ruby-comment"># post request</span>
+    <span class="ruby-identifier">resp</span> = <span class="ruby-ivar">@http</span>.<span class="ruby-identifier">request_post</span>(<span class="ruby-ivar">@path</span>, <span class="ruby-identifier">request</span>, <span class="ruby-identifier">header</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@http_last_response</span> = <span class="ruby-identifier">resp</span>
+
+  <span class="ruby-identifier">data</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">body</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">code</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;401&quot;</span>
+    <span class="ruby-comment"># Authorization Required</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Authorization failed.\nHTTP-Error: #{resp.code} #{resp.message}&quot;</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">code</span>[<span class="ruby-value">0</span>,<span class="ruby-value">1</span>] <span class="ruby-operator">!=</span> <span class="ruby-string">&quot;2&quot;</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;HTTP-Error: #{resp.code} #{resp.message}&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># assume text/xml on instances where Content-Type header is not set</span>
+  <span class="ruby-identifier">ct_expected</span> = <span class="ruby-identifier">resp</span>[<span class="ruby-string">&quot;Content-Type&quot;</span>] <span class="ruby-operator">||</span> <span class="ruby-string">&#39;text/xml&#39;</span>
+  <span class="ruby-identifier">ct</span> = <span class="ruby-identifier">parse_content_type</span>(<span class="ruby-identifier">ct_expected</span>).<span class="ruby-identifier">first</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">ct</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;text/xml&quot;</span>, <span class="ruby-string">&quot;application/xml&quot;</span>
+    <span class="ruby-comment"># OK</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">message</span> =
+      <span class="ruby-string">&quot;Wrong content-type &quot;</span> <span class="ruby-operator">+</span>
+      <span class="ruby-node">&quot;(received &#39;#{ct}&#39; but expected &#39;text/xml&#39; or &#39;application/xml&#39;)&quot;</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">ct</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;text/html&quot;</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;#{message}:\n#{data}&quot;</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-identifier">message</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;No data&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">expected</span> = <span class="ruby-identifier">resp</span>[<span class="ruby-string">&quot;Content-Length&quot;</span>] <span class="ruby-operator">||</span> <span class="ruby-string">&quot;&lt;unknown&gt;&quot;</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">bytesize</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Wrong size. Was #{data.bytesize}, should be #{expected}&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">parse_set_cookies</span>(<span class="ruby-identifier">resp</span>.<span class="ruby-identifier">get_fields</span>(<span class="ruby-string">&quot;Set-Cookie&quot;</span>))
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">data</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-dup_net_http" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dup_net_http</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="dup_net_http-source">
+            <pre><span class="ruby-comment"># File lib/xmlrpc/client.rb, line 436</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">dup_net_http</span>
+  <span class="ruby-identifier">http</span> = <span class="ruby-identifier">net_http</span>(<span class="ruby-ivar">@http</span>.<span class="ruby-identifier">address</span>,
+                  <span class="ruby-ivar">@http</span>.<span class="ruby-identifier">port</span>,
+                  <span class="ruby-ivar">@http</span>.<span class="ruby-identifier">proxy_address</span>,
+                  <span class="ruby-ivar">@http</span>.<span class="ruby-identifier">proxy_port</span>)
+  <span class="ruby-identifier">http</span>.<span class="ruby-identifier">proxy_user</span> = <span class="ruby-ivar">@http</span>.<span class="ruby-identifier">proxy_user</span>
+  <span class="ruby-identifier">http</span>.<span class="ruby-identifier">proxy_pass</span> = <span class="ruby-ivar">@http</span>.<span class="ruby-identifier">proxy_pass</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@http</span>.<span class="ruby-identifier">use_ssl?</span>
+    <span class="ruby-identifier">http</span>.<span class="ruby-identifier">use_ssl</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span><span class="ruby-operator">::</span><span class="ruby-constant">SSL_ATTRIBUTES</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">attribute</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">http</span>.<span class="ruby-identifier">__send__</span>(<span class="ruby-node">&quot;#{attribute}=&quot;</span>, <span class="ruby-ivar">@http</span>.<span class="ruby-identifier">__send__</span>(<span class="ruby-identifier">attribute</span>))
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">http</span>.<span class="ruby-identifier">read_timeout</span> = <span class="ruby-ivar">@http</span>.<span class="ruby-identifier">read_timeout</span>
+  <span class="ruby-identifier">http</span>.<span class="ruby-identifier">open_timeout</span> = <span class="ruby-ivar">@http</span>.<span class="ruby-identifier">open_timeout</span>
+  <span class="ruby-identifier">http</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-gen_multicall" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">gen_multicall</span><span
+            class="method-args">(methods=[], async=false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="gen_multicall-source">
+            <pre><span class="ruby-comment"># File lib/xmlrpc/client.rb, line 559</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">gen_multicall</span>(<span class="ruby-identifier">methods</span>=[], <span class="ruby-identifier">async</span>=<span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">meth</span> = <span class="ruby-value">:call2</span>
+  <span class="ruby-identifier">meth</span> = <span class="ruby-value">:call2_async</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">async</span>
+
+  <span class="ruby-identifier">ok</span>, <span class="ruby-identifier">params</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">meth</span>, <span class="ruby-string">&quot;system.multicall&quot;</span>,
+    <span class="ruby-identifier">methods</span>.<span class="ruby-identifier">collect</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">m</span><span class="ruby-operator">|</span> {<span class="ruby-string">&#39;methodName&#39;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">m</span>[<span class="ruby-value">0</span>], <span class="ruby-string">&#39;params&#39;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">m</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>]} }
+  )
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">ok</span>
+    <span class="ruby-identifier">params</span> = <span class="ruby-identifier">params</span>.<span class="ruby-identifier">collect</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">param</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">param</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Array</span>
+        <span class="ruby-identifier">param</span>[<span class="ruby-value">0</span>]
+      <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">param</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Hash</span>
+        <span class="ruby-constant">XMLRPC</span><span class="ruby-operator">::</span><span class="ruby-constant">FaultException</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">param</span>[<span class="ruby-string">&quot;faultCode&quot;</span>], <span class="ruby-identifier">param</span>[<span class="ruby-string">&quot;faultString&quot;</span>])
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;Wrong multicall return value&quot;</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">ok</span>, <span class="ruby-identifier">params</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-net_http" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">net_http</span><span
+            class="method-args">(host, port, proxy_host, proxy_port)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="net_http-source">
+            <pre><span class="ruby-comment"># File lib/xmlrpc/client.rb, line 432</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">net_http</span>(<span class="ruby-identifier">host</span>, <span class="ruby-identifier">port</span>, <span class="ruby-identifier">proxy_host</span>, <span class="ruby-identifier">proxy_port</span>)
+  <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">host</span>, <span class="ruby-identifier">port</span>, <span class="ruby-identifier">proxy_host</span>, <span class="ruby-identifier">proxy_port</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-parse_set_cookies" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse_set_cookies</span><span
+            class="method-args">(set_cookies)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="parse_set_cookies-source">
+            <pre><span class="ruby-comment"># File lib/xmlrpc/client.rb, line 543</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">parse_set_cookies</span>(<span class="ruby-identifier">set_cookies</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">set_cookies</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">set_cookies</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;webrick/cookie&#39;</span>
+  <span class="ruby-identifier">pairs</span> = {}
+  <span class="ruby-identifier">set_cookies</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">set_cookie</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">cookie</span> = <span class="ruby-constant">WEBrick</span><span class="ruby-operator">::</span><span class="ruby-constant">Cookie</span>.<span class="ruby-identifier">parse_set_cookie</span>(<span class="ruby-identifier">set_cookie</span>)
+    <span class="ruby-identifier">pairs</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">cookie</span>.<span class="ruby-identifier">name</span>)
+    <span class="ruby-identifier">pairs</span>[<span class="ruby-identifier">cookie</span>.<span class="ruby-identifier">name</span>] = <span class="ruby-identifier">cookie</span>.<span class="ruby-identifier">value</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">cookies</span> = <span class="ruby-identifier">pairs</span>.<span class="ruby-identifier">collect</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">name</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+    <span class="ruby-constant">WEBrick</span><span class="ruby-operator">::</span><span class="ruby-constant">Cookie</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">value</span>).<span class="ruby-identifier">to_s</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@cookie</span> = <span class="ruby-identifier">cookies</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;; &quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-set_auth" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_auth</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="set_auth-source">
+            <pre><span class="ruby-comment"># File lib/xmlrpc/client.rb, line 454</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">set_auth</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-ivar">@auth</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">a</span> =  <span class="ruby-string">&quot;#@user&quot;</span>
+    <span class="ruby-identifier">a</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;:#@password&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@password</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">nil</span>
+    <span class="ruby-ivar">@auth</span> = <span class="ruby-string">&quot;Basic &quot;</span> <span class="ruby-operator">+</span> [<span class="ruby-identifier">a</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&quot;m0&quot;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

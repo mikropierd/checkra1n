@@ -1,0 +1,2328 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class LibXML::XML::Writer - libxml-ruby-5.0.3 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/navigation.js" defer></script>
+<script src="../../js/search.js" defer></script>
+<script src="../../js/search_index.js" defer></script>
+<script src="../../js/searcher.js" defer></script>
+<script src="../../js/darkfish.js" defer></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-document">::document</a>
+    
+    <li ><a href="#method-c-file">::file</a>
+    
+    <li ><a href="#method-c-io">::io</a>
+    
+    <li ><a href="#method-c-string">::string</a>
+    
+    <li ><a href="#method-i-end_attribute">#end_attribute</a>
+    
+    <li ><a href="#method-i-end_cdata">#end_cdata</a>
+    
+    <li ><a href="#method-i-end_comment">#end_comment</a>
+    
+    <li ><a href="#method-i-end_document">#end_document</a>
+    
+    <li ><a href="#method-i-end_dtd">#end_dtd</a>
+    
+    <li ><a href="#method-i-end_dtd_attlist">#end_dtd_attlist</a>
+    
+    <li ><a href="#method-i-end_dtd_element">#end_dtd_element</a>
+    
+    <li ><a href="#method-i-end_dtd_entity">#end_dtd_entity</a>
+    
+    <li ><a href="#method-i-end_element">#end_element</a>
+    
+    <li ><a href="#method-i-end_pi">#end_pi</a>
+    
+    <li ><a href="#method-i-flush">#flush</a>
+    
+    <li ><a href="#method-i-full_end_element">#full_end_element</a>
+    
+    <li ><a href="#method-i-result">#result</a>
+    
+    <li ><a href="#method-i-set_indent">#set_indent</a>
+    
+    <li ><a href="#method-i-set_indent_string">#set_indent_string</a>
+    
+    <li ><a href="#method-i-set_quote_char">#set_quote_char</a>
+    
+    <li ><a href="#method-i-start_attribute">#start_attribute</a>
+    
+    <li ><a href="#method-i-start_attribute_ns">#start_attribute_ns</a>
+    
+    <li ><a href="#method-i-start_cdata">#start_cdata</a>
+    
+    <li ><a href="#method-i-start_comment">#start_comment</a>
+    
+    <li ><a href="#method-i-start_document">#start_document</a>
+    
+    <li ><a href="#method-i-start_dtd">#start_dtd</a>
+    
+    <li ><a href="#method-i-start_dtd_attlist">#start_dtd_attlist</a>
+    
+    <li ><a href="#method-i-start_dtd_element">#start_dtd_element</a>
+    
+    <li ><a href="#method-i-start_dtd_entity">#start_dtd_entity</a>
+    
+    <li ><a href="#method-i-start_element">#start_element</a>
+    
+    <li ><a href="#method-i-start_element_ns">#start_element_ns</a>
+    
+    <li ><a href="#method-i-start_pi">#start_pi</a>
+    
+    <li ><a href="#method-i-write_attribute">#write_attribute</a>
+    
+    <li ><a href="#method-i-write_attribute_ns">#write_attribute_ns</a>
+    
+    <li ><a href="#method-i-write_cdata">#write_cdata</a>
+    
+    <li ><a href="#method-i-write_comment">#write_comment</a>
+    
+    <li ><a href="#method-i-write_dtd">#write_dtd</a>
+    
+    <li ><a href="#method-i-write_dtd_attlist">#write_dtd_attlist</a>
+    
+    <li ><a href="#method-i-write_dtd_element">#write_dtd_element</a>
+    
+    <li ><a href="#method-i-write_dtd_entity">#write_dtd_entity</a>
+    
+    <li ><a href="#method-i-write_dtd_external_entity">#write_dtd_external_entity</a>
+    
+    <li ><a href="#method-i-write_dtd_external_entity_contents">#write_dtd_external_entity_contents</a>
+    
+    <li ><a href="#method-i-write_dtd_internal_entity">#write_dtd_internal_entity</a>
+    
+    <li ><a href="#method-i-write_dtd_notation">#write_dtd_notation</a>
+    
+    <li ><a href="#method-i-write_element">#write_element</a>
+    
+    <li ><a href="#method-i-write_element_ns">#write_element_ns</a>
+    
+    <li ><a href="#method-i-write_pi">#write_pi</a>
+    
+    <li ><a href="#method-i-write_raw">#write_raw</a>
+    
+    <li ><a href="#method-i-write_string">#write_string</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-LibXML::XML::Writer">
+  <h1 id="class-LibXML::XML::Writer" class="class">
+    class LibXML::XML::Writer
+  </h1>
+
+  <section class="description">
+    
+<p>The <a href="Writer.html"><code>XML::Writer</code></a> class provides a simpler, alternative way to build a valid <a href="../XML.html"><code>XML</code></a> document from scratch (forward-only) compared to a DOM approach (based on <a href="Document.html"><code>XML::Document</code></a> class).</p>
+
+<p>For a more in depth tutorial, albeit in C, see <a href="http://xmlsoft.org/xmlwriter.html">xmlsoft.org/xmlwriter.html</a></p>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-document" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            XML::Writer::document &rarr; XML::Writer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Creates a <a href="Writer.html"><code>XML::Writer</code></a> which will write into an in memory <a href="Document.html"><code>XML::Document</code></a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="document-source">
+            <pre>static VALUE rxml_writer_doc(VALUE klass)
+{
+    xmlDocPtr doc;
+    rxml_writer_object* rwo;
+
+    rwo = ALLOC(rxml_writer_object);
+    rwo-&gt;buffer = NULL;
+    rwo-&gt;output = Qnil;
+    rwo-&gt;closed = 0;
+    rwo-&gt;encoding = rb_utf8_encoding();
+    rwo-&gt;output_type = RXMLW_OUTPUT_DOC;
+    if (NULL == (rwo-&gt;writer = xmlNewTextWriterDoc(&amp;doc, 0)))
+    {
+        rxml_raise(xmlGetLastError());
+    }
+    rwo-&gt;output = rxml_document_wrap(doc);
+
+    return rxml_writer_wrap(rwo);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-file" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            XML::Writer::file(path) &rarr; XML::Writer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Creates a <a href="Writer.html"><code>XML::Writer</code></a> object which will write <a href="../XML.html"><code>XML</code></a> into the file with the given name.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="file-source">
+            <pre>static VALUE rxml_writer_file(VALUE klass, VALUE filename)
+{
+    rxml_writer_object* rwo;
+
+    rwo = ALLOC(rxml_writer_object);
+    rwo-&gt;output = Qnil;
+    rwo-&gt;buffer = NULL;
+    rwo-&gt;closed = 0;
+    rwo-&gt;encoding = rb_utf8_encoding();
+    rwo-&gt;output_type = RXMLW_OUTPUT_NONE;
+    if (NULL == (rwo-&gt;writer = xmlNewTextWriterFilename(StringValueCStr(filename), 0)))
+    {
+        rxml_raise(xmlGetLastError());
+    }
+
+    return rxml_writer_wrap(rwo);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-io" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            XML::Writer::io(io) &rarr; XML::Writer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Creates a <a href="Writer.html"><code>XML::Writer</code></a> which will write <a href="../XML.html"><code>XML</code></a> directly into an IO object.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="io-source">
+            <pre>static VALUE rxml_writer_io(VALUE klass, VALUE io)
+{
+    xmlOutputBufferPtr out;
+    rxml_writer_object* rwo;
+
+    rwo = ALLOC(rxml_writer_object);
+    rwo-&gt;output = io;
+    rwo-&gt;buffer = NULL;
+    rwo-&gt;closed = 0;
+    rwo-&gt;encoding = rb_enc_get(io);
+    if (!rwo-&gt;encoding)
+        rwo-&gt;encoding = rb_utf8_encoding();
+
+    rwo-&gt;output_type = RXMLW_OUTPUT_IO;
+
+    xmlCharEncodingHandlerPtr encodingHdlr = xmlFindCharEncodingHandler(rwo-&gt;encoding-&gt;name);
+    if (NULL == (out = xmlOutputBufferCreateIO(rxml_writer_write_callback, NULL, (void*)rwo, encodingHdlr)))
+    {
+        rxml_raise(xmlGetLastError());
+    }
+    if (NULL == (rwo-&gt;writer = xmlNewTextWriter(out)))
+    {
+        rxml_raise(xmlGetLastError());
+    }
+
+    return rxml_writer_wrap(rwo);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-string" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            XML::Writer::string &rarr; XML::Writer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Creates a <a href="Writer.html"><code>XML::Writer</code></a> which will write <a href="../XML.html"><code>XML</code></a> into memory, as string.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="string-source">
+            <pre>static VALUE rxml_writer_string(VALUE klass)
+{
+    rxml_writer_object* rwo;
+
+    rwo = ALLOC(rxml_writer_object);
+    rwo-&gt;output = Qnil;
+    rwo-&gt;closed = 0;
+    rwo-&gt;encoding = rb_utf8_encoding();
+    rwo-&gt;output_type = RXMLW_OUTPUT_STRING;
+    if (NULL == (rwo-&gt;buffer = xmlBufferCreate()))
+    {
+        rxml_raise(xmlGetLastError());
+    }
+    if (NULL == (rwo-&gt;writer = xmlNewTextWriterMemory(rwo-&gt;buffer, 0)))
+    {
+        xmlBufferFree(rwo-&gt;buffer);
+        rxml_raise(xmlGetLastError());
+    }
+
+    return rxml_writer_wrap(rwo);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-end_attribute" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            end_attribute &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Ends an attribute, namespaced or not. Returns <code>false</code> on failure.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="end_attribute-source">
+            <pre>static VALUE rxml_writer_end_attribute(VALUE self)
+{
+    return numeric_rxml_writer_void(self, xmlTextWriterEndAttribute);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-end_cdata" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            end_cdata &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Ends current CDATA section. Returns <code>false</code> on failure.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="end_cdata-source">
+            <pre>static VALUE rxml_writer_end_cdata(VALUE self)
+{
+    return numeric_rxml_writer_void(self, xmlTextWriterEndCDATA);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-end_comment" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            end_comment &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Ends current comment, returns <code>false</code> on failure. Note: libxml2 &gt;= 2.6.7 required</p>
+          
+          
+
+          
+          <div class="method-source-code" id="end_comment-source">
+            <pre>static VALUE rxml_writer_end_comment(VALUE self)
+{
+    return numeric_rxml_writer_void(self, xmlTextWriterEndComment);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-end_document" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            end_document &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Ends current document. Returns <code>false</code> on failure.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="end_document-source">
+            <pre>static VALUE rxml_writer_end_document(VALUE self)
+{
+    return numeric_rxml_writer_void(self, xmlTextWriterEndDocument);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-end_dtd" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            end_dtd &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Ends current DTD, returns <code>false</code> on failure.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="end_dtd-source">
+            <pre>static VALUE rxml_writer_end_dtd(VALUE self)
+{
+    return numeric_rxml_writer_void(self, xmlTextWriterEndDTD);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-end_dtd_attlist" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            end_dtd_attlist &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Ends current DTD attribute list, returns <code>false</code> on failure.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="end_dtd_attlist-source">
+            <pre>static VALUE rxml_writer_end_dtd_attlist(VALUE self)
+{
+    return numeric_rxml_writer_void(self, xmlTextWriterEndDTDAttlist);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-end_dtd_element" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            end_dtd_element &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Ends current DTD element, returns <code>false</code> on failure.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="end_dtd_element-source">
+            <pre>static VALUE rxml_writer_end_dtd_element(VALUE self)
+{
+    return numeric_rxml_writer_void(self, xmlTextWriterEndDTDElement);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-end_dtd_entity" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            end_dtd_entity &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Ends current DTD entity, returns <code>false</code> on failure.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="end_dtd_entity-source">
+            <pre>static VALUE rxml_writer_end_dtd_entity(VALUE self)
+{
+    return numeric_rxml_writer_void(self, xmlTextWriterEndDTDEntity);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-end_element" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            end_element &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Ends current element, namespaced or not. Returns <code>false</code> on failure.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="end_element-source">
+            <pre>static VALUE rxml_writer_end_element(VALUE self)
+{
+    return numeric_rxml_writer_void(self, xmlTextWriterEndElement);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-end_pi" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            end_pi &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Ends current processing instruction. Returns <code>false</code> on failure.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="end_pi-source">
+            <pre>static VALUE rxml_writer_end_pi(VALUE self)
+{
+    return numeric_rxml_writer_void(self, xmlTextWriterEndPI);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-flush" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            flush(empty? = true) &rarr; (num|string)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Flushes the output buffer. Returns the number of written bytes or the current content of the internal buffer for a in memory <a href="Writer.html"><code>XML::Writer</code></a>. If <code>empty?</code> is <code>true</code>, and for a in memory <a href="Writer.html"><code>XML::Writer</code></a>, this internel buffer is empty.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="flush-source">
+            <pre>static VALUE rxml_writer_flush(int argc, VALUE* argv, VALUE self)
+{
+    int ret;
+    VALUE empty;
+    rxml_writer_object* rwo;
+
+    rb_scan_args(argc, argv, &quot;01&quot;, &amp;empty);
+
+    rwo = rxml_textwriter_get(self);
+    if (-1 == (ret = xmlTextWriterFlush(rwo-&gt;writer)))
+    {
+        rxml_raise(xmlGetLastError());
+    }
+
+    if (NULL != rwo-&gt;buffer)
+    {
+        VALUE content;
+
+        content = rb_external_str_new_with_enc((const char*)rwo-&gt;buffer-&gt;content, rwo-&gt;buffer-&gt;use, rwo-&gt;encoding);
+        if (NIL_P(empty) || RTEST(empty))
+        { /* nil = default value = true */
+            xmlBufferEmpty(rwo-&gt;buffer);
+        }
+
+        return content;
+    }
+    else
+    {
+        return INT2NUM(ret);
+    }
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-full_end_element" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            write_full_end_element &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Ends current element, namespaced or not. Returns <code>false</code> on failure. This method writes an end tag even if the element is empty (&lt;foo&gt;&lt;/foo&gt;), <a href="Writer.html#method-i-end_element"><code>end_element</code></a> does not (&lt;foo/&gt;).</p>
+          
+          
+
+          
+          <div class="method-source-code" id="full_end_element-source">
+            <pre>static VALUE rxml_writer_full_end_element(VALUE self)
+{
+    return numeric_rxml_writer_void(self, xmlTextWriterFullEndElement);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-result" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            result &rarr; (XML::Document|&quot;string&quot;|nil)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns the associated result object to the <a href="Writer.html"><code>XML::Writer</code></a> creation. A String for a <a href="Writer.html"><code>XML::Writer</code></a> object created with <a href="Writer.html#method-c-string"><code>XML::Writer::string</code></a>, a <a href="Document.html"><code>XML::Document</code></a> with <a href="Writer.html#method-c-document"><code>XML::Writer::document</code></a>, etc.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="result-source">
+            <pre>static VALUE rxml_writer_result(VALUE self)
+{
+    VALUE ret = Qnil;
+    rxml_writer_object* rwo = rxml_textwriter_get(self);
+    int bytesWritten = xmlTextWriterFlush(rwo-&gt;writer);
+
+    if (bytesWritten == -1)
+    {
+        rxml_raise(xmlGetLastError());
+    }
+
+    switch (rwo-&gt;output_type)
+    {
+    case RXMLW_OUTPUT_DOC:
+        ret = rwo-&gt;output;
+        break;
+    case RXMLW_OUTPUT_STRING:
+        ret = rb_external_str_new_with_enc((const char*)rwo-&gt;buffer-&gt;content, rwo-&gt;buffer-&gt;use, rwo-&gt;encoding);
+        break;
+    case RXMLW_OUTPUT_IO:
+    case RXMLW_OUTPUT_NONE:
+        break;
+    default:
+        rb_bug(&quot;unexpected output&quot;);
+        break;
+    }
+
+    return ret;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-set_indent" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            set_indent(indentation) &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Toggles indentation on or off. Returns <code>false</code> on failure.</p>
+
+<p>Availability: libxml2 &gt;= 2.6.5</p>
+          
+          
+
+          
+          <div class="method-source-code" id="set_indent-source">
+            <pre>static VALUE rxml_writer_set_indent(VALUE self, VALUE indentation)
+{
+    int ret;
+    rxml_writer_object* rwo;
+
+    rwo = rxml_textwriter_get(self);
+    ret = xmlTextWriterSetIndent(rwo-&gt;writer, RTEST(indentation));
+
+    return (-1 == ret ? Qfalse : Qtrue);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-set_indent_string" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            set_indent_string(string) &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Sets the string to use to indent each element of the document. Don&#39;t forget to enable indentation with set_indent. Returns <code>false</code> on failure.</p>
+
+<p>Availability: libxml2 &gt;= 2.6.5</p>
+          
+          
+
+          
+          <div class="method-source-code" id="set_indent_string-source">
+            <pre>static VALUE rxml_writer_set_indent_string(VALUE self, VALUE indentation)
+{
+    return numeric_rxml_writer_string(self, indentation, xmlTextWriterSetIndentString);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-set_quote_char" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            set_quote_char(...) &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Sets the character used to quote attributes. Returns <code>false</code> on failure.</p>
+
+<p>Notes:</p>
+<ul><li>
+<p>only “ (default) and &#39; characters are valid</p>
+</li><li>
+<p>availability: libxml2 &gt;= 2.9.0</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="set_quote_char-source">
+            <pre>static VALUE rxml_writer_set_quote_char(VALUE self, VALUE quotechar)
+{
+    int ret;
+    const char* xquotechar;
+    rxml_writer_object* rwo;
+
+    rwo = rxml_textwriter_get(self);
+    xquotechar = StringValueCStr(quotechar);
+    ret = xmlTextWriterSetQuoteChar(rwo-&gt;writer, (xmlChar)xquotechar[0]);
+
+    return (-1 == ret ? Qfalse : Qtrue);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-start_attribute" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            start_attribute(name) &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Starts an attribute. Returns <code>false</code> on failure.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="start_attribute-source">
+            <pre>static VALUE rxml_writer_start_attribute(VALUE self, VALUE name)
+{
+    return numeric_rxml_writer_string(self, name, xmlTextWriterStartAttribute);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-start_attribute_ns" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            start_attribute_ns(prefix, name, namespaceURI) &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Starts a namespaced attribute. Returns <code>false</code> on failure.</p>
+
+<p>Note: by default, the xmlns: definition is repeated on every element. If you want the prefix, but don&#39;t want the xmlns: declaration repeated, set <code>namespaceURI</code> to nil or omit it. Don&#39;t forget to declare the namespace prefix somewhere earlier.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="start_attribute_ns-source">
+            <pre>static VALUE rxml_writer_start_attribute_ns(int argc, VALUE* argv, VALUE self)
+{
+    VALUE prefix, name, namespaceURI;
+
+    rb_scan_args(argc, argv, &quot;21&quot;, &amp;prefix, &amp;name, &amp;namespaceURI);
+
+    return numeric_rxml_writer_va_strings(self, Qundef, 3, xmlTextWriterStartAttributeNS, prefix, name, namespaceURI);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-start_cdata" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            start_cdata &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Starts a new CDATA section. Returns <code>false</code> on failure.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="start_cdata-source">
+            <pre>static VALUE rxml_writer_start_cdata(VALUE self)
+{
+    return numeric_rxml_writer_void(self, xmlTextWriterStartCDATA);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-start_comment" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            start_comment &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Starts a comment. Returns <code>false</code> on failure. Note: libxml2 &gt;= 2.6.7 required</p>
+          
+          
+
+          
+          <div class="method-source-code" id="start_comment-source">
+            <pre>static VALUE rxml_writer_start_comment(VALUE self)
+{
+    return numeric_rxml_writer_void(self, xmlTextWriterStartComment);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-start_document" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            start_document &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            start_document(:encoding &rarr; XML::Encoding::UTF_8,
+          </span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            :standalone =&gt; true) &rarr; (true|false)
+          </span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Starts a new document. Returns <code>false</code> on failure.</p>
+
+<p>You may provide an optional hash table to control <a href="../XML.html"><code>XML</code></a> header that will be generated. Valid options are:</p>
+<ul><li>
+<p>encoding: the output document encoding, defaults to nil (= UTF-8). Valid</p>
+</li></ul>
+
+<p>values are the encoding constants defined on <a href="Encoding.html"><code>XML::Encoding</code></a></p>
+<ul><li>
+<p>standalone: nil (default) or a boolean to indicate if the document is</p>
+</li></ul>
+
+<p>standalone or not</p>
+          
+          
+
+          
+          <div class="method-source-code" id="start_document-source">
+            <pre>static VALUE rxml_writer_start_document(int argc, VALUE* argv, VALUE self)
+{
+    int ret;
+    VALUE options = Qnil;
+    rxml_writer_object* rwo;
+    const xmlChar* xencoding = NULL;
+    const char* xstandalone = NULL;
+
+    rb_scan_args(argc, argv, &quot;01&quot;, &amp;options);
+    if (!NIL_P(options))
+    {
+        VALUE encoding, standalone;
+
+        encoding = standalone = Qnil;
+        Check_Type(options, T_HASH);
+        encoding = rb_hash_aref(options, sEncoding);
+        xencoding = NIL_P(encoding) ? NULL : (const xmlChar*)xmlGetCharEncodingName(NUM2INT(encoding));
+        standalone = rb_hash_aref(options, sStandalone);
+        if (NIL_P(standalone))
+        {
+            xstandalone = NULL;
+        }
+        else
+        {
+            xstandalone = RTEST(standalone) ? &quot;yes&quot; : &quot;no&quot;;
+        }
+    }
+    rwo = rxml_textwriter_get(self);
+    rwo-&gt;encoding = rxml_figure_encoding(xencoding);
+    ret = xmlTextWriterStartDocument(rwo-&gt;writer, NULL, (const char*)xencoding, xstandalone);
+
+    return (-1 == ret ? Qfalse : Qtrue);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-start_dtd" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            start_dtd(qualifiedName, publicId, systemId) &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Starts a DTD. Returns <code>false</code> on failure.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="start_dtd-source">
+            <pre>static VALUE rxml_writer_start_dtd(int argc, VALUE* argv, VALUE self)
+{
+    VALUE name, pubid, sysid;
+
+    rb_scan_args(argc, argv, &quot;12&quot;, &amp;name, &amp;pubid, &amp;sysid);
+
+    return numeric_rxml_writer_va_strings(self, Qundef, 3, xmlTextWriterStartDTD, name, pubid, sysid);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-start_dtd_attlist" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            start_dtd_attlist(name) &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Starts a DTD attribute list (&lt;!ATTLIST … &gt;). Returns <code>false</code> on failure.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="start_dtd_attlist-source">
+            <pre>static VALUE rxml_writer_start_dtd_attlist(VALUE self, VALUE name)
+{
+    return numeric_rxml_writer_string(self, name, xmlTextWriterStartDTDAttlist);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-start_dtd_element" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            start_dtd_element(qualifiedName) &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Starts a DTD element (&lt;!ELEMENT … &gt;). Returns <code>false</code> on failure.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="start_dtd_element-source">
+            <pre>static VALUE rxml_writer_start_dtd_element(VALUE self, VALUE name)
+{
+    return numeric_rxml_writer_string(self, name, xmlTextWriterStartDTDElement);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-start_dtd_entity" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            start_dtd_entity(name, pe = false) &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Starts a DTD entity (&lt;!ENTITY … &gt;). Returns <code>false</code> on failure.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="start_dtd_entity-source">
+            <pre>static VALUE rxml_writer_start_dtd_entity(int argc, VALUE* argv, VALUE self)
+{
+    VALUE name, pe;
+
+    rb_scan_args(argc, argv, &quot;11&quot;, &amp;name, &amp;pe);
+    if (NIL_P(pe))
+    {
+        pe = Qfalse;
+    }
+
+    return numeric_rxml_writer_va_strings(self, pe, 1, xmlTextWriterStartDTDEntity, name);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-start_element" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            start_element(name) &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Starts a new element. Returns <code>false</code> on failure.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="start_element-source">
+            <pre>static VALUE rxml_writer_start_element(VALUE self, VALUE name)
+{
+    return numeric_rxml_writer_string(self, name, xmlTextWriterStartElement);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-start_element_ns" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            start_element_ns(prefix, name, namespaceURI) &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Starts a new namespaced element. Returns <code>false</code> on failure.</p>
+
+<p>Note: by default, the xmlns: definition is repeated on every element. If you want the prefix, but don&#39;t want the xmlns: declaration repeated, set <code>namespaceURI</code> to nil or omit it. Don&#39;t forget to declare the namespace prefix somewhere earlier.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="start_element_ns-source">
+            <pre>static VALUE rxml_writer_start_element_ns(int argc, VALUE* argv, VALUE self)
+{
+    VALUE prefix, name, namespaceURI;
+
+    rb_scan_args(argc, argv, &quot;21&quot;, &amp;prefix, &amp;name, &amp;namespaceURI);
+
+    return numeric_rxml_writer_va_strings(self, Qundef, 3, xmlTextWriterStartElementNS, prefix, name, namespaceURI);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-start_pi" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            start_pi(target) &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Starts a new processing instruction. Returns <code>false</code> on failure.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="start_pi-source">
+            <pre>static VALUE rxml_writer_start_pi(VALUE self, VALUE target)
+{
+    return numeric_rxml_writer_string(self, target, xmlTextWriterStartPI);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-write_attribute" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            write_attribute(name, content) &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Writes a full attribute, all at once. Returns <code>false</code> on failure. Same as <a href="Writer.html#method-i-start_attribute"><code>start_attribute</code></a>(name) + <a href="Writer.html#method-i-write_string"><code>write_string</code></a>(content) + end_attribute.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="write_attribute-source">
+            <pre>static VALUE rxml_writer_write_attribute(VALUE self, VALUE name, VALUE content)
+{
+    return numeric_rxml_writer_va_strings(self, Qundef, 2, xmlTextWriterWriteAttribute, name, content);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-write_attribute_ns" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            write_attribute_ns(prefix, name, namespaceURI, content) &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Writes a full namespaced attribute, all at once. Returns <code>false</code> on failure. Same as <a href="Writer.html#method-i-start_attribute_ns"><code>start_attribute_ns</code></a>(prefix, name, namespaceURI) + <a href="Writer.html#method-i-write_string"><code>write_string</code></a>(content) + end_attribute.</p>
+
+<p>Notes:</p>
+<ul><li>
+<p>by default, the xmlns: definition is repeated on every element. If you want</p>
+</li></ul>
+
+<p>the prefix, but don&#39;t want the xmlns: declaration repeated, set <code>namespaceURI</code> to nil or omit it. Don&#39;t forget to declare the namespace prefix somewhere earlier.</p>
+<ul><li>
+<p><code>content</code> can be omitted too for an empty attribute</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="write_attribute_ns-source">
+            <pre>static VALUE rxml_writer_write_attribute_ns(int argc, VALUE* argv, VALUE self)
+{
+    VALUE prefix, name, namespaceURI, content;
+
+    rb_scan_args(argc, argv, &quot;22&quot;, &amp;prefix, &amp;name, &amp;namespaceURI, &amp;content);
+
+    return numeric_rxml_writer_va_strings(self, Qundef, 4, xmlTextWriterWriteAttributeNS, prefix, name, namespaceURI, content);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-write_cdata" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            write_cdata(content) &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Writes a full CDATA section, all at once. Returns <code>false</code> on failure. This is equivalent to <a href="Writer.html#method-i-start_cdata"><code>start_cdata</code></a> + <a href="Writer.html#method-i-write_string"><code>write_string</code></a>(content) + end_cdata.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="write_cdata-source">
+            <pre>static VALUE rxml_writer_write_cdata(VALUE self, VALUE content)
+{
+    return numeric_rxml_writer_string(self, content, xmlTextWriterWriteCDATA);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-write_comment" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            write_comment(content) &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Writes a full comment tag, all at once. Returns <code>false</code> on failure. This is equivalent to <a href="Writer.html#method-i-start_comment"><code>start_comment</code></a> + <a href="Writer.html#method-i-write_string"><code>write_string</code></a>(content) + end_comment.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="write_comment-source">
+            <pre>static VALUE rxml_writer_write_comment(VALUE self, VALUE content)
+{
+    return numeric_rxml_writer_string(self, content, xmlTextWriterWriteComment);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-write_dtd" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            write_dtd(name [ [ [, publicId ], systemId ], subset ]) &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Writes a DTD, all at once. Returns <code>false</code> on failure.</p>
+<ul><li>
+<p>name: dtd name</p>
+</li><li>
+<p>publicId: external subset public identifier, use nil for a SYSTEM doctype</p>
+</li><li>
+<p>systemId: external subset system identifier</p>
+</li><li>
+<p>subset: content</p>
+</li></ul>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-identifier">writer</span>.<span class="ruby-identifier">write_dtd</span> <span class="ruby-string">&#39;html&#39;</span>
+  <span class="ruby-comment">#=&gt; &lt;!DOCTYPE html&gt;</span>
+<span class="ruby-identifier">writer</span>.<span class="ruby-identifier">write_dtd</span> <span class="ruby-string">&#39;docbook&#39;</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-string">&#39;http://www.docbook.org/xml/5.0/dtd/docbook.dtd&#39;</span>
+  <span class="ruby-comment">#=&gt; &lt;!DOCTYPE docbook SYSTEM &quot;http://www.docbook.org/xml/5.0/dtd/docbook.dtd&quot;&gt;</span>
+<span class="ruby-identifier">writer</span>.<span class="ruby-identifier">write_dtd</span> <span class="ruby-string">&#39;html&#39;</span>, <span class="ruby-string">&#39;-//W3C//DTD XHTML 1.1//EN&#39;</span>, <span class="ruby-string">&#39;http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd&#39;</span>
+  <span class="ruby-comment">#=&gt; &lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.1//EN&quot; &quot;http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd&quot;&gt;</span>
+<span class="ruby-identifier">writer</span>.<span class="ruby-identifier">write_dtd</span> <span class="ruby-string">&#39;person&#39;</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-string">&#39;&lt;!ELEMENT person (firstname,lastname)&gt;&lt;!ELEMENT firstname (#PCDATA)&gt;&lt;!ELEMENT lastname (#PCDATA)&gt;&#39;</span>
+  <span class="ruby-comment">#=&gt; &lt;!DOCTYPE person [&lt;!ELEMENT person (firstname,lastname)&gt;&lt;!ELEMENT firstname (#PCDATA)&gt;&lt;!ELEMENT lastname (#PCDATA)&gt;]&gt;</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="write_dtd-source">
+            <pre>static VALUE rxml_writer_write_dtd(int argc, VALUE* argv, VALUE self)
+{
+    VALUE name, pubid, sysid, subset;
+
+    rb_scan_args(argc, argv, &quot;13&quot;, &amp;name, &amp;pubid, &amp;sysid, &amp;subset);
+
+    return numeric_rxml_writer_va_strings(self, Qundef, 4, xmlTextWriterWriteDTD, name, pubid, sysid, subset);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-write_dtd_attlist" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            write_dtd_attlist(name, content) &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Writes a DTD attribute list, all at once. Returns <code>false</code> on failure.</p>
+
+<pre class="ruby"><span class="ruby-identifier">writer</span>.<span class="ruby-identifier">write_dtd_attlist</span> <span class="ruby-string">&#39;id&#39;</span>, <span class="ruby-string">&#39;ID #IMPLIED&#39;</span>
+  <span class="ruby-comment">#=&gt; &lt;!ATTLIST id ID #IMPLIED&gt;</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="write_dtd_attlist-source">
+            <pre>static VALUE rxml_writer_write_dtd_attlist(VALUE self, VALUE name, VALUE content)
+{
+    return numeric_rxml_writer_va_strings(self, Qundef, 2, xmlTextWriterWriteDTDAttlist, name, content);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-write_dtd_element" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            write_dtd_element(name, content) &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Writes a full DTD element, all at once. Returns <code>false</code> on failure.</p>
+
+<pre class="ruby"><span class="ruby-identifier">writer</span>.<span class="ruby-identifier">write_dtd_element</span> <span class="ruby-string">&#39;person&#39;</span>, <span class="ruby-string">&#39;(firstname,lastname)&#39;</span>
+  <span class="ruby-comment">#=&gt; &lt;!ELEMENT person (firstname,lastname)&gt;</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="write_dtd_element-source">
+            <pre>static VALUE rxml_writer_write_dtd_element(VALUE self, VALUE name, VALUE content)
+{
+    return numeric_rxml_writer_va_strings(self, Qundef, 2, xmlTextWriterWriteDTDElement, name, content);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-write_dtd_entity" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            write_dtd_entity(name, publicId, systemId, ndataid, content, pe) &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Writes a DTD entity, all at once. Returns <code>false</code> on failure.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="write_dtd_entity-source">
+            <pre>static VALUE rxml_writer_write_dtd_entity(VALUE self, VALUE name, VALUE pubid, VALUE sysid, VALUE ndataid, VALUE content, VALUE pe)
+{
+    return numeric_rxml_writer_va_strings(self, pe, 5, xmlTextWriterWriteDTDEntity, name, pubid, sysid, ndataid, content);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-write_dtd_external_entity" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            write_dtd_external_entity(name, publicId, systemId, ndataid, pe) &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Writes a DTD external entity. The entity must have been started with start_dtd_entity. Returns <code>false</code> on failure.</p>
+<ul><li>
+<p>name: the name of the DTD entity</p>
+</li><li>
+<p>publicId: the public identifier, which is an alternative to the system identifier</p>
+</li><li>
+<p>systemId: the system identifier, which is the URI of the DTD</p>
+</li><li>
+<p>ndataid: the xml notation name</p>
+</li><li>
+<p>pe: <code>true</code> if this is a parameter entity (to be used only in the DTD</p>
+</li></ul>
+
+<p>itself), <code>false</code> if not</p>
+          
+          
+
+          
+          <div class="method-source-code" id="write_dtd_external_entity-source">
+            <pre>static VALUE rxml_writer_write_dtd_external_entity(VALUE self, VALUE name, VALUE pubid, VALUE sysid, VALUE ndataid, VALUE pe)
+{
+    return numeric_rxml_writer_va_strings(self, pe, 4, xmlTextWriterWriteDTDExternalEntity, name, pubid, sysid, ndataid);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-write_dtd_external_entity_contents" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            write_dtd_external_entity_contents(publicId, systemId, ndataid) &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Writes the contents of a DTD external entity, all at once. Returns <code>false</code> on failure.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="write_dtd_external_entity_contents-source">
+            <pre>static VALUE rxml_writer_write_dtd_external_entity_contents(VALUE self, VALUE pubid, VALUE sysid, VALUE ndataid)
+{
+    return numeric_rxml_writer_va_strings(self, Qundef, 3, xmlTextWriterWriteDTDExternalEntityContents, pubid, sysid, ndataid);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-write_dtd_internal_entity" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            write_dtd_internal_entity(name, content, pe) &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Writes a DTD internal entity, all at once. Returns <code>false</code> on failure.</p>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-identifier">writer</span>.<span class="ruby-identifier">write_dtd_entity</span> <span class="ruby-string">&#39;Shape&#39;</span>, <span class="ruby-string">&#39;(rect|circle|poly|default)&#39;</span>, <span class="ruby-keyword">true</span>
+  <span class="ruby-comment">#=&gt; &lt;!ENTITY % Shape &quot;(rect|circle|poly|default)&quot;&gt;</span>
+<span class="ruby-identifier">writer</span>.<span class="ruby-identifier">write_dtd_entity</span> <span class="ruby-string">&#39;delta&#39;</span>, <span class="ruby-string">&#39;&amp;#948;&#39;</span>, <span class="ruby-keyword">false</span>
+  <span class="ruby-comment">#=&gt; &lt;!ENTITY delta &quot;&amp;#948;&quot;&gt;</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="write_dtd_internal_entity-source">
+            <pre>static VALUE rxml_writer_write_dtd_internal_entity(VALUE self, VALUE name, VALUE content, VALUE pe)
+{
+    return numeric_rxml_writer_va_strings(self, pe, 2, xmlTextWriterWriteDTDInternalEntity, name, content);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-write_dtd_notation" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            write_dtd_notation(name, publicId, systemId) &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Writes a DTD entity, all at once. Returns <code>false</code> on failure.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="write_dtd_notation-source">
+            <pre>static VALUE rxml_writer_write_dtd_notation(VALUE self, VALUE name, VALUE pubid, VALUE sysid)
+{
+    return numeric_rxml_writer_va_strings(self, Qundef, 3, xmlTextWriterWriteDTDNotation, name, pubid, sysid);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-write_element" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            write_element(name, content) &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Writes a full element tag, all at once. Returns <code>false</code> on failure. This is equivalent to <a href="Writer.html#method-i-start_element"><code>start_element</code></a>(name) + <a href="Writer.html#method-i-write_string"><code>write_string</code></a>(content) + end_element.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="write_element-source">
+            <pre>static VALUE rxml_writer_write_element(int argc, VALUE* argv, VALUE self)
+{
+    VALUE name, content;
+
+    rb_scan_args(argc, argv, &quot;11&quot;, &amp;name, &amp;content);
+    if (Qnil == content)
+    {
+        if (Qfalse == rxml_writer_start_element(self, name))
+        {
+            return Qfalse;
+        }
+        return rxml_writer_end_element(self);
+    }
+    else
+    {
+        return numeric_rxml_writer_va_strings(self, Qundef, 2, xmlTextWriterWriteElement, name, content);
+    }
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-write_element_ns" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            write_element_ns(prefix, name, namespaceURI, content) &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Writes a full namespaced element tag, all at once. Returns <code>false</code> on failure. This is a shortcut for <a href="Writer.html#method-i-start_element_ns"><code>start_element_ns</code></a>(prefix, name, namespaceURI) + <a href="Writer.html#method-i-write_string"><code>write_string</code></a>(content) + end_element.</p>
+
+<p>Notes:</p>
+<ul><li>
+<p>by default, the xmlns: definition is repeated on every element. If you want</p>
+</li></ul>
+
+<p>the prefix, but don&#39;t want the xmlns: declaration repeated, set <code>namespaceURI</code> to nil or omit it. Don&#39;t forget to declare the namespace prefix somewhere earlier.</p>
+<ul><li>
+<p><code>content</code> can be omitted for an empty tag</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="write_element_ns-source">
+            <pre>static VALUE rxml_writer_write_element_ns(int argc, VALUE* argv, VALUE self)
+{
+    VALUE prefix, name, namespaceURI, content;
+
+    rb_scan_args(argc, argv, &quot;22&quot;, &amp;prefix, &amp;name, &amp;namespaceURI, &amp;content);
+    if (Qnil == content)
+    {
+        VALUE argv[3] = { prefix, name, namespaceURI };
+
+        if (Qfalse == rxml_writer_start_element_ns(ARRAY_SIZE(argv), argv, self))
+        {
+            return Qfalse;
+        }
+        return rxml_writer_end_element(self);
+    }
+    else
+    {
+        return numeric_rxml_writer_va_strings(self, Qundef, 4, xmlTextWriterWriteElementNS, prefix, name, namespaceURI, content);
+    }
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-write_pi" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            write_pi(target, content) &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Writes a full CDATA tag, all at once. Returns <code>false</code> on failure. This is a shortcut for <a href="Writer.html#method-i-start_pi"><code>start_pi</code></a>(target) + <a href="Writer.html#method-i-write_string"><code>write_string</code></a>(content) + end_pi.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="write_pi-source">
+            <pre>static VALUE rxml_writer_write_pi(VALUE self, VALUE target, VALUE content)
+{
+    return numeric_rxml_writer_va_strings(self, Qundef, 2, xmlTextWriterWritePI, target, content);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-write_raw" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            write_raw(content) &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Writes the string <code>content</code> as is, reserved characters are not translated to their associated entities. Returns <code>false</code> on failure. Consider <a href="Writer.html#method-i-write_string"><code>write_string</code></a> to handle them.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="write_raw-source">
+            <pre>static VALUE rxml_writer_write_raw(VALUE self, VALUE content)
+{
+    return numeric_rxml_writer_string(self, content, xmlTextWriterWriteRaw);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-write_string" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            write_string(content) &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Safely (problematic characters are internally translated to their associated named entities) writes a string into the current node (attribute, element, comment, …). Returns <code>false</code> on failure.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="write_string-source">
+            <pre>static VALUE rxml_writer_write_string(VALUE self, VALUE content)
+{
+    return numeric_rxml_writer_string(self, content, xmlTextWriterWriteString);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

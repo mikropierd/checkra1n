@@ -1,0 +1,4242 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class LibXML::XML::Node - libxml-ruby-5.0.3 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/navigation.js" defer></script>
+<script src="../../js/search.js" defer></script>
+<script src="../../js/search_index.js" defer></script>
+<script src="../../js/searcher.js" defer></script>
+<script src="../../js/darkfish.js" defer></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../Object.html">Object</a>
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><span class="include">Enumerable</span>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-c-new_cdata">::new_cdata</a>
+    
+    <li ><a href="#method-c-new_comment">::new_comment</a>
+    
+    <li ><a href="#method-c-new_pi">::new_pi</a>
+    
+    <li ><a href="#method-c-new_text">::new_text</a>
+    
+    <li ><a href="#method-i-3C-3C">#&lt;&lt;</a>
+    
+    <li ><a href="#method-i-3D-3D">#==</a>
+    
+    <li ><a href="#method-i-5B-5D">#[]</a>
+    
+    <li ><a href="#method-i-5B-5D-3D">#[]=</a>
+    
+    <li ><a href="#method-i-attribute-3F">#attribute?</a>
+    
+    <li ><a href="#method-i-attribute_decl-3F">#attribute_decl?</a>
+    
+    <li ><a href="#method-i-attributes">#attributes</a>
+    
+    <li ><a href="#method-i-attributes-3F">#attributes?</a>
+    
+    <li ><a href="#method-i-base_uri">#base_uri</a>
+    
+    <li ><a href="#method-i-base_uri-3D">#base_uri=</a>
+    
+    <li ><a href="#method-i-blank-3F">#blank?</a>
+    
+    <li ><a href="#method-i-cdata-3F">#cdata?</a>
+    
+    <li ><a href="#method-i-child">#child</a>
+    
+    <li ><a href="#method-i-child-3F">#child?</a>
+    
+    <li ><a href="#method-i-children">#children</a>
+    
+    <li ><a href="#method-i-children-3F">#children?</a>
+    
+    <li ><a href="#method-i-clone">#clone</a>
+    
+    <li ><a href="#method-i-comment-3F">#comment?</a>
+    
+    <li ><a href="#method-i-content">#content</a>
+    
+    <li ><a href="#method-i-content-3D">#content=</a>
+    
+    <li ><a href="#method-i-context">#context</a>
+    
+    <li ><a href="#method-i-copy">#copy</a>
+    
+    <li ><a href="#method-i-create_string_io">#create_string_io</a>
+    
+    <li ><a href="#method-i-debug">#debug</a>
+    
+    <li ><a href="#method-i-doc">#doc</a>
+    
+    <li ><a href="#method-i-docbook_doc-3F">#docbook_doc?</a>
+    
+    <li ><a href="#method-i-doctype-3F">#doctype?</a>
+    
+    <li ><a href="#method-i-document-3F">#document?</a>
+    
+    <li ><a href="#method-i-dtd-3F">#dtd?</a>
+    
+    <li ><a href="#method-i-dup">#dup</a>
+    
+    <li ><a href="#method-i-each">#each</a>
+    
+    <li ><a href="#method-i-each_attr">#each_attr</a>
+    
+    <li ><a href="#method-i-each_child">#each_child</a>
+    
+    <li ><a href="#method-i-each_element">#each_element</a>
+    
+    <li ><a href="#method-i-element-3F">#element?</a>
+    
+    <li ><a href="#method-i-element_decl-3F">#element_decl?</a>
+    
+    <li ><a href="#method-i-empty-3F">#empty?</a>
+    
+    <li ><a href="#method-i-entity-3F">#entity?</a>
+    
+    <li ><a href="#method-i-entity_ref-3F">#entity_ref?</a>
+    
+    <li ><a href="#method-i-eql-3F">#eql?</a>
+    
+    <li ><a href="#method-i-find">#find</a>
+    
+    <li ><a href="#method-i-find_first">#find_first</a>
+    
+    <li ><a href="#method-i-first">#first</a>
+    
+    <li ><a href="#method-i-first-3F">#first?</a>
+    
+    <li ><a href="#method-i-fragment-3F">#fragment?</a>
+    
+    <li ><a href="#method-i-html_doc-3F">#html_doc?</a>
+    
+    <li ><a href="#method-i-inner_xml">#inner_xml</a>
+    
+    <li ><a href="#method-i-lang">#lang</a>
+    
+    <li ><a href="#method-i-lang-3D">#lang=</a>
+    
+    <li ><a href="#method-i-last">#last</a>
+    
+    <li ><a href="#method-i-last-3F">#last?</a>
+    
+    <li ><a href="#method-i-line_num">#line_num</a>
+    
+    <li ><a href="#method-i-name">#name</a>
+    
+    <li ><a href="#method-i-name-3D">#name=</a>
+    
+    <li ><a href="#method-i-namespace-3F">#namespace?</a>
+    
+    <li ><a href="#method-i-namespaces">#namespaces</a>
+    
+    <li ><a href="#method-i-next">#next</a>
+    
+    <li ><a href="#method-i-next-3D">#next=</a>
+    
+    <li ><a href="#method-i-next-3F">#next?</a>
+    
+    <li ><a href="#method-i-node_type">#node_type</a>
+    
+    <li ><a href="#method-i-node_type_name">#node_type_name</a>
+    
+    <li ><a href="#method-i-notation-3F">#notation?</a>
+    
+    <li ><a href="#method-i-output_escaping-3D">#output_escaping=</a>
+    
+    <li ><a href="#method-i-output_escaping-3F">#output_escaping?</a>
+    
+    <li ><a href="#method-i-parent">#parent</a>
+    
+    <li ><a href="#method-i-parent-3F">#parent?</a>
+    
+    <li ><a href="#method-i-path">#path</a>
+    
+    <li ><a href="#method-i-pi-3F">#pi?</a>
+    
+    <li ><a href="#method-i-prev">#prev</a>
+    
+    <li ><a href="#method-i-prev-3D">#prev=</a>
+    
+    <li ><a href="#method-i-prev-3F">#prev?</a>
+    
+    <li ><a href="#method-i-remove-21">#remove!</a>
+    
+    <li ><a href="#method-i-sibling-3D">#sibling=</a>
+    
+    <li ><a href="#method-i-space_preserve">#space_preserve</a>
+    
+    <li ><a href="#method-i-space_preserve-3D">#space_preserve=</a>
+    
+    <li ><a href="#method-i-text-3F">#text?</a>
+    
+    <li ><a href="#method-i-to_s">#to_s</a>
+    
+    <li ><a href="#method-i-xinclude_end-3F">#xinclude_end?</a>
+    
+    <li ><a href="#method-i-xinclude_start-3F">#xinclude_start?</a>
+    
+    <li ><a href="#method-i-xlink-3F">#xlink?</a>
+    
+    <li ><a href="#method-i-xlink_type">#xlink_type</a>
+    
+    <li ><a href="#method-i-xlink_type_name">#xlink_type_name</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-LibXML::XML::Node">
+  <h1 id="class-LibXML::XML::Node" class="class">
+    class LibXML::XML::Node
+  </h1>
+
+  <section class="description">
+    
+<p>Nodes are the primary objects that make up an <a href="../XML.html"><code>XML</code></a> document. The node class represents most node types that are found in an <a href="../XML.html"><code>XML</code></a> document (but not <a href="Attributes.html"><code>LibXML::XML::Attributes</code></a>, see <a href="Attr.html"><code>LibXML::XML::Attr</code></a>). It exposes libxml&#39;s full API for creating, querying moving and deleting node objects.  Many of these methods are documented in the DOM Level 3 specification found at: <a href="http://www.w3.org/TR/DOM-Level-3-Core">www.w3.org/TR/DOM-Level-3-Core</a>/.</p>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="ATTRIBUTE_DECL">ATTRIBUTE_DECL
+        
+        <dd>
+        
+      
+        <dt id="ATTRIBUTE_NODE">ATTRIBUTE_NODE
+        
+        <dd>
+        
+      
+        <dt id="CDATA_SECTION_NODE">CDATA_SECTION_NODE
+        
+        <dd>
+        
+      
+        <dt id="COMMENT_NODE">COMMENT_NODE
+        
+        <dd>
+        
+      
+        <dt id="DOCB_DOCUMENT_NODE">DOCB_DOCUMENT_NODE
+        
+        <dd>
+        
+      
+        <dt id="DOCUMENT_FRAG_NODE">DOCUMENT_FRAG_NODE
+        
+        <dd>
+        
+      
+        <dt id="DOCUMENT_NODE">DOCUMENT_NODE
+        
+        <dd>
+        
+      
+        <dt id="DOCUMENT_TYPE_NODE">DOCUMENT_TYPE_NODE
+        
+        <dd>
+        
+      
+        <dt id="DTD_NODE">DTD_NODE
+        
+        <dd>
+        
+      
+        <dt id="ELEMENT_DECL">ELEMENT_DECL
+        
+        <dd>
+        
+      
+        <dt id="ELEMENT_NODE">ELEMENT_NODE
+        
+        <dd>
+        
+      
+        <dt id="ENTITY_DECL">ENTITY_DECL
+        
+        <dd>
+        
+      
+        <dt id="ENTITY_NODE">ENTITY_NODE
+        
+        <dd>
+        
+      
+        <dt id="ENTITY_REF_NODE">ENTITY_REF_NODE
+        
+        <dd>
+        
+      
+        <dt id="HTML_DOCUMENT_NODE">HTML_DOCUMENT_NODE
+        
+        <dd>
+        
+      
+        <dt id="NAMESPACE_DECL">NAMESPACE_DECL
+        
+        <dd>
+        
+      
+        <dt id="NOTATION_NODE">NOTATION_NODE
+        
+        <dd>
+        
+      
+        <dt id="PI_NODE">PI_NODE
+        
+        <dd>
+        
+      
+        <dt id="SPACE_DEFAULT">SPACE_DEFAULT
+        
+        <dd>
+        
+      
+        <dt id="SPACE_NOT_INHERIT">SPACE_NOT_INHERIT
+        
+        <dd>
+        
+      
+        <dt id="SPACE_PRESERVE">SPACE_PRESERVE
+        
+        <dd>
+        
+      
+        <dt id="TEXT_NODE">TEXT_NODE
+        
+        <dd>
+        
+      
+        <dt id="XINCLUDE_END">XINCLUDE_END
+        
+        <dd>
+        
+      
+        <dt id="XINCLUDE_START">XINCLUDE_START
+        
+        <dd>
+        
+      
+        <dt id="XLINK_ACTUATE_AUTO">XLINK_ACTUATE_AUTO
+        
+        <dd>
+        
+      
+        <dt id="XLINK_ACTUATE_NONE">XLINK_ACTUATE_NONE
+        
+        <dd>
+        
+      
+        <dt id="XLINK_ACTUATE_ONREQUEST">XLINK_ACTUATE_ONREQUEST
+        
+        <dd>
+        
+      
+        <dt id="XLINK_SHOW_EMBED">XLINK_SHOW_EMBED
+        
+        <dd>
+        
+      
+        <dt id="XLINK_SHOW_NEW">XLINK_SHOW_NEW
+        
+        <dd>
+        
+      
+        <dt id="XLINK_SHOW_NONE">XLINK_SHOW_NONE
+        
+        <dd>
+        
+      
+        <dt id="XLINK_SHOW_REPLACE">XLINK_SHOW_REPLACE
+        
+        <dd>
+        
+      
+        <dt id="XLINK_TYPE_EXTENDED">XLINK_TYPE_EXTENDED
+        
+        <dd>
+        
+      
+        <dt id="XLINK_TYPE_EXTENDED_SET">XLINK_TYPE_EXTENDED_SET
+        
+        <dd>
+        
+      
+        <dt id="XLINK_TYPE_NONE">XLINK_TYPE_NONE
+        
+        <dd>
+        
+      
+        <dt id="XLINK_TYPE_SIMPLE">XLINK_TYPE_SIMPLE
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            XML::Node.initialize(name, content = nil, namespace = nil) &rarr; XML::Node
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Creates a new element with the specified name, content and namespace. The content and namespace may be nil.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre>static VALUE rxml_node_initialize(int argc, VALUE *argv, VALUE self)
+{
+  VALUE name;
+  VALUE content;
+  VALUE ns;
+  xmlNodePtr xnode = NULL;
+  xmlNsPtr xns = NULL;
+
+  rb_scan_args(argc, argv, &quot;12&quot;, &amp;name, &amp;content, &amp;ns);
+
+  name = rb_obj_as_string(name);
+
+  if (!NIL_P(ns))
+    Data_Get_Struct(ns, xmlNs, xns);
+
+  xnode = xmlNewNode(xns, (xmlChar*) StringValuePtr(name));
+
+  if (xnode == NULL)
+    rxml_raise(xmlGetLastError());
+
+  // Link the ruby wrapper to the underlying libxml node
+  RDATA(self)-&gt;data = xnode;
+
+  // Ruby is in charge of managing this node&#39;s memory
+  rxml_node_manage(xnode, self);
+
+  if (!NIL_P(content))
+    rxml_node_content_set(self, content);
+
+  return self;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new_cdata" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            XML::Node.new_cdata(content = nil) &rarr; XML::Node
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Create a new #CDATA node, optionally setting the node&#39;s content.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new_cdata-source">
+            <pre>static VALUE rxml_node_new_cdata(int argc, VALUE *argv, VALUE klass)
+{
+  VALUE content = Qnil;
+  xmlNodePtr xnode;
+
+  rb_scan_args(argc, argv, &quot;01&quot;, &amp;content);
+
+  if (NIL_P(content))
+  {
+    xnode = xmlNewCDataBlock(NULL, NULL, 0);
+  }
+  else
+  {
+    content = rb_obj_as_string(content);
+    xnode = xmlNewCDataBlock(NULL, (xmlChar*) StringValuePtr(content), (int)RSTRING_LEN(content));
+  }
+
+  if (xnode == NULL)
+    rxml_raise(xmlGetLastError());
+
+  return rxml_node_wrap(xnode);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new_comment" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            XML::Node.new_comment(content = nil) &rarr; XML::Node
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Create a new comment node, optionally setting the node&#39;s content.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new_comment-source">
+            <pre>static VALUE rxml_node_new_comment(int argc, VALUE *argv, VALUE klass)
+{
+  VALUE content = Qnil;
+  xmlNodePtr xnode;
+
+  rb_scan_args(argc, argv, &quot;01&quot;, &amp;content);
+
+  if (NIL_P(content))
+  {
+    xnode = xmlNewComment(NULL);
+  }
+  else
+  {
+    content = rb_obj_as_string(content);
+    xnode = xmlNewComment((xmlChar*) StringValueCStr(content));
+  }
+
+  if (xnode == NULL)
+    rxml_raise(xmlGetLastError());
+
+  return rxml_node_wrap(xnode);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new_pi" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            XML::Node.new_pi(name, content = nil) &rarr; XML::Node
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Create a new pi node, optionally setting the node&#39;s content.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new_pi-source">
+            <pre>static VALUE rxml_node_new_pi(int argc, VALUE *argv, VALUE klass)
+{
+  VALUE name = Qnil;
+  VALUE content = Qnil;
+  xmlNodePtr xnode;
+
+  rb_scan_args(argc, argv, &quot;11&quot;, &amp;name, &amp;content);
+
+  if (NIL_P(name))
+  {
+    rb_raise(rb_eRuntimeError, &quot;You must provide me with a name for a PI.&quot;);
+  }
+  name = rb_obj_as_string(name);
+  if (NIL_P(content))
+  {
+    xnode = xmlNewPI((xmlChar*) StringValuePtr(name), NULL);
+  }
+  else
+  {
+    content = rb_obj_as_string(content);
+    xnode = xmlNewPI((xmlChar*) StringValuePtr(name), (xmlChar*) StringValueCStr(content));
+  }
+
+  if (xnode == NULL)
+    rxml_raise(xmlGetLastError());
+
+  return rxml_node_wrap(xnode);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new_text" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            XML::Node.new_text(content) &rarr; XML::Node
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Create a new text node.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new_text-source">
+            <pre>static VALUE rxml_node_new_text(VALUE klass, VALUE content)
+{
+  xmlNodePtr xnode;
+  Check_Type(content, T_STRING);
+  content = rb_obj_as_string(content);
+
+  xnode = xmlNewText((xmlChar*) StringValueCStr(content));
+
+  if (xnode == NULL)
+    rxml_raise(xmlGetLastError());
+
+  return rxml_node_wrap(xnode);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-3C-3C" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            curr_node &lt;&lt; &quot;Some text&quot;
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            curr_node &lt;&lt; node
+          </span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Add  the specified text or <a href="Node.html"><code>XML::Node</code></a> as a new child node to the  current node.</p>
+
+<p>If the specified argument is a string, it should be a raw string  that contains unescaped <a href="../XML.html"><code>XML</code></a> special characters.  Entity references  are not supported.</p>
+
+<p>The method will return the current node.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="3C-3C-source">
+            <pre>static VALUE rxml_node_content_add(VALUE self, VALUE obj)
+{
+  xmlNodePtr xnode;
+  VALUE str;
+
+  xnode = rxml_get_xnode(self);
+
+  /* XXX This should only be legal for a CDATA type node, I think,
+   * resulting in a merge of content, as if a string were passed
+   * danj 070827
+   */
+  if (rb_obj_is_kind_of(obj, cXMLNode))
+  { 
+    rxml_node_modify_dom(self, obj, xmlAddChild);
+  }
+  else
+  {
+    str = rb_obj_as_string(obj);
+    if (NIL_P(str) || TYPE(str) != T_STRING)
+      rb_raise(rb_eTypeError, &quot;invalid argument: must be string or XML::Node&quot;);
+
+    xmlNodeAddContent(xnode, (xmlChar*) StringValuePtr(str));
+  }
+  return self;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-3D-3D" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">==</span><span
+            class="method-args">(p1)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Node.html#method-i-eql-3F">eql?</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-5B-5D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            property(&quot;name&quot;) &rarr; &quot;string&quot;
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            node[&quot;name&quot;]          &rarr; &quot;string&quot;
+          </span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain the named property.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="5B-5D-source">
+            <pre>static VALUE rxml_node_attribute_get(VALUE self, VALUE name)
+{
+  VALUE attributes = rxml_node_attributes_get(self);
+  return rxml_attributes_attribute_get(attributes, name);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-5B-5D-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            node[&quot;name&quot;] = &quot;string&quot;
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Set the named property.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="5B-5D-3D-source">
+            <pre>static VALUE rxml_node_property_set(VALUE self, VALUE name, VALUE value)
+{
+  VALUE attributes = rxml_node_attributes_get(self);
+  return rxml_attributes_attribute_set(attributes, name, value);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-attribute-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">attribute?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Specifies if this is an attribute node</p>
+          
+          
+
+          
+          <div class="method-source-code" id="attribute-3F-source">
+            <pre><span class="ruby-comment"># File lib/libxml/node.rb, line 207</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">attribute?</span>
+  <span class="ruby-identifier">node_type</span> <span class="ruby-operator">==</span> <span class="ruby-constant">ATTRIBUTE_NODE</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-attribute_decl-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">attribute_decl?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Specifies if this is an attribute declaration node</p>
+          
+          
+
+          
+          <div class="method-source-code" id="attribute_decl-3F-source">
+            <pre><span class="ruby-comment"># File lib/libxml/node.rb, line 212</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">attribute_decl?</span>
+  <span class="ruby-identifier">node_type</span> <span class="ruby-operator">==</span> <span class="ruby-constant">ATTRIBUTE_DECL</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-attributes" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            attributes &rarr; attributes
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns the <a href="Attributes.html"><code>XML::Attributes</code></a> for this node.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="attributes-source">
+            <pre>static VALUE rxml_node_attributes_get(VALUE self)
+{
+  xmlNodePtr xnode;
+
+  xnode = rxml_get_xnode(self);
+  return rxml_attributes_new(xnode);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-attributes-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">attributes?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Determines whether this node has attributes</p>
+          
+          
+
+          
+          <div class="method-source-code" id="attributes-3F-source">
+            <pre><span class="ruby-comment"># File lib/libxml/node.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">attributes?</span>
+  <span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-base_uri" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            base_uri &rarr; &quot;uri&quot;
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain this node&#39;s base URI.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="base_uri-source">
+            <pre>static VALUE rxml_node_base_uri_get(VALUE self)
+{
+  xmlNodePtr xnode;
+  xmlChar* base_uri;
+  VALUE result = Qnil;
+
+  xnode = rxml_get_xnode(self);
+
+  if (xnode-&gt;doc == NULL)
+    return (result);
+
+  base_uri = xmlNodeGetBase(xnode-&gt;doc, xnode);
+  if (base_uri)
+  {
+    result = rxml_new_cstr( base_uri, NULL);
+    xmlFree(base_uri);
+  }
+
+  return (result);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-base_uri-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            base_uri = &quot;uri&quot;
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Set this node&#39;s base URI.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="base_uri-3D-source">
+            <pre>static VALUE rxml_node_base_uri_set(VALUE self, VALUE uri)
+{
+  xmlNodePtr xnode;
+
+  Check_Type(uri, T_STRING);
+  xnode = rxml_get_xnode(self);
+  if (xnode-&gt;doc == NULL)
+    return (Qnil);
+
+  xmlNodeSetBase(xnode, (xmlChar*) StringValuePtr(uri));
+  return (Qtrue);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-blank-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            empty? &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether this node is an empty or whitespace only text-node.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="blank-3F-source">
+            <pre>static VALUE rxml_node_empty_q(VALUE self)
+{
+  xmlNodePtr xnode;
+  xnode = rxml_get_xnode(self);
+  if (xnode == NULL)
+    return (Qnil);
+
+  return ((xmlIsBlankNode(xnode) == 1) ? Qtrue : Qfalse);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-cdata-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cdata?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Specifies if this is an CDATA node</p>
+          
+          
+
+          
+          <div class="method-source-code" id="cdata-3F-source">
+            <pre><span class="ruby-comment"># File lib/libxml/node.rb, line 217</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">cdata?</span>
+  <span class="ruby-identifier">node_type</span> <span class="ruby-operator">==</span> <span class="ruby-constant">CDATA_SECTION_NODE</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-child" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">child</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Node.html#method-i-first">first</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-child-3F" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">child?</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Node.html#method-i-first-3F">first?</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-children" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">children</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns this node&#39;s children as an array.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="children-source">
+            <pre><span class="ruby-comment"># File lib/libxml/node.rb, line 131</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">children</span>
+  <span class="ruby-identifier">entries</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-children-3F" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">children?</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Node.html#method-i-first-3F">first?</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-clone" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">clone</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a shallow copy of the node.  To create a deep copy call <a href="Node.html#method-i-copy"><code>Node#copy(true)</code></a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="clone-source">
+            <pre><span class="ruby-comment"># File lib/libxml/node.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">clone</span>
+  <span class="ruby-identifier">copy</span>(<span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-comment-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">comment?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Specifies if this is an comment node</p>
+          
+          
+
+          
+          <div class="method-source-code" id="comment-3F-source">
+            <pre><span class="ruby-comment"># File lib/libxml/node.rb, line 222</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">comment?</span>
+  <span class="ruby-identifier">node_type</span> <span class="ruby-operator">==</span> <span class="ruby-constant">COMMENT_NODE</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-content" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            content &rarr; &quot;string&quot;
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain this node&#39;s content as a string.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="content-source">
+            <pre>static VALUE rxml_node_content_get(VALUE self)
+{
+  xmlNodePtr xnode;
+  xmlChar *content;
+  VALUE result = Qnil;
+
+  xnode = rxml_get_xnode(self);
+  content = xmlNodeGetContent(xnode);
+  if (content)
+  {
+    result = rxml_new_cstr(content, NULL);
+    xmlFree(content);
+  }
+
+  return result;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-content-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            content = &quot;string&quot;
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Set this node&#39;s content to the specified string.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="content-3D-source">
+            <pre>static VALUE rxml_node_content_set(VALUE self, VALUE content)
+{
+  xmlNodePtr xnode;
+  xmlChar* encoded_content;
+
+  Check_Type(content, T_STRING);
+  xnode = rxml_get_xnode(self);
+  encoded_content = xmlEncodeSpecialChars(xnode-&gt;doc, (xmlChar*) StringValuePtr(content));
+  xmlNodeSetContent(xnode, encoded_content);
+  xmlFree(encoded_content);
+  return (Qtrue);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-context" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            context(namespaces=nil) &rarr; XPath::Context
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns a new XML::XPathContext for the current node.</p>
+
+<p><a href="Namespaces.html"><code>Namespaces</code></a> is an optional array of XML::NS objects</p>
+          
+          
+
+          
+          <div class="method-source-code" id="context-source">
+            <pre><span class="ruby-comment"># File lib/libxml/node.rb, line 53</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">context</span>(<span class="ruby-identifier">nslist</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">not</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">doc</span>
+    <span class="ruby-identifier">raise</span>(<span class="ruby-constant">TypeError</span>, <span class="ruby-string">&quot;A node must belong to a document before a xpath context can be created&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">context</span> = <span class="ruby-constant">XPath</span><span class="ruby-operator">::</span><span class="ruby-constant">Context</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">doc</span>)
+  <span class="ruby-identifier">context</span>.<span class="ruby-identifier">node</span> = <span class="ruby-keyword">self</span>
+  <span class="ruby-identifier">context</span>.<span class="ruby-identifier">register_namespaces_from_node</span>(<span class="ruby-keyword">self</span>)
+  <span class="ruby-identifier">context</span>.<span class="ruby-identifier">register_namespaces_from_node</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">doc</span>.<span class="ruby-identifier">root</span>)
+  <span class="ruby-identifier">context</span>.<span class="ruby-identifier">register_namespaces</span>(<span class="ruby-identifier">nslist</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">nslist</span>
+  <span class="ruby-identifier">context</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-copy" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            copy &rarr; XML::Node
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Creates a copy of this node.  To create a shallow copy set the deep parameter to false. To create a deep copy set the deep parameter to true.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="copy-source">
+            <pre>static VALUE rxml_node_copy(VALUE self, VALUE deep)
+{
+  xmlNodePtr xnode;
+  xmlNodePtr xcopy;
+  int recursive = (deep == Qnil || deep == Qfalse) ? 0 : 1;
+  xnode = rxml_get_xnode(self);
+
+  xcopy = xmlCopyNode(xnode, recursive);
+
+  if (xcopy)
+    return rxml_node_wrap(xcopy);
+  else
+    return Qnil;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-debug" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            debug &rarr; true|false
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Print libxml debugging information to stdout. Requires that libxml was compiled with debugging enabled.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="debug-source">
+            <pre>static VALUE rxml_node_debug(VALUE self)
+{
+#ifdef LIBXML_DEBUG_ENABLED
+  xmlNodePtr xnode;
+  xnode = rxml_get_xnode(self);
+  xmlDebugDumpNode(NULL, xnode, 2);
+  return Qtrue;
+#else
+  rb_warn(&quot;libxml was compiled without debugging support.&quot;);
+  return Qfalse;
+#endif
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-doc" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            doc &rarr; document
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain the <a href="Document.html"><code>XML::Document</code></a> this node belongs to.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="doc-source">
+            <pre>static VALUE rxml_node_doc(VALUE self)
+{
+  xmlDocPtr xdoc = NULL;
+  xmlNodePtr xnode = rxml_get_xnode(self);
+
+  switch (xnode-&gt;type)
+  {
+  case XML_DOCUMENT_NODE:
+#ifdef LIBXML_DOCB_ENABLED
+  case XML_DOCB_DOCUMENT_NODE:
+#endif
+  case XML_HTML_DOCUMENT_NODE:
+  case XML_NAMESPACE_DECL:
+    break;
+  case XML_ATTRIBUTE_NODE:
+    xdoc = (xmlDocPtr)((xmlAttrPtr) xnode-&gt;doc);
+    break;
+  default:
+    xdoc = xnode-&gt;doc;
+  }
+
+  if (xdoc == NULL)
+    return (Qnil);
+
+  return (VALUE)xdoc-&gt;_private;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-docbook_doc-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">docbook_doc?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Specifies if this is an docbook node</p>
+          
+          
+
+          
+          <div class="method-source-code" id="docbook_doc-3F-source">
+            <pre><span class="ruby-comment"># File lib/libxml/node.rb, line 227</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">docbook_doc?</span>
+  <span class="ruby-identifier">node_type</span> <span class="ruby-operator">==</span> <span class="ruby-constant">DOCB_DOCUMENT_NODE</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-doctype-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">doctype?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Specifies if this is an doctype node</p>
+          
+          
+
+          
+          <div class="method-source-code" id="doctype-3F-source">
+            <pre><span class="ruby-comment"># File lib/libxml/node.rb, line 232</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">doctype?</span>
+  <span class="ruby-identifier">node_type</span> <span class="ruby-operator">==</span> <span class="ruby-constant">DOCUMENT_TYPE_NODE</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-document-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">document?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Specifies if this is an document node</p>
+          
+          
+
+          
+          <div class="method-source-code" id="document-3F-source">
+            <pre><span class="ruby-comment"># File lib/libxml/node.rb, line 237</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">document?</span>
+  <span class="ruby-identifier">node_type</span> <span class="ruby-operator">==</span> <span class="ruby-constant">DOCUMENT_NODE</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-dtd-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dtd?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Specifies if this is an DTD node</p>
+          
+          
+
+          
+          <div class="method-source-code" id="dtd-3F-source">
+            <pre><span class="ruby-comment"># File lib/libxml/node.rb, line 242</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">dtd?</span>
+  <span class="ruby-identifier">node_type</span> <span class="ruby-operator">==</span> <span class="ruby-constant">DTD_NODE</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-dup" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            dup &rarr; XML::Node
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Create a shallow copy of the node.  To create a deep copy call <a href="Node.html#method-i-copy"><code>Node#copy(true)</code></a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="dup-source">
+            <pre><span class="ruby-comment"># File lib/libxml/node.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">dup</span>
+  <span class="ruby-identifier">copy</span>(<span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-each" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            each &rarr; XML::Node
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Iterates over this node&#39;s children, including text nodes, element nodes, etc.  If you wish to iterate only over child elements, use <a href="Node.html#method-i-each_element"><code>XML::Node#each_element</code></a>.</p>
+
+<pre class="ruby"><span class="ruby-identifier">doc</span> = <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;model/books.xml&#39;</span>)
+<span class="ruby-identifier">doc</span>.<span class="ruby-identifier">root</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">node</span><span class="ruby-operator">|</span> <span class="ruby-identifier">puts</span> <span class="ruby-identifier">node</span>}
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="each-source">
+            <pre>static VALUE rxml_node_each(VALUE self)
+{
+  xmlNodePtr xnode;
+  xmlNodePtr xcurrent;
+  xnode = rxml_get_xnode(self);
+
+  xcurrent = xnode-&gt;children;
+
+  while (xcurrent)
+  {
+    /* The user could remove this node, so first stache
+       away the next node. */
+    xmlNodePtr xnext = xcurrent-&gt;next;
+
+    rb_yield(rxml_node_wrap(xcurrent));
+    xcurrent = xnext;
+  }
+  return Qnil;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Node.html#method-i-each_child">each_child</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-each_attr" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">each_attr</span><span
+            class="method-args">() { |attr| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>——-  Traversal  —————- Iterates over this node&#39;s attributes.</p>
+
+<pre class="ruby"><span class="ruby-identifier">doc</span> = <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;model/books.xml&#39;</span>)
+<span class="ruby-identifier">doc</span>.<span class="ruby-identifier">root</span>.<span class="ruby-identifier">each_attr</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">attr</span><span class="ruby-operator">|</span> <span class="ruby-identifier">puts</span> <span class="ruby-identifier">attr</span>}
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="each_attr-source">
+            <pre><span class="ruby-comment"># File lib/libxml/node.rb, line 103</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">each_attr</span>
+  <span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">attr</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">yield</span>(<span class="ruby-identifier">attr</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-each_child" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">each_child</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Node.html#method-i-each">each</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-each_element" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">each_element</span><span
+            class="method-args">() { |node| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Iterates over this node&#39;s child elements (nodes that have a <a href="Node.html#method-i-node_type"><code>node_type</code></a> == <a href="Node.html#ELEMENT_NODE"><code>ELEMENT_NODE</code></a>).</p>
+
+<pre class="ruby"><span class="ruby-identifier">doc</span> = <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;model/books.xml&#39;</span>)
+<span class="ruby-identifier">doc</span>.<span class="ruby-identifier">root</span>.<span class="ruby-identifier">each_element</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">element</span><span class="ruby-operator">|</span> <span class="ruby-identifier">puts</span> <span class="ruby-identifier">element</span>}
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="each_element-source">
+            <pre><span class="ruby-comment"># File lib/libxml/node.rb, line 114</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">each_element</span>
+  <span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">node</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">yield</span>(<span class="ruby-identifier">node</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">node_type</span> <span class="ruby-operator">==</span> <span class="ruby-constant">ELEMENT_NODE</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-element-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">element?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Specifies if this is an element node</p>
+          
+          
+
+          
+          <div class="method-source-code" id="element-3F-source">
+            <pre><span class="ruby-comment"># File lib/libxml/node.rb, line 247</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">element?</span>
+  <span class="ruby-identifier">node_type</span> <span class="ruby-operator">==</span> <span class="ruby-constant">ELEMENT_NODE</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-element_decl-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">element_decl?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Specifies if this is an element declaration node</p>
+          
+          
+
+          
+          <div class="method-source-code" id="element_decl-3F-source">
+            <pre><span class="ruby-comment"># File lib/libxml/node.rb, line 257</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">element_decl?</span>
+  <span class="ruby-identifier">node_type</span> <span class="ruby-operator">==</span> <span class="ruby-constant">ELEMENT_DECL</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-empty-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            empty? &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether this node is an empty or whitespace only text-node.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="empty-3F-source">
+            <pre>static VALUE rxml_node_empty_q(VALUE self)
+{
+  xmlNodePtr xnode;
+  xnode = rxml_get_xnode(self);
+  if (xnode == NULL)
+    return (Qnil);
+
+  return ((xmlIsBlankNode(xnode) == 1) ? Qtrue : Qfalse);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-entity-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">entity?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Specifies if this is an entity node</p>
+          
+          
+
+          
+          <div class="method-source-code" id="entity-3F-source">
+            <pre><span class="ruby-comment"># File lib/libxml/node.rb, line 252</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">entity?</span>
+  <span class="ruby-identifier">node_type</span> <span class="ruby-operator">==</span> <span class="ruby-constant">ENTITY_NODE</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-entity_ref-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">entity_ref?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Specifies if this is an entity reference node</p>
+          
+          
+
+          
+          <div class="method-source-code" id="entity_ref-3F-source">
+            <pre><span class="ruby-comment"># File lib/libxml/node.rb, line 262</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">entity_ref?</span>
+  <span class="ruby-identifier">node_type</span> <span class="ruby-operator">==</span> <span class="ruby-constant">ENTITY_REF_NODE</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-eql-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            eql?(other_node) &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Test equality between the two nodes. Two nodes are equal if they are the same node.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="eql-3F-source">
+            <pre>static VALUE rxml_node_eql_q(VALUE self, VALUE other)
+{
+  if (self == other)
+  {
+    return Qtrue;
+  }
+  else if (NIL_P(other))
+  {
+    return Qfalse;
+  }
+  else
+  {
+    xmlNodePtr xnode = rxml_get_xnode(self);
+    xmlNodePtr xnode_other = rxml_get_xnode(other);
+    return xnode == xnode_other ? Qtrue : Qfalse;
+  }
+}</pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Node.html#method-i-3D-3D">==</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-find" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            find(namespaces=nil) &rarr; XPath::XPathObject
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Return nodes matching the specified xpath expression. For more information, please refer to the documentation for <a href="Document.html#method-i-find"><code>XML::Document#find</code></a>.</p>
+
+<p><a href="Namespaces.html"><code>Namespaces</code></a> is an optional array of XML::NS objects</p>
+          
+          
+
+          
+          <div class="method-source-code" id="find-source">
+            <pre><span class="ruby-comment"># File lib/libxml/node.rb, line 74</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">find</span>(<span class="ruby-identifier">xpath</span>, <span class="ruby-identifier">nslist</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">context</span>(<span class="ruby-identifier">nslist</span>).<span class="ruby-identifier">find</span>(<span class="ruby-identifier">xpath</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-find_first" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            find_first(namespaces=nil) &rarr; XML::Node
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Return the first node matching the specified xpath expression. For more information, please refer to the documentation for the <a href="Node.html#method-i-find"><code>find</code></a> method.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="find_first-source">
+            <pre><span class="ruby-comment"># File lib/libxml/node.rb, line 84</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">find_first</span>(<span class="ruby-identifier">xpath</span>, <span class="ruby-identifier">nslist</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">find</span>(<span class="ruby-identifier">xpath</span>, <span class="ruby-identifier">nslist</span>).<span class="ruby-identifier">first</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-first" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            first &rarr; XML::Node
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns this node&#39;s first child node if any.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="first-source">
+            <pre>static VALUE rxml_node_first_get(VALUE self)
+{
+  xmlNodePtr xnode;
+
+  xnode = rxml_get_xnode(self);
+
+  if (xnode-&gt;children)
+    return (rxml_node_wrap(xnode-&gt;children));
+  else
+    return (Qnil);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Node.html#method-i-child">child</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-first-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">first?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Determines whether this node has a first node</p>
+          
+          
+
+          
+          <div class="method-source-code" id="first-3F-source">
+            <pre><span class="ruby-comment"># File lib/libxml/node.rb, line 126</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">first?</span>
+  <span class="ruby-keyword">not</span> <span class="ruby-identifier">first</span>.<span class="ruby-identifier">nil?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Node.html#method-i-child-3F">child?</a>, <a href="Node.html#method-i-children-3F">children?</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-fragment-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fragment?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Specifies if this is a fragment node</p>
+          
+          
+
+          
+          <div class="method-source-code" id="fragment-3F-source">
+            <pre><span class="ruby-comment"># File lib/libxml/node.rb, line 267</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">fragment?</span>
+  <span class="ruby-identifier">node_type</span> <span class="ruby-operator">==</span> <span class="ruby-constant">DOCUMENT_FRAG_NODE</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-html_doc-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">html_doc?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Specifies if this is a html document node</p>
+          
+          
+
+          
+          <div class="method-source-code" id="html_doc-3F-source">
+            <pre><span class="ruby-comment"># File lib/libxml/node.rb, line 272</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">html_doc?</span>
+  <span class="ruby-identifier">node_type</span> <span class="ruby-operator">==</span> <span class="ruby-constant">HTML_DOCUMENT_NODE</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-inner_xml" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            inner_xml &rarr; &quot;string&quot;
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            inner_xml(:indent =&gt; true, :encoding =&gt; &#39;UTF-8&#39;, :level =&gt; 0) &rarr; &quot;string&quot;
+          </span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Converts a node&#39;s children to a string representation.  To include the node, use <a href="Node.html#method-i-to_s"><code>XML::Node#to_s</code></a>.  For more information about the supported options, see <a href="Node.html#method-i-to_s"><code>XML::Node#to_s</code></a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="inner_xml-source">
+            <pre><span class="ruby-comment"># File lib/libxml/node.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">inner_xml</span>(<span class="ruby-identifier">options</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>)
+  <span class="ruby-identifier">io</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">node</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">xml</span> = <span class="ruby-identifier">node</span>.<span class="ruby-identifier">to_s</span>(<span class="ruby-identifier">options</span>)
+    <span class="ruby-comment"># Create the string IO here since we now know the encoding</span>
+    <span class="ruby-identifier">io</span> = <span class="ruby-identifier">create_string_io</span>(<span class="ruby-identifier">xml</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">io</span>
+    <span class="ruby-identifier">io</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">xml</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">io</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">io</span>.<span class="ruby-identifier">string</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-lang" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            lang &rarr; &quot;string&quot;
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain the language set for this node, if any. This is set in <a href="../XML.html"><code>XML</code></a> via the xml:lang attribute.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="lang-source">
+            <pre>static VALUE rxml_node_lang_get(VALUE self)
+{
+  xmlNodePtr xnode;
+  xmlChar *lang;
+  VALUE result = Qnil;
+
+  xnode = rxml_get_xnode(self);
+  lang = xmlNodeGetLang(xnode);
+
+  if (lang)
+  {
+    result = rxml_new_cstr( lang, NULL);
+    xmlFree(lang);
+  }
+
+  return (result);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-lang-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            lang = &quot;string&quot;
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Set the language for this node. This affects the value of the xml:lang attribute.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="lang-3D-source">
+            <pre>static VALUE rxml_node_lang_set(VALUE self, VALUE lang)
+{
+  xmlNodePtr xnode;
+
+  Check_Type(lang, T_STRING);
+  xnode = rxml_get_xnode(self);
+  xmlNodeSetLang(xnode, (xmlChar*) StringValuePtr(lang));
+
+  return (Qtrue);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-last" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            last &rarr; XML::Node
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain the last child node of this node, if any.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="last-source">
+            <pre>static VALUE rxml_node_last_get(VALUE self)
+{
+  xmlNodePtr xnode;
+
+  xnode = rxml_get_xnode(self);
+
+  if (xnode-&gt;last)
+    return (rxml_node_wrap(xnode-&gt;last));
+  else
+    return (Qnil);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-last-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">last?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Determines whether this node has a last node</p>
+          
+          
+
+          
+          <div class="method-source-code" id="last-3F-source">
+            <pre><span class="ruby-comment"># File lib/libxml/node.rb, line 146</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">last?</span>
+  <span class="ruby-keyword">not</span> <span class="ruby-identifier">last</span>.<span class="ruby-identifier">nil?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-line_num" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            line_num &rarr; num
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain the line number (in the <a href="../XML.html"><code>XML</code></a> document) that this node was read from. If <code>default_line_numbers</code> is set false (the default), this method returns zero.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="line_num-source">
+            <pre>static VALUE rxml_node_line_num(VALUE self)
+{
+  xmlNodePtr xnode;
+  long line_num;
+  xnode = rxml_get_xnode(self);
+
+  line_num = xmlGetLineNo(xnode);
+  if (line_num == -1)
+    return (Qnil);
+  else
+    return (LONG2NUM((long) line_num));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-name" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            name &rarr; &quot;string&quot;
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain this node&#39;s name.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="name-source">
+            <pre>static VALUE rxml_node_name_get(VALUE self)
+{
+  xmlNodePtr xnode;
+  const xmlChar *name;
+
+  xnode = rxml_get_xnode(self);
+
+  switch (xnode-&gt;type)
+  {
+  case XML_DOCUMENT_NODE:
+#ifdef LIBXML_DOCB_ENABLED
+    case XML_DOCB_DOCUMENT_NODE:
+#endif
+  case XML_HTML_DOCUMENT_NODE:
+  {
+    xmlDocPtr doc = (xmlDocPtr) xnode;
+    name = doc-&gt;URL;
+    break;
+  }
+  case XML_ATTRIBUTE_NODE:
+  {
+    xmlAttrPtr attr = (xmlAttrPtr) xnode;
+    name = attr-&gt;name;
+    break;
+  }
+  case XML_NAMESPACE_DECL:
+  {
+    xmlNsPtr ns = (xmlNsPtr) xnode;
+    name = ns-&gt;prefix;
+    break;
+  }
+  default:
+    name = xnode-&gt;name;
+    break;
+  }
+
+  if (xnode-&gt;name == NULL)
+    return (Qnil);
+  else
+    return (rxml_new_cstr( name, NULL));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-name-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            name = &quot;string&quot;
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Set this node&#39;s name.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="name-3D-source">
+            <pre>static VALUE rxml_node_name_set(VALUE self, VALUE name)
+{
+  xmlNodePtr xnode;
+  const xmlChar *xname;
+
+  Check_Type(name, T_STRING);
+  xnode = rxml_get_xnode(self);
+  xname = (const xmlChar*)StringValuePtr(name);
+
+        /* Note: calling xmlNodeSetName() for a text node is ignored by libXML. */
+  xmlNodeSetName(xnode, xname);
+
+  return (Qtrue);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-namespace-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">namespace?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Specifies if this is a namespace node (not if it has a namepsace)</p>
+          
+          
+
+          
+          <div class="method-source-code" id="namespace-3F-source">
+            <pre><span class="ruby-comment"># File lib/libxml/node.rb, line 278</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">namespace?</span>
+  <span class="ruby-identifier">node_type</span> <span class="ruby-operator">==</span> <span class="ruby-constant">NAMESPACE_DECL</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-namespaces" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            namespacess &rarr; XML::Namespaces
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns this node&#39;s <a href="Namespaces.html"><code>XML::Namespaces</code></a> object, which is used to access the namespaces associated with this node.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="namespaces-source">
+            <pre><span class="ruby-comment"># File lib/libxml/node.rb, line 94</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">namespaces</span>
+  <span class="ruby-ivar">@namespaces</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Namespaces</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-next" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            next &rarr; XML::Node
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns the next sibling node if one exists.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="next-source">
+            <pre>static VALUE rxml_node_next_get(VALUE self)
+{
+  xmlNodePtr xnode;
+
+  xnode = rxml_get_xnode(self);
+
+  if (xnode-&gt;next)
+    return (rxml_node_wrap(xnode-&gt;next));
+  else
+    return (Qnil);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-next-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            next = node
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Adds the specified node as the next sibling of the current node. If the node already exists in the document, it is first removed from its existing context.  Any adjacent text nodes will be  merged together, meaning the returned node may be different  than the original node.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="next-3D-source">
+            <pre>static VALUE rxml_node_next_set(VALUE self, VALUE next)
+{
+  return rxml_node_modify_dom(self, next, xmlAddNextSibling);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-next-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">next?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Determines whether this node has a next node</p>
+          
+          
+
+          
+          <div class="method-source-code" id="next-3F-source">
+            <pre><span class="ruby-comment"># File lib/libxml/node.rb, line 136</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">next?</span>
+  <span class="ruby-keyword">not</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">next</span>.<span class="ruby-identifier">nil?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-node_type" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            type &rarr; num
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain this node&#39;s type identifier.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="node_type-source">
+            <pre>static VALUE rxml_node_type(VALUE self)
+{
+  xmlNodePtr xnode;
+  xnode = rxml_get_xnode(self);
+  return (INT2NUM(xnode-&gt;type));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-node_type_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">node_type_name</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns this node&#39;s type name </p>
+          
+          
+
+          
+          <div class="method-source-code" id="node_type_name-source">
+            <pre><span class="ruby-comment"># File lib/libxml/node.rb, line 154</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">node_type_name</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">node_type</span>
+    <span class="ruby-comment"># Most common choices first</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">ATTRIBUTE_NODE</span>
+      <span class="ruby-string">&#39;attribute&#39;</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">DOCUMENT_NODE</span>
+      <span class="ruby-string">&#39;document_xml&#39;</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">ELEMENT_NODE</span>
+      <span class="ruby-string">&#39;element&#39;</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">TEXT_NODE</span>
+      <span class="ruby-string">&#39;text&#39;</span>
+    
+    <span class="ruby-comment"># Now the rest</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">ATTRIBUTE_DECL</span>
+      <span class="ruby-string">&#39;attribute_decl&#39;</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">CDATA_SECTION_NODE</span>
+      <span class="ruby-string">&#39;cdata&#39;</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">COMMENT_NODE</span>
+      <span class="ruby-string">&#39;comment&#39;</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">DOCB_DOCUMENT_NODE</span>
+      <span class="ruby-string">&#39;document_docbook&#39;</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">DOCUMENT_FRAG_NODE</span>
+      <span class="ruby-string">&#39;fragment&#39;</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">DOCUMENT_TYPE_NODE</span>
+      <span class="ruby-string">&#39;doctype&#39;</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">DTD_NODE</span>
+      <span class="ruby-string">&#39;dtd&#39;</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">ELEMENT_DECL</span>
+      <span class="ruby-string">&#39;elem_decl&#39;</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">ENTITY_DECL</span>
+      <span class="ruby-string">&#39;entity_decl&#39;</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">ENTITY_NODE</span>
+      <span class="ruby-string">&#39;entity&#39;</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">ENTITY_REF_NODE</span>
+      <span class="ruby-string">&#39;entity_ref&#39;</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">HTML_DOCUMENT_NODE</span>
+      <span class="ruby-string">&#39;document_html&#39;</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">NAMESPACE_DECL</span>
+      <span class="ruby-string">&#39;namespace&#39;</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">NOTATION_NODE</span>
+      <span class="ruby-string">&#39;notation&#39;</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">PI_NODE</span>
+      <span class="ruby-string">&#39;pi&#39;</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">XINCLUDE_START</span>
+      <span class="ruby-string">&#39;xinclude_start&#39;</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">XINCLUDE_END</span>
+      <span class="ruby-string">&#39;xinclude_end&#39;</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">raise</span>(<span class="ruby-constant">UnknownType</span>, <span class="ruby-string">&quot;Unknown node type: %n&quot;</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">node_type</span>);
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-notation-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">notation?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Specifies if this is a notation node</p>
+          
+          
+
+          
+          <div class="method-source-code" id="notation-3F-source">
+            <pre><span class="ruby-comment"># File lib/libxml/node.rb, line 283</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">notation?</span>
+  <span class="ruby-identifier">node_type</span> <span class="ruby-operator">==</span> <span class="ruby-constant">NOTATION_NODE</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-output_escaping-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            output_escaping = true|false
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            output_escaping = true|false
+          </span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            output_escaping = true|false
+          </span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Controls whether this text node or the immediate text node children of an element or attribute node escapes their output.  Any other type of node will simply ignore this operation.</p>
+
+<p>Text nodes which are added to an element or attribute node will be affected by any previous setting of this property.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="output_escaping-3D-source">
+            <pre>static VALUE rxml_node_output_escaping_set(VALUE self, VALUE value)
+{
+  xmlNodePtr xnode;
+  xnode = rxml_get_xnode(self);
+
+  switch (xnode-&gt;type) {
+  case XML_TEXT_NODE:
+    xnode-&gt;name = (value != Qfalse &amp;&amp; value != Qnil) ? xmlStringText : xmlStringTextNoenc;
+    break;
+  case XML_ELEMENT_NODE:
+  case XML_ATTRIBUTE_NODE:
+    {
+      const xmlChar *name = (value != Qfalse &amp;&amp; value != Qnil) ? xmlStringText : xmlStringTextNoenc;
+      xmlNodePtr tmp;
+      for (tmp = xnode-&gt;children; tmp; tmp = tmp-&gt;next)
+        if (tmp-&gt;type == XML_TEXT_NODE)
+          tmp-&gt;name = name;
+    }
+    break;
+  default:
+    return Qnil;
+  }
+
+  return (value!=Qfalse &amp;&amp; value!=Qnil) ? Qtrue : Qfalse;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-output_escaping-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            output_escaping?      &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            output_escaping?   &rarr; (true|false|nil)
+          </span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            output_escaping? &rarr; (true|false|nil)
+          </span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            output_escaping?     &rarr; (nil)
+          </span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether this node escapes it&#39;s output or not.</p>
+
+<p>Text nodes return only <code>true</code> or <code>false</code>.  Element and attribute nodes examine their immediate text node children to determine the value. Any other type of node always returns <code>nil</code>.</p>
+
+<p>If an element or attribute node has at least one immediate child text node  and all the immediate text node children have the same <code>output_escaping?</code> value, that value is returned.  Otherwise, <code>nil</code> is returned.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="output_escaping-3F-source">
+            <pre>static VALUE rxml_node_output_escaping_q(VALUE self)
+{
+  xmlNodePtr xnode;
+  xnode = rxml_get_xnode(self);
+
+  switch (xnode-&gt;type) {
+  case XML_TEXT_NODE:
+    return xnode-&gt;name==xmlStringTextNoenc ? Qfalse : Qtrue;
+  case XML_ELEMENT_NODE:
+  case XML_ATTRIBUTE_NODE:
+    {
+      xmlNodePtr tmp = xnode-&gt;children;
+      const xmlChar *match = NULL;
+
+      /* Find the first text node and use it as the reference. */
+      while (tmp &amp;&amp; tmp-&gt;type != XML_TEXT_NODE)
+        tmp = tmp-&gt;next;
+      if (! tmp)
+        return Qnil;
+      match = tmp-&gt;name;
+
+      /* Walk the remaining text nodes until we run out or one doesn&#39;t match. */
+      while (tmp &amp;&amp; (tmp-&gt;type != XML_TEXT_NODE || match == tmp-&gt;name))
+        tmp = tmp-&gt;next;
+
+      /* We&#39;re left with either the mismatched node or the aggregate result. */
+      return tmp ? Qnil : (match==xmlStringTextNoenc ? Qfalse : Qtrue);
+    }
+    break;
+  default:
+    return Qnil;
+  }
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-parent" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            parent &rarr; XML::Node
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain this node&#39;s parent node, if any.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="parent-source">
+            <pre>static VALUE rxml_node_parent_get(VALUE self)
+{
+  xmlNodePtr xnode;
+
+  xnode = rxml_get_xnode(self);
+
+  if (xnode-&gt;parent)
+    return (rxml_node_wrap(xnode-&gt;parent));
+  else
+    return (Qnil);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-parent-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parent?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Determines whether this node has a parent node</p>
+          
+          
+
+          
+          <div class="method-source-code" id="parent-3F-source">
+            <pre><span class="ruby-comment"># File lib/libxml/node.rb, line 121</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">parent?</span>
+  <span class="ruby-keyword">not</span> <span class="ruby-identifier">parent</span>.<span class="ruby-identifier">nil?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-path" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            path &rarr; path
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain this node&#39;s path.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="path-source">
+            <pre>static VALUE rxml_node_path(VALUE self)
+{
+  xmlNodePtr xnode;
+  xmlChar *path;
+  VALUE result = Qnil;
+
+  xnode = rxml_get_xnode(self);
+  path = xmlGetNodePath(xnode);
+
+  if (path)
+  {
+    result = rxml_new_cstr( path, NULL);
+    xmlFree(path);
+  }
+
+  return result;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-pi-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pi?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Specifies if this is a processiong instruction node</p>
+          
+          
+
+          
+          <div class="method-source-code" id="pi-3F-source">
+            <pre><span class="ruby-comment"># File lib/libxml/node.rb, line 288</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">pi?</span>
+  <span class="ruby-identifier">node_type</span> <span class="ruby-operator">==</span> <span class="ruby-constant">PI_NODE</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-prev" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            prev &rarr; XML::Node
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain the previous sibling, if any.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="prev-source">
+            <pre>static VALUE rxml_node_prev_get(VALUE self)
+{
+  xmlNodePtr xnode;
+  xmlNodePtr node;
+  xnode = rxml_get_xnode(self);
+
+  switch (xnode-&gt;type)
+  {
+  case XML_DOCUMENT_NODE:
+#ifdef LIBXML_DOCB_ENABLED
+    case XML_DOCB_DOCUMENT_NODE:
+#endif
+  case XML_HTML_DOCUMENT_NODE:
+  case XML_NAMESPACE_DECL:
+    node = NULL;
+    break;
+  case XML_ATTRIBUTE_NODE:
+  {
+    xmlAttrPtr attr = (xmlAttrPtr) xnode;
+    node = (xmlNodePtr) attr-&gt;prev;
+  }
+    break;
+  default:
+    node = xnode-&gt;prev;
+    break;
+  }
+
+  if (node == NULL)
+    return (Qnil);
+  else
+    return (rxml_node_wrap(node));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-prev-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            prev = node
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Adds the specified node as the previous sibling of the current node. If the node already exists in the document, it is first removed from its existing context.  Any adjacent text nodes will be  merged together, meaning the returned node may be different  than the original node.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="prev-3D-source">
+            <pre>static VALUE rxml_node_prev_set(VALUE self, VALUE prev)
+{
+  return rxml_node_modify_dom(self, prev, xmlAddPrevSibling);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-prev-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">prev?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Determines whether this node has a previous node</p>
+          
+          
+
+          
+          <div class="method-source-code" id="prev-3F-source">
+            <pre><span class="ruby-comment"># File lib/libxml/node.rb, line 141</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">prev?</span>
+  <span class="ruby-keyword">not</span> <span class="ruby-identifier">prev</span>.<span class="ruby-identifier">nil?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-remove-21" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            remove! &rarr; node
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Removes this node and its children from the document tree by setting its document, parent and siblings to nil.  You can add the returned node back into a document. Otherwise, the node will be freed once any references to it go out of scope.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="remove-21-source">
+            <pre>static VALUE rxml_node_remove_ex(VALUE self)
+{
+  xmlNodePtr xnode = rxml_get_xnode(self);
+ 
+  // Now unlink the node from its parent
+  xmlUnlinkNode(xnode);
+
+  // Ruby now manages this node
+  rxml_node_manage(xnode, self);
+
+  // Now return the removed node so the user can do something with it
+  return self;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sibling-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            sibling = node
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Adds the specified node as the end of the current node&#39;s list of siblings.  If the node already exists in the document, it  is first removed from its existing context.  Any adjacent text nodes will be  merged together, meaning the returned node may be different than the original node.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sibling-3D-source">
+            <pre>static VALUE rxml_node_sibling_set(VALUE self, VALUE sibling)
+{
+  return rxml_node_modify_dom(self, sibling, xmlAddSibling);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-space_preserve" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            space_preserve &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether this node preserves whitespace.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="space_preserve-source">
+            <pre>static VALUE rxml_node_space_preserve_get(VALUE self)
+{
+  xmlNodePtr xnode;
+
+  xnode = rxml_get_xnode(self);
+  return (INT2NUM(xmlNodeGetSpacePreserve(xnode)));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-space_preserve-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            space_preserve = true|false
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Control whether this node preserves whitespace.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="space_preserve-3D-source">
+            <pre>static VALUE rxml_node_space_preserve_set(VALUE self, VALUE value)
+{
+  xmlNodePtr xnode;
+  xnode = rxml_get_xnode(self);
+
+  if (value == Qfalse)
+    xmlNodeSetSpacePreserve(xnode, 0);
+  else
+    xmlNodeSetSpacePreserve(xnode, 1);
+
+  return (Qnil);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-text-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">text?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Specifies if this is a text node</p>
+          
+          
+
+          
+          <div class="method-source-code" id="text-3F-source">
+            <pre><span class="ruby-comment"># File lib/libxml/node.rb, line 293</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">text?</span>
+  <span class="ruby-identifier">node_type</span> <span class="ruby-operator">==</span> <span class="ruby-constant">TEXT_NODE</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_s" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            to_s &rarr; &quot;string&quot;
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            to_s(:indent =&gt; true, :encoding =&gt; &#39;UTF-8&#39;, :level =&gt; 0) &rarr; &quot;string&quot;
+          </span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Converts a node, and all of its children, to a string representation. To include only the node&#39;s children, use the the <a href="Node.html#method-i-inner_xml"><code>XML::Node#inner_xml</code></a> method.</p>
+
+<p>You may provide an optional hash table to control how the string is  generated.  Valid options are:</p>
+
+<p>:indent - Specifies if the string should be indented.  The default value is true.  Note that indentation is only added if both :indent is true and <a href="../XML.html#method-c-indent_tree_output"><code>XML.indent_tree_output</code></a> is true.  If :indent is set to false, then both indentation and line feeds are removed from the result.</p>
+
+<p>:level  - Specifies the indentation level.  The amount of indentation is equal to the (level * number_spaces) + number_spaces, where libxml defaults the number of spaces to 2.  Thus a level of 0 results in 2 spaces, level 1 results in 4 spaces, level 2 results in 6 spaces, etc.</p>
+
+<p>:encoding - Specifies the output encoding of the string.  It defaults to XML::Encoding::UTF8.  To change it, use one of the <a href="Encoding.html"><code>XML::Encoding</code></a> encoding constants.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="to_s-source">
+            <pre>static VALUE rxml_node_to_s(int argc, VALUE *argv, VALUE self)
+{
+  VALUE result = Qnil;
+  VALUE options = Qnil;
+  xmlNodePtr xnode;
+  xmlCharEncodingHandlerPtr encodingHandler;
+  xmlOutputBufferPtr output;
+
+  int level = 0;
+  int indent = 1;
+  const xmlChar *xencoding = (const xmlChar*)&quot;UTF-8&quot;;
+
+  rb_scan_args(argc, argv, &quot;01&quot;, &amp;options);
+
+  if (!NIL_P(options))
+  {
+    VALUE rencoding, rindent, rlevel;
+    Check_Type(options, T_HASH);
+    rencoding = rb_hash_aref(options, ID2SYM(rb_intern(&quot;encoding&quot;)));
+    rindent = rb_hash_aref(options, ID2SYM(rb_intern(&quot;indent&quot;)));
+    rlevel = rb_hash_aref(options, ID2SYM(rb_intern(&quot;level&quot;)));
+
+    if (rindent == Qfalse)
+      indent = 0;
+
+    if (rlevel != Qnil)
+      level = NUM2INT(rlevel);
+
+    if (rencoding != Qnil)
+    {
+      xencoding = (const xmlChar*)xmlGetCharEncodingName((xmlCharEncoding)NUM2INT(rencoding));
+      if (!xencoding)
+        rb_raise(rb_eArgError, &quot;Unknown encoding value: %d&quot;, NUM2INT(rencoding));
+    }
+  }
+
+  encodingHandler = xmlFindCharEncodingHandler((const char*)xencoding);
+  output = xmlAllocOutputBuffer(encodingHandler);
+
+  xnode = rxml_get_xnode(self);
+
+  xmlNodeDumpOutput(output, xnode-&gt;doc, xnode, level, indent, (const char*)xencoding);
+  xmlOutputBufferFlush(output);
+
+#ifdef LIBXML2_NEW_BUFFER
+  if (output-&gt;conv)
+    result = rxml_new_cstr(xmlBufContent(output-&gt;conv), xencoding);
+  else
+    result = rxml_new_cstr(xmlBufContent(output-&gt;buffer), xencoding);
+#else
+  if (output-&gt;conv)
+    result = rxml_new_cstr(xmlBufferContent(output-&gt;conv), xencoding);
+  else
+    result = rxml_new_cstr(xmlBufferContent(output-&gt;buffer), xencoding);
+#endif
+
+  xmlOutputBufferClose(output);
+  
+  return result;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-xinclude_end-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">xinclude_end?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Specifies if this is an xinclude end node</p>
+          
+          
+
+          
+          <div class="method-source-code" id="xinclude_end-3F-source">
+            <pre><span class="ruby-comment"># File lib/libxml/node.rb, line 298</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">xinclude_end?</span>
+  <span class="ruby-identifier">node_type</span> <span class="ruby-operator">==</span> <span class="ruby-constant">XINCLUDE_END</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-xinclude_start-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">xinclude_start?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Specifies if this is an xinclude start node</p>
+          
+          
+
+          
+          <div class="method-source-code" id="xinclude_start-3F-source">
+            <pre><span class="ruby-comment"># File lib/libxml/node.rb, line 303</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">xinclude_start?</span>
+  <span class="ruby-identifier">node_type</span> <span class="ruby-operator">==</span> <span class="ruby-constant">XINCLUDE_START</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-xlink-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            xlink? &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether this node is an xlink node.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="xlink-3F-source">
+            <pre>static VALUE rxml_node_xlink_q(VALUE self)
+{
+  xmlNodePtr xnode;
+  xlinkType xlt;
+
+  xnode = rxml_get_xnode(self);
+  xlt = xlinkIsLink(xnode-&gt;doc, xnode);
+
+  if (xlt == XLINK_TYPE_NONE)
+    return (Qfalse);
+  else
+    return (Qtrue);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-xlink_type" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            xlink_type &rarr; num
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain the type identifier for this xlink, if applicable. If this is not an xlink node (see <code>xlink?</code>), will return nil.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="xlink_type-source">
+            <pre>static VALUE rxml_node_xlink_type(VALUE self)
+{
+  xmlNodePtr xnode;
+  xlinkType xlt;
+
+  xnode = rxml_get_xnode(self);
+  xlt = xlinkIsLink(xnode-&gt;doc, xnode);
+
+  if (xlt == XLINK_TYPE_NONE)
+    return (Qnil);
+  else
+    return (INT2NUM(xlt));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-xlink_type_name" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            xlink_type_name &rarr; &quot;string&quot;
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain the type name for this xlink, if applicable. If this is not an xlink node (see <code>xlink?</code>), will return nil.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="xlink_type_name-source">
+            <pre>static VALUE rxml_node_xlink_type_name(VALUE self)
+{
+  xmlNodePtr xnode;
+  xlinkType xlt;
+
+  xnode = rxml_get_xnode(self);
+  xlt = xlinkIsLink(xnode-&gt;doc, xnode);
+
+  switch (xlt)
+  {
+  case XLINK_TYPE_NONE:
+    return (Qnil);
+  case XLINK_TYPE_SIMPLE:
+    return (rxml_new_cstr((const xmlChar*)&quot;simple&quot;, NULL));
+  case XLINK_TYPE_EXTENDED:
+    return (rxml_new_cstr((const xmlChar*)&quot;extended&quot;, NULL));
+  case XLINK_TYPE_EXTENDED_SET:
+    return (rxml_new_cstr((const xmlChar*)&quot;extended_set&quot;, NULL));
+  default:
+    rb_fatal(&quot;Unknowng xlink type, %d&quot;, xlt);
+  }
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-create_string_io" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_string_io</span><span
+            class="method-args">(xml)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="create_string_io-source">
+            <pre><span class="ruby-comment"># File lib/libxml/node.rb, line 314</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create_string_io</span>(<span class="ruby-identifier">xml</span>)
+  <span class="ruby-identifier">result</span> = <span class="ruby-constant">StringIO</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span>)
+    <span class="ruby-identifier">result</span>.<span class="ruby-identifier">set_encoding</span>(<span class="ruby-identifier">xml</span>.<span class="ruby-identifier">encoding</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

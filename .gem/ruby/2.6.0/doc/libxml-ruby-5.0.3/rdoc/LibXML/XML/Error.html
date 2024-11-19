@@ -1,0 +1,4527 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class LibXML::XML::Error - libxml-ruby-5.0.3 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/navigation.js" defer></script>
+<script src="../../js/search.js" defer></script>
+<script src="../../js/search_index.js" defer></script>
+<script src="../../js/searcher.js" defer></script>
+<script src="../../js/darkfish.js" defer></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">StandardError
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-get_handler">::get_handler</a>
+    
+    <li ><a href="#method-c-reset_handler">::reset_handler</a>
+    
+    <li ><a href="#method-c-set_handler">::set_handler</a>
+    
+    <li ><a href="#method-i-3D-3D">#==</a>
+    
+    <li ><a href="#method-i-code_to_s">#code_to_s</a>
+    
+    <li ><a href="#method-i-domain_to_s">#domain_to_s</a>
+    
+    <li ><a href="#method-i-eql-3F">#eql?</a>
+    
+    <li ><a href="#method-i-level_to_s">#level_to_s</a>
+    
+    <li class="calls-super" ><a href="#method-i-to_s">#to_s</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-LibXML::XML::Error">
+  <h1 id="class-LibXML::XML::Error" class="class">
+    class LibXML::XML::Error
+  </h1>
+
+  <section class="description">
+    
+<p>The <a href="Error.html"><code>XML::Error</code></a> class exposes libxml errors as standard Ruby exceptions.  When appropriate, libxml-ruby will raise an exception - for example, when parsing a non-well formed xml document.</p>
+
+<p>By default, warnings, errors and fatal errors that libxml generates are printed to STDERR via the XML::Error::VERBOSE_HANDLER proc.</p>
+
+<p>To disable this output you can install the quiet handler:</p>
+
+<pre class="ruby"><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span>.<span class="ruby-identifier">set_handler</span>(<span class="ruby-operator">&amp;</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">QUIET_HANDLER</span>)
+</pre>
+
+<p>Get the current handler:</p>
+
+<pre class="ruby"><span class="ruby-identifier">proc</span> = <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span>.<span class="ruby-identifier">get_handler</span>
+</pre>
+
+<p>Install your own handler:</p>
+
+<pre class="ruby"><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span>.<span class="ruby-identifier">set_handler</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">error</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-identifier">error</span>.<span class="ruby-identifier">to_s</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Or remove all handlers:</p>
+
+<pre class="ruby"><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span>.<span class="ruby-identifier">reset_handler</span>
+</pre>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="ATTLIST_NOT_FINISHED">ATTLIST_NOT_FINISHED
+        
+        <dd>
+        
+      
+        <dt id="ATTLIST_NOT_STARTED">ATTLIST_NOT_STARTED
+        
+        <dd>
+        
+      
+        <dt id="ATTRIBUTE_NOT_FINISHED">ATTRIBUTE_NOT_FINISHED
+        
+        <dd>
+        
+      
+        <dt id="ATTRIBUTE_NOT_STARTED">ATTRIBUTE_NOT_STARTED
+        
+        <dd>
+        
+      
+        <dt id="ATTRIBUTE_REDEFINED">ATTRIBUTE_REDEFINED
+        
+        <dd>
+        
+      
+        <dt id="ATTRIBUTE_WITHOUT_VALUE">ATTRIBUTE_WITHOUT_VALUE
+        
+        <dd>
+        
+      
+        <dt id="C14N">C14N
+        
+        <dd>
+        
+      
+        <dt id="C14N_CREATE_CTXT">C14N_CREATE_CTXT
+        
+        <dd>
+        
+      
+        <dt id="C14N_CREATE_STACK">C14N_CREATE_STACK
+        
+        <dd>
+        
+      
+        <dt id="C14N_INVALID_NODE">C14N_INVALID_NODE
+        
+        <dd>
+        
+      
+        <dt id="C14N_RELATIVE_NAMESPACE">C14N_RELATIVE_NAMESPACE
+        
+        <dd>
+        
+      
+        <dt id="C14N_REQUIRES_UTF8">C14N_REQUIRES_UTF8
+        
+        <dd>
+        
+      
+        <dt id="C14N_UNKNOW_NODE">C14N_UNKNOW_NODE
+        
+        <dd>
+        
+      
+        <dt id="CATALOG">CATALOG
+        
+        <dd>
+        
+      
+        <dt id="CATALOG_ENTRY_BROKEN">CATALOG_ENTRY_BROKEN
+        
+        <dd>
+        
+      
+        <dt id="CATALOG_MISSING_ATTR">CATALOG_MISSING_ATTR
+        
+        <dd>
+        
+      
+        <dt id="CATALOG_NOT_CATALOG">CATALOG_NOT_CATALOG
+        
+        <dd>
+        
+      
+        <dt id="CATALOG_PREFER_VALUE">CATALOG_PREFER_VALUE
+        
+        <dd>
+        
+      
+        <dt id="CATALOG_RECURSION">CATALOG_RECURSION
+        
+        <dd>
+        
+      
+        <dt id="CDATA_NOT_FINISHED">CDATA_NOT_FINISHED
+        
+        <dd>
+        
+      
+        <dt id="CHARREF_AT_EOF">CHARREF_AT_EOF
+        
+        <dd>
+        
+      
+        <dt id="CHARREF_IN_DTD">CHARREF_IN_DTD
+        
+        <dd>
+        
+      
+        <dt id="CHARREF_IN_EPILOG">CHARREF_IN_EPILOG
+        
+        <dd>
+        
+      
+        <dt id="CHARREF_IN_PROLOG">CHARREF_IN_PROLOG
+        
+        <dd>
+        
+      
+        <dt id="CHECK">CHECK
+        
+        <dd>
+        
+      
+        <dt id="CHECK_ENTITY_TYPE">CHECK_ENTITY_TYPE
+        
+        <dd>
+        
+      
+        <dt id="CHECK_FOUND_ATTRIBUTE">CHECK_FOUND_ATTRIBUTE
+        
+        <dd>
+        
+      
+        <dt id="CHECK_FOUND_CDATA">CHECK_FOUND_CDATA
+        
+        <dd>
+        
+      
+        <dt id="CHECK_FOUND_COMMENT">CHECK_FOUND_COMMENT
+        
+        <dd>
+        
+      
+        <dt id="CHECK_FOUND_DOCTYPE">CHECK_FOUND_DOCTYPE
+        
+        <dd>
+        
+      
+        <dt id="CHECK_FOUND_ELEMENT">CHECK_FOUND_ELEMENT
+        
+        <dd>
+        
+      
+        <dt id="CHECK_FOUND_ENTITY">CHECK_FOUND_ENTITY
+        
+        <dd>
+        
+      
+        <dt id="CHECK_FOUND_ENTITYREF">CHECK_FOUND_ENTITYREF
+        
+        <dd>
+        
+      
+        <dt id="CHECK_FOUND_FRAGMENT">CHECK_FOUND_FRAGMENT
+        
+        <dd>
+        
+      
+        <dt id="CHECK_FOUND_NOTATION">CHECK_FOUND_NOTATION
+        
+        <dd>
+        
+      
+        <dt id="CHECK_FOUND_PI">CHECK_FOUND_PI
+        
+        <dd>
+        
+      
+        <dt id="CHECK_FOUND_TEXT">CHECK_FOUND_TEXT
+        
+        <dd>
+        
+      
+        <dt id="CHECK_NAME_NOT_NULL">CHECK_NAME_NOT_NULL
+        
+        <dd>
+        
+      
+        <dt id="CHECK_NOT_ATTR">CHECK_NOT_ATTR
+        
+        <dd>
+        
+      
+        <dt id="CHECK_NOT_ATTR_DECL">CHECK_NOT_ATTR_DECL
+        
+        <dd>
+        
+      
+        <dt id="CHECK_NOT_DTD">CHECK_NOT_DTD
+        
+        <dd>
+        
+      
+        <dt id="CHECK_NOT_ELEM_DECL">CHECK_NOT_ELEM_DECL
+        
+        <dd>
+        
+      
+        <dt id="CHECK_NOT_ENTITY_DECL">CHECK_NOT_ENTITY_DECL
+        
+        <dd>
+        
+      
+        <dt id="CHECK_NOT_NCNAME">CHECK_NOT_NCNAME
+        
+        <dd>
+        
+      
+        <dt id="CHECK_NOT_NS_DECL">CHECK_NOT_NS_DECL
+        
+        <dd>
+        
+      
+        <dt id="CHECK_NOT_UTF8">CHECK_NOT_UTF8
+        
+        <dd>
+        
+      
+        <dt id="CHECK_NO_DICT">CHECK_NO_DICT
+        
+        <dd>
+        
+      
+        <dt id="CHECK_NO_DOC">CHECK_NO_DOC
+        
+        <dd>
+        
+      
+        <dt id="CHECK_NO_ELEM">CHECK_NO_ELEM
+        
+        <dd>
+        
+      
+        <dt id="CHECK_NO_HREF">CHECK_NO_HREF
+        
+        <dd>
+        
+      
+        <dt id="CHECK_NO_NAME">CHECK_NO_NAME
+        
+        <dd>
+        
+      
+        <dt id="CHECK_NO_NEXT">CHECK_NO_NEXT
+        
+        <dd>
+        
+      
+        <dt id="CHECK_NO_PARENT">CHECK_NO_PARENT
+        
+        <dd>
+        
+      
+        <dt id="CHECK_NO_PREV">CHECK_NO_PREV
+        
+        <dd>
+        
+      
+        <dt id="CHECK_NS_ANCESTOR">CHECK_NS_ANCESTOR
+        
+        <dd>
+        
+      
+        <dt id="CHECK_NS_SCOPE">CHECK_NS_SCOPE
+        
+        <dd>
+        
+      
+        <dt id="CHECK_OUTSIDE_DICT">CHECK_OUTSIDE_DICT
+        
+        <dd>
+        
+      
+        <dt id="CHECK_UNKNOWN_NODE">CHECK_UNKNOWN_NODE
+        
+        <dd>
+        
+      
+        <dt id="CHECK_WRONG_DOC">CHECK_WRONG_DOC
+        
+        <dd>
+        
+      
+        <dt id="CHECK_WRONG_NAME">CHECK_WRONG_NAME
+        
+        <dd>
+        
+      
+        <dt id="CHECK_WRONG_NEXT">CHECK_WRONG_NEXT
+        
+        <dd>
+        
+      
+        <dt id="CHECK_WRONG_PARENT">CHECK_WRONG_PARENT
+        
+        <dd>
+        
+      
+        <dt id="CHECK_WRONG_PREV">CHECK_WRONG_PREV
+        
+        <dd>
+        
+      
+        <dt id="COMMENT_NOT_FINISHED">COMMENT_NOT_FINISHED
+        
+        <dd>
+        
+      
+        <dt id="CONDSEC_INVALID">CONDSEC_INVALID
+        
+        <dd>
+        
+      
+        <dt id="CONDSEC_INVALID_KEYWORD">CONDSEC_INVALID_KEYWORD
+        
+        <dd>
+        
+      
+        <dt id="CONDSEC_NOT_FINISHED">CONDSEC_NOT_FINISHED
+        
+        <dd>
+        
+      
+        <dt id="CONDSEC_NOT_STARTED">CONDSEC_NOT_STARTED
+        
+        <dd>
+        
+      
+        <dt id="DATATYPE">DATATYPE
+        
+        <dd>
+        
+      
+        <dt id="DOCTYPE_NOT_FINISHED">DOCTYPE_NOT_FINISHED
+        
+        <dd>
+        
+      
+        <dt id="DOCUMENT_EMPTY">DOCUMENT_EMPTY
+        
+        <dd>
+        
+      
+        <dt id="DOCUMENT_END">DOCUMENT_END
+        
+        <dd>
+        
+      
+        <dt id="DOCUMENT_START">DOCUMENT_START
+        
+        <dd>
+        
+      
+        <dt id="DOMAIN_CODE_MAP">DOMAIN_CODE_MAP
+        
+        <dd><p>Create mapping from domain constant values to keys</p>
+        
+      
+        <dt id="DTD">DTD
+        
+        <dd>
+        
+      
+        <dt id="DTD_ATTRIBUTE_DEFAULT">DTD_ATTRIBUTE_DEFAULT
+        
+        <dd>
+        
+      
+        <dt id="DTD_ATTRIBUTE_REDEFINED">DTD_ATTRIBUTE_REDEFINED
+        
+        <dd>
+        
+      
+        <dt id="DTD_ATTRIBUTE_VALUE">DTD_ATTRIBUTE_VALUE
+        
+        <dd>
+        
+      
+        <dt id="DTD_CONTENT_ERROR">DTD_CONTENT_ERROR
+        
+        <dd>
+        
+      
+        <dt id="DTD_CONTENT_MODEL">DTD_CONTENT_MODEL
+        
+        <dd>
+        
+      
+        <dt id="DTD_CONTENT_NOT_DETERMINIST">DTD_CONTENT_NOT_DETERMINIST
+        
+        <dd>
+        
+      
+        <dt id="DTD_DIFFERENT_PREFIX">DTD_DIFFERENT_PREFIX
+        
+        <dd>
+        
+      
+        <dt id="DTD_ELEM_DEFAULT_NAMESPACE">DTD_ELEM_DEFAULT_NAMESPACE
+        
+        <dd>
+        
+      
+        <dt id="DTD_ELEM_NAMESPACE">DTD_ELEM_NAMESPACE
+        
+        <dd>
+        
+      
+        <dt id="DTD_ELEM_REDEFINED">DTD_ELEM_REDEFINED
+        
+        <dd>
+        
+      
+        <dt id="DTD_EMPTY_NOTATION">DTD_EMPTY_NOTATION
+        
+        <dd>
+        
+      
+        <dt id="DTD_ENTITY_TYPE">DTD_ENTITY_TYPE
+        
+        <dd>
+        
+      
+        <dt id="DTD_ID_FIXED">DTD_ID_FIXED
+        
+        <dd>
+        
+      
+        <dt id="DTD_ID_REDEFINED">DTD_ID_REDEFINED
+        
+        <dd>
+        
+      
+        <dt id="DTD_ID_SUBSET">DTD_ID_SUBSET
+        
+        <dd>
+        
+      
+        <dt id="DTD_INVALID_CHILD">DTD_INVALID_CHILD
+        
+        <dd>
+        
+      
+        <dt id="DTD_INVALID_DEFAULT">DTD_INVALID_DEFAULT
+        
+        <dd>
+        
+      
+        <dt id="DTD_LOAD_ERROR">DTD_LOAD_ERROR
+        
+        <dd>
+        
+      
+        <dt id="DTD_MISSING_ATTRIBUTE">DTD_MISSING_ATTRIBUTE
+        
+        <dd>
+        
+      
+        <dt id="DTD_MIXED_CORRUPT">DTD_MIXED_CORRUPT
+        
+        <dd>
+        
+      
+        <dt id="DTD_MULTIPLE_ID">DTD_MULTIPLE_ID
+        
+        <dd>
+        
+      
+        <dt id="DTD_NOTATION_REDEFINED">DTD_NOTATION_REDEFINED
+        
+        <dd>
+        
+      
+        <dt id="DTD_NOTATION_VALUE">DTD_NOTATION_VALUE
+        
+        <dd>
+        
+      
+        <dt id="DTD_NOT_EMPTY">DTD_NOT_EMPTY
+        
+        <dd>
+        
+      
+        <dt id="DTD_NOT_PCDATA">DTD_NOT_PCDATA
+        
+        <dd>
+        
+      
+        <dt id="DTD_NOT_STANDALONE">DTD_NOT_STANDALONE
+        
+        <dd>
+        
+      
+        <dt id="DTD_NO_DOC">DTD_NO_DOC
+        
+        <dd>
+        
+      
+        <dt id="DTD_NO_DTD">DTD_NO_DTD
+        
+        <dd>
+        
+      
+        <dt id="DTD_NO_ELEM_NAME">DTD_NO_ELEM_NAME
+        
+        <dd>
+        
+      
+        <dt id="DTD_NO_PREFIX">DTD_NO_PREFIX
+        
+        <dd>
+        
+      
+        <dt id="DTD_NO_ROOT">DTD_NO_ROOT
+        
+        <dd>
+        
+      
+        <dt id="DTD_ROOT_NAME">DTD_ROOT_NAME
+        
+        <dd>
+        
+      
+        <dt id="DTD_STANDALONE_DEFAULTED">DTD_STANDALONE_DEFAULTED
+        
+        <dd>
+        
+      
+        <dt id="DTD_STANDALONE_WHITE_SPACE">DTD_STANDALONE_WHITE_SPACE
+        
+        <dd>
+        
+      
+        <dt id="DTD_UNKNOWN_ATTRIBUTE">DTD_UNKNOWN_ATTRIBUTE
+        
+        <dd>
+        
+      
+        <dt id="DTD_UNKNOWN_ELEM">DTD_UNKNOWN_ELEM
+        
+        <dd>
+        
+      
+        <dt id="DTD_UNKNOWN_ENTITY">DTD_UNKNOWN_ENTITY
+        
+        <dd>
+        
+      
+        <dt id="DTD_UNKNOWN_ID">DTD_UNKNOWN_ID
+        
+        <dd>
+        
+      
+        <dt id="DTD_UNKNOWN_NOTATION">DTD_UNKNOWN_NOTATION
+        
+        <dd>
+        
+      
+        <dt id="DTD_XMLID_TYPE">DTD_XMLID_TYPE
+        
+        <dd>
+        
+      
+        <dt id="DTD_XMLID_VALUE">DTD_XMLID_VALUE
+        
+        <dd>
+        
+      
+        <dt id="ELEMCONTENT_NOT_FINISHED">ELEMCONTENT_NOT_FINISHED
+        
+        <dd>
+        
+      
+        <dt id="ELEMCONTENT_NOT_STARTED">ELEMCONTENT_NOT_STARTED
+        
+        <dd>
+        
+      
+        <dt id="ENCODING_NAME">ENCODING_NAME
+        
+        <dd>
+        
+      
+        <dt id="ENTITYREF_AT_EOF">ENTITYREF_AT_EOF
+        
+        <dd>
+        
+      
+        <dt id="ENTITYREF_IN_DTD">ENTITYREF_IN_DTD
+        
+        <dd>
+        
+      
+        <dt id="ENTITYREF_IN_EPILOG">ENTITYREF_IN_EPILOG
+        
+        <dd>
+        
+      
+        <dt id="ENTITYREF_IN_PROLOG">ENTITYREF_IN_PROLOG
+        
+        <dd>
+        
+      
+        <dt id="ENTITYREF_NO_NAME">ENTITYREF_NO_NAME
+        
+        <dd>
+        
+      
+        <dt id="ENTITYREF_SEMICOL_MISSING">ENTITYREF_SEMICOL_MISSING
+        
+        <dd>
+        
+      
+        <dt id="ENTITY_BOUNDARY">ENTITY_BOUNDARY
+        
+        <dd>
+        
+      
+        <dt id="ENTITY_CHAR_ERROR">ENTITY_CHAR_ERROR
+        
+        <dd>
+        
+      
+        <dt id="ENTITY_IS_EXTERNAL">ENTITY_IS_EXTERNAL
+        
+        <dd>
+        
+      
+        <dt id="ENTITY_IS_PARAMETER">ENTITY_IS_PARAMETER
+        
+        <dd>
+        
+      
+        <dt id="ENTITY_LOOP">ENTITY_LOOP
+        
+        <dd>
+        
+      
+        <dt id="ENTITY_NOT_FINISHED">ENTITY_NOT_FINISHED
+        
+        <dd>
+        
+      
+        <dt id="ENTITY_NOT_STARTED">ENTITY_NOT_STARTED
+        
+        <dd>
+        
+      
+        <dt id="ENTITY_PE_INTERNAL">ENTITY_PE_INTERNAL
+        
+        <dd>
+        
+      
+        <dt id="ENTITY_PROCESSING">ENTITY_PROCESSING
+        
+        <dd>
+        
+      
+        <dt id="EQUAL_REQUIRED">EQUAL_REQUIRED
+        
+        <dd>
+        
+      
+        <dt id="ERROR">ERROR
+        
+        <dd>
+        
+      
+        <dt id="ERROR_CODE_MAP">ERROR_CODE_MAP
+        
+        <dd><p>Create mapping from error constant values (so need to remove domain_codes) to keys</p>
+        
+      
+        <dt id="EXTRA_CONTENT">EXTRA_CONTENT
+        
+        <dd>
+        
+      
+        <dt id="EXT_ENTITY_STANDALONE">EXT_ENTITY_STANDALONE
+        
+        <dd>
+        
+      
+        <dt id="EXT_SUBSET_NOT_FINISHED">EXT_SUBSET_NOT_FINISHED
+        
+        <dd>
+        
+      
+        <dt id="FATAL">FATAL
+        
+        <dd>
+        
+      
+        <dt id="FTP">FTP
+        
+        <dd>
+        
+      
+        <dt id="FTP_ACCNT">FTP_ACCNT
+        
+        <dd>
+        
+      
+        <dt id="FTP_EPSV_ANSWER">FTP_EPSV_ANSWER
+        
+        <dd>
+        
+      
+        <dt id="FTP_PASV_ANSWER">FTP_PASV_ANSWER
+        
+        <dd>
+        
+      
+        <dt id="FTP_URL_SYNTAX">FTP_URL_SYNTAX
+        
+        <dd>
+        
+      
+        <dt id="GT_REQUIRED">GT_REQUIRED
+        
+        <dd>
+        
+      
+        <dt id="HTML">HTML
+        
+        <dd>
+        
+      
+        <dt id="HTML_STRUCURE_ERROR">HTML_STRUCURE_ERROR
+        
+        <dd>
+        
+      
+        <dt id="HTML_UNKNOWN_TAG">HTML_UNKNOWN_TAG
+        
+        <dd>
+        
+      
+        <dt id="HTTP">HTTP
+        
+        <dd>
+        
+      
+        <dt id="HTTP_UNKNOWN_HOST">HTTP_UNKNOWN_HOST
+        
+        <dd>
+        
+      
+        <dt id="HTTP_URL_SYNTAX">HTTP_URL_SYNTAX
+        
+        <dd>
+        
+      
+        <dt id="HTTP_USE_IP">HTTP_USE_IP
+        
+        <dd>
+        
+      
+        <dt id="HYPHEN_IN_COMMENT">HYPHEN_IN_COMMENT
+        
+        <dd>
+        
+      
+        <dt id="I18N">I18N
+        
+        <dd>
+        
+      
+        <dt id="I18N_CONV_FAILED">I18N_CONV_FAILED
+        
+        <dd>
+        
+      
+        <dt id="I18N_EXCESS_HANDLER">I18N_EXCESS_HANDLER
+        
+        <dd>
+        
+      
+        <dt id="I18N_NO_HANDLER">I18N_NO_HANDLER
+        
+        <dd>
+        
+      
+        <dt id="I18N_NO_NAME">I18N_NO_NAME
+        
+        <dd>
+        
+      
+        <dt id="I18N_NO_OUTPUT">I18N_NO_OUTPUT
+        
+        <dd>
+        
+      
+        <dt id="INTERNAL_ERROR">INTERNAL_ERROR
+        
+        <dd>
+        
+      
+        <dt id="INVALID_CHAR">INVALID_CHAR
+        
+        <dd>
+        
+      
+        <dt id="INVALID_CHARREF">INVALID_CHARREF
+        
+        <dd>
+        
+      
+        <dt id="INVALID_DEC_CHARREF">INVALID_DEC_CHARREF
+        
+        <dd>
+        
+      
+        <dt id="INVALID_ENCODING">INVALID_ENCODING
+        
+        <dd>
+        
+      
+        <dt id="INVALID_HEX_CHARREF">INVALID_HEX_CHARREF
+        
+        <dd>
+        
+      
+        <dt id="INVALID_URI">INVALID_URI
+        
+        <dd>
+        
+      
+        <dt id="IO">IO
+        
+        <dd>
+        
+      
+        <dt id="IO_BUFFER_FULL">IO_BUFFER_FULL
+        
+        <dd>
+        
+      
+        <dt id="IO_EACCES">IO_EACCES
+        
+        <dd>
+        
+      
+        <dt id="IO_EADDRINUSE">IO_EADDRINUSE
+        
+        <dd>
+        
+      
+        <dt id="IO_EAFNOSUPPORT">IO_EAFNOSUPPORT
+        
+        <dd>
+        
+      
+        <dt id="IO_EAGAIN">IO_EAGAIN
+        
+        <dd>
+        
+      
+        <dt id="IO_EALREADY">IO_EALREADY
+        
+        <dd>
+        
+      
+        <dt id="IO_EBADF">IO_EBADF
+        
+        <dd>
+        
+      
+        <dt id="IO_EBADMSG">IO_EBADMSG
+        
+        <dd>
+        
+      
+        <dt id="IO_EBUSY">IO_EBUSY
+        
+        <dd>
+        
+      
+        <dt id="IO_ECANCELED">IO_ECANCELED
+        
+        <dd>
+        
+      
+        <dt id="IO_ECHILD">IO_ECHILD
+        
+        <dd>
+        
+      
+        <dt id="IO_ECONNREFUSED">IO_ECONNREFUSED
+        
+        <dd>
+        
+      
+        <dt id="IO_EDEADLK">IO_EDEADLK
+        
+        <dd>
+        
+      
+        <dt id="IO_EDOM">IO_EDOM
+        
+        <dd>
+        
+      
+        <dt id="IO_EEXIST">IO_EEXIST
+        
+        <dd>
+        
+      
+        <dt id="IO_EFAULT">IO_EFAULT
+        
+        <dd>
+        
+      
+        <dt id="IO_EFBIG">IO_EFBIG
+        
+        <dd>
+        
+      
+        <dt id="IO_EINPROGRESS">IO_EINPROGRESS
+        
+        <dd>
+        
+      
+        <dt id="IO_EINTR">IO_EINTR
+        
+        <dd>
+        
+      
+        <dt id="IO_EINVAL">IO_EINVAL
+        
+        <dd>
+        
+      
+        <dt id="IO_EIO">IO_EIO
+        
+        <dd>
+        
+      
+        <dt id="IO_EISCONN">IO_EISCONN
+        
+        <dd>
+        
+      
+        <dt id="IO_EISDIR">IO_EISDIR
+        
+        <dd>
+        
+      
+        <dt id="IO_EMFILE">IO_EMFILE
+        
+        <dd>
+        
+      
+        <dt id="IO_EMLINK">IO_EMLINK
+        
+        <dd>
+        
+      
+        <dt id="IO_EMSGSIZE">IO_EMSGSIZE
+        
+        <dd>
+        
+      
+        <dt id="IO_ENAMETOOLONG">IO_ENAMETOOLONG
+        
+        <dd>
+        
+      
+        <dt id="IO_ENCODER">IO_ENCODER
+        
+        <dd>
+        
+      
+        <dt id="IO_ENETUNREACH">IO_ENETUNREACH
+        
+        <dd>
+        
+      
+        <dt id="IO_ENFILE">IO_ENFILE
+        
+        <dd>
+        
+      
+        <dt id="IO_ENODEV">IO_ENODEV
+        
+        <dd>
+        
+      
+        <dt id="IO_ENOENT">IO_ENOENT
+        
+        <dd>
+        
+      
+        <dt id="IO_ENOEXEC">IO_ENOEXEC
+        
+        <dd>
+        
+      
+        <dt id="IO_ENOLCK">IO_ENOLCK
+        
+        <dd>
+        
+      
+        <dt id="IO_ENOMEM">IO_ENOMEM
+        
+        <dd>
+        
+      
+        <dt id="IO_ENOSPC">IO_ENOSPC
+        
+        <dd>
+        
+      
+        <dt id="IO_ENOSYS">IO_ENOSYS
+        
+        <dd>
+        
+      
+        <dt id="IO_ENOTDIR">IO_ENOTDIR
+        
+        <dd>
+        
+      
+        <dt id="IO_ENOTEMPTY">IO_ENOTEMPTY
+        
+        <dd>
+        
+      
+        <dt id="IO_ENOTSOCK">IO_ENOTSOCK
+        
+        <dd>
+        
+      
+        <dt id="IO_ENOTSUP">IO_ENOTSUP
+        
+        <dd>
+        
+      
+        <dt id="IO_ENOTTY">IO_ENOTTY
+        
+        <dd>
+        
+      
+        <dt id="IO_ENXIO">IO_ENXIO
+        
+        <dd>
+        
+      
+        <dt id="IO_EPERM">IO_EPERM
+        
+        <dd>
+        
+      
+        <dt id="IO_EPIPE">IO_EPIPE
+        
+        <dd>
+        
+      
+        <dt id="IO_ERANGE">IO_ERANGE
+        
+        <dd>
+        
+      
+        <dt id="IO_EROFS">IO_EROFS
+        
+        <dd>
+        
+      
+        <dt id="IO_ESPIPE">IO_ESPIPE
+        
+        <dd>
+        
+      
+        <dt id="IO_ESRCH">IO_ESRCH
+        
+        <dd>
+        
+      
+        <dt id="IO_ETIMEDOUT">IO_ETIMEDOUT
+        
+        <dd>
+        
+      
+        <dt id="IO_EXDEV">IO_EXDEV
+        
+        <dd>
+        
+      
+        <dt id="IO_FLUSH">IO_FLUSH
+        
+        <dd>
+        
+      
+        <dt id="IO_LOAD_ERROR">IO_LOAD_ERROR
+        
+        <dd>
+        
+      
+        <dt id="IO_NETWORK_ATTEMPT">IO_NETWORK_ATTEMPT
+        
+        <dd>
+        
+      
+        <dt id="IO_NO_INPUT">IO_NO_INPUT
+        
+        <dd>
+        
+      
+        <dt id="IO_UNKNOWN">IO_UNKNOWN
+        
+        <dd>
+        
+      
+        <dt id="IO_WRITE">IO_WRITE
+        
+        <dd>
+        
+      
+        <dt id="LITERAL_NOT_FINISHED">LITERAL_NOT_FINISHED
+        
+        <dd>
+        
+      
+        <dt id="LITERAL_NOT_STARTED">LITERAL_NOT_STARTED
+        
+        <dd>
+        
+      
+        <dt id="LTSLASH_REQUIRED">LTSLASH_REQUIRED
+        
+        <dd>
+        
+      
+        <dt id="LT_IN_ATTRIBUTE">LT_IN_ATTRIBUTE
+        
+        <dd>
+        
+      
+        <dt id="LT_REQUIRED">LT_REQUIRED
+        
+        <dd>
+        
+      
+        <dt id="MEMORY">MEMORY
+        
+        <dd>
+        
+      
+        <dt id="MISPLACED_CDATA_END">MISPLACED_CDATA_END
+        
+        <dd>
+        
+      
+        <dt id="MISSING_ENCODING">MISSING_ENCODING
+        
+        <dd>
+        
+      
+        <dt id="MIXED_NOT_FINISHED">MIXED_NOT_FINISHED
+        
+        <dd>
+        
+      
+        <dt id="MIXED_NOT_STARTED">MIXED_NOT_STARTED
+        
+        <dd>
+        
+      
+        <dt id="MODULE">MODULE
+        
+        <dd>
+        
+      
+        <dt id="MODULE_CLOSE">MODULE_CLOSE
+        
+        <dd>
+        
+      
+        <dt id="MODULE_OPEN">MODULE_OPEN
+        
+        <dd>
+        
+      
+        <dt id="NAMESPACE">NAMESPACE
+        
+        <dd>
+        
+      
+        <dt id="NAME_REQUIRED">NAME_REQUIRED
+        
+        <dd>
+        
+      
+        <dt id="NMTOKEN_REQUIRED">NMTOKEN_REQUIRED
+        
+        <dd>
+        
+      
+        <dt id="NONE">NONE
+        
+        <dd><p>xml error levels</p>
+        
+      
+        <dt id="NOTATION_NOT_FINISHED">NOTATION_NOT_FINISHED
+        
+        <dd>
+        
+      
+        <dt id="NOTATION_NOT_STARTED">NOTATION_NOT_STARTED
+        
+        <dd>
+        
+      
+        <dt id="NOTATION_PROCESSING">NOTATION_PROCESSING
+        
+        <dd>
+        
+      
+        <dt id="NOT_STANDALONE">NOT_STANDALONE
+        
+        <dd>
+        
+      
+        <dt id="NOT_WELL_BALANCED">NOT_WELL_BALANCED
+        
+        <dd>
+        
+      
+        <dt id="NO_DTD">NO_DTD
+        
+        <dd>
+        
+      
+        <dt id="NO_ERROR">NO_ERROR
+        
+        <dd><p>xml error domains</p>
+        
+      
+        <dt id="NO_MEMORY">NO_MEMORY
+        
+        <dd>
+        
+      
+        <dt id="NS_DECL_ERROR">NS_DECL_ERROR
+        
+        <dd>
+        
+      
+        <dt id="NS_ERR_ATTRIBUTE_REDEFINED">NS_ERR_ATTRIBUTE_REDEFINED
+        
+        <dd>
+        
+      
+        <dt id="NS_ERR_COLON">NS_ERR_COLON
+        
+        <dd>
+        
+      
+        <dt id="NS_ERR_EMPTY">NS_ERR_EMPTY
+        
+        <dd>
+        
+      
+        <dt id="NS_ERR_QNAME">NS_ERR_QNAME
+        
+        <dd>
+        
+      
+        <dt id="NS_ERR_UNDEFINED_NAMESPACE">NS_ERR_UNDEFINED_NAMESPACE
+        
+        <dd>
+        
+      
+        <dt id="NS_ERR_XML_NAMESPACE">NS_ERR_XML_NAMESPACE
+        
+        <dd>
+        
+      
+        <dt id="OK">OK
+        
+        <dd><p>errors</p>
+        
+      
+        <dt id="OUTPUT">OUTPUT
+        
+        <dd>
+        
+      
+        <dt id="PARSER">PARSER
+        
+        <dd>
+        
+      
+        <dt id="PCDATA_REQUIRED">PCDATA_REQUIRED
+        
+        <dd>
+        
+      
+        <dt id="PEREF_AT_EOF">PEREF_AT_EOF
+        
+        <dd>
+        
+      
+        <dt id="PEREF_IN_EPILOG">PEREF_IN_EPILOG
+        
+        <dd>
+        
+      
+        <dt id="PEREF_IN_INT_SUBSET">PEREF_IN_INT_SUBSET
+        
+        <dd>
+        
+      
+        <dt id="PEREF_IN_PROLOG">PEREF_IN_PROLOG
+        
+        <dd>
+        
+      
+        <dt id="PEREF_NO_NAME">PEREF_NO_NAME
+        
+        <dd>
+        
+      
+        <dt id="PEREF_SEMICOL_MISSING">PEREF_SEMICOL_MISSING
+        
+        <dd>
+        
+      
+        <dt id="PI_NOT_FINISHED">PI_NOT_FINISHED
+        
+        <dd>
+        
+      
+        <dt id="PI_NOT_STARTED">PI_NOT_STARTED
+        
+        <dd>
+        
+      
+        <dt id="PUBID_REQUIRED">PUBID_REQUIRED
+        
+        <dd>
+        
+      
+        <dt id="QUIET_HANDLER">QUIET_HANDLER
+        
+        <dd><p>Quiet error handler</p>
+        
+      
+        <dt id="REGEXP">REGEXP
+        
+        <dd>
+        
+      
+        <dt id="REGEXP_COMPILE_ERROR">REGEXP_COMPILE_ERROR
+        
+        <dd>
+        
+      
+        <dt id="RELAXNGP">RELAXNGP
+        
+        <dd>
+        
+      
+        <dt id="RELAXNGV">RELAXNGV
+        
+        <dd>
+        
+      
+        <dt id="RESERVED_XML_NAME">RESERVED_XML_NAME
+        
+        <dd>
+        
+      
+        <dt id="RNGP_ANYNAME_ATTR_ANCESTOR">RNGP_ANYNAME_ATTR_ANCESTOR
+        
+        <dd>
+        
+      
+        <dt id="RNGP_ATTRIBUTE_CHILDREN">RNGP_ATTRIBUTE_CHILDREN
+        
+        <dd>
+        
+      
+        <dt id="RNGP_ATTRIBUTE_CONTENT">RNGP_ATTRIBUTE_CONTENT
+        
+        <dd>
+        
+      
+        <dt id="RNGP_ATTRIBUTE_EMPTY">RNGP_ATTRIBUTE_EMPTY
+        
+        <dd>
+        
+      
+        <dt id="RNGP_ATTRIBUTE_NOOP">RNGP_ATTRIBUTE_NOOP
+        
+        <dd>
+        
+      
+        <dt id="RNGP_ATTR_CONFLICT">RNGP_ATTR_CONFLICT
+        
+        <dd>
+        
+      
+        <dt id="RNGP_CHOICE_CONTENT">RNGP_CHOICE_CONTENT
+        
+        <dd>
+        
+      
+        <dt id="RNGP_CHOICE_EMPTY">RNGP_CHOICE_EMPTY
+        
+        <dd>
+        
+      
+        <dt id="RNGP_CREATE_FAILURE">RNGP_CREATE_FAILURE
+        
+        <dd>
+        
+      
+        <dt id="RNGP_DATA_CONTENT">RNGP_DATA_CONTENT
+        
+        <dd>
+        
+      
+        <dt id="RNGP_DEFINE_CREATE_FAILED">RNGP_DEFINE_CREATE_FAILED
+        
+        <dd>
+        
+      
+        <dt id="RNGP_DEFINE_EMPTY">RNGP_DEFINE_EMPTY
+        
+        <dd>
+        
+      
+        <dt id="RNGP_DEFINE_MISSING">RNGP_DEFINE_MISSING
+        
+        <dd>
+        
+      
+        <dt id="RNGP_DEFINE_NAME_MISSING">RNGP_DEFINE_NAME_MISSING
+        
+        <dd>
+        
+      
+        <dt id="RNGP_DEF_CHOICE_AND_INTERLEAVE">RNGP_DEF_CHOICE_AND_INTERLEAVE
+        
+        <dd>
+        
+      
+        <dt id="RNGP_ELEMENT_CONTENT">RNGP_ELEMENT_CONTENT
+        
+        <dd>
+        
+      
+        <dt id="RNGP_ELEMENT_EMPTY">RNGP_ELEMENT_EMPTY
+        
+        <dd>
+        
+      
+        <dt id="RNGP_ELEMENT_NAME">RNGP_ELEMENT_NAME
+        
+        <dd>
+        
+      
+        <dt id="RNGP_ELEMENT_NO_CONTENT">RNGP_ELEMENT_NO_CONTENT
+        
+        <dd>
+        
+      
+        <dt id="RNGP_ELEM_CONTENT_EMPTY">RNGP_ELEM_CONTENT_EMPTY
+        
+        <dd>
+        
+      
+        <dt id="RNGP_ELEM_CONTENT_ERROR">RNGP_ELEM_CONTENT_ERROR
+        
+        <dd>
+        
+      
+        <dt id="RNGP_ELEM_TEXT_CONFLICT">RNGP_ELEM_TEXT_CONFLICT
+        
+        <dd>
+        
+      
+        <dt id="RNGP_EMPTY">RNGP_EMPTY
+        
+        <dd>
+        
+      
+        <dt id="RNGP_EMPTY_CONSTRUCT">RNGP_EMPTY_CONSTRUCT
+        
+        <dd>
+        
+      
+        <dt id="RNGP_EMPTY_CONTENT">RNGP_EMPTY_CONTENT
+        
+        <dd>
+        
+      
+        <dt id="RNGP_EMPTY_NOT_EMPTY">RNGP_EMPTY_NOT_EMPTY
+        
+        <dd>
+        
+      
+        <dt id="RNGP_ERROR_TYPE_LIB">RNGP_ERROR_TYPE_LIB
+        
+        <dd>
+        
+      
+        <dt id="RNGP_EXCEPT_EMPTY">RNGP_EXCEPT_EMPTY
+        
+        <dd>
+        
+      
+        <dt id="RNGP_EXCEPT_MISSING">RNGP_EXCEPT_MISSING
+        
+        <dd>
+        
+      
+        <dt id="RNGP_EXCEPT_MULTIPLE">RNGP_EXCEPT_MULTIPLE
+        
+        <dd>
+        
+      
+        <dt id="RNGP_EXCEPT_NO_CONTENT">RNGP_EXCEPT_NO_CONTENT
+        
+        <dd>
+        
+      
+        <dt id="RNGP_EXTERNALREF_EMTPY">RNGP_EXTERNALREF_EMTPY
+        
+        <dd>
+        
+      
+        <dt id="RNGP_EXTERNALREF_RECURSE">RNGP_EXTERNALREF_RECURSE
+        
+        <dd>
+        
+      
+        <dt id="RNGP_EXTERNAL_REF_FAILURE">RNGP_EXTERNAL_REF_FAILURE
+        
+        <dd>
+        
+      
+        <dt id="RNGP_FORBIDDEN_ATTRIBUTE">RNGP_FORBIDDEN_ATTRIBUTE
+        
+        <dd>
+        
+      
+        <dt id="RNGP_FOREIGN_ELEMENT">RNGP_FOREIGN_ELEMENT
+        
+        <dd>
+        
+      
+        <dt id="RNGP_GRAMMAR_CONTENT">RNGP_GRAMMAR_CONTENT
+        
+        <dd>
+        
+      
+        <dt id="RNGP_GRAMMAR_EMPTY">RNGP_GRAMMAR_EMPTY
+        
+        <dd>
+        
+      
+        <dt id="RNGP_GRAMMAR_MISSING">RNGP_GRAMMAR_MISSING
+        
+        <dd>
+        
+      
+        <dt id="RNGP_GRAMMAR_NO_START">RNGP_GRAMMAR_NO_START
+        
+        <dd>
+        
+      
+        <dt id="RNGP_GROUP_ATTR_CONFLICT">RNGP_GROUP_ATTR_CONFLICT
+        
+        <dd>
+        
+      
+        <dt id="RNGP_HREF_ERROR">RNGP_HREF_ERROR
+        
+        <dd>
+        
+      
+        <dt id="RNGP_INCLUDE_EMPTY">RNGP_INCLUDE_EMPTY
+        
+        <dd>
+        
+      
+        <dt id="RNGP_INCLUDE_FAILURE">RNGP_INCLUDE_FAILURE
+        
+        <dd>
+        
+      
+        <dt id="RNGP_INCLUDE_RECURSE">RNGP_INCLUDE_RECURSE
+        
+        <dd>
+        
+      
+        <dt id="RNGP_INTERLEAVE_ADD">RNGP_INTERLEAVE_ADD
+        
+        <dd>
+        
+      
+        <dt id="RNGP_INTERLEAVE_CREATE_FAILED">RNGP_INTERLEAVE_CREATE_FAILED
+        
+        <dd>
+        
+      
+        <dt id="RNGP_INTERLEAVE_EMPTY">RNGP_INTERLEAVE_EMPTY
+        
+        <dd>
+        
+      
+        <dt id="RNGP_INTERLEAVE_NO_CONTENT">RNGP_INTERLEAVE_NO_CONTENT
+        
+        <dd>
+        
+      
+        <dt id="RNGP_INVALID_DEFINE_NAME">RNGP_INVALID_DEFINE_NAME
+        
+        <dd>
+        
+      
+        <dt id="RNGP_INVALID_URI">RNGP_INVALID_URI
+        
+        <dd>
+        
+      
+        <dt id="RNGP_INVALID_VALUE">RNGP_INVALID_VALUE
+        
+        <dd>
+        
+      
+        <dt id="RNGP_MISSING_HREF">RNGP_MISSING_HREF
+        
+        <dd>
+        
+      
+        <dt id="RNGP_NAME_MISSING">RNGP_NAME_MISSING
+        
+        <dd>
+        
+      
+        <dt id="RNGP_NEED_COMBINE">RNGP_NEED_COMBINE
+        
+        <dd>
+        
+      
+        <dt id="RNGP_NOTALLOWED_NOT_EMPTY">RNGP_NOTALLOWED_NOT_EMPTY
+        
+        <dd>
+        
+      
+        <dt id="RNGP_NSNAME_ATTR_ANCESTOR">RNGP_NSNAME_ATTR_ANCESTOR
+        
+        <dd>
+        
+      
+        <dt id="RNGP_NSNAME_NO_NS">RNGP_NSNAME_NO_NS
+        
+        <dd>
+        
+      
+        <dt id="RNGP_PARAM_FORBIDDEN">RNGP_PARAM_FORBIDDEN
+        
+        <dd>
+        
+      
+        <dt id="RNGP_PARAM_NAME_MISSING">RNGP_PARAM_NAME_MISSING
+        
+        <dd>
+        
+      
+        <dt id="RNGP_PARENTREF_CREATE_FAILED">RNGP_PARENTREF_CREATE_FAILED
+        
+        <dd>
+        
+      
+        <dt id="RNGP_PARENTREF_NAME_INVALID">RNGP_PARENTREF_NAME_INVALID
+        
+        <dd>
+        
+      
+        <dt id="RNGP_PARENTREF_NOT_EMPTY">RNGP_PARENTREF_NOT_EMPTY
+        
+        <dd>
+        
+      
+        <dt id="RNGP_PARENTREF_NO_NAME">RNGP_PARENTREF_NO_NAME
+        
+        <dd>
+        
+      
+        <dt id="RNGP_PARENTREF_NO_PARENT">RNGP_PARENTREF_NO_PARENT
+        
+        <dd>
+        
+      
+        <dt id="RNGP_PARSE_ERROR">RNGP_PARSE_ERROR
+        
+        <dd>
+        
+      
+        <dt id="RNGP_PAT_ANYNAME_EXCEPT_ANYNAME">RNGP_PAT_ANYNAME_EXCEPT_ANYNAME
+        
+        <dd>
+        
+      
+        <dt id="RNGP_PAT_ATTR_ATTR">RNGP_PAT_ATTR_ATTR
+        
+        <dd>
+        
+      
+        <dt id="RNGP_PAT_ATTR_ELEM">RNGP_PAT_ATTR_ELEM
+        
+        <dd>
+        
+      
+        <dt id="RNGP_PAT_DATA_EXCEPT_ATTR">RNGP_PAT_DATA_EXCEPT_ATTR
+        
+        <dd>
+        
+      
+        <dt id="RNGP_PAT_DATA_EXCEPT_ELEM">RNGP_PAT_DATA_EXCEPT_ELEM
+        
+        <dd>
+        
+      
+        <dt id="RNGP_PAT_DATA_EXCEPT_EMPTY">RNGP_PAT_DATA_EXCEPT_EMPTY
+        
+        <dd>
+        
+      
+        <dt id="RNGP_PAT_DATA_EXCEPT_GROUP">RNGP_PAT_DATA_EXCEPT_GROUP
+        
+        <dd>
+        
+      
+        <dt id="RNGP_PAT_DATA_EXCEPT_INTERLEAVE">RNGP_PAT_DATA_EXCEPT_INTERLEAVE
+        
+        <dd>
+        
+      
+        <dt id="RNGP_PAT_DATA_EXCEPT_LIST">RNGP_PAT_DATA_EXCEPT_LIST
+        
+        <dd>
+        
+      
+        <dt id="RNGP_PAT_DATA_EXCEPT_ONEMORE">RNGP_PAT_DATA_EXCEPT_ONEMORE
+        
+        <dd>
+        
+      
+        <dt id="RNGP_PAT_DATA_EXCEPT_REF">RNGP_PAT_DATA_EXCEPT_REF
+        
+        <dd>
+        
+      
+        <dt id="RNGP_PAT_DATA_EXCEPT_TEXT">RNGP_PAT_DATA_EXCEPT_TEXT
+        
+        <dd>
+        
+      
+        <dt id="RNGP_PAT_LIST_ATTR">RNGP_PAT_LIST_ATTR
+        
+        <dd>
+        
+      
+        <dt id="RNGP_PAT_LIST_ELEM">RNGP_PAT_LIST_ELEM
+        
+        <dd>
+        
+      
+        <dt id="RNGP_PAT_LIST_INTERLEAVE">RNGP_PAT_LIST_INTERLEAVE
+        
+        <dd>
+        
+      
+        <dt id="RNGP_PAT_LIST_LIST">RNGP_PAT_LIST_LIST
+        
+        <dd>
+        
+      
+        <dt id="RNGP_PAT_LIST_REF">RNGP_PAT_LIST_REF
+        
+        <dd>
+        
+      
+        <dt id="RNGP_PAT_LIST_TEXT">RNGP_PAT_LIST_TEXT
+        
+        <dd>
+        
+      
+        <dt id="RNGP_PAT_NSNAME_EXCEPT_ANYNAME">RNGP_PAT_NSNAME_EXCEPT_ANYNAME
+        
+        <dd>
+        
+      
+        <dt id="RNGP_PAT_NSNAME_EXCEPT_NSNAME">RNGP_PAT_NSNAME_EXCEPT_NSNAME
+        
+        <dd>
+        
+      
+        <dt id="RNGP_PAT_ONEMORE_GROUP_ATTR">RNGP_PAT_ONEMORE_GROUP_ATTR
+        
+        <dd>
+        
+      
+        <dt id="RNGP_PAT_ONEMORE_INTERLEAVE_ATTR">RNGP_PAT_ONEMORE_INTERLEAVE_ATTR
+        
+        <dd>
+        
+      
+        <dt id="RNGP_PAT_START_ATTR">RNGP_PAT_START_ATTR
+        
+        <dd>
+        
+      
+        <dt id="RNGP_PAT_START_DATA">RNGP_PAT_START_DATA
+        
+        <dd>
+        
+      
+        <dt id="RNGP_PAT_START_EMPTY">RNGP_PAT_START_EMPTY
+        
+        <dd>
+        
+      
+        <dt id="RNGP_PAT_START_GROUP">RNGP_PAT_START_GROUP
+        
+        <dd>
+        
+      
+        <dt id="RNGP_PAT_START_INTERLEAVE">RNGP_PAT_START_INTERLEAVE
+        
+        <dd>
+        
+      
+        <dt id="RNGP_PAT_START_LIST">RNGP_PAT_START_LIST
+        
+        <dd>
+        
+      
+        <dt id="RNGP_PAT_START_ONEMORE">RNGP_PAT_START_ONEMORE
+        
+        <dd>
+        
+      
+        <dt id="RNGP_PAT_START_TEXT">RNGP_PAT_START_TEXT
+        
+        <dd>
+        
+      
+        <dt id="RNGP_PAT_START_VALUE">RNGP_PAT_START_VALUE
+        
+        <dd>
+        
+      
+        <dt id="RNGP_PREFIX_UNDEFINED">RNGP_PREFIX_UNDEFINED
+        
+        <dd>
+        
+      
+        <dt id="RNGP_REF_CREATE_FAILED">RNGP_REF_CREATE_FAILED
+        
+        <dd>
+        
+      
+        <dt id="RNGP_REF_CYCLE">RNGP_REF_CYCLE
+        
+        <dd>
+        
+      
+        <dt id="RNGP_REF_NAME_INVALID">RNGP_REF_NAME_INVALID
+        
+        <dd>
+        
+      
+        <dt id="RNGP_REF_NOT_EMPTY">RNGP_REF_NOT_EMPTY
+        
+        <dd>
+        
+      
+        <dt id="RNGP_REF_NO_DEF">RNGP_REF_NO_DEF
+        
+        <dd>
+        
+      
+        <dt id="RNGP_REF_NO_NAME">RNGP_REF_NO_NAME
+        
+        <dd>
+        
+      
+        <dt id="RNGP_START_CHOICE_AND_INTERLEAVE">RNGP_START_CHOICE_AND_INTERLEAVE
+        
+        <dd>
+        
+      
+        <dt id="RNGP_START_CONTENT">RNGP_START_CONTENT
+        
+        <dd>
+        
+      
+        <dt id="RNGP_START_EMPTY">RNGP_START_EMPTY
+        
+        <dd>
+        
+      
+        <dt id="RNGP_START_MISSING">RNGP_START_MISSING
+        
+        <dd>
+        
+      
+        <dt id="RNGP_TEXT_EXPECTED">RNGP_TEXT_EXPECTED
+        
+        <dd>
+        
+      
+        <dt id="RNGP_TEXT_HAS_CHILD">RNGP_TEXT_HAS_CHILD
+        
+        <dd>
+        
+      
+        <dt id="RNGP_TYPE_MISSING">RNGP_TYPE_MISSING
+        
+        <dd>
+        
+      
+        <dt id="RNGP_TYPE_NOT_FOUND">RNGP_TYPE_NOT_FOUND
+        
+        <dd>
+        
+      
+        <dt id="RNGP_TYPE_VALUE">RNGP_TYPE_VALUE
+        
+        <dd>
+        
+      
+        <dt id="RNGP_UNKNOWN_ATTRIBUTE">RNGP_UNKNOWN_ATTRIBUTE
+        
+        <dd>
+        
+      
+        <dt id="RNGP_UNKNOWN_COMBINE">RNGP_UNKNOWN_COMBINE
+        
+        <dd>
+        
+      
+        <dt id="RNGP_UNKNOWN_CONSTRUCT">RNGP_UNKNOWN_CONSTRUCT
+        
+        <dd>
+        
+      
+        <dt id="RNGP_UNKNOWN_TYPE_LIB">RNGP_UNKNOWN_TYPE_LIB
+        
+        <dd>
+        
+      
+        <dt id="RNGP_URI_FRAGMENT">RNGP_URI_FRAGMENT
+        
+        <dd>
+        
+      
+        <dt id="RNGP_URI_NOT_ABSOLUTE">RNGP_URI_NOT_ABSOLUTE
+        
+        <dd>
+        
+      
+        <dt id="RNGP_VALUE_EMPTY">RNGP_VALUE_EMPTY
+        
+        <dd>
+        
+      
+        <dt id="RNGP_VALUE_NO_CONTENT">RNGP_VALUE_NO_CONTENT
+        
+        <dd>
+        
+      
+        <dt id="RNGP_XMLNS_NAME">RNGP_XMLNS_NAME
+        
+        <dd>
+        
+      
+        <dt id="RNGP_XML_NS">RNGP_XML_NS
+        
+        <dd>
+        
+      
+        <dt id="SAVE_CHAR_INVALID">SAVE_CHAR_INVALID
+        
+        <dd>
+        
+      
+        <dt id="SAVE_NOT_UTF8">SAVE_NOT_UTF8
+        
+        <dd>
+        
+      
+        <dt id="SAVE_NO_DOCTYPE">SAVE_NO_DOCTYPE
+        
+        <dd>
+        
+      
+        <dt id="SAVE_UNKNOWN_ENCODING">SAVE_UNKNOWN_ENCODING
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_AG_PROPS_CORRECT">SCHEMAP_AG_PROPS_CORRECT
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_ATTRFORMDEFAULT_VALUE">SCHEMAP_ATTRFORMDEFAULT_VALUE
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_ATTRGRP_NONAME_NOREF">SCHEMAP_ATTRGRP_NONAME_NOREF
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_ATTR_NONAME_NOREF">SCHEMAP_ATTR_NONAME_NOREF
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_AU_PROPS_CORRECT">SCHEMAP_AU_PROPS_CORRECT
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_AU_PROPS_CORRECT_2">SCHEMAP_AU_PROPS_CORRECT_2
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_A_PROPS_CORRECT_2">SCHEMAP_A_PROPS_CORRECT_2
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_A_PROPS_CORRECT_3">SCHEMAP_A_PROPS_CORRECT_3
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_COMPLEXTYPE_NONAME_NOREF">SCHEMAP_COMPLEXTYPE_NONAME_NOREF
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_COS_ALL_LIMITED">SCHEMAP_COS_ALL_LIMITED
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_COS_CT_EXTENDS_1_1">SCHEMAP_COS_CT_EXTENDS_1_1
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_COS_CT_EXTENDS_1_2">SCHEMAP_COS_CT_EXTENDS_1_2
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_COS_CT_EXTENDS_1_3">SCHEMAP_COS_CT_EXTENDS_1_3
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_COS_ST_DERIVED_OK_2_1">SCHEMAP_COS_ST_DERIVED_OK_2_1
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_COS_ST_DERIVED_OK_2_2">SCHEMAP_COS_ST_DERIVED_OK_2_2
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_COS_ST_RESTRICTS_1_1">SCHEMAP_COS_ST_RESTRICTS_1_1
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_COS_ST_RESTRICTS_1_2">SCHEMAP_COS_ST_RESTRICTS_1_2
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_COS_ST_RESTRICTS_1_3_1">SCHEMAP_COS_ST_RESTRICTS_1_3_1
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_COS_ST_RESTRICTS_1_3_2">SCHEMAP_COS_ST_RESTRICTS_1_3_2
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_COS_ST_RESTRICTS_2_1">SCHEMAP_COS_ST_RESTRICTS_2_1
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_COS_ST_RESTRICTS_2_3_1_1">SCHEMAP_COS_ST_RESTRICTS_2_3_1_1
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_COS_ST_RESTRICTS_2_3_1_2">SCHEMAP_COS_ST_RESTRICTS_2_3_1_2
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_COS_ST_RESTRICTS_2_3_2_1">SCHEMAP_COS_ST_RESTRICTS_2_3_2_1
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_COS_ST_RESTRICTS_2_3_2_2">SCHEMAP_COS_ST_RESTRICTS_2_3_2_2
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_COS_ST_RESTRICTS_2_3_2_3">SCHEMAP_COS_ST_RESTRICTS_2_3_2_3
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_COS_ST_RESTRICTS_2_3_2_4">SCHEMAP_COS_ST_RESTRICTS_2_3_2_4
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_COS_ST_RESTRICTS_2_3_2_5">SCHEMAP_COS_ST_RESTRICTS_2_3_2_5
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_COS_ST_RESTRICTS_3_1">SCHEMAP_COS_ST_RESTRICTS_3_1
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_COS_ST_RESTRICTS_3_3_1">SCHEMAP_COS_ST_RESTRICTS_3_3_1
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_COS_ST_RESTRICTS_3_3_1_2">SCHEMAP_COS_ST_RESTRICTS_3_3_1_2
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_COS_ST_RESTRICTS_3_3_2_1">SCHEMAP_COS_ST_RESTRICTS_3_3_2_1
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_COS_ST_RESTRICTS_3_3_2_2">SCHEMAP_COS_ST_RESTRICTS_3_3_2_2
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_COS_ST_RESTRICTS_3_3_2_3">SCHEMAP_COS_ST_RESTRICTS_3_3_2_3
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_COS_ST_RESTRICTS_3_3_2_4">SCHEMAP_COS_ST_RESTRICTS_3_3_2_4
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_COS_ST_RESTRICTS_3_3_2_5">SCHEMAP_COS_ST_RESTRICTS_3_3_2_5
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_COS_VALID_DEFAULT_1">SCHEMAP_COS_VALID_DEFAULT_1
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_COS_VALID_DEFAULT_2_1">SCHEMAP_COS_VALID_DEFAULT_2_1
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_COS_VALID_DEFAULT_2_2_1">SCHEMAP_COS_VALID_DEFAULT_2_2_1
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_COS_VALID_DEFAULT_2_2_2">SCHEMAP_COS_VALID_DEFAULT_2_2_2
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_CT_PROPS_CORRECT_1">SCHEMAP_CT_PROPS_CORRECT_1
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_CT_PROPS_CORRECT_2">SCHEMAP_CT_PROPS_CORRECT_2
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_CT_PROPS_CORRECT_3">SCHEMAP_CT_PROPS_CORRECT_3
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_CT_PROPS_CORRECT_4">SCHEMAP_CT_PROPS_CORRECT_4
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_CT_PROPS_CORRECT_5">SCHEMAP_CT_PROPS_CORRECT_5
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_CVC_SIMPLE_TYPE">SCHEMAP_CVC_SIMPLE_TYPE
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_C_PROPS_CORRECT">SCHEMAP_C_PROPS_CORRECT
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_DEF_AND_PREFIX">SCHEMAP_DEF_AND_PREFIX
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_DERIVATION_OK_RESTRICTION_1">SCHEMAP_DERIVATION_OK_RESTRICTION_1
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_DERIVATION_OK_RESTRICTION_2_1_1">SCHEMAP_DERIVATION_OK_RESTRICTION_2_1_1
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_DERIVATION_OK_RESTRICTION_2_1_2">SCHEMAP_DERIVATION_OK_RESTRICTION_2_1_2
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_DERIVATION_OK_RESTRICTION_2_1_3">SCHEMAP_DERIVATION_OK_RESTRICTION_2_1_3
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_DERIVATION_OK_RESTRICTION_2_2">SCHEMAP_DERIVATION_OK_RESTRICTION_2_2
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_DERIVATION_OK_RESTRICTION_3">SCHEMAP_DERIVATION_OK_RESTRICTION_3
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_DERIVATION_OK_RESTRICTION_4_1">SCHEMAP_DERIVATION_OK_RESTRICTION_4_1
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_DERIVATION_OK_RESTRICTION_4_2">SCHEMAP_DERIVATION_OK_RESTRICTION_4_2
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_DERIVATION_OK_RESTRICTION_4_3">SCHEMAP_DERIVATION_OK_RESTRICTION_4_3
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_ELEMFORMDEFAULT_VALUE">SCHEMAP_ELEMFORMDEFAULT_VALUE
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_ELEM_DEFAULT_FIXED">SCHEMAP_ELEM_DEFAULT_FIXED
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_ELEM_NONAME_NOREF">SCHEMAP_ELEM_NONAME_NOREF
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_EXTENSION_NO_BASE">SCHEMAP_EXTENSION_NO_BASE
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_E_PROPS_CORRECT_2">SCHEMAP_E_PROPS_CORRECT_2
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_E_PROPS_CORRECT_3">SCHEMAP_E_PROPS_CORRECT_3
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_E_PROPS_CORRECT_4">SCHEMAP_E_PROPS_CORRECT_4
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_E_PROPS_CORRECT_5">SCHEMAP_E_PROPS_CORRECT_5
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_E_PROPS_CORRECT_6">SCHEMAP_E_PROPS_CORRECT_6
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_FACET_NO_VALUE">SCHEMAP_FACET_NO_VALUE
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_FAILED_BUILD_IMPORT">SCHEMAP_FAILED_BUILD_IMPORT
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_FAILED_LOAD">SCHEMAP_FAILED_LOAD
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_FAILED_PARSE">SCHEMAP_FAILED_PARSE
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_GROUP_NONAME_NOREF">SCHEMAP_GROUP_NONAME_NOREF
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_IMPORT_NAMESPACE_NOT_URI">SCHEMAP_IMPORT_NAMESPACE_NOT_URI
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_IMPORT_REDEFINE_NSNAME">SCHEMAP_IMPORT_REDEFINE_NSNAME
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_IMPORT_SCHEMA_NOT_URI">SCHEMAP_IMPORT_SCHEMA_NOT_URI
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_INCLUDE_SCHEMA_NOT_URI">SCHEMAP_INCLUDE_SCHEMA_NOT_URI
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_INCLUDE_SCHEMA_NO_URI">SCHEMAP_INCLUDE_SCHEMA_NO_URI
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_INTERNAL">SCHEMAP_INTERNAL
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_INTERSECTION_NOT_EXPRESSIBLE">SCHEMAP_INTERSECTION_NOT_EXPRESSIBLE
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_INVALID_ATTR_COMBINATION">SCHEMAP_INVALID_ATTR_COMBINATION
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_INVALID_ATTR_INLINE_COMBINATION">SCHEMAP_INVALID_ATTR_INLINE_COMBINATION
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_INVALID_ATTR_NAME">SCHEMAP_INVALID_ATTR_NAME
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_INVALID_ATTR_USE">SCHEMAP_INVALID_ATTR_USE
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_INVALID_BOOLEAN">SCHEMAP_INVALID_BOOLEAN
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_INVALID_ENUM">SCHEMAP_INVALID_ENUM
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_INVALID_FACET">SCHEMAP_INVALID_FACET
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_INVALID_FACET_VALUE">SCHEMAP_INVALID_FACET_VALUE
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_INVALID_MAXOCCURS">SCHEMAP_INVALID_MAXOCCURS
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_INVALID_MINOCCURS">SCHEMAP_INVALID_MINOCCURS
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_INVALID_REF_AND_SUBTYPE">SCHEMAP_INVALID_REF_AND_SUBTYPE
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_INVALID_WHITE_SPACE">SCHEMAP_INVALID_WHITE_SPACE
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_MG_PROPS_CORRECT_1">SCHEMAP_MG_PROPS_CORRECT_1
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_MG_PROPS_CORRECT_2">SCHEMAP_MG_PROPS_CORRECT_2
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_MISSING_SIMPLETYPE_CHILD">SCHEMAP_MISSING_SIMPLETYPE_CHILD
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_NOATTR_NOREF">SCHEMAP_NOATTR_NOREF
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_NOROOT">SCHEMAP_NOROOT
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_NOTATION_NO_NAME">SCHEMAP_NOTATION_NO_NAME
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_NOTHING_TO_PARSE">SCHEMAP_NOTHING_TO_PARSE
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_NOTYPE_NOREF">SCHEMAP_NOTYPE_NOREF
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_NOT_DETERMINISTIC">SCHEMAP_NOT_DETERMINISTIC
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_NOT_SCHEMA">SCHEMAP_NOT_SCHEMA
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_NO_XMLNS">SCHEMAP_NO_XMLNS
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_NO_XSI">SCHEMAP_NO_XSI
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_PREFIX_UNDEFINED">SCHEMAP_PREFIX_UNDEFINED
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_P_PROPS_CORRECT_1">SCHEMAP_P_PROPS_CORRECT_1
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_P_PROPS_CORRECT_2_1">SCHEMAP_P_PROPS_CORRECT_2_1
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_P_PROPS_CORRECT_2_2">SCHEMAP_P_PROPS_CORRECT_2_2
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_RECURSIVE">SCHEMAP_RECURSIVE
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_REDEFINED_ATTR">SCHEMAP_REDEFINED_ATTR
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_REDEFINED_ATTRGROUP">SCHEMAP_REDEFINED_ATTRGROUP
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_REDEFINED_ELEMENT">SCHEMAP_REDEFINED_ELEMENT
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_REDEFINED_GROUP">SCHEMAP_REDEFINED_GROUP
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_REDEFINED_NOTATION">SCHEMAP_REDEFINED_NOTATION
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_REDEFINED_TYPE">SCHEMAP_REDEFINED_TYPE
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_REF_AND_CONTENT">SCHEMAP_REF_AND_CONTENT
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_REF_AND_SUBTYPE">SCHEMAP_REF_AND_SUBTYPE
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_REGEXP_INVALID">SCHEMAP_REGEXP_INVALID
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_RESTRICTION_NONAME_NOREF">SCHEMAP_RESTRICTION_NONAME_NOREF
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_S4S_ATTR_INVALID_VALUE">SCHEMAP_S4S_ATTR_INVALID_VALUE
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_S4S_ATTR_MISSING">SCHEMAP_S4S_ATTR_MISSING
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_S4S_ATTR_NOT_ALLOWED">SCHEMAP_S4S_ATTR_NOT_ALLOWED
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_S4S_ELEM_MISSING">SCHEMAP_S4S_ELEM_MISSING
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_S4S_ELEM_NOT_ALLOWED">SCHEMAP_S4S_ELEM_NOT_ALLOWED
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_SIMPLETYPE_NONAME">SCHEMAP_SIMPLETYPE_NONAME
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_SRC_ATTRIBUTE_1">SCHEMAP_SRC_ATTRIBUTE_1
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_SRC_ATTRIBUTE_2">SCHEMAP_SRC_ATTRIBUTE_2
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_SRC_ATTRIBUTE_3_1">SCHEMAP_SRC_ATTRIBUTE_3_1
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_SRC_ATTRIBUTE_3_2">SCHEMAP_SRC_ATTRIBUTE_3_2
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_SRC_ATTRIBUTE_4">SCHEMAP_SRC_ATTRIBUTE_4
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_SRC_ATTRIBUTE_GROUP_1">SCHEMAP_SRC_ATTRIBUTE_GROUP_1
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_SRC_ATTRIBUTE_GROUP_2">SCHEMAP_SRC_ATTRIBUTE_GROUP_2
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_SRC_ATTRIBUTE_GROUP_3">SCHEMAP_SRC_ATTRIBUTE_GROUP_3
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_SRC_CT_1">SCHEMAP_SRC_CT_1
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_SRC_ELEMENT_1">SCHEMAP_SRC_ELEMENT_1
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_SRC_ELEMENT_2_1">SCHEMAP_SRC_ELEMENT_2_1
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_SRC_ELEMENT_2_2">SCHEMAP_SRC_ELEMENT_2_2
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_SRC_ELEMENT_3">SCHEMAP_SRC_ELEMENT_3
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_SRC_IMPORT">SCHEMAP_SRC_IMPORT
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_SRC_IMPORT_1_1">SCHEMAP_SRC_IMPORT_1_1
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_SRC_IMPORT_1_2">SCHEMAP_SRC_IMPORT_1_2
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_SRC_IMPORT_2">SCHEMAP_SRC_IMPORT_2
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_SRC_IMPORT_2_1">SCHEMAP_SRC_IMPORT_2_1
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_SRC_IMPORT_2_2">SCHEMAP_SRC_IMPORT_2_2
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_SRC_IMPORT_3_1">SCHEMAP_SRC_IMPORT_3_1
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_SRC_IMPORT_3_2">SCHEMAP_SRC_IMPORT_3_2
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_SRC_INCLUDE">SCHEMAP_SRC_INCLUDE
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_SRC_LIST_ITEMTYPE_OR_SIMPLETYPE">SCHEMAP_SRC_LIST_ITEMTYPE_OR_SIMPLETYPE
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_SRC_REDEFINE">SCHEMAP_SRC_REDEFINE
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_SRC_RESOLVE">SCHEMAP_SRC_RESOLVE
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_SRC_RESTRICTION_BASE_OR_SIMPLETYPE">SCHEMAP_SRC_RESTRICTION_BASE_OR_SIMPLETYPE
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_SRC_SIMPLE_TYPE_1">SCHEMAP_SRC_SIMPLE_TYPE_1
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_SRC_SIMPLE_TYPE_2">SCHEMAP_SRC_SIMPLE_TYPE_2
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_SRC_SIMPLE_TYPE_3">SCHEMAP_SRC_SIMPLE_TYPE_3
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_SRC_SIMPLE_TYPE_4">SCHEMAP_SRC_SIMPLE_TYPE_4
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_SRC_UNION_MEMBERTYPES_OR_SIMPLETYPES">SCHEMAP_SRC_UNION_MEMBERTYPES_OR_SIMPLETYPES
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_ST_PROPS_CORRECT_1">SCHEMAP_ST_PROPS_CORRECT_1
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_ST_PROPS_CORRECT_2">SCHEMAP_ST_PROPS_CORRECT_2
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_ST_PROPS_CORRECT_3">SCHEMAP_ST_PROPS_CORRECT_3
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_SUPERNUMEROUS_LIST_ITEM_TYPE">SCHEMAP_SUPERNUMEROUS_LIST_ITEM_TYPE
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_TYPE_AND_SUBTYPE">SCHEMAP_TYPE_AND_SUBTYPE
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_UNION_NOT_EXPRESSIBLE">SCHEMAP_UNION_NOT_EXPRESSIBLE
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_UNKNOWN_ALL_CHILD">SCHEMAP_UNKNOWN_ALL_CHILD
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_UNKNOWN_ANYATTRIBUTE_CHILD">SCHEMAP_UNKNOWN_ANYATTRIBUTE_CHILD
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_UNKNOWN_ATTRGRP_CHILD">SCHEMAP_UNKNOWN_ATTRGRP_CHILD
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_UNKNOWN_ATTRIBUTE_GROUP">SCHEMAP_UNKNOWN_ATTRIBUTE_GROUP
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_UNKNOWN_ATTR_CHILD">SCHEMAP_UNKNOWN_ATTR_CHILD
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_UNKNOWN_BASE_TYPE">SCHEMAP_UNKNOWN_BASE_TYPE
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_UNKNOWN_CHOICE_CHILD">SCHEMAP_UNKNOWN_CHOICE_CHILD
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_UNKNOWN_COMPLEXCONTENT_CHILD">SCHEMAP_UNKNOWN_COMPLEXCONTENT_CHILD
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_UNKNOWN_COMPLEXTYPE_CHILD">SCHEMAP_UNKNOWN_COMPLEXTYPE_CHILD
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_UNKNOWN_ELEM_CHILD">SCHEMAP_UNKNOWN_ELEM_CHILD
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_UNKNOWN_EXTENSION_CHILD">SCHEMAP_UNKNOWN_EXTENSION_CHILD
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_UNKNOWN_FACET_CHILD">SCHEMAP_UNKNOWN_FACET_CHILD
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_UNKNOWN_FACET_TYPE">SCHEMAP_UNKNOWN_FACET_TYPE
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_UNKNOWN_GROUP_CHILD">SCHEMAP_UNKNOWN_GROUP_CHILD
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_UNKNOWN_IMPORT_CHILD">SCHEMAP_UNKNOWN_IMPORT_CHILD
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_UNKNOWN_INCLUDE_CHILD">SCHEMAP_UNKNOWN_INCLUDE_CHILD
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_UNKNOWN_LIST_CHILD">SCHEMAP_UNKNOWN_LIST_CHILD
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_UNKNOWN_MEMBER_TYPE">SCHEMAP_UNKNOWN_MEMBER_TYPE
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_UNKNOWN_NOTATION_CHILD">SCHEMAP_UNKNOWN_NOTATION_CHILD
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_UNKNOWN_PREFIX">SCHEMAP_UNKNOWN_PREFIX
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_UNKNOWN_PROCESSCONTENT_CHILD">SCHEMAP_UNKNOWN_PROCESSCONTENT_CHILD
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_UNKNOWN_REF">SCHEMAP_UNKNOWN_REF
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_UNKNOWN_RESTRICTION_CHILD">SCHEMAP_UNKNOWN_RESTRICTION_CHILD
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_UNKNOWN_SCHEMAS_CHILD">SCHEMAP_UNKNOWN_SCHEMAS_CHILD
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_UNKNOWN_SEQUENCE_CHILD">SCHEMAP_UNKNOWN_SEQUENCE_CHILD
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_UNKNOWN_SIMPLECONTENT_CHILD">SCHEMAP_UNKNOWN_SIMPLECONTENT_CHILD
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_UNKNOWN_SIMPLETYPE_CHILD">SCHEMAP_UNKNOWN_SIMPLETYPE_CHILD
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_UNKNOWN_TYPE">SCHEMAP_UNKNOWN_TYPE
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_UNKNOWN_UNION_CHILD">SCHEMAP_UNKNOWN_UNION_CHILD
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_WARN_ATTR_POINTLESS_PROH">SCHEMAP_WARN_ATTR_POINTLESS_PROH
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_WARN_ATTR_REDECL_PROH">SCHEMAP_WARN_ATTR_REDECL_PROH
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_WARN_SKIP_SCHEMA">SCHEMAP_WARN_SKIP_SCHEMA
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_WARN_UNLOCATED_SCHEMA">SCHEMAP_WARN_UNLOCATED_SCHEMA
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAP_WILDCARD_INVALID_NS_MEMBER">SCHEMAP_WILDCARD_INVALID_NS_MEMBER
+        
+        <dd>
+        
+      
+        <dt id="SCHEMASP">SCHEMASP
+        
+        <dd>
+        
+      
+        <dt id="SCHEMASV">SCHEMASV
+        
+        <dd>
+        
+      
+        <dt id="SCHEMATRONV">SCHEMATRONV
+        
+        <dd>
+        
+      
+        <dt id="SCHEMATRONV_ASSERT">SCHEMATRONV_ASSERT
+        
+        <dd>
+        
+      
+        <dt id="SCHEMATRONV_REPORT">SCHEMATRONV_REPORT
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_ATTRINVALID">SCHEMAV_ATTRINVALID
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_ATTRUNKNOWN">SCHEMAV_ATTRUNKNOWN
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CONSTRUCT">SCHEMAV_CONSTRUCT
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_ATTRIBUTE_1">SCHEMAV_CVC_ATTRIBUTE_1
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_ATTRIBUTE_2">SCHEMAV_CVC_ATTRIBUTE_2
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_ATTRIBUTE_3">SCHEMAV_CVC_ATTRIBUTE_3
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_ATTRIBUTE_4">SCHEMAV_CVC_ATTRIBUTE_4
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_AU">SCHEMAV_CVC_AU
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_COMPLEX_TYPE_1">SCHEMAV_CVC_COMPLEX_TYPE_1
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_COMPLEX_TYPE_2_1">SCHEMAV_CVC_COMPLEX_TYPE_2_1
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_COMPLEX_TYPE_2_2">SCHEMAV_CVC_COMPLEX_TYPE_2_2
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_COMPLEX_TYPE_2_3">SCHEMAV_CVC_COMPLEX_TYPE_2_3
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_COMPLEX_TYPE_2_4">SCHEMAV_CVC_COMPLEX_TYPE_2_4
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_COMPLEX_TYPE_3_1">SCHEMAV_CVC_COMPLEX_TYPE_3_1
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_COMPLEX_TYPE_3_2_1">SCHEMAV_CVC_COMPLEX_TYPE_3_2_1
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_COMPLEX_TYPE_3_2_2">SCHEMAV_CVC_COMPLEX_TYPE_3_2_2
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_COMPLEX_TYPE_4">SCHEMAV_CVC_COMPLEX_TYPE_4
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_COMPLEX_TYPE_5_1">SCHEMAV_CVC_COMPLEX_TYPE_5_1
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_COMPLEX_TYPE_5_2">SCHEMAV_CVC_COMPLEX_TYPE_5_2
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_DATATYPE_VALID_1_2_1">SCHEMAV_CVC_DATATYPE_VALID_1_2_1
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_DATATYPE_VALID_1_2_2">SCHEMAV_CVC_DATATYPE_VALID_1_2_2
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_DATATYPE_VALID_1_2_3">SCHEMAV_CVC_DATATYPE_VALID_1_2_3
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_ELT_1">SCHEMAV_CVC_ELT_1
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_ELT_2">SCHEMAV_CVC_ELT_2
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_ELT_3_1">SCHEMAV_CVC_ELT_3_1
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_ELT_3_2_1">SCHEMAV_CVC_ELT_3_2_1
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_ELT_3_2_2">SCHEMAV_CVC_ELT_3_2_2
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_ELT_4_1">SCHEMAV_CVC_ELT_4_1
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_ELT_4_2">SCHEMAV_CVC_ELT_4_2
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_ELT_4_3">SCHEMAV_CVC_ELT_4_3
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_ELT_5_1_1">SCHEMAV_CVC_ELT_5_1_1
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_ELT_5_1_2">SCHEMAV_CVC_ELT_5_1_2
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_ELT_5_2_1">SCHEMAV_CVC_ELT_5_2_1
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_ELT_5_2_2_1">SCHEMAV_CVC_ELT_5_2_2_1
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_ELT_5_2_2_2_1">SCHEMAV_CVC_ELT_5_2_2_2_1
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_ELT_5_2_2_2_2">SCHEMAV_CVC_ELT_5_2_2_2_2
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_ELT_6">SCHEMAV_CVC_ELT_6
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_ELT_7">SCHEMAV_CVC_ELT_7
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_ENUMERATION_VALID">SCHEMAV_CVC_ENUMERATION_VALID
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_FACET_VALID">SCHEMAV_CVC_FACET_VALID
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_FRACTIONDIGITS_VALID">SCHEMAV_CVC_FRACTIONDIGITS_VALID
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_IDC">SCHEMAV_CVC_IDC
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_LENGTH_VALID">SCHEMAV_CVC_LENGTH_VALID
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_MAXEXCLUSIVE_VALID">SCHEMAV_CVC_MAXEXCLUSIVE_VALID
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_MAXINCLUSIVE_VALID">SCHEMAV_CVC_MAXINCLUSIVE_VALID
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_MAXLENGTH_VALID">SCHEMAV_CVC_MAXLENGTH_VALID
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_MINEXCLUSIVE_VALID">SCHEMAV_CVC_MINEXCLUSIVE_VALID
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_MININCLUSIVE_VALID">SCHEMAV_CVC_MININCLUSIVE_VALID
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_MINLENGTH_VALID">SCHEMAV_CVC_MINLENGTH_VALID
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_PATTERN_VALID">SCHEMAV_CVC_PATTERN_VALID
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_TOTALDIGITS_VALID">SCHEMAV_CVC_TOTALDIGITS_VALID
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_TYPE_1">SCHEMAV_CVC_TYPE_1
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_TYPE_2">SCHEMAV_CVC_TYPE_2
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_TYPE_3_1_1">SCHEMAV_CVC_TYPE_3_1_1
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_TYPE_3_1_2">SCHEMAV_CVC_TYPE_3_1_2
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_CVC_WILDCARD">SCHEMAV_CVC_WILDCARD
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_DOCUMENT_ELEMENT_MISSING">SCHEMAV_DOCUMENT_ELEMENT_MISSING
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_ELEMCONT">SCHEMAV_ELEMCONT
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_ELEMENT_CONTENT">SCHEMAV_ELEMENT_CONTENT
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_EXTRACONTENT">SCHEMAV_EXTRACONTENT
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_FACET">SCHEMAV_FACET
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_HAVEDEFAULT">SCHEMAV_HAVEDEFAULT
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_INTERNAL">SCHEMAV_INTERNAL
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_INVALIDATTR">SCHEMAV_INVALIDATTR
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_INVALIDELEM">SCHEMAV_INVALIDELEM
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_ISABSTRACT">SCHEMAV_ISABSTRACT
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_MISC">SCHEMAV_MISC
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_MISSING">SCHEMAV_MISSING
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_NOROLLBACK">SCHEMAV_NOROLLBACK
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_NOROOT">SCHEMAV_NOROOT
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_NOTDETERMINIST">SCHEMAV_NOTDETERMINIST
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_NOTEMPTY">SCHEMAV_NOTEMPTY
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_NOTNILLABLE">SCHEMAV_NOTNILLABLE
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_NOTSIMPLE">SCHEMAV_NOTSIMPLE
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_NOTTOPLEVEL">SCHEMAV_NOTTOPLEVEL
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_NOTYPE">SCHEMAV_NOTYPE
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_UNDECLAREDELEM">SCHEMAV_UNDECLAREDELEM
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_VALUE">SCHEMAV_VALUE
+        
+        <dd>
+        
+      
+        <dt id="SCHEMAV_WRONGELEM">SCHEMAV_WRONGELEM
+        
+        <dd>
+        
+      
+        <dt id="SEPARATOR_REQUIRED">SEPARATOR_REQUIRED
+        
+        <dd>
+        
+      
+        <dt id="SPACE_REQUIRED">SPACE_REQUIRED
+        
+        <dd>
+        
+      
+        <dt id="STANDALONE_VALUE">STANDALONE_VALUE
+        
+        <dd>
+        
+      
+        <dt id="STRING_NOT_CLOSED">STRING_NOT_CLOSED
+        
+        <dd>
+        
+      
+        <dt id="STRING_NOT_STARTED">STRING_NOT_STARTED
+        
+        <dd>
+        
+      
+        <dt id="TAG_NAME_MISMATCH">TAG_NAME_MISMATCH
+        
+        <dd>
+        
+      
+        <dt id="TAG_NOT_FINISHED">TAG_NOT_FINISHED
+        
+        <dd>
+        
+      
+        <dt id="TREE">TREE
+        
+        <dd>
+        
+      
+        <dt id="TREE_INVALID_DEC">TREE_INVALID_DEC
+        
+        <dd>
+        
+      
+        <dt id="TREE_INVALID_HEX">TREE_INVALID_HEX
+        
+        <dd>
+        
+      
+        <dt id="TREE_NOT_UTF8">TREE_NOT_UTF8
+        
+        <dd>
+        
+      
+        <dt id="TREE_UNTERMINATED_ENTITY">TREE_UNTERMINATED_ENTITY
+        
+        <dd>
+        
+      
+        <dt id="UNDECLARED_ENTITY">UNDECLARED_ENTITY
+        
+        <dd>
+        
+      
+        <dt id="UNKNOWN_ENCODING">UNKNOWN_ENCODING
+        
+        <dd>
+        
+      
+        <dt id="UNPARSED_ENTITY">UNPARSED_ENTITY
+        
+        <dd>
+        
+      
+        <dt id="UNSUPPORTED_ENCODING">UNSUPPORTED_ENCODING
+        
+        <dd>
+        
+      
+        <dt id="URI_FRAGMENT">URI_FRAGMENT
+        
+        <dd>
+        
+      
+        <dt id="URI_REQUIRED">URI_REQUIRED
+        
+        <dd>
+        
+      
+        <dt id="VALID">VALID
+        
+        <dd>
+        
+      
+        <dt id="VALUE_REQUIRED">VALUE_REQUIRED
+        
+        <dd>
+        
+      
+        <dt id="VERBOSE_HANDLER">VERBOSE_HANDLER
+        
+        <dd><p>Verbose error handler</p>
+        
+      
+        <dt id="VERSION_MISSING">VERSION_MISSING
+        
+        <dd>
+        
+      
+        <dt id="WARNING">WARNING
+        
+        <dd>
+        
+      
+        <dt id="WAR_ENTITY_REDEFINED">WAR_ENTITY_REDEFINED
+        
+        <dd>
+        
+      
+        <dt id="WAR_NS_COLUMN">WAR_NS_COLUMN
+        
+        <dd>
+        
+      
+        <dt id="WRITER">WRITER
+        
+        <dd>
+        
+      
+        <dt id="XINCLUDE">XINCLUDE
+        
+        <dd>
+        
+      
+        <dt id="XINCLUDE_BUILD_FAILED">XINCLUDE_BUILD_FAILED
+        
+        <dd>
+        
+      
+        <dt id="XINCLUDE_DEPRECATED_NS">XINCLUDE_DEPRECATED_NS
+        
+        <dd>
+        
+      
+        <dt id="XINCLUDE_ENTITY_DEF_MISMATCH">XINCLUDE_ENTITY_DEF_MISMATCH
+        
+        <dd>
+        
+      
+        <dt id="XINCLUDE_FALLBACKS_IN_INCLUDE">XINCLUDE_FALLBACKS_IN_INCLUDE
+        
+        <dd>
+        
+      
+        <dt id="XINCLUDE_FALLBACK_NOT_IN_INCLUDE">XINCLUDE_FALLBACK_NOT_IN_INCLUDE
+        
+        <dd>
+        
+      
+        <dt id="XINCLUDE_FRAGMENT_ID">XINCLUDE_FRAGMENT_ID
+        
+        <dd>
+        
+      
+        <dt id="XINCLUDE_HREF_URI">XINCLUDE_HREF_URI
+        
+        <dd>
+        
+      
+        <dt id="XINCLUDE_INCLUDE_IN_INCLUDE">XINCLUDE_INCLUDE_IN_INCLUDE
+        
+        <dd>
+        
+      
+        <dt id="XINCLUDE_INVALID_CHAR">XINCLUDE_INVALID_CHAR
+        
+        <dd>
+        
+      
+        <dt id="XINCLUDE_MULTIPLE_ROOT">XINCLUDE_MULTIPLE_ROOT
+        
+        <dd>
+        
+      
+        <dt id="XINCLUDE_NO_FALLBACK">XINCLUDE_NO_FALLBACK
+        
+        <dd>
+        
+      
+        <dt id="XINCLUDE_NO_HREF">XINCLUDE_NO_HREF
+        
+        <dd>
+        
+      
+        <dt id="XINCLUDE_PARSE_VALUE">XINCLUDE_PARSE_VALUE
+        
+        <dd>
+        
+      
+        <dt id="XINCLUDE_RECURSION">XINCLUDE_RECURSION
+        
+        <dd>
+        
+      
+        <dt id="XINCLUDE_TEXT_DOCUMENT">XINCLUDE_TEXT_DOCUMENT
+        
+        <dd>
+        
+      
+        <dt id="XINCLUDE_TEXT_FRAGMENT">XINCLUDE_TEXT_FRAGMENT
+        
+        <dd>
+        
+      
+        <dt id="XINCLUDE_UNKNOWN_ENCODING">XINCLUDE_UNKNOWN_ENCODING
+        
+        <dd>
+        
+      
+        <dt id="XINCLUDE_XPTR_FAILED">XINCLUDE_XPTR_FAILED
+        
+        <dd>
+        
+      
+        <dt id="XINCLUDE_XPTR_RESULT">XINCLUDE_XPTR_RESULT
+        
+        <dd>
+        
+      
+        <dt id="XMLDECL_NOT_FINISHED">XMLDECL_NOT_FINISHED
+        
+        <dd>
+        
+      
+        <dt id="XMLDECL_NOT_STARTED">XMLDECL_NOT_STARTED
+        
+        <dd>
+        
+      
+        <dt id="XML_WAR_CATALOG_PI">XML_WAR_CATALOG_PI
+        
+        <dd>
+        
+      
+        <dt id="XML_WAR_LANG_VALUE">XML_WAR_LANG_VALUE
+        
+        <dd>
+        
+      
+        <dt id="XML_WAR_NS_URI">XML_WAR_NS_URI
+        
+        <dd>
+        
+      
+        <dt id="XML_WAR_NS_URI_RELATIVE">XML_WAR_NS_URI_RELATIVE
+        
+        <dd>
+        
+      
+        <dt id="XML_WAR_SPACE_VALUE">XML_WAR_SPACE_VALUE
+        
+        <dd>
+        
+      
+        <dt id="XML_WAR_UNDECLARED_ENTITY">XML_WAR_UNDECLARED_ENTITY
+        
+        <dd>
+        
+      
+        <dt id="XML_WAR_UNKNOWN_VERSION">XML_WAR_UNKNOWN_VERSION
+        
+        <dd>
+        
+      
+        <dt id="XPATH">XPATH
+        
+        <dd>
+        
+      
+        <dt id="XPATH_ENCODING_ERROR">XPATH_ENCODING_ERROR
+        
+        <dd>
+        
+      
+        <dt id="XPATH_EXPRESSION_OK">XPATH_EXPRESSION_OK
+        
+        <dd>
+        
+      
+        <dt id="XPATH_EXPR_ERROR">XPATH_EXPR_ERROR
+        
+        <dd>
+        
+      
+        <dt id="XPATH_INVALID_ARITY">XPATH_INVALID_ARITY
+        
+        <dd>
+        
+      
+        <dt id="XPATH_INVALID_CHAR_ERROR">XPATH_INVALID_CHAR_ERROR
+        
+        <dd>
+        
+      
+        <dt id="XPATH_INVALID_CTXT_POSITION">XPATH_INVALID_CTXT_POSITION
+        
+        <dd>
+        
+      
+        <dt id="XPATH_INVALID_CTXT_SIZE">XPATH_INVALID_CTXT_SIZE
+        
+        <dd>
+        
+      
+        <dt id="XPATH_INVALID_OPERAND">XPATH_INVALID_OPERAND
+        
+        <dd>
+        
+      
+        <dt id="XPATH_INVALID_PREDICATE_ERROR">XPATH_INVALID_PREDICATE_ERROR
+        
+        <dd>
+        
+      
+        <dt id="XPATH_INVALID_TYPE">XPATH_INVALID_TYPE
+        
+        <dd>
+        
+      
+        <dt id="XPATH_MEMORY_ERROR">XPATH_MEMORY_ERROR
+        
+        <dd>
+        
+      
+        <dt id="XPATH_NUMBER_ERROR">XPATH_NUMBER_ERROR
+        
+        <dd>
+        
+      
+        <dt id="XPATH_START_LITERAL_ERROR">XPATH_START_LITERAL_ERROR
+        
+        <dd>
+        
+      
+        <dt id="XPATH_UNCLOSED_ERROR">XPATH_UNCLOSED_ERROR
+        
+        <dd>
+        
+      
+        <dt id="XPATH_UNDEF_PREFIX_ERROR">XPATH_UNDEF_PREFIX_ERROR
+        
+        <dd>
+        
+      
+        <dt id="XPATH_UNDEF_VARIABLE_ERROR">XPATH_UNDEF_VARIABLE_ERROR
+        
+        <dd>
+        
+      
+        <dt id="XPATH_UNFINISHED_LITERAL_ERROR">XPATH_UNFINISHED_LITERAL_ERROR
+        
+        <dd>
+        
+      
+        <dt id="XPATH_UNKNOWN_FUNC_ERROR">XPATH_UNKNOWN_FUNC_ERROR
+        
+        <dd>
+        
+      
+        <dt id="XPATH_VARIABLE_REF_ERROR">XPATH_VARIABLE_REF_ERROR
+        
+        <dd>
+        
+      
+        <dt id="XPOINTER">XPOINTER
+        
+        <dd>
+        
+      
+        <dt id="XPTR_CHILDSEQ_START">XPTR_CHILDSEQ_START
+        
+        <dd>
+        
+      
+        <dt id="XPTR_EVAL_FAILED">XPTR_EVAL_FAILED
+        
+        <dd>
+        
+      
+        <dt id="XPTR_EXTRA_OBJECTS">XPTR_EXTRA_OBJECTS
+        
+        <dd>
+        
+      
+        <dt id="XPTR_RESOURCE_ERROR">XPTR_RESOURCE_ERROR
+        
+        <dd>
+        
+      
+        <dt id="XPTR_SUB_RESOURCE_ERROR">XPTR_SUB_RESOURCE_ERROR
+        
+        <dd>
+        
+      
+        <dt id="XPTR_SYNTAX_ERROR">XPTR_SYNTAX_ERROR
+        
+        <dd>
+        
+      
+        <dt id="XPTR_UNKNOWN_SCHEME">XPTR_UNKNOWN_SCHEME
+        
+        <dd>
+        
+      
+        <dt id="XSLT">XSLT
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-code" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">code</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-ctxt" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">ctxt</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-domain" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">domain</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-file" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">file</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-int1" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">int1</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-int2" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">int2</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-level" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">level</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p><a href="Error.html"><code>Error</code></a> attributes</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-line" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">line</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-node" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">node</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-str1" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">str1</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-str2" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">str2</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-str3" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">str3</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-get_handler" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            get_error_handler
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns the proc that will be called when libxml generates warning, error or fatal error messages.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_handler-source">
+            <pre>static VALUE rxml_error_get_handler(VALUE self)
+{
+  VALUE block = rb_cvar_get(eXMLError, ERROR_HANDLER_ID);
+  return block;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-reset_handler" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            reset_error_handler
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Removes the current error handler.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="reset_handler-source">
+            <pre>static VALUE rxml_error_reset_handler(VALUE self)
+{
+  rxml_set_handler(self, Qnil);
+  return self;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-set_handler" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            set_error_handler {|error| ... }
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Registers a block that will be called with an instance of <a href="Error.html"><code>XML::Error</code></a> when libxml generates warning, error or fatal error messages.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="set_handler-source">
+            <pre>static VALUE rxml_error_set_handler(VALUE self)
+{
+  VALUE block;
+
+  if (rb_block_given_p() == Qfalse)
+    rb_raise(rb_eRuntimeError, &quot;No block given&quot;);
+
+  block = rb_block_proc();
+
+  /* Embed the block within the Error class to avoid it to be collected.
+   Previous handler will be overwritten if it exists. */
+  rxml_set_handler(self, block);
+
+  return self;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-3D-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">==</span><span
+            class="method-args">(other)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="3D-3D-source">
+            <pre><span class="ruby-comment"># File lib/libxml/error.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">==</span>(<span class="ruby-identifier">other</span>)
+  <span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">other</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-code_to_s" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">code_to_s</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="code_to_s-source">
+            <pre><span class="ruby-comment"># File lib/libxml/error.rb, line 76</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">code_to_s</span>
+  <span class="ruby-constant">ERROR_CODE_MAP</span>[<span class="ruby-keyword">self</span>.<span class="ruby-identifier">code</span>].<span class="ruby-identifier">to_s</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-domain_to_s" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">domain_to_s</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="domain_to_s-source">
+            <pre><span class="ruby-comment"># File lib/libxml/error.rb, line 72</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">domain_to_s</span>
+  <span class="ruby-constant">DOMAIN_CODE_MAP</span>[<span class="ruby-keyword">self</span>.<span class="ruby-identifier">domain</span>].<span class="ruby-identifier">to_s</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-eql-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">eql?</span><span
+            class="method-args">(other)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="eql-3F-source">
+            <pre><span class="ruby-comment"># File lib/libxml/error.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">eql?</span>(<span class="ruby-identifier">other</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">code</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">code</span> <span class="ruby-keyword">and</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">domain</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">domain</span> <span class="ruby-keyword">and</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">message</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">message</span> <span class="ruby-keyword">and</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">level</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">level</span> <span class="ruby-keyword">and</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">file</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">file</span> <span class="ruby-keyword">and</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">line</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">line</span> <span class="ruby-keyword">and</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">str1</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">str1</span> <span class="ruby-keyword">and</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">str2</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">str2</span> <span class="ruby-keyword">and</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">str3</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">str3</span> <span class="ruby-keyword">and</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">int1</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">int1</span> <span class="ruby-keyword">and</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">int2</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">int2</span> <span class="ruby-keyword">and</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">ctxt</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">ctxt</span> <span class="ruby-keyword">and</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">node</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">node</span>
+<span class="ruby-keyword">rescue</span>
+  <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-level_to_s" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">level_to_s</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="level_to_s-source">
+            <pre><span class="ruby-comment"># File lib/libxml/error.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">level_to_s</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">level</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">NONE</span>
+      <span class="ruby-string">&#39;&#39;</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">WARNING</span>
+      <span class="ruby-string">&#39;Warning:&#39;</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">ERROR</span>
+      <span class="ruby-string">&#39;Error:&#39;</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">FATAL</span>
+      <span class="ruby-string">&#39;Fatal error:&#39;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_s" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_s</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="to_s-source">
+            <pre><span class="ruby-comment"># File lib/libxml/error.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_s</span>
+  <span class="ruby-identifier">msg</span> = <span class="ruby-keyword">super</span>
+  <span class="ruby-identifier">msg</span> = <span class="ruby-identifier">msg</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">msg</span>.<span class="ruby-identifier">strip</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;&#39;</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">line</span>
+    <span class="ruby-identifier">sprintf</span>(<span class="ruby-string">&quot;%s %s at %s:%d.&quot;</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">level_to_s</span>, <span class="ruby-identifier">msg</span>,
+                               <span class="ruby-keyword">self</span>.<span class="ruby-identifier">file</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">line</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">sprintf</span>(<span class="ruby-string">&quot;%s %s.&quot;</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">level_to_s</span>, <span class="ruby-identifier">msg</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

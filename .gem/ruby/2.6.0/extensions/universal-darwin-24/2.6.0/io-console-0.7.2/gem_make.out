@@ -1,0 +1,26 @@
+current directory: /Users/checkra1n/.gem/ruby/2.6.0/gems/io-console-0.7.2/ext/io/console
+/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/bin/ruby -I /System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0 -r ./siteconf20241009-38875-zh3q09.rb extconf.rb
+checking for rb_io_path()... no
+checking for rb_io_descriptor()... no
+checking for rb_io_get_write_io()... yes
+checking for rb_io_closed_p()... no
+checking for rb_io_open_descriptor()... no
+checking for termios.h... yes
+checking for cfmakeraw() in termios.h... yes
+checking for sys/ioctl.h... yes
+checking for HAVE_RUBY_FIBER_SCHEDULER_H... no
+checking for rb_scheduler_timeout()... no
+creating Makefile
+
+current directory: /Users/checkra1n/.gem/ruby/2.6.0/gems/io-console-0.7.2/ext/io/console
+make "DESTDIR=" clean
+
+current directory: /Users/checkra1n/.gem/ruby/2.6.0/gems/io-console-0.7.2/ext/io/console
+make "DESTDIR="
+compiling console.c
+linking shared-object io/console.bundle
+ld: warning: search path '/AppleInternal/Library/BuildRoots/e0873e53-5185-11ef-9a51-9ab6d782fe32/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.Internal.sdk/usr/local/lib' not found
+
+current directory: /Users/checkra1n/.gem/ruby/2.6.0/gems/io-console-0.7.2/ext/io/console
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 console.bundle ./.gem.20241009-38875-15s4eyu/io

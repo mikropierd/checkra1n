@@ -1,0 +1,27 @@
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/rbs-3.6.1/ext/rbs_extension
+/opt/homebrew/Cellar/ruby/3.3.6/bin/ruby extconf.rb
+checking for whether -std=gnu99 is accepted as CFLAGS... yes
+creating Makefile
+
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/rbs-3.6.1/ext/rbs_extension
+make DESTDIR\= sitearchdir\=./.gem.20241116-52602-i5hk8l sitelibdir\=./.gem.20241116-52602-i5hk8l clean
+
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/rbs-3.6.1/ext/rbs_extension
+make DESTDIR\= sitearchdir\=./.gem.20241116-52602-i5hk8l sitelibdir\=./.gem.20241116-52602-i5hk8l
+compiling constants.c
+compiling lexer.c
+compiling lexstate.c
+compiling location.c
+compiling main.c
+compiling parser.c
+compiling parserstate.c
+compiling ruby_objs.c
+compiling unescape.c
+linking shared-object rbs_extension.bundle
+
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/rbs-3.6.1/ext/rbs_extension
+make DESTDIR\= sitearchdir\=./.gem.20241116-52602-i5hk8l sitelibdir\=./.gem.20241116-52602-i5hk8l install
+/usr/bin/install -c -m 0755 rbs_extension.bundle ./.gem.20241116-52602-i5hk8l
+
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/rbs-3.6.1/ext/rbs_extension
+make DESTDIR\= sitearchdir\=./.gem.20241116-52602-i5hk8l sitelibdir\=./.gem.20241116-52602-i5hk8l clean

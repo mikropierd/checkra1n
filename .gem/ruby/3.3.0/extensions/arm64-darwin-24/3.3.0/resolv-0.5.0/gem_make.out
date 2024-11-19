@@ -1,0 +1,19 @@
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/resolv-0.5.0/ext/win32/resolv
+/opt/homebrew/Cellar/ruby/3.3.6/bin/ruby extconf.rb
+checking for GetNetworkParams() in -liphlpapi... no
+
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/resolv-0.5.0/ext/win32/resolv
+make DESTDIR\= sitearchdir\=./.gem.20241113-3992-djeveq sitelibdir\=./.gem.20241113-3992-djeveq clean
+Done: clean
+
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/resolv-0.5.0/ext/win32/resolv
+make DESTDIR\= sitearchdir\=./.gem.20241113-3992-djeveq sitelibdir\=./.gem.20241113-3992-djeveq
+Done: all
+
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/resolv-0.5.0/ext/win32/resolv
+make DESTDIR\= sitearchdir\=./.gem.20241113-3992-djeveq sitelibdir\=./.gem.20241113-3992-djeveq install
+Done: install
+
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/resolv-0.5.0/ext/win32/resolv
+make DESTDIR\= sitearchdir\=./.gem.20241113-3992-djeveq sitelibdir\=./.gem.20241113-3992-djeveq clean
+Done: clean

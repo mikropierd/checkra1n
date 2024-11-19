@@ -1,0 +1,9 @@
+-*- coding: utf-8 -*-
+
+commit 0d2f76ffb45f3f12f37e9c5f0760cbd700357e53
+  Author:     Hiroshi SHIBATA <hsbt@ruby-lang.org>
+  AuthorDate: 2024-11-01 13:09:28 +0900
+  Commit:     Hiroshi SHIBATA <hsbt@ruby-lang.org>
+  CommitDate: 2024-11-01 13:09:28 +0900
+
+    Bump up v1.4.4

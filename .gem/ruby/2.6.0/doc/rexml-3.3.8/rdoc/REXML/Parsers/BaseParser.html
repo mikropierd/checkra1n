@@ -1,0 +1,1917 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class REXML::Parsers::BaseParser - rexml-3.3.8 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/navigation.js" defer></script>
+<script src="../../js/search.js" defer></script>
+<script src="../../js/search_index.js" defer></script>
+<script src="../../js/searcher.js" defer></script>
+<script src="../../js/darkfish.js" defer></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Object
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-add_listener">#add_listener</a>
+    
+    <li ><a href="#method-i-add_namespace">#add_namespace</a>
+    
+    <li ><a href="#method-i-empty-3F">#empty?</a>
+    
+    <li ><a href="#method-i-entity">#entity</a>
+    
+    <li ><a href="#method-i-has_next-3F">#has_next?</a>
+    
+    <li ><a href="#method-i-need_source_encoding_update-3F">#need_source_encoding_update?</a>
+    
+    <li ><a href="#method-i-normalize">#normalize</a>
+    
+    <li ><a href="#method-i-parse_attributes">#parse_attributes</a>
+    
+    <li ><a href="#method-i-parse_id">#parse_id</a>
+    
+    <li ><a href="#method-i-parse_id_invalid_details">#parse_id_invalid_details</a>
+    
+    <li ><a href="#method-i-parse_name">#parse_name</a>
+    
+    <li ><a href="#method-i-peek">#peek</a>
+    
+    <li ><a href="#method-i-pop_namespaces_restore">#pop_namespaces_restore</a>
+    
+    <li ><a href="#method-i-position">#position</a>
+    
+    <li ><a href="#method-i-process_instruction">#process_instruction</a>
+    
+    <li ><a href="#method-i-pull">#pull</a>
+    
+    <li ><a href="#method-i-pull_event">#pull_event</a>
+    
+    <li ><a href="#method-i-push_namespaces_restore">#push_namespaces_restore</a>
+    
+    <li ><a href="#method-i-record_entity_expansion">#record_entity_expansion</a>
+    
+    <li ><a href="#method-i-stream-3D">#stream=</a>
+    
+    <li ><a href="#method-i-unnormalize">#unnormalize</a>
+    
+    <li ><a href="#method-i-unshift">#unshift</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-REXML::Parsers::BaseParser">
+  <h1 id="class-REXML::Parsers::BaseParser" class="class">
+    class REXML::Parsers::BaseParser
+  </h1>
+
+  <section class="description">
+    
+<h1 id="class-REXML::Parsers::BaseParser-label-Using+the+Pull+Parser">Using the Pull Parser<span><a href="#class-REXML::Parsers::BaseParser-label-Using+the+Pull+Parser">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p><em>This API is experimental, and subject to change.</em></p>
+
+<pre class="ruby"><span class="ruby-identifier">parser</span> = <span class="ruby-constant">PullParser</span>.<span class="ruby-identifier">new</span>( <span class="ruby-string">&quot;&lt;a&gt;text&lt;b att=&#39;val&#39;/&gt;txet&lt;/a&gt;&quot;</span> )
+<span class="ruby-keyword">while</span> <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">has_next?</span>
+  <span class="ruby-identifier">res</span> = <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">next</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-identifier">res</span>[<span class="ruby-value">1</span>][<span class="ruby-string">&#39;att&#39;</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">res</span>.<span class="ruby-identifier">start_tag?</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">res</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&#39;b&#39;</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>See the <a href="PullEvent.html"><code>PullEvent</code></a> class for information on the content of the results. The data is identical to the arguments passed for the various events to the <a href="../StreamListener.html"><code>StreamListener</code></a> API.</p>
+
+<p>Notice that:</p>
+
+<pre class="ruby"><span class="ruby-identifier">parser</span> = <span class="ruby-constant">PullParser</span>.<span class="ruby-identifier">new</span>( <span class="ruby-string">&quot;&lt;a&gt;BAD DOCUMENT&quot;</span> )
+<span class="ruby-keyword">while</span> <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">has_next?</span>
+  <span class="ruby-identifier">res</span> = <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">next</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-identifier">res</span>[<span class="ruby-value">1</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">res</span>.<span class="ruby-identifier">error?</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Nat Price gave me some good ideas for the API.</p>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="ATTDEF">ATTDEF
+        
+        <dd>
+        
+      
+        <dt id="ATTDEF_RE">ATTDEF_RE
+        
+        <dd>
+        
+      
+        <dt id="ATTLISTDECL_PATTERN">ATTLISTDECL_PATTERN
+        
+        <dd>
+        
+      
+        <dt id="ATTLISTDECL_START">ATTLISTDECL_START
+        
+        <dd>
+        
+      
+        <dt id="ATTRIBUTE_PATTERN">ATTRIBUTE_PATTERN
+        
+        <dd>
+        
+      
+        <dt id="ATTTYPE">ATTTYPE
+        
+        <dd>
+        
+      
+        <dt id="ATTVALUE">ATTVALUE
+        
+        <dd>
+        
+      
+        <dt id="CDATA_END">CDATA_END
+        
+        <dd>
+        
+      
+        <dt id="CDATA_PATTERN">CDATA_PATTERN
+        
+        <dd>
+        
+      
+        <dt id="CDATA_START">CDATA_START
+        
+        <dd>
+        
+      
+        <dt id="CLOSE_MATCH">CLOSE_MATCH
+        
+        <dd>
+        
+      
+        <dt id="COMBININGCHAR">COMBININGCHAR
+        
+        <dd>
+        
+      
+        <dt id="COMMENT_PATTERN">COMMENT_PATTERN
+        
+        <dd>
+        
+      
+        <dt id="COMMENT_START">COMMENT_START
+        
+        <dd>
+        
+      
+        <dt id="DEFAULTDECL">DEFAULTDECL
+        
+        <dd>
+        
+      
+        <dt id="DEFAULT_ENTITIES">DEFAULT_ENTITIES
+        
+        <dd>
+        
+      
+        <dt id="DIGIT">DIGIT
+        
+        <dd>
+        
+      
+        <dt id="DOCTYPE_END">DOCTYPE_END
+        
+        <dd>
+        
+      
+        <dt id="DOCTYPE_START">DOCTYPE_START
+        
+        <dd>
+        
+      
+        <dt id="ELEMENTDECL_PATTERN">ELEMENTDECL_PATTERN
+        
+        <dd>
+        
+      
+        <dt id="ELEMENTDECL_START">ELEMENTDECL_START
+        
+        <dd>
+        
+      
+        <dt id="ENCODING">ENCODING
+        
+        <dd>
+        
+      
+        <dt id="ENTITYDECL">ENTITYDECL
+        
+        <dd>
+        
+      
+        <dt id="ENTITYDEF">ENTITYDEF
+        
+        <dd>
+        
+      
+        <dt id="ENTITYVALUE">ENTITYVALUE
+        
+        <dd>
+        
+      
+        <dt id="ENTITY_START">ENTITY_START
+        
+        <dd>
+        
+      
+        <dt id="ENUMERATEDTYPE">ENUMERATEDTYPE
+        
+        <dd>
+        
+      
+        <dt id="ENUMERATION">ENUMERATION
+        
+        <dd>
+        
+      
+        <dt id="EREFERENCE">EREFERENCE
+        
+        <dd>
+        
+      
+        <dt id="EXTENDER">EXTENDER
+        
+        <dd>
+        
+      
+        <dt id="EXTERNALID">EXTERNALID
+        
+        <dd>
+        
+      
+        <dt id="EXTERNAL_ID_PUBLIC">EXTERNAL_ID_PUBLIC
+        
+        <dd>
+        
+      
+        <dt id="EXTERNAL_ID_SYSTEM">EXTERNAL_ID_SYSTEM
+        
+        <dd>
+        
+      
+        <dt id="GEDECL">GEDECL
+        
+        <dd>
+        
+      
+        <dt id="INSTRUCTION_PATTERN">INSTRUCTION_PATTERN
+        
+        <dd>
+        
+      
+        <dt id="INSTRUCTION_START">INSTRUCTION_START
+        
+        <dd>
+        
+      
+        <dt id="LETTER">LETTER
+        
+        <dd>
+        
+      
+        <dt id="NAME">NAME
+        
+        <dd>
+        
+      
+        <dt id="NAMECHAR">NAMECHAR
+        
+        <dd>
+        
+      
+        <dt id="NCNAME_STR">NCNAME_STR
+        
+        <dd>
+        
+      
+        <dt id="NDATADECL">NDATADECL
+        
+        <dd>
+        
+      
+        <dt id="NMTOKEN">NMTOKEN
+        
+        <dd>
+        
+      
+        <dt id="NMTOKENS">NMTOKENS
+        
+        <dd>
+        
+      
+        <dt id="NOTATIONDECL_START">NOTATIONDECL_START
+        
+        <dd>
+        
+      
+        <dt id="NOTATIONTYPE">NOTATIONTYPE
+        
+        <dd>
+        
+      
+        <dt id="PEDECL">PEDECL
+        
+        <dd>
+        
+      
+        <dt id="PEDEF">PEDEF
+        
+        <dd>
+        
+      
+        <dt id="PEREFERENCE">PEREFERENCE
+        
+        <dd>
+        
+      
+        <dt id="PUBIDCHAR">PUBIDCHAR
+        
+        <dd><p><a href="../Entity.html"><code>Entity</code></a> constants</p>
+        
+      
+        <dt id="PUBIDLITERAL">PUBIDLITERAL
+        
+        <dd>
+        
+      
+        <dt id="PUBLIC_ID">PUBLIC_ID
+        
+        <dd>
+        
+      
+        <dt id="QNAME">QNAME
+        
+        <dd>
+        
+      
+        <dt id="QNAME_STR">QNAME_STR
+        
+        <dd>
+        
+      
+        <dt id="REFERENCE">REFERENCE
+        
+        <dd>
+        
+      
+        <dt id="REFERENCE_RE">REFERENCE_RE
+        
+        <dd>
+        
+      
+        <dt id="STANDALONE">STANDALONE
+        
+        <dd>
+        
+      
+        <dt id="SYSTEMENTITY">SYSTEMENTITY
+        
+        <dd>
+        
+      
+        <dt id="SYSTEMLITERAL">SYSTEMLITERAL
+        
+        <dd>
+        
+      
+        <dt id="TAG_MATCH">TAG_MATCH
+        
+        <dd>
+        
+      
+        <dt id="TEXT_PATTERN">TEXT_PATTERN
+        
+        <dd>
+        
+      
+        <dt id="UNAME_STR">UNAME_STR
+        
+        <dd><p>Just for backward compatibility. For example, kramdown uses this. It&#39;s not used in <a href="../../REXML.html"><code>REXML</code></a>.</p>
+        
+      
+        <dt id="VERSION">VERSION
+        
+        <dd>
+        
+      
+        <dt id="XMLDECL_PATTERN">XMLDECL_PATTERN
+        
+        <dd>
+        
+      
+        <dt id="XMLDECL_START">XMLDECL_START
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-entity_expansion_count" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">entity_expansion_count</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-entity_expansion_limit" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">entity_expansion_limit</span><span
+            class="attribute-access-type">[W]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-entity_expansion_text_limit" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">entity_expansion_text_limit</span><span
+            class="attribute-access-type">[W]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-source" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">source</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">( source )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/rexml/parsers/baseparser.rb, line 163</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>( <span class="ruby-identifier">source</span> )
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">stream</span> = <span class="ruby-identifier">source</span>
+  <span class="ruby-ivar">@listeners</span> = []
+  <span class="ruby-ivar">@prefixes</span> = <span class="ruby-constant">Set</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@entity_expansion_count</span> = <span class="ruby-value">0</span>
+  <span class="ruby-ivar">@entity_expansion_limit</span> = <span class="ruby-constant">Security</span>.<span class="ruby-identifier">entity_expansion_limit</span>
+  <span class="ruby-ivar">@entity_expansion_text_limit</span> = <span class="ruby-constant">Security</span>.<span class="ruby-identifier">entity_expansion_text_limit</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-add_listener" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_listener</span><span
+            class="method-args">( listener )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="add_listener-source">
+            <pre><span class="ruby-comment"># File lib/rexml/parsers/baseparser.rb, line 172</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_listener</span>( <span class="ruby-identifier">listener</span> )
+  <span class="ruby-ivar">@listeners</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">listener</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-empty-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">empty?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns true if there are no more events</p>
+          
+          
+
+          
+          <div class="method-source-code" id="empty-3F-source">
+            <pre><span class="ruby-comment"># File lib/rexml/parsers/baseparser.rb, line 203</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">empty?</span>
+  <span class="ruby-keyword">return</span> (<span class="ruby-ivar">@source</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-keyword">and</span> <span class="ruby-ivar">@stack</span>.<span class="ruby-identifier">empty?</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-entity" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">entity</span><span
+            class="method-args">( reference, entities )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="entity-source">
+            <pre><span class="ruby-comment"># File lib/rexml/parsers/baseparser.rb, line 535</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">entity</span>( <span class="ruby-identifier">reference</span>, <span class="ruby-identifier">entities</span> )
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">entities</span>
+
+  <span class="ruby-identifier">value</span> = <span class="ruby-identifier">entities</span>[ <span class="ruby-identifier">reference</span> ]
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">nil?</span>
+
+  <span class="ruby-identifier">record_entity_expansion</span>
+  <span class="ruby-identifier">unnormalize</span>( <span class="ruby-identifier">value</span>, <span class="ruby-identifier">entities</span> )
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-has_next-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">has_next?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns true if there are more events.  Synonymous with !empty?</p>
+          
+          
+
+          
+          <div class="method-source-code" id="has_next-3F-source">
+            <pre><span class="ruby-comment"># File lib/rexml/parsers/baseparser.rb, line 208</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">has_next?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-operator">!</span>(<span class="ruby-ivar">@source</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-keyword">and</span> <span class="ruby-ivar">@stack</span>.<span class="ruby-identifier">empty?</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-normalize" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">normalize</span><span
+            class="method-args">( input, entities=nil, entity_filter=nil )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Escapes all possible entities</p>
+          
+          
+
+          
+          <div class="method-source-code" id="normalize-source">
+            <pre><span class="ruby-comment"># File lib/rexml/parsers/baseparser.rb, line 546</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">normalize</span>( <span class="ruby-identifier">input</span>, <span class="ruby-identifier">entities</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">entity_filter</span>=<span class="ruby-keyword">nil</span> )
+  <span class="ruby-identifier">copy</span> = <span class="ruby-identifier">input</span>.<span class="ruby-identifier">clone</span>
+  <span class="ruby-comment"># Doing it like this rather than in a loop improves the speed</span>
+  <span class="ruby-identifier">copy</span>.<span class="ruby-identifier">gsub!</span>( <span class="ruby-constant">EREFERENCE</span>, <span class="ruby-string">&#39;&amp;amp;&#39;</span> )
+  <span class="ruby-identifier">entities</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">copy</span>.<span class="ruby-identifier">gsub!</span>( <span class="ruby-identifier">value</span>, <span class="ruby-node">&quot;&amp;#{key};&quot;</span> ) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">entity_filter</span> <span class="ruby-keyword">and</span>
+                                <span class="ruby-identifier">entity_filter</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">entity</span>)
+  <span class="ruby-keyword">end</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">entities</span>
+  <span class="ruby-identifier">copy</span>.<span class="ruby-identifier">gsub!</span>( <span class="ruby-constant">EREFERENCE</span>, <span class="ruby-string">&#39;&amp;amp;&#39;</span> )
+  <span class="ruby-constant">DEFAULT_ENTITIES</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">copy</span>.<span class="ruby-identifier">gsub!</span>( <span class="ruby-identifier">value</span>[<span class="ruby-value">3</span>], <span class="ruby-identifier">value</span>[<span class="ruby-value">1</span>] )
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">copy</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-peek" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">peek</span><span
+            class="method-args">(depth=0)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Peek at the <code>depth</code> event in the stack.  The first element on the stack is at depth 0.  If <code>depth</code> is -1, will parse to the end of the input stream and return the last event, which is always :end_document. Be aware that this causes the stream to be parsed up to the <code>depth</code> event, so you can effectively pre-parse the entire document (pull the entire thing into memory) using this method.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="peek-source">
+            <pre><span class="ruby-comment"># File lib/rexml/parsers/baseparser.rb, line 224</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">peek</span> <span class="ruby-identifier">depth</span>=<span class="ruby-value">0</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-node">%Q[Illegal argument &quot;#{depth}&quot;]</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">depth</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">-1</span>
+  <span class="ruby-identifier">temp</span> = []
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">depth</span> <span class="ruby-operator">==</span> <span class="ruby-value">-1</span>
+    <span class="ruby-identifier">temp</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">pull</span>()) <span class="ruby-keyword">until</span> <span class="ruby-identifier">empty?</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">while</span> <span class="ruby-ivar">@stack</span>.<span class="ruby-identifier">size</span><span class="ruby-operator">+</span><span class="ruby-identifier">temp</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">depth</span><span class="ruby-value">+1</span>
+      <span class="ruby-identifier">temp</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">pull</span>())
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@stack</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">temp</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">temp</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+  <span class="ruby-ivar">@stack</span>[<span class="ruby-identifier">depth</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-position" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">position</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="position-source">
+            <pre><span class="ruby-comment"># File lib/rexml/parsers/baseparser.rb, line 193</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">position</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">respond_to?</span> <span class="ruby-value">:position</span>
+    <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">position</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-comment"># FIXME</span>
+    <span class="ruby-value">0</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-pull" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pull</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the next event.  This is a <code>PullEvent</code> object.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="pull-source">
+            <pre><span class="ruby-comment"># File lib/rexml/parsers/baseparser.rb, line 239</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">pull</span>
+  <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">drop_parsed_content</span>
+
+  <span class="ruby-identifier">pull_event</span>.<span class="ruby-identifier">tap</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">event</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@listeners</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">listener</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">listener</span>.<span class="ruby-identifier">receive</span> <span class="ruby-identifier">event</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-stream-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">stream=</span><span
+            class="method-args">( source )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="stream-3D-source">
+            <pre><span class="ruby-comment"># File lib/rexml/parsers/baseparser.rb, line 181</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">stream=</span>( <span class="ruby-identifier">source</span> )
+  <span class="ruby-ivar">@source</span> = <span class="ruby-constant">SourceFactory</span>.<span class="ruby-identifier">create_from</span>( <span class="ruby-identifier">source</span> )
+  <span class="ruby-ivar">@closed</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@have_root</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-ivar">@document_status</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@tags</span> = []
+  <span class="ruby-ivar">@stack</span> = []
+  <span class="ruby-ivar">@entities</span> = []
+  <span class="ruby-ivar">@namespaces</span> = {<span class="ruby-string">&quot;xml&quot;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-constant">Private</span><span class="ruby-operator">::</span><span class="ruby-constant">XML_PREFIXED_NAMESPACE</span>}
+  <span class="ruby-ivar">@namespaces_restore_stack</span> = []
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-unnormalize" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">unnormalize</span><span
+            class="method-args">( string, entities=nil, filter=nil )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Unescapes all possible entities</p>
+          
+          
+
+          
+          <div class="method-source-code" id="unnormalize-source">
+            <pre><span class="ruby-comment"># File lib/rexml/parsers/baseparser.rb, line 562</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">unnormalize</span>( <span class="ruby-identifier">string</span>, <span class="ruby-identifier">entities</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">filter</span>=<span class="ruby-keyword">nil</span> )
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">string</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;\r&quot;</span>)
+    <span class="ruby-identifier">rv</span> = <span class="ruby-identifier">string</span>.<span class="ruby-identifier">gsub</span>( <span class="ruby-constant">Private</span><span class="ruby-operator">::</span><span class="ruby-constant">CARRIAGE_RETURN_NEWLINE_PATTERN</span>, <span class="ruby-string">&quot;\n&quot;</span> )
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">rv</span> = <span class="ruby-identifier">string</span>.<span class="ruby-identifier">dup</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">matches</span> = <span class="ruby-identifier">rv</span>.<span class="ruby-identifier">scan</span>( <span class="ruby-constant">REFERENCE_RE</span> )
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">rv</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">matches</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+  <span class="ruby-identifier">rv</span>.<span class="ruby-identifier">gsub!</span>( <span class="ruby-constant">Private</span><span class="ruby-operator">::</span><span class="ruby-constant">CHARACTER_REFERENCES</span> ) {
+    <span class="ruby-identifier">m</span>=<span class="ruby-node">$1</span>
+    <span class="ruby-identifier">m</span> = <span class="ruby-node">&quot;0#{m}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">m</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-value">?x</span>
+    [<span class="ruby-constant">Integer</span>(<span class="ruby-identifier">m</span>)].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;U*&#39;</span>)
+  }
+  <span class="ruby-identifier">matches</span>.<span class="ruby-identifier">collect!</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span><span class="ruby-identifier">x</span>[<span class="ruby-value">0</span>]}.<span class="ruby-identifier">compact!</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">filter</span>
+    <span class="ruby-identifier">matches</span>.<span class="ruby-identifier">reject!</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">entity_reference</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">filter</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">entity_reference</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">matches</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">matches</span>.<span class="ruby-identifier">tally</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">entity_reference</span>, <span class="ruby-identifier">n</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">entity_expansion_count_before</span> = <span class="ruby-ivar">@entity_expansion_count</span>
+      <span class="ruby-identifier">entity_value</span> = <span class="ruby-identifier">entity</span>( <span class="ruby-identifier">entity_reference</span>, <span class="ruby-identifier">entities</span> )
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">entity_value</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">n</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+          <span class="ruby-identifier">entity_expansion_count_delta</span> =
+            <span class="ruby-ivar">@entity_expansion_count</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">entity_expansion_count_before</span>
+          <span class="ruby-identifier">record_entity_expansion</span>(<span class="ruby-identifier">entity_expansion_count_delta</span> <span class="ruby-operator">*</span> (<span class="ruby-identifier">n</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>))
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">re</span> = <span class="ruby-constant">Private</span><span class="ruby-operator">::</span><span class="ruby-constant">DEFAULT_ENTITIES_PATTERNS</span>[<span class="ruby-identifier">entity_reference</span>] <span class="ruby-operator">||</span> <span class="ruby-regexp">/&amp;#{entity_reference};/</span>
+        <span class="ruby-identifier">rv</span>.<span class="ruby-identifier">gsub!</span>( <span class="ruby-identifier">re</span>, <span class="ruby-identifier">entity_value</span> )
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">rv</span>.<span class="ruby-identifier">bytesize</span> <span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@entity_expansion_text_limit</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;entity expansion has grown too large&quot;</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">er</span> = <span class="ruby-constant">DEFAULT_ENTITIES</span>[<span class="ruby-identifier">entity_reference</span>]
+        <span class="ruby-identifier">rv</span>.<span class="ruby-identifier">gsub!</span>( <span class="ruby-identifier">er</span>[<span class="ruby-value">0</span>], <span class="ruby-identifier">er</span>[<span class="ruby-value">2</span>] ) <span class="ruby-keyword">if</span> <span class="ruby-identifier">er</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">rv</span>.<span class="ruby-identifier">gsub!</span>( <span class="ruby-constant">Private</span><span class="ruby-operator">::</span><span class="ruby-constant">DEFAULT_ENTITIES_PATTERNS</span>[<span class="ruby-string">&#39;amp&#39;</span>], <span class="ruby-string">&#39;&amp;&#39;</span> )
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">rv</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-unshift" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">unshift</span><span
+            class="method-args">(token)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Push an event back on the head of the stream.  This method has (theoretically) infinite depth.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="unshift-source">
+            <pre><span class="ruby-comment"># File lib/rexml/parsers/baseparser.rb, line 214</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">unshift</span> <span class="ruby-identifier">token</span>
+  <span class="ruby-ivar">@stack</span>.<span class="ruby-identifier">unshift</span>(<span class="ruby-identifier">token</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-add_namespace" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_namespace</span><span
+            class="method-args">(prefix, uri)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="add_namespace-source">
+            <pre><span class="ruby-comment"># File lib/rexml/parsers/baseparser.rb, line 607</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_namespace</span>(<span class="ruby-identifier">prefix</span>, <span class="ruby-identifier">uri</span>)
+  <span class="ruby-ivar">@namespaces_restore_stack</span>.<span class="ruby-identifier">last</span>[<span class="ruby-identifier">prefix</span>] = <span class="ruby-ivar">@namespaces</span>[<span class="ruby-identifier">prefix</span>]
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-ivar">@namespaces</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">prefix</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@namespaces</span>[<span class="ruby-identifier">prefix</span>] = <span class="ruby-identifier">uri</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-need_source_encoding_update-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">need_source_encoding_update?</span><span
+            class="method-args">(xml_declaration_encoding)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="need_source_encoding_update-3F-source">
+            <pre><span class="ruby-comment"># File lib/rexml/parsers/baseparser.rb, line 640</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">need_source_encoding_update?</span>(<span class="ruby-identifier">xml_declaration_encoding</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">xml_declaration_encoding</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-regexp">/\AUTF-16\z/i</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">xml_declaration_encoding</span>
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-parse_attributes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse_attributes</span><span
+            class="method-args">(prefixes)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="parse_attributes-source">
+            <pre><span class="ruby-comment"># File lib/rexml/parsers/baseparser.rb, line 760</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">parse_attributes</span>(<span class="ruby-identifier">prefixes</span>)
+  <span class="ruby-identifier">attributes</span> = {}
+  <span class="ruby-identifier">expanded_names</span> = {}
+  <span class="ruby-identifier">closed</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">while</span> <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-string">&quot;&gt;&quot;</span>, <span class="ruby-keyword">true</span>)
+      <span class="ruby-keyword">return</span> <span class="ruby-identifier">attributes</span>, <span class="ruby-identifier">closed</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-string">&quot;/&gt;&quot;</span>, <span class="ruby-keyword">true</span>)
+      <span class="ruby-identifier">closed</span> = <span class="ruby-keyword">true</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-identifier">attributes</span>, <span class="ruby-identifier">closed</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">match</span> = <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-constant">QNAME</span>, <span class="ruby-keyword">true</span>)
+      <span class="ruby-identifier">name</span> = <span class="ruby-identifier">match</span>[<span class="ruby-value">1</span>]
+      <span class="ruby-identifier">prefix</span> = <span class="ruby-identifier">match</span>[<span class="ruby-value">2</span>]
+      <span class="ruby-identifier">local_part</span> = <span class="ruby-identifier">match</span>[<span class="ruby-value">3</span>]
+
+      <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/\s*=\s*/um</span>, <span class="ruby-keyword">true</span>)
+        <span class="ruby-identifier">message</span> = <span class="ruby-node">&quot;Missing attribute equal: &lt;#{name}&gt;&quot;</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">ParseException</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">message</span>, <span class="ruby-ivar">@source</span>)
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">match</span> = <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/([&#39;&quot;])/</span>, <span class="ruby-keyword">true</span>)
+        <span class="ruby-identifier">message</span> = <span class="ruby-node">&quot;Missing attribute value start quote: &lt;#{name}&gt;&quot;</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">ParseException</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">message</span>, <span class="ruby-ivar">@source</span>)
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">quote</span> = <span class="ruby-identifier">match</span>[<span class="ruby-value">1</span>]
+      <span class="ruby-identifier">start_position</span> = <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">position</span>
+      <span class="ruby-identifier">value</span> = <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">read_until</span>(<span class="ruby-identifier">quote</span>)
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">chomp!</span>(<span class="ruby-identifier">quote</span>)
+        <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">position</span> = <span class="ruby-identifier">start_position</span>
+        <span class="ruby-identifier">message</span> = <span class="ruby-node">&quot;Missing attribute value end quote: &lt;#{name}&gt;: &lt;#{quote}&gt;&quot;</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">ParseException</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">message</span>, <span class="ruby-ivar">@source</span>)
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/\s*/um</span>, <span class="ruby-keyword">true</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">prefix</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;xmlns&quot;</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">local_part</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;xml&quot;</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span> <span class="ruby-operator">!=</span> <span class="ruby-constant">Private</span><span class="ruby-operator">::</span><span class="ruby-constant">XML_PREFIXED_NAMESPACE</span>
+            <span class="ruby-identifier">msg</span> = <span class="ruby-string">&quot;The &#39;xml&#39; prefix must not be bound to any other namespace &quot;</span><span class="ruby-operator">+</span>
+              <span class="ruby-string">&quot;(http://www.w3.org/TR/REC-xml-names/#ns-decl)&quot;</span>
+            <span class="ruby-identifier">raise</span> <span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">ParseException</span>.<span class="ruby-identifier">new</span>( <span class="ruby-identifier">msg</span>, <span class="ruby-ivar">@source</span>, <span class="ruby-keyword">self</span> )
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">local_part</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;xmlns&quot;</span>
+          <span class="ruby-identifier">msg</span> = <span class="ruby-string">&quot;The &#39;xmlns&#39; prefix must not be declared &quot;</span><span class="ruby-operator">+</span>
+            <span class="ruby-string">&quot;(http://www.w3.org/TR/REC-xml-names/#ns-decl)&quot;</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">ParseException</span>.<span class="ruby-identifier">new</span>( <span class="ruby-identifier">msg</span>, <span class="ruby-ivar">@source</span>, <span class="ruby-keyword">self</span>)
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">add_namespace</span>(<span class="ruby-identifier">local_part</span>, <span class="ruby-identifier">value</span>)
+      <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">prefix</span>
+        <span class="ruby-identifier">prefixes</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">prefix</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">prefix</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;xml&quot;</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">attributes</span>[<span class="ruby-identifier">name</span>]
+        <span class="ruby-identifier">msg</span> = <span class="ruby-node">&quot;Duplicate attribute #{name.inspect}&quot;</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">ParseException</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">msg</span>, <span class="ruby-ivar">@source</span>, <span class="ruby-keyword">self</span>)
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">prefix</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;xmlns&quot;</span>
+        <span class="ruby-identifier">uri</span> = <span class="ruby-ivar">@namespaces</span>[<span class="ruby-identifier">prefix</span>]
+        <span class="ruby-identifier">expanded_name</span> = [<span class="ruby-identifier">uri</span>, <span class="ruby-identifier">local_part</span>]
+        <span class="ruby-identifier">existing_prefix</span> = <span class="ruby-identifier">expanded_names</span>[<span class="ruby-identifier">expanded_name</span>]
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">existing_prefix</span>
+          <span class="ruby-identifier">message</span> = <span class="ruby-string">&quot;Namespace conflict in adding attribute &quot;</span> <span class="ruby-operator">+</span>
+                    <span class="ruby-node">&quot;\&quot;#{local_part}\&quot;: &quot;</span> <span class="ruby-operator">+</span>
+                    <span class="ruby-node">&quot;Prefix \&quot;#{existing_prefix}\&quot; = \&quot;#{uri}\&quot; and &quot;</span> <span class="ruby-operator">+</span>
+                    <span class="ruby-node">&quot;prefix \&quot;#{prefix}\&quot; = \&quot;#{uri}\&quot;&quot;</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">ParseException</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">message</span>, <span class="ruby-ivar">@source</span>, <span class="ruby-keyword">self</span>)
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">expanded_names</span>[<span class="ruby-identifier">expanded_name</span>] = <span class="ruby-identifier">prefix</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-identifier">attributes</span>[<span class="ruby-identifier">name</span>] = <span class="ruby-identifier">value</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">message</span> = <span class="ruby-node">&quot;Invalid attribute name: &lt;#{@source.buffer.split(%r{[/&gt;\s]}).first}&gt;&quot;</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">ParseException</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">message</span>, <span class="ruby-ivar">@source</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-parse_id" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse_id</span><span
+            class="method-args">(base_error_message, accept_external_id:, accept_public_id:)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="parse_id-source">
+            <pre><span class="ruby-comment"># File lib/rexml/parsers/baseparser.rb, line 659</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">parse_id</span>(<span class="ruby-identifier">base_error_message</span>,
+             <span class="ruby-value">accept_external_id:</span>,
+             <span class="ruby-value">accept_public_id:</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">accept_external_id</span> <span class="ruby-keyword">and</span> (<span class="ruby-identifier">md</span> = <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-constant">EXTERNAL_ID_PUBLIC</span>, <span class="ruby-keyword">true</span>))
+    <span class="ruby-identifier">pubid</span> = <span class="ruby-identifier">system</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-identifier">pubid_literal</span> = <span class="ruby-identifier">md</span>[<span class="ruby-value">1</span>]
+    <span class="ruby-identifier">pubid</span> = <span class="ruby-identifier">pubid_literal</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-2</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">pubid_literal</span> <span class="ruby-comment"># Remove quote</span>
+    <span class="ruby-identifier">system_literal</span> = <span class="ruby-identifier">md</span>[<span class="ruby-value">2</span>]
+    <span class="ruby-identifier">system</span> = <span class="ruby-identifier">system_literal</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-2</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">system_literal</span> <span class="ruby-comment"># Remove quote</span>
+    [<span class="ruby-string">&quot;PUBLIC&quot;</span>, <span class="ruby-identifier">pubid</span>, <span class="ruby-identifier">system</span>]
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">accept_public_id</span> <span class="ruby-keyword">and</span> (<span class="ruby-identifier">md</span> = <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-constant">PUBLIC_ID</span>, <span class="ruby-keyword">true</span>))
+    <span class="ruby-identifier">pubid</span> = <span class="ruby-identifier">system</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-identifier">pubid_literal</span> = <span class="ruby-identifier">md</span>[<span class="ruby-value">1</span>]
+    <span class="ruby-identifier">pubid</span> = <span class="ruby-identifier">pubid_literal</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-2</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">pubid_literal</span> <span class="ruby-comment"># Remove quote</span>
+    [<span class="ruby-string">&quot;PUBLIC&quot;</span>, <span class="ruby-identifier">pubid</span>, <span class="ruby-keyword">nil</span>]
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">accept_external_id</span> <span class="ruby-keyword">and</span> (<span class="ruby-identifier">md</span> = <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-constant">EXTERNAL_ID_SYSTEM</span>, <span class="ruby-keyword">true</span>))
+    <span class="ruby-identifier">system</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-identifier">system_literal</span> = <span class="ruby-identifier">md</span>[<span class="ruby-value">1</span>]
+    <span class="ruby-identifier">system</span> = <span class="ruby-identifier">system_literal</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-2</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">system_literal</span> <span class="ruby-comment"># Remove quote</span>
+    [<span class="ruby-string">&quot;SYSTEM&quot;</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">system</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">details</span> = <span class="ruby-identifier">parse_id_invalid_details</span>(<span class="ruby-value">accept_external_id:</span> <span class="ruby-identifier">accept_external_id</span>,
+                                       <span class="ruby-value">accept_public_id:</span> <span class="ruby-identifier">accept_public_id</span>)
+    <span class="ruby-identifier">message</span> = <span class="ruby-node">&quot;#{base_error_message}: #{details}&quot;</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">ParseException</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">message</span>, <span class="ruby-ivar">@source</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-parse_id_invalid_details" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse_id_invalid_details</span><span
+            class="method-args">(accept_external_id:, accept_public_id:)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="parse_id_invalid_details-source">
+            <pre><span class="ruby-comment"># File lib/rexml/parsers/baseparser.rb, line 687</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">parse_id_invalid_details</span>(<span class="ruby-value">accept_external_id:</span>,
+                             <span class="ruby-value">accept_public_id:</span>)
+  <span class="ruby-identifier">public</span> = <span class="ruby-regexp">/\A\s*PUBLIC/um</span>
+  <span class="ruby-identifier">system</span> = <span class="ruby-regexp">/\A\s*SYSTEM/um</span>
+  <span class="ruby-keyword">if</span> (<span class="ruby-identifier">accept_external_id</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">accept_public_id</span>) <span class="ruby-keyword">and</span> <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/#{public}/um</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/#{public}(?:\s+[^&#39;&quot;]|\s*[\[&gt;])/um</span>)
+      <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;public ID literal is missing&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/#{public}\s+#{PUBIDLITERAL}/um</span>)
+      <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;invalid public ID literal&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">accept_public_id</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/#{public}\s+#{PUBIDLITERAL}\s+[^&#39;&quot;]/um</span>)
+        <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;system ID literal is missing&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/#{public}\s+#{PUBIDLITERAL}\s+#{SYSTEMLITERAL}/um</span>)
+        <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;invalid system literal&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-string">&quot;garbage after system literal&quot;</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-string">&quot;garbage after public ID literal&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">accept_external_id</span> <span class="ruby-keyword">and</span> <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/#{system}/um</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/#{system}(?:\s+[^&#39;&quot;]|\s*[\[&gt;])/um</span>)
+      <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;system literal is missing&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/#{system}\s+#{SYSTEMLITERAL}/um</span>)
+      <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;invalid system literal&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-string">&quot;garbage after system literal&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/\A\s*(?:PUBLIC|SYSTEM)\s/um</span>)
+      <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;invalid ID type&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-string">&quot;ID type is missing&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-parse_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse_name</span><span
+            class="method-args">(base_error_message)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="parse_name-source">
+            <pre><span class="ruby-comment"># File lib/rexml/parsers/baseparser.rb, line 646</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">parse_name</span>(<span class="ruby-identifier">base_error_message</span>)
+  <span class="ruby-identifier">md</span> = <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-constant">Private</span><span class="ruby-operator">::</span><span class="ruby-constant">NAME_PATTERN</span>, <span class="ruby-keyword">true</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">md</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/\S/um</span>)
+      <span class="ruby-identifier">message</span> = <span class="ruby-node">&quot;#{base_error_message}: invalid name&quot;</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">message</span> = <span class="ruby-node">&quot;#{base_error_message}: name is missing&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">ParseException</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">message</span>, <span class="ruby-ivar">@source</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">md</span>[<span class="ruby-value">0</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-pop_namespaces_restore" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pop_namespaces_restore</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="pop_namespaces_restore-source">
+            <pre><span class="ruby-comment"># File lib/rexml/parsers/baseparser.rb, line 622</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">pop_namespaces_restore</span>
+  <span class="ruby-identifier">namespaces_restore</span> = <span class="ruby-ivar">@namespaces_restore_stack</span>.<span class="ruby-identifier">pop</span>
+  <span class="ruby-identifier">namespaces_restore</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">prefix</span>, <span class="ruby-identifier">uri</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">nil?</span>
+      <span class="ruby-ivar">@namespaces</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">prefix</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-ivar">@namespaces</span>[<span class="ruby-identifier">prefix</span>] = <span class="ruby-identifier">uri</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-process_instruction" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">process_instruction</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="process_instruction-source">
+            <pre><span class="ruby-comment"># File lib/rexml/parsers/baseparser.rb, line 725</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">process_instruction</span>
+  <span class="ruby-identifier">name</span> = <span class="ruby-identifier">parse_name</span>(<span class="ruby-string">&quot;Malformed XML: Invalid processing instruction node&quot;</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/\s+/um</span>, <span class="ruby-keyword">true</span>)
+    <span class="ruby-identifier">match_data</span> = <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/(.*?)\?&gt;/um</span>, <span class="ruby-keyword">true</span>)
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">match_data</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ParseException</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Malformed XML: Unclosed processing instruction&quot;</span>, <span class="ruby-ivar">@source</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">content</span> = <span class="ruby-identifier">match_data</span>[<span class="ruby-value">1</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">content</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-string">&quot;?&gt;&quot;</span>, <span class="ruby-keyword">true</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ParseException</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Malformed XML: Unclosed processing instruction&quot;</span>, <span class="ruby-ivar">@source</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;xml&quot;</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@document_status</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ParseException</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Malformed XML: XML declaration is not at the start&quot;</span>, <span class="ruby-ivar">@source</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">version</span> = <span class="ruby-constant">VERSION</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">content</span>)
+    <span class="ruby-identifier">version</span> = <span class="ruby-identifier">version</span>[<span class="ruby-value">1</span>] <span class="ruby-keyword">unless</span> <span class="ruby-identifier">version</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">encoding</span> = <span class="ruby-constant">ENCODING</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">content</span>)
+    <span class="ruby-identifier">encoding</span> = <span class="ruby-identifier">encoding</span>[<span class="ruby-value">1</span>] <span class="ruby-keyword">unless</span> <span class="ruby-identifier">encoding</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">need_source_encoding_update?</span>(<span class="ruby-identifier">encoding</span>)
+      <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">encoding</span> = <span class="ruby-identifier">encoding</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">encoding</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword">and</span> <span class="ruby-regexp">/\AUTF-16(?:BE|LE)\z/i</span> <span class="ruby-operator">=~</span> <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">encoding</span>
+      <span class="ruby-identifier">encoding</span> = <span class="ruby-string">&quot;UTF-16&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">standalone</span> = <span class="ruby-constant">STANDALONE</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">content</span>)
+    <span class="ruby-identifier">standalone</span> = <span class="ruby-identifier">standalone</span>[<span class="ruby-value">1</span>] <span class="ruby-keyword">unless</span> <span class="ruby-identifier">standalone</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-keyword">return</span> [ <span class="ruby-value">:xmldecl</span>, <span class="ruby-identifier">version</span>, <span class="ruby-identifier">encoding</span>, <span class="ruby-identifier">standalone</span> ]
+  <span class="ruby-keyword">end</span>
+  [<span class="ruby-value">:processing_instruction</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">content</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-pull_event" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pull_event</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="pull_event-source">
+            <pre><span class="ruby-comment"># File lib/rexml/parsers/baseparser.rb, line 249</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">pull_event</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@closed</span>
+    <span class="ruby-identifier">x</span>, <span class="ruby-ivar">@closed</span> = <span class="ruby-ivar">@closed</span>, <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">return</span> [ <span class="ruby-value">:end_element</span>, <span class="ruby-identifier">x</span> ]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">empty?</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@document_status</span> <span class="ruby-operator">==</span> <span class="ruby-value">:in_doctype</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ParseException</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Malformed DOCTYPE: unclosed&quot;</span>, <span class="ruby-ivar">@source</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@tags</span>.<span class="ruby-identifier">empty?</span>
+      <span class="ruby-identifier">path</span> = <span class="ruby-string">&quot;/&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@tags</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;/&quot;</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ParseException</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;Missing end tag for &#39;#{path}&#39;&quot;</span>, <span class="ruby-ivar">@source</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">return</span> [ <span class="ruby-value">:end_document</span> ]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@stack</span>.<span class="ruby-identifier">shift</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@stack</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+  <span class="ruby-comment">#STDERR.puts @source.encoding</span>
+  <span class="ruby-comment">#STDERR.puts &quot;BUFFER = #{@source.buffer.inspect}&quot;</span>
+
+  <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">ensure_buffer</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@document_status</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">nil</span>
+    <span class="ruby-identifier">start_position</span> = <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">position</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-string">&quot;&lt;?&quot;</span>, <span class="ruby-keyword">true</span>)
+      <span class="ruby-keyword">return</span> <span class="ruby-identifier">process_instruction</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-string">&quot;&lt;!&quot;</span>, <span class="ruby-keyword">true</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-string">&quot;--&quot;</span>, <span class="ruby-keyword">true</span>)
+        <span class="ruby-identifier">md</span> = <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/(.*?)--&gt;/um</span>, <span class="ruby-keyword">true</span>)
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">md</span>.<span class="ruby-identifier">nil?</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">ParseException</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Unclosed comment&quot;</span>, <span class="ruby-ivar">@source</span>)
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-regexp">/--|-\z/</span>.<span class="ruby-identifier">match?</span>(<span class="ruby-identifier">md</span>[<span class="ruby-value">1</span>])
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">ParseException</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Malformed comment&quot;</span>, <span class="ruby-ivar">@source</span>)
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">return</span> [ <span class="ruby-value">:comment</span>, <span class="ruby-identifier">md</span>[<span class="ruby-value">1</span>] ]
+      <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-string">&quot;DOCTYPE&quot;</span>, <span class="ruby-keyword">true</span>)
+        <span class="ruby-identifier">base_error_message</span> = <span class="ruby-string">&quot;Malformed DOCTYPE&quot;</span>
+        <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/\s+/um</span>, <span class="ruby-keyword">true</span>)
+          <span class="ruby-keyword">if</span> <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-string">&quot;&gt;&quot;</span>)
+            <span class="ruby-identifier">message</span> = <span class="ruby-node">&quot;#{base_error_message}: name is missing&quot;</span>
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-identifier">message</span> = <span class="ruby-node">&quot;#{base_error_message}: invalid name&quot;</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">position</span> = <span class="ruby-identifier">start_position</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">ParseException</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">message</span>, <span class="ruby-ivar">@source</span>)
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">name</span> = <span class="ruby-identifier">parse_name</span>(<span class="ruby-identifier">base_error_message</span>)
+        <span class="ruby-keyword">if</span> <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/\s*\[/um</span>, <span class="ruby-keyword">true</span>)
+          <span class="ruby-identifier">id</span> = [<span class="ruby-keyword">nil</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-keyword">nil</span>]
+          <span class="ruby-ivar">@document_status</span> = <span class="ruby-value">:in_doctype</span>
+        <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/\s*&gt;/um</span>, <span class="ruby-keyword">true</span>)
+          <span class="ruby-identifier">id</span> = [<span class="ruby-keyword">nil</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-keyword">nil</span>]
+          <span class="ruby-ivar">@document_status</span> = <span class="ruby-value">:after_doctype</span>
+          <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">ensure_buffer</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">id</span> = <span class="ruby-identifier">parse_id</span>(<span class="ruby-identifier">base_error_message</span>,
+                        <span class="ruby-value">accept_external_id:</span> <span class="ruby-keyword">true</span>,
+                        <span class="ruby-value">accept_public_id:</span> <span class="ruby-keyword">false</span>)
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">id</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;SYSTEM&quot;</span>
+            <span class="ruby-comment"># For backward compatibility</span>
+            <span class="ruby-identifier">id</span>[<span class="ruby-value">1</span>], <span class="ruby-identifier">id</span>[<span class="ruby-value">2</span>] = <span class="ruby-identifier">id</span>[<span class="ruby-value">2</span>], <span class="ruby-keyword">nil</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/\s*\[/um</span>, <span class="ruby-keyword">true</span>)
+            <span class="ruby-ivar">@document_status</span> = <span class="ruby-value">:in_doctype</span>
+          <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/\s*&gt;/um</span>, <span class="ruby-keyword">true</span>)
+            <span class="ruby-ivar">@document_status</span> = <span class="ruby-value">:after_doctype</span>
+            <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">ensure_buffer</span>
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-identifier">message</span> = <span class="ruby-node">&quot;#{base_error_message}: garbage after external ID&quot;</span>
+            <span class="ruby-identifier">raise</span> <span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">ParseException</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">message</span>, <span class="ruby-ivar">@source</span>)
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">args</span> = [<span class="ruby-value">:start_doctype</span>, <span class="ruby-identifier">name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">id</span>]
+        <span class="ruby-keyword">if</span> <span class="ruby-ivar">@document_status</span> <span class="ruby-operator">==</span> <span class="ruby-value">:after_doctype</span>
+          <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/\s*/um</span>, <span class="ruby-keyword">true</span>)
+          <span class="ruby-ivar">@stack</span> <span class="ruby-operator">&lt;&lt;</span> [ <span class="ruby-value">:end_doctype</span> ]
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">args</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">message</span> = <span class="ruby-string">&quot;Invalid XML&quot;</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">ParseException</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">message</span>, <span class="ruby-ivar">@source</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@document_status</span> <span class="ruby-operator">==</span> <span class="ruby-value">:in_doctype</span>
+    <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/\s*/um</span>, <span class="ruby-keyword">true</span>) <span class="ruby-comment"># skip spaces</span>
+    <span class="ruby-identifier">start_position</span> = <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">position</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-string">&quot;&lt;!&quot;</span>, <span class="ruby-keyword">true</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-string">&quot;ELEMENT&quot;</span>, <span class="ruby-keyword">true</span>)
+        <span class="ruby-identifier">md</span> = <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/(.*?)&gt;/um</span>, <span class="ruby-keyword">true</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">ParseException</span>.<span class="ruby-identifier">new</span>( <span class="ruby-string">&quot;Bad ELEMENT declaration!&quot;</span>, <span class="ruby-ivar">@source</span> ) <span class="ruby-keyword">if</span> <span class="ruby-identifier">md</span>.<span class="ruby-identifier">nil?</span>
+        <span class="ruby-keyword">return</span> [ <span class="ruby-value">:elementdecl</span>, <span class="ruby-string">&quot;&lt;!ELEMENT&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">md</span>[<span class="ruby-value">1</span>] ]
+      <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-string">&quot;ENTITY&quot;</span>, <span class="ruby-keyword">true</span>)
+        <span class="ruby-identifier">match_data</span> = <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-constant">Private</span><span class="ruby-operator">::</span><span class="ruby-constant">ENTITYDECL_PATTERN</span>, <span class="ruby-keyword">true</span>)
+        <span class="ruby-keyword">unless</span> <span class="ruby-identifier">match_data</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">ParseException</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Malformed entity declaration&quot;</span>, <span class="ruby-ivar">@source</span>)
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">match</span> = [<span class="ruby-value">:entitydecl</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">match_data</span>.<span class="ruby-identifier">captures</span>.<span class="ruby-identifier">compact</span>]
+        <span class="ruby-identifier">ref</span> = <span class="ruby-keyword">false</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">match</span>[<span class="ruby-value">1</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&#39;%&#39;</span>
+          <span class="ruby-identifier">ref</span> = <span class="ruby-keyword">true</span>
+          <span class="ruby-identifier">match</span>.<span class="ruby-identifier">delete_at</span> <span class="ruby-value">1</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-comment"># Now we have to sort out what kind of entity reference this is</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">match</span>[<span class="ruby-value">2</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&#39;SYSTEM&#39;</span>
+          <span class="ruby-comment"># External reference</span>
+          <span class="ruby-identifier">match</span>[<span class="ruby-value">3</span>] = <span class="ruby-identifier">match</span>[<span class="ruby-value">3</span>][<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-2</span>] <span class="ruby-comment"># PUBID</span>
+          <span class="ruby-identifier">match</span>.<span class="ruby-identifier">delete_at</span>(<span class="ruby-value">4</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">match</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">4</span> <span class="ruby-comment"># Chop out NDATA decl</span>
+          <span class="ruby-comment"># match is [ :entity, name, SYSTEM, pubid(, ndata)? ]</span>
+        <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">match</span>[<span class="ruby-value">2</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&#39;PUBLIC&#39;</span>
+          <span class="ruby-comment"># External reference</span>
+          <span class="ruby-identifier">match</span>[<span class="ruby-value">3</span>] = <span class="ruby-identifier">match</span>[<span class="ruby-value">3</span>][<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-2</span>] <span class="ruby-comment"># PUBID</span>
+          <span class="ruby-identifier">match</span>[<span class="ruby-value">4</span>] = <span class="ruby-identifier">match</span>[<span class="ruby-value">4</span>][<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-2</span>] <span class="ruby-comment"># HREF</span>
+          <span class="ruby-identifier">match</span>.<span class="ruby-identifier">delete_at</span>(<span class="ruby-value">5</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">match</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">5</span> <span class="ruby-comment"># Chop out NDATA decl</span>
+          <span class="ruby-comment"># match is [ :entity, name, PUBLIC, pubid, href(, ndata)? ]</span>
+        <span class="ruby-keyword">elsif</span> <span class="ruby-constant">Private</span><span class="ruby-operator">::</span><span class="ruby-constant">PEREFERENCE_PATTERN</span>.<span class="ruby-identifier">match?</span>(<span class="ruby-identifier">match</span>[<span class="ruby-value">2</span>])
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">ParseException</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;Parameter entity references forbidden in internal subset: #{match[2]}&quot;</span>, <span class="ruby-ivar">@source</span>)
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">match</span>[<span class="ruby-value">2</span>] = <span class="ruby-identifier">match</span>[<span class="ruby-value">2</span>][<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-2</span>]
+          <span class="ruby-identifier">match</span>.<span class="ruby-identifier">pop</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">match</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">4</span>
+          <span class="ruby-comment"># match is [ :entity, name, value ]</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">match</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;%&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">ref</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">match</span>
+      <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-string">&quot;ATTLIST&quot;</span>, <span class="ruby-keyword">true</span>)
+        <span class="ruby-identifier">md</span> = <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-constant">Private</span><span class="ruby-operator">::</span><span class="ruby-constant">ATTLISTDECL_END</span>, <span class="ruby-keyword">true</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">ParseException</span>.<span class="ruby-identifier">new</span>( <span class="ruby-string">&quot;Bad ATTLIST declaration!&quot;</span>, <span class="ruby-ivar">@source</span> ) <span class="ruby-keyword">if</span> <span class="ruby-identifier">md</span>.<span class="ruby-identifier">nil?</span>
+        <span class="ruby-identifier">element</span> = <span class="ruby-identifier">md</span>[<span class="ruby-value">1</span>]
+        <span class="ruby-identifier">contents</span> = <span class="ruby-identifier">md</span>[<span class="ruby-value">0</span>]
+
+        <span class="ruby-identifier">pairs</span> = {}
+        <span class="ruby-identifier">values</span> = <span class="ruby-identifier">md</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">scan</span>( <span class="ruby-constant">ATTDEF_RE</span> )
+        <span class="ruby-identifier">values</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">attdef</span><span class="ruby-operator">|</span>
+          <span class="ruby-keyword">unless</span> <span class="ruby-identifier">attdef</span>[<span class="ruby-value">3</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;#IMPLIED&quot;</span>
+            <span class="ruby-identifier">attdef</span>.<span class="ruby-identifier">compact!</span>
+            <span class="ruby-identifier">val</span> = <span class="ruby-identifier">attdef</span>[<span class="ruby-value">3</span>]
+            <span class="ruby-identifier">val</span> = <span class="ruby-identifier">attdef</span>[<span class="ruby-value">4</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">val</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;#FIXED &quot;</span>
+            <span class="ruby-identifier">pairs</span>[<span class="ruby-identifier">attdef</span>[<span class="ruby-value">0</span>]] = <span class="ruby-identifier">val</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">attdef</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">=~</span> <span class="ruby-regexp">/^xmlns:(.*)/</span>
+              <span class="ruby-ivar">@namespaces</span>[<span class="ruby-node">$1</span>] = <span class="ruby-identifier">val</span>
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">return</span> [ <span class="ruby-value">:attlistdecl</span>, <span class="ruby-identifier">element</span>, <span class="ruby-identifier">pairs</span>, <span class="ruby-identifier">contents</span> ]
+      <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-string">&quot;NOTATION&quot;</span>, <span class="ruby-keyword">true</span>)
+        <span class="ruby-identifier">base_error_message</span> = <span class="ruby-string">&quot;Malformed notation declaration&quot;</span>
+        <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/\s+/um</span>, <span class="ruby-keyword">true</span>)
+          <span class="ruby-keyword">if</span> <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-string">&quot;&gt;&quot;</span>)
+            <span class="ruby-identifier">message</span> = <span class="ruby-node">&quot;#{base_error_message}: name is missing&quot;</span>
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-identifier">message</span> = <span class="ruby-node">&quot;#{base_error_message}: invalid name&quot;</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">position</span> = <span class="ruby-identifier">start_position</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">ParseException</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">message</span>, <span class="ruby-ivar">@source</span>)
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">name</span> = <span class="ruby-identifier">parse_name</span>(<span class="ruby-identifier">base_error_message</span>)
+        <span class="ruby-identifier">id</span> = <span class="ruby-identifier">parse_id</span>(<span class="ruby-identifier">base_error_message</span>,
+                      <span class="ruby-value">accept_external_id:</span> <span class="ruby-keyword">true</span>,
+                      <span class="ruby-value">accept_public_id:</span> <span class="ruby-keyword">true</span>)
+        <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/\s*&gt;/um</span>, <span class="ruby-keyword">true</span>)
+          <span class="ruby-identifier">message</span> = <span class="ruby-node">&quot;#{base_error_message}: garbage before end &gt;&quot;</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">ParseException</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">message</span>, <span class="ruby-ivar">@source</span>)
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">return</span> [<span class="ruby-value">:notationdecl</span>, <span class="ruby-identifier">name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">id</span>]
+      <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">md</span> = <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/--(.*?)--&gt;/um</span>, <span class="ruby-keyword">true</span>)
+        <span class="ruby-keyword">case</span> <span class="ruby-identifier">md</span>[<span class="ruby-value">1</span>]
+        <span class="ruby-keyword">when</span> <span class="ruby-regexp">/--/</span>, <span class="ruby-regexp">/-\z/</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">ParseException</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Malformed comment&quot;</span>, <span class="ruby-ivar">@source</span>)
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">return</span> [ <span class="ruby-value">:comment</span>, <span class="ruby-identifier">md</span>[<span class="ruby-value">1</span>] ] <span class="ruby-keyword">if</span> <span class="ruby-identifier">md</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">match</span> = <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/(%.*?;)\s*/um</span>, <span class="ruby-keyword">true</span>)
+      <span class="ruby-keyword">return</span> [ <span class="ruby-value">:externalentity</span>, <span class="ruby-identifier">match</span>[<span class="ruby-value">1</span>] ]
+    <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/\]\s*&gt;/um</span>, <span class="ruby-keyword">true</span>)
+      <span class="ruby-ivar">@document_status</span> = <span class="ruby-value">:after_doctype</span>
+      <span class="ruby-keyword">return</span> [ <span class="ruby-value">:end_doctype</span> ]
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@document_status</span> <span class="ruby-operator">==</span> <span class="ruby-value">:in_doctype</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ParseException</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Malformed DOCTYPE: invalid declaration&quot;</span>, <span class="ruby-ivar">@source</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@document_status</span> <span class="ruby-operator">==</span> <span class="ruby-value">:after_doctype</span>
+    <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/\s*/um</span>, <span class="ruby-keyword">true</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">start_position</span> = <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">position</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-string">&quot;&lt;&quot;</span>, <span class="ruby-keyword">true</span>)
+      <span class="ruby-comment"># :text&#39;s read_until may remain only &quot;&lt;&quot; in buffer. In the</span>
+      <span class="ruby-comment"># case, buffer is empty here. So we need to fill buffer</span>
+      <span class="ruby-comment"># here explicitly.</span>
+      <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">ensure_buffer</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-string">&quot;/&quot;</span>, <span class="ruby-keyword">true</span>)
+        <span class="ruby-ivar">@namespaces_restore_stack</span>.<span class="ruby-identifier">pop</span>
+        <span class="ruby-identifier">last_tag</span> = <span class="ruby-ivar">@tags</span>.<span class="ruby-identifier">pop</span>
+        <span class="ruby-identifier">md</span> = <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-constant">Private</span><span class="ruby-operator">::</span><span class="ruby-constant">CLOSE_PATTERN</span>, <span class="ruby-keyword">true</span>)
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">md</span> <span class="ruby-keyword">and</span> <span class="ruby-operator">!</span><span class="ruby-identifier">last_tag</span>
+          <span class="ruby-identifier">message</span> = <span class="ruby-node">&quot;Unexpected top-level end tag (got &#39;#{md[1]}&#39;)&quot;</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">ParseException</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">message</span>, <span class="ruby-ivar">@source</span>)
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">md</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">last_tag</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">md</span>[<span class="ruby-value">1</span>]
+          <span class="ruby-identifier">message</span> = <span class="ruby-node">&quot;Missing end tag for &#39;#{last_tag}&#39;&quot;</span>
+          <span class="ruby-identifier">message</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot; (got &#39;#{md[1]}&#39;)&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">md</span>
+          <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">position</span> = <span class="ruby-identifier">start_position</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">md</span>.<span class="ruby-identifier">nil?</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">ParseException</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">message</span>, <span class="ruby-ivar">@source</span>)
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">return</span> [ <span class="ruby-value">:end_element</span>, <span class="ruby-identifier">last_tag</span> ]
+      <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-string">&quot;!&quot;</span>, <span class="ruby-keyword">true</span>)
+        <span class="ruby-identifier">md</span> = <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/([^&gt;]*&gt;)/um</span>)
+        <span class="ruby-comment">#STDERR.puts &quot;SOURCE BUFFER = #{source.buffer}, #{source.buffer.size}&quot;</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">ParseException</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Malformed node&quot;</span>, <span class="ruby-ivar">@source</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">md</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">md</span>[<span class="ruby-value">0</span>][<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-value">?-</span>
+          <span class="ruby-identifier">md</span> = <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/--(.*?)--&gt;/um</span>, <span class="ruby-keyword">true</span>)
+
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">md</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-regexp">/--|-\z/</span>.<span class="ruby-identifier">match?</span>(<span class="ruby-identifier">md</span>[<span class="ruby-value">1</span>])
+            <span class="ruby-identifier">raise</span> <span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">ParseException</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Malformed comment&quot;</span>, <span class="ruby-ivar">@source</span>)
+          <span class="ruby-keyword">end</span>
+
+          <span class="ruby-keyword">return</span> [ <span class="ruby-value">:comment</span>, <span class="ruby-identifier">md</span>[<span class="ruby-value">1</span>] ]
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">md</span> = <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/\[CDATA\[(.*?)\]\]&gt;/um</span>, <span class="ruby-keyword">true</span>)
+          <span class="ruby-keyword">return</span> [ <span class="ruby-value">:cdata</span>, <span class="ruby-identifier">md</span>[<span class="ruby-value">1</span>] ] <span class="ruby-keyword">if</span> <span class="ruby-identifier">md</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">ParseException</span>.<span class="ruby-identifier">new</span>( <span class="ruby-string">&quot;Declarations can only occur &quot;</span><span class="ruby-operator">+</span>
+          <span class="ruby-string">&quot;in the doctype declaration.&quot;</span>, <span class="ruby-ivar">@source</span>)
+      <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-string">&quot;?&quot;</span>, <span class="ruby-keyword">true</span>)
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">process_instruction</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-comment"># Get the next tag</span>
+        <span class="ruby-identifier">md</span> = <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">match</span>(<span class="ruby-constant">Private</span><span class="ruby-operator">::</span><span class="ruby-constant">TAG_PATTERN</span>, <span class="ruby-keyword">true</span>)
+        <span class="ruby-keyword">unless</span> <span class="ruby-identifier">md</span>
+          <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">position</span> = <span class="ruby-identifier">start_position</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">ParseException</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;malformed XML: missing tag start&quot;</span>, <span class="ruby-ivar">@source</span>)
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">tag</span> = <span class="ruby-identifier">md</span>[<span class="ruby-value">1</span>]
+        <span class="ruby-ivar">@document_status</span> = <span class="ruby-value">:in_element</span>
+        <span class="ruby-ivar">@prefixes</span>.<span class="ruby-identifier">clear</span>
+        <span class="ruby-ivar">@prefixes</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">md</span>[<span class="ruby-value">2</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">md</span>[<span class="ruby-value">2</span>]
+        <span class="ruby-identifier">push_namespaces_restore</span>
+        <span class="ruby-identifier">attributes</span>, <span class="ruby-identifier">closed</span> = <span class="ruby-identifier">parse_attributes</span>(<span class="ruby-ivar">@prefixes</span>)
+        <span class="ruby-comment"># Verify that all of the prefixes have been defined</span>
+        <span class="ruby-keyword">for</span> <span class="ruby-identifier">prefix</span> <span class="ruby-keyword">in</span> <span class="ruby-ivar">@prefixes</span>
+          <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@namespaces</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">prefix</span>)
+            <span class="ruby-identifier">raise</span> <span class="ruby-constant">UndefinedNamespaceException</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">prefix</span>,<span class="ruby-ivar">@source</span>,<span class="ruby-keyword">self</span>)
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">closed</span>
+          <span class="ruby-ivar">@closed</span> = <span class="ruby-identifier">tag</span>
+          <span class="ruby-identifier">pop_namespaces_restore</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-ivar">@tags</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-keyword">and</span> <span class="ruby-ivar">@have_root</span>
+            <span class="ruby-identifier">raise</span> <span class="ruby-constant">ParseException</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;Malformed XML: Extra tag at the end of the document (got &#39;&lt;#{tag}&#39;)&quot;</span>, <span class="ruby-ivar">@source</span>)
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-ivar">@tags</span>.<span class="ruby-identifier">push</span>( <span class="ruby-identifier">tag</span> )
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-ivar">@have_root</span> = <span class="ruby-keyword">true</span>
+        <span class="ruby-keyword">return</span> [ <span class="ruby-value">:start_element</span>, <span class="ruby-identifier">tag</span>, <span class="ruby-identifier">attributes</span> ]
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">text</span> = <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">read_until</span>(<span class="ruby-string">&quot;&lt;&quot;</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">text</span>.<span class="ruby-identifier">chomp!</span>(<span class="ruby-string">&quot;&lt;&quot;</span>)
+        <span class="ruby-ivar">@source</span>.<span class="ruby-identifier">position</span> <span class="ruby-operator">-=</span> <span class="ruby-string">&quot;&lt;&quot;</span>.<span class="ruby-identifier">bytesize</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@tags</span>.<span class="ruby-identifier">empty?</span>
+        <span class="ruby-keyword">unless</span> <span class="ruby-regexp">/\A\s*\z/</span>.<span class="ruby-identifier">match?</span>(<span class="ruby-identifier">text</span>)
+          <span class="ruby-keyword">if</span> <span class="ruby-ivar">@have_root</span>
+            <span class="ruby-identifier">raise</span> <span class="ruby-constant">ParseException</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;Malformed XML: Extra content at the end of the document (got &#39;#{text}&#39;)&quot;</span>, <span class="ruby-ivar">@source</span>)
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-identifier">raise</span> <span class="ruby-constant">ParseException</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;Malformed XML: Content at the start of the document (got &#39;#{text}&#39;)&quot;</span>, <span class="ruby-ivar">@source</span>)
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">pull_event</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@have_root</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">return</span> [ <span class="ruby-value">:text</span>, <span class="ruby-identifier">text</span> ]
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">UndefinedNamespaceException</span>
+    <span class="ruby-identifier">raise</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">ParseException</span>
+    <span class="ruby-identifier">raise</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">error</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">ParseException</span>.<span class="ruby-identifier">new</span>( <span class="ruby-string">&quot;Exception parsing&quot;</span>,
+      <span class="ruby-ivar">@source</span>, <span class="ruby-keyword">self</span>, (<span class="ruby-identifier">error</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">error</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">$!</span>) )
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> [ <span class="ruby-value">:dummy</span> ]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-push_namespaces_restore" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">push_namespaces_restore</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="push_namespaces_restore-source">
+            <pre><span class="ruby-comment"># File lib/rexml/parsers/baseparser.rb, line 616</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">push_namespaces_restore</span>
+  <span class="ruby-identifier">namespaces_restore</span> = {}
+  <span class="ruby-ivar">@namespaces_restore_stack</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">namespaces_restore</span>)
+  <span class="ruby-identifier">namespaces_restore</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-record_entity_expansion" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">record_entity_expansion</span><span
+            class="method-args">(delta=1)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="record_entity_expansion-source">
+            <pre><span class="ruby-comment"># File lib/rexml/parsers/baseparser.rb, line 633</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">record_entity_expansion</span>(<span class="ruby-identifier">delta</span>=<span class="ruby-value">1</span>)
+  <span class="ruby-ivar">@entity_expansion_count</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">delta</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@entity_expansion_count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@entity_expansion_limit</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;number of entity expansions exceeded, processing aborted.&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

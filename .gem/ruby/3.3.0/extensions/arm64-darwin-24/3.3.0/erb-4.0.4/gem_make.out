@@ -1,0 +1,18 @@
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/erb-4.0.4/ext/erb/escape
+/opt/homebrew/opt/ruby/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/erb-4.0.4/ext/erb/escape
+make DESTDIR\= sitearchdir\=./.gem.20241009-47292-ajgnco sitelibdir\=./.gem.20241009-47292-ajgnco clean
+
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/erb-4.0.4/ext/erb/escape
+make DESTDIR\= sitearchdir\=./.gem.20241009-47292-ajgnco sitelibdir\=./.gem.20241009-47292-ajgnco
+compiling escape.c
+linking shared-object erb/escape.bundle
+
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/erb-4.0.4/ext/erb/escape
+make DESTDIR\= sitearchdir\=./.gem.20241009-47292-ajgnco sitelibdir\=./.gem.20241009-47292-ajgnco install
+/usr/bin/install -c -m 0755 escape.bundle ./.gem.20241009-47292-ajgnco/erb
+
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/erb-4.0.4/ext/erb/escape
+make DESTDIR\= sitearchdir\=./.gem.20241009-47292-ajgnco sitelibdir\=./.gem.20241009-47292-ajgnco clean

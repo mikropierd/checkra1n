@@ -1,0 +1,5 @@
+[behavior]
+global-python = true
+
+[default]
+toolchain = "cpython@3.12"

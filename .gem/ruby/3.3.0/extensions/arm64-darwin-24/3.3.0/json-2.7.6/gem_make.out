@@ -1,0 +1,21 @@
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/json-2.7.6/ext/json/ext/parser
+/opt/homebrew/opt/ruby/bin/ruby extconf.rb
+checking for rb_enc_raise() in ruby.h... yes
+checking for rb_enc_interned_str() in ruby.h... yes
+checking for whether -std=c99 is accepted as CFLAGS... yes
+creating Makefile
+
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/json-2.7.6/ext/json/ext/parser
+make DESTDIR\= sitearchdir\=./.gem.20241104-17344-eed2re sitelibdir\=./.gem.20241104-17344-eed2re clean
+
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/json-2.7.6/ext/json/ext/parser
+make DESTDIR\= sitearchdir\=./.gem.20241104-17344-eed2re sitelibdir\=./.gem.20241104-17344-eed2re
+compiling parser.c
+linking shared-object json/ext/parser.bundle
+
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/json-2.7.6/ext/json/ext/parser
+make DESTDIR\= sitearchdir\=./.gem.20241104-17344-eed2re sitelibdir\=./.gem.20241104-17344-eed2re install
+/usr/bin/install -c -m 0755 parser.bundle ./.gem.20241104-17344-eed2re/json/ext
+
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/json-2.7.6/ext/json/ext/parser
+make DESTDIR\= sitearchdir\=./.gem.20241104-17344-eed2re sitelibdir\=./.gem.20241104-17344-eed2re clean

@@ -1,0 +1,24 @@
+# Przechodzenie do pulpitów
+f1 : yabai -m space --focus 1
+f2 : yabai -m space --focus 2
+f3 : yabai -m space --focus 3
+f4 : yabai -m space --focus 4
+
+# Przenoszenie aktywnego okna na pulpit
+cmd + ctrl + alt + shift - f1 : yabai -m window --space 1; yabai -m space --focus 1
+cmd + ctrl + alt + shift - f2 : yabai -m window --space 2; yabai -m space --focus 2
+cmd + ctrl + alt + shift - f3 : yabai -m window --space 3; yabai -m space --focus 3
+cmd + ctrl + alt + shift - f4 : yabai -m window --space 4; yabai -m space --focus 4
+
+# Cykliczne przechodzenie między wszystkimi widocznymi oknami na pulpicie
+0x32 : yabai -m window --focus next || yabai -m window --focus first
+
+# Zmiana kolejności okien
+cmd + ctrl + alt + shift - left : yabai -m window --swap prev || yabai -m window --swap last
+cmd + ctrl + alt + shift - right : yabai -m window --swap next || yabai -m window --swap first
+
+# Zmiana layoutu na stack
+cmd + ctrl + alt + shift - up : yabai -m space --layout stack
+
+# Zmiana layoutu na bsp (binary space partitioning)
+cmd + ctrl + alt + shift - down : yabai -m space --layout bsp

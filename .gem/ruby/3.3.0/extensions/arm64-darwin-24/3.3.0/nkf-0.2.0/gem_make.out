@@ -1,0 +1,18 @@
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/nkf-0.2.0/ext/nkf
+/opt/homebrew/opt/ruby/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/nkf-0.2.0/ext/nkf
+make DESTDIR\= sitearchdir\=./.gem.20241009-47292-gyaovv sitelibdir\=./.gem.20241009-47292-gyaovv clean
+
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/nkf-0.2.0/ext/nkf
+make DESTDIR\= sitearchdir\=./.gem.20241009-47292-gyaovv sitelibdir\=./.gem.20241009-47292-gyaovv
+compiling nkf.c
+linking shared-object nkf.bundle
+
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/nkf-0.2.0/ext/nkf
+make DESTDIR\= sitearchdir\=./.gem.20241009-47292-gyaovv sitelibdir\=./.gem.20241009-47292-gyaovv install
+/usr/bin/install -c -m 0755 nkf.bundle ./.gem.20241009-47292-gyaovv
+
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/nkf-0.2.0/ext/nkf
+make DESTDIR\= sitearchdir\=./.gem.20241009-47292-gyaovv sitelibdir\=./.gem.20241009-47292-gyaovv clean

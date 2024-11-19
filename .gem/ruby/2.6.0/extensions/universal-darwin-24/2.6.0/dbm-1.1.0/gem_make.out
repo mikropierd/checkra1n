@@ -1,0 +1,97 @@
+current directory: /Users/checkra1n/.gem/ruby/2.6.0/gems/dbm-1.1.0/ext/dbm
+/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/bin/ruby -I /System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0 -r ./siteconf20241009-38875-1exy2nt.rb extconf.rb
+checking for DBM in ndbm.h... yes
+checking for dbm_open("", 0, 0) in ndbm.h... yes
+checking for dbm_clearerr((DBM *)0) in ndbm.h... yes
+checking for DBM_SUFFIX in ndbm.h... yes
+checking for empty macro of dbm_clearerr(foobarbaz) in ndbm.h... no
+checking for _GDBM_H_ in ndbm.h... no
+checking for _DBM_IOERR in ndbm.h... no
+checking for db_version((int *)0, (int *)0, (int *)0) in ndbm.h... no
+checking for gdbm_version in ndbm.h... no
+checking for gdbm_version char * in ndbm.h... yes
+checking for dpversion in ndbm.h... no
+checking for DBC in ndbm.h... no
+header: ndbm.h
+library: libc
+checking for cdefs.h... no
+checking for sys/cdefs.h... yes
+checking for dbm_pagfno((DBM *)0) in ndbm.h... no
+checking for dbm_dirfno((DBM *)0) in ndbm.h... yes
+checking for convertible type of datum.dsize... long long
+checking for sizeof(DBM) is available... yes
+creating Makefile
+
+current directory: /Users/checkra1n/.gem/ruby/2.6.0/gems/dbm-1.1.0/ext/dbm
+make "DESTDIR=" clean
+
+current directory: /Users/checkra1n/.gem/ruby/2.6.0/gems/dbm-1.1.0/ext/dbm
+make "DESTDIR="
+compiling dbm.c
+dbm.c:618:26: warning: '(' and '{' tokens introducing statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+  618 |     rb_block_call(other, rb_intern("each_pair"), 0, 0, update_i, obj);
+      |                          ^~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:23: note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                       ^
+dbm.c:618:26: note: '{' token is here
+  618 |     rb_block_call(other, rb_intern("each_pair"), 0, 0, update_i, obj);
+      |                          ^~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24: note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1811:5: note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1811 |     {                                                   \
+      |     ^
+dbm.c:618:26: warning: '}' and ')' tokens terminating statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+  618 |     rb_block_call(other, rb_intern("each_pair"), 0, 0, update_i, obj);
+      |                          ^~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24: note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1816:5: note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1816 |     }
+      |     ^
+dbm.c:618:26: note: ')' token is here
+  618 |     rb_block_call(other, rb_intern("each_pair"), 0, 0, update_i, obj);
+      |                          ^~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:56: note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                                                        ^
+dbm.c:634:26: warning: '(' and '{' tokens introducing statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+  634 |     rb_block_call(other, rb_intern("each_pair"), 0, 0, update_i, obj);
+      |                          ^~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:23: note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                       ^
+dbm.c:634:26: note: '{' token is here
+  634 |     rb_block_call(other, rb_intern("each_pair"), 0, 0, update_i, obj);
+      |                          ^~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24: note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1811:5: note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1811 |     {                                                   \
+      |     ^
+dbm.c:634:26: warning: '}' and ')' tokens terminating statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+  634 |     rb_block_call(other, rb_intern("each_pair"), 0, 0, update_i, obj);
+      |                          ^~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:24: note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1816:5: note: expanded from macro 'RUBY_CONST_ID_CACHE'
+ 1816 |     }
+      |     ^
+dbm.c:634:26: note: ')' token is here
+  634 |     rb_block_call(other, rb_intern("each_pair"), 0, 0, update_i, obj);
+      |                          ^~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/ruby.h:1826:56: note: expanded from macro 'rb_intern'
+ 1826 |         __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+      |                                                        ^
+4 warnings generated.
+linking shared-object dbm.bundle
+ld: warning: search path '/AppleInternal/Library/BuildRoots/e0873e53-5185-11ef-9a51-9ab6d782fe32/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.Internal.sdk/usr/local/lib' not found
+
+current directory: /Users/checkra1n/.gem/ruby/2.6.0/gems/dbm-1.1.0/ext/dbm
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 dbm.bundle ./.gem.20241009-38875-12wam4b

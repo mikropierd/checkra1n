@@ -1,0 +1,18 @@
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/fcntl-1.2.0/ext/fcntl
+/opt/homebrew/Cellar/ruby/3.3.6/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/fcntl-1.2.0/ext/fcntl
+make DESTDIR\= sitearchdir\=./.gem.20241113-3992-crtcqi sitelibdir\=./.gem.20241113-3992-crtcqi clean
+
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/fcntl-1.2.0/ext/fcntl
+make DESTDIR\= sitearchdir\=./.gem.20241113-3992-crtcqi sitelibdir\=./.gem.20241113-3992-crtcqi
+compiling fcntl.c
+linking shared-object fcntl.bundle
+
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/fcntl-1.2.0/ext/fcntl
+make DESTDIR\= sitearchdir\=./.gem.20241113-3992-crtcqi sitelibdir\=./.gem.20241113-3992-crtcqi install
+/usr/bin/install -c -m 0755 fcntl.bundle ./.gem.20241113-3992-crtcqi
+
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/fcntl-1.2.0/ext/fcntl
+make DESTDIR\= sitearchdir\=./.gem.20241113-3992-crtcqi sitelibdir\=./.gem.20241113-3992-crtcqi clean

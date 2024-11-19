@@ -1,0 +1,90 @@
+{
+  "name": "bun-plugin-dts-auto",
+  "type": "module",
+  "version": "0.20.6",
+  "description": "A Bun Bundler plugin that auto generates your d.ts types.",
+  "author": "Chris Breuer <chris@ow3.org>",
+  "license": "MIT",
+  "homepage": "https://github.com/stacksjs/bun-plugin-dts-auto#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stacksjs/bun-plugin-dts-auto.git"
+  },
+  "bugs": {
+    "url": "https://github.com/stacksjs/bun-plugin-dts-auto/issues"
+  },
+  "keywords": [
+    "dts",
+    "oxc",
+    "emit",
+    "generation",
+    "typescript",
+    "types",
+    "auto",
+    "bun",
+    "plugin",
+    "package"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./*": {
+      "import": "./dist/*"
+    }
+  },
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": ["dist", "README.md", "LICENSE.md"],
+  "scripts": {
+    "build": "bun build.ts",
+    "lint": "biome check .",
+    "lint:fix": "biome check --fix .",
+    "fresh": "bunx rimraf node_modules/ bun.lock && bun i",
+    "commit": "git cz",
+    "changelog": "bunx changelogen --output CHANGELOG.md",
+    "prepublishOnly": "bun run build",
+    "release": "bun run changelog && bunx bumpp package.json --all",
+    "test": "bun test",
+    "typecheck": "bun tsc --noEmit"
+  },
+  "dependencies": {
+    "oxc-transform": "^0.30.5"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.3",
+    "@commitlint/cli": "^19.5.0",
+    "@stacksjs/biome-config": "^0.1.5",
+    "@types/bun": "^1.1.10",
+    "bumpp": "^9.6.1",
+    "changelogen": "^0.5.7",
+    "commitizen": "^4.3.1",
+    "cz-git": "^1.10.1",
+    "lint-staged": "^15.2.10",
+    "simple-git-hooks": "^2.11.1",
+    "typescript": "^5.6.2"
+  },
+  "optionalDependencies": {
+    "@oxc-transform/binding-win32-x64-msvc": "0.30.5",
+    "@oxc-transform/binding-win32-arm64-msvc": "0.30.5",
+    "@oxc-transform/binding-linux-x64-gnu": "0.30.5",
+    "@oxc-transform/binding-linux-arm64-gnu": "0.30.5",
+    "@oxc-transform/binding-linux-x64-musl": "0.30.5",
+    "@oxc-transform/binding-linux-arm64-musl": "0.30.5",
+    "@oxc-transform/binding-darwin-x64": "0.30.5",
+    "@oxc-transform/binding-darwin-arm64": "0.30.5"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "bun lint-staged",
+    "commit-msg": "bunx --no -- commitlint --edit $1"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,vue}": "biome check --fix ."
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-git"
+    }
+  }
+}

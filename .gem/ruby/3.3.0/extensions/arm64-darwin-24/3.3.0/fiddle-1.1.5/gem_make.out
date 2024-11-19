@@ -1,0 +1,45 @@
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/fiddle-1.1.5/ext/fiddle
+/opt/homebrew/Cellar/ruby/3.3.6/bin/ruby extconf.rb
+checking for --enable-debug-build option... no
+checking for pkg-config for libffi... ["-I/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/ffi ", "-L/usr/lib", "-lffi"]
+checking for pkg-config for libffi... "3.4-rc1"
+checking for ffi.h... yes
+checking for -lffi... yes
+libffi_version: 3.4.0
+checking for sys/mman.h... yes
+checking for link.h... no
+checking for dlfcn.h... yes
+checking for -ldl... yes
+checking for dlopen()... yes
+checking for dlclose()... yes
+checking for dlsym()... yes
+checking for dlerror()... yes
+checking for dlinfo()... no
+checking for RTLD_DI_LINKMAP in dlfcn.h... no
+checking for FFI_STDCALL in ffi.h... no
+checking signedness of size_t... unsigned
+checking for rb_str_to_interned_str()... yes
+creating Makefile
+
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/fiddle-1.1.5/ext/fiddle
+make DESTDIR\= sitearchdir\=./.gem.20241113-3992-agawpr sitelibdir\=./.gem.20241113-3992-agawpr clean
+
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/fiddle-1.1.5/ext/fiddle
+make DESTDIR\= sitearchdir\=./.gem.20241113-3992-agawpr sitelibdir\=./.gem.20241113-3992-agawpr
+compiling closure.c
+compiling conversions.c
+compiling fiddle.c
+compiling function.c
+compiling handle.c
+compiling memory_view.c
+compiling pinned.c
+compiling pointer.c
+linking shared-object fiddle.bundle
+ld: warning: ignoring duplicate libraries: '-lffi'
+
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/fiddle-1.1.5/ext/fiddle
+make DESTDIR\= sitearchdir\=./.gem.20241113-3992-agawpr sitelibdir\=./.gem.20241113-3992-agawpr install
+/usr/bin/install -c -m 0755 fiddle.bundle ./.gem.20241113-3992-agawpr
+
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/fiddle-1.1.5/ext/fiddle
+make DESTDIR\= sitearchdir\=./.gem.20241113-3992-agawpr sitelibdir\=./.gem.20241113-3992-agawpr clean

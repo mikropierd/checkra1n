@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class TestEtc - etc-1.4.3 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Test::Unit::TestCase
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-test_confstr">#test_confstr</a>
+    
+    <li ><a href="#method-i-test_getgrgid">#test_getgrgid</a>
+    
+    <li ><a href="#method-i-test_getgrnam">#test_getgrnam</a>
+    
+    <li ><a href="#method-i-test_getlogin">#test_getlogin</a>
+    
+    <li ><a href="#method-i-test_getpwnam">#test_getpwnam</a>
+    
+    <li ><a href="#method-i-test_getpwuid">#test_getpwuid</a>
+    
+    <li ><a href="#method-i-test_group">#test_group</a>
+    
+    <li ><a href="#method-i-test_group_with_low_level_api">#test_group_with_low_level_api</a>
+    
+    <li ><a href="#method-i-test_nprocessors">#test_nprocessors</a>
+    
+    <li ><a href="#method-i-test_passwd">#test_passwd</a>
+    
+    <li ><a href="#method-i-test_passwd_with_low_level_api">#test_passwd_with_low_level_api</a>
+    
+    <li ><a href="#method-i-test_pathconf">#test_pathconf</a>
+    
+    <li ><a href="#method-i-test_ractor">#test_ractor</a>
+    
+    <li ><a href="#method-i-test_sysconf">#test_sysconf</a>
+    
+    <li ><a href="#method-i-test_uname">#test_uname</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-TestEtc">
+  <h1 id="class-TestEtc" class="class">
+    class TestEtc
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-test_confstr" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_confstr</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_confstr-source">
+            <pre><span class="ruby-comment"># File test/etc/test_etc.rb, line 144</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_confstr</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-constant">Etc</span>.<span class="ruby-identifier">confstr</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">NotImplementedError</span>
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">ArgumentError</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">assert_kind_of</span>(<span class="ruby-constant">String</span>, <span class="ruby-constant">Etc</span>.<span class="ruby-identifier">confstr</span>(<span class="ruby-constant">Etc</span><span class="ruby-operator">::</span><span class="ruby-constant">CS_PATH</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_getgrgid" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_getgrgid</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_getgrgid-source">
+            <pre><span class="ruby-comment"># File test/etc/test_etc.rb, line 81</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_getgrgid</span>
+  <span class="ruby-comment"># group database is not unique on GID, and which entry will be</span>
+  <span class="ruby-comment"># returned by getgrgid() is not specified.</span>
+  <span class="ruby-identifier">groups</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span> {[]}
+  <span class="ruby-comment"># on MacOSX, same entries are returned from /etc/group and Open</span>
+  <span class="ruby-comment"># Directory.</span>
+  <span class="ruby-constant">Etc</span>.<span class="ruby-identifier">group</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-identifier">groups</span>[<span class="ruby-identifier">s</span>.<span class="ruby-identifier">gid</span>] <span class="ruby-operator">|=</span> [[<span class="ruby-identifier">s</span>.<span class="ruby-identifier">name</span>, <span class="ruby-identifier">s</span>.<span class="ruby-identifier">gid</span>]]}
+  <span class="ruby-identifier">groups</span>.<span class="ruby-identifier">each_pair</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">gid</span>, <span class="ruby-identifier">s</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">g</span> = <span class="ruby-constant">Etc</span>.<span class="ruby-identifier">getgrgid</span>(<span class="ruby-identifier">gid</span>)
+    <span class="ruby-identifier">assert_include</span>(<span class="ruby-identifier">s</span>, [<span class="ruby-identifier">g</span>.<span class="ruby-identifier">name</span>, <span class="ruby-identifier">g</span>.<span class="ruby-identifier">gid</span>])
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">s</span> = <span class="ruby-identifier">groups</span>[<span class="ruby-constant">Process</span>.<span class="ruby-identifier">egid</span>]
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">g</span> = <span class="ruby-constant">Etc</span>.<span class="ruby-identifier">getgrgid</span>
+    <span class="ruby-identifier">assert_include</span>(<span class="ruby-identifier">s</span>, [<span class="ruby-identifier">g</span>.<span class="ruby-identifier">name</span>, <span class="ruby-identifier">g</span>.<span class="ruby-identifier">gid</span>])
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_getgrnam" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_getgrnam</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_getgrnam-source">
+            <pre><span class="ruby-comment"># File test/etc/test_etc.rb, line 99</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_getgrnam</span>
+  <span class="ruby-identifier">groups</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span> {[]}
+  <span class="ruby-constant">Etc</span>.<span class="ruby-identifier">group</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">groups</span>[<span class="ruby-identifier">s</span>.<span class="ruby-identifier">name</span>] <span class="ruby-operator">|=</span> [<span class="ruby-identifier">s</span>.<span class="ruby-identifier">gid</span>] <span class="ruby-keyword">unless</span> <span class="ruby-regexp">/\A\+/</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">name</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">groups</span>.<span class="ruby-identifier">each_pair</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">n</span>, <span class="ruby-identifier">s</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">assert_include</span>(<span class="ruby-identifier">s</span>, <span class="ruby-constant">Etc</span>.<span class="ruby-identifier">getgrnam</span>(<span class="ruby-identifier">n</span>).<span class="ruby-identifier">gid</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_getlogin" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_getlogin</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_getlogin-source">
+            <pre><span class="ruby-comment"># File test/etc/test_etc.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_getlogin</span>
+  <span class="ruby-identifier">s</span> = <span class="ruby-constant">Etc</span>.<span class="ruby-identifier">getlogin</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">s</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">s</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>), <span class="ruby-string">&quot;getlogin must return a String or nil&quot;</span>)
+  <span class="ruby-identifier">assert_predicate</span>(<span class="ruby-identifier">s</span>, <span class="ruby-value">:valid_encoding?</span>, <span class="ruby-string">&quot;login name should be a valid string&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_getpwnam" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_getpwnam</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_getpwnam-source">
+            <pre><span class="ruby-comment"># File test/etc/test_etc.rb, line 49</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_getpwnam</span>
+  <span class="ruby-identifier">passwd</span> = {}
+  <span class="ruby-constant">Etc</span>.<span class="ruby-identifier">passwd</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">passwd</span>[<span class="ruby-identifier">s</span>.<span class="ruby-identifier">name</span>] <span class="ruby-operator">||=</span> <span class="ruby-identifier">s</span> <span class="ruby-keyword">unless</span> <span class="ruby-regexp">/\A\+/</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">name</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">passwd</span>.<span class="ruby-identifier">each_value</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">s</span>, <span class="ruby-constant">Etc</span>.<span class="ruby-identifier">getpwnam</span>(<span class="ruby-identifier">s</span>.<span class="ruby-identifier">name</span>))
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_getpwuid" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_getpwuid</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_getpwuid-source">
+            <pre><span class="ruby-comment"># File test/etc/test_etc.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_getpwuid</span>
+  <span class="ruby-comment"># password database is not unique on UID, and which entry will be</span>
+  <span class="ruby-comment"># returned by getpwuid() is not specified.</span>
+  <span class="ruby-identifier">passwd</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span> {[]}
+  <span class="ruby-comment"># on MacOSX, same entries are returned from /etc/passwd and Open</span>
+  <span class="ruby-comment"># Directory.</span>
+  <span class="ruby-constant">Etc</span>.<span class="ruby-identifier">passwd</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-identifier">passwd</span>[<span class="ruby-identifier">s</span>.<span class="ruby-identifier">uid</span>] <span class="ruby-operator">|=</span> [<span class="ruby-identifier">s</span>]}
+  <span class="ruby-identifier">passwd</span>.<span class="ruby-identifier">each_pair</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">uid</span>, <span class="ruby-identifier">s</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">assert_include</span>(<span class="ruby-identifier">s</span>, <span class="ruby-constant">Etc</span>.<span class="ruby-identifier">getpwuid</span>(<span class="ruby-identifier">uid</span>))
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">s</span> = <span class="ruby-identifier">passwd</span>[<span class="ruby-constant">Process</span>.<span class="ruby-identifier">euid</span>]
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">assert_include</span>(<span class="ruby-identifier">s</span>, <span class="ruby-constant">Etc</span>.<span class="ruby-identifier">getpwuid</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_group" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_group</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_group-source">
+            <pre><span class="ruby-comment"># File test/etc/test_etc.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_group</span>
+  <span class="ruby-constant">Etc</span>.<span class="ruby-identifier">group</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">assert_instance_of</span>(<span class="ruby-constant">String</span>, <span class="ruby-identifier">s</span>.<span class="ruby-identifier">name</span>)
+    <span class="ruby-identifier">assert_instance_of</span>(<span class="ruby-constant">String</span>, <span class="ruby-identifier">s</span>.<span class="ruby-identifier">passwd</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:passwd</span>)
+    <span class="ruby-identifier">assert_kind_of</span>(<span class="ruby-constant">Integer</span>, <span class="ruby-identifier">s</span>.<span class="ruby-identifier">gid</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">Etc</span>.<span class="ruby-identifier">group</span> { <span class="ruby-identifier">assert_raise</span>(<span class="ruby-constant">RuntimeError</span>) { <span class="ruby-constant">Etc</span>.<span class="ruby-identifier">group</span> { } }; <span class="ruby-keyword">break</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_group_with_low_level_api" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_group_with_low_level_api</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_group_with_low_level_api-source">
+            <pre><span class="ruby-comment"># File test/etc/test_etc.rb, line 109</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_group_with_low_level_api</span>
+  <span class="ruby-identifier">a</span> = []
+  <span class="ruby-constant">Etc</span>.<span class="ruby-identifier">group</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-identifier">a</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">s</span> }
+  <span class="ruby-identifier">b</span> = []
+  <span class="ruby-constant">Etc</span>.<span class="ruby-identifier">setgrent</span>
+  <span class="ruby-keyword">while</span> <span class="ruby-identifier">s</span> = <span class="ruby-constant">Etc</span>.<span class="ruby-identifier">getgrent</span>
+    <span class="ruby-identifier">b</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">s</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">Etc</span>.<span class="ruby-identifier">endgrent</span>
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">a</span>, <span class="ruby-identifier">b</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_nprocessors" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_nprocessors</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_nprocessors-source">
+            <pre><span class="ruby-comment"># File test/etc/test_etc.rb, line 167</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_nprocessors</span>
+  <span class="ruby-identifier">n</span> = <span class="ruby-constant">Etc</span>.<span class="ruby-identifier">nprocessors</span>
+  <span class="ruby-identifier">assert_operator</span>(<span class="ruby-value">1</span>, <span class="ruby-value">:&lt;=</span>, <span class="ruby-identifier">n</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_passwd" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_passwd</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_passwd-source">
+            <pre><span class="ruby-comment"># File test/etc/test_etc.rb, line 13</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_passwd</span>
+  <span class="ruby-constant">Etc</span>.<span class="ruby-identifier">passwd</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">assert_instance_of</span>(<span class="ruby-constant">String</span>, <span class="ruby-identifier">s</span>.<span class="ruby-identifier">name</span>)
+    <span class="ruby-identifier">assert_instance_of</span>(<span class="ruby-constant">String</span>, <span class="ruby-identifier">s</span>.<span class="ruby-identifier">passwd</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:passwd</span>)
+    <span class="ruby-identifier">assert_kind_of</span>(<span class="ruby-constant">Integer</span>, <span class="ruby-identifier">s</span>.<span class="ruby-identifier">uid</span>)
+    <span class="ruby-identifier">assert_kind_of</span>(<span class="ruby-constant">Integer</span>, <span class="ruby-identifier">s</span>.<span class="ruby-identifier">gid</span>)
+    <span class="ruby-identifier">assert_instance_of</span>(<span class="ruby-constant">String</span>, <span class="ruby-identifier">s</span>.<span class="ruby-identifier">gecos</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:gecos</span>)
+    <span class="ruby-identifier">assert_instance_of</span>(<span class="ruby-constant">String</span>, <span class="ruby-identifier">s</span>.<span class="ruby-identifier">dir</span>)
+    <span class="ruby-identifier">assert_instance_of</span>(<span class="ruby-constant">String</span>, <span class="ruby-identifier">s</span>.<span class="ruby-identifier">shell</span>)
+    <span class="ruby-identifier">assert_kind_of</span>(<span class="ruby-constant">Integer</span>, <span class="ruby-identifier">s</span>.<span class="ruby-identifier">change</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:change</span>)
+    <span class="ruby-identifier">assert_kind_of</span>(<span class="ruby-constant">Integer</span>, <span class="ruby-identifier">s</span>.<span class="ruby-identifier">quota</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:quota</span>)
+    <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">s</span>.<span class="ruby-identifier">age</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Integer</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">age</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>)) <span class="ruby-keyword">if</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:age</span>)
+    <span class="ruby-identifier">assert_instance_of</span>(<span class="ruby-constant">String</span>, <span class="ruby-identifier">s</span>.<span class="ruby-identifier">uclass</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:uclass</span>)
+    <span class="ruby-identifier">assert_instance_of</span>(<span class="ruby-constant">String</span>, <span class="ruby-identifier">s</span>.<span class="ruby-identifier">comment</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:comment</span>)
+    <span class="ruby-identifier">assert_kind_of</span>(<span class="ruby-constant">Integer</span>, <span class="ruby-identifier">s</span>.<span class="ruby-identifier">expire</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:expire</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">Etc</span>.<span class="ruby-identifier">passwd</span> { <span class="ruby-identifier">assert_raise</span>(<span class="ruby-constant">RuntimeError</span>) { <span class="ruby-constant">Etc</span>.<span class="ruby-identifier">passwd</span> { } }; <span class="ruby-keyword">break</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_passwd_with_low_level_api" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_passwd_with_low_level_api</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_passwd_with_low_level_api-source">
+            <pre><span class="ruby-comment"># File test/etc/test_etc.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_passwd_with_low_level_api</span>
+  <span class="ruby-identifier">a</span> = []
+  <span class="ruby-constant">Etc</span>.<span class="ruby-identifier">passwd</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-identifier">a</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">s</span> }
+  <span class="ruby-identifier">b</span> = []
+  <span class="ruby-constant">Etc</span>.<span class="ruby-identifier">setpwent</span>
+  <span class="ruby-keyword">while</span> <span class="ruby-identifier">s</span> = <span class="ruby-constant">Etc</span>.<span class="ruby-identifier">getpwent</span>
+    <span class="ruby-identifier">b</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">s</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">Etc</span>.<span class="ruby-identifier">endpwent</span>
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">a</span>, <span class="ruby-identifier">b</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_pathconf" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_pathconf</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_pathconf-source">
+            <pre><span class="ruby-comment"># File test/etc/test_etc.rb, line 154</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_pathconf</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-constant">Etc</span>.<span class="ruby-identifier">confstr</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">NotImplementedError</span>
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">ArgumentError</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">IO</span>.<span class="ruby-identifier">pipe</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span>, <span class="ruby-identifier">w</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">val</span> = <span class="ruby-identifier">w</span>.<span class="ruby-identifier">pathconf</span>(<span class="ruby-constant">Etc</span><span class="ruby-operator">::</span><span class="ruby-constant">PC_PIPE_BUF</span>)
+    <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">val</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">val</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Integer</span>))
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_ractor" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_ractor</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_ractor-source">
+            <pre><span class="ruby-comment"># File test/etc/test_etc.rb, line 172</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_ractor</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">Etc</span>.<span class="ruby-identifier">passwd</span> <span class="ruby-comment"># =&gt; skip test if no platform support</span>
+    <span class="ruby-constant">Etc</span>.<span class="ruby-identifier">endpwent</span>
+
+    <span class="ruby-identifier">assert_ractor</span>(<span class="ruby-identifier">&lt;&lt;~RUBY</span>, <span class="ruby-value">require:</span> <span class="ruby-string">&#39;etc&#39;</span>)
+<span class="ruby-value">      ractor = Ractor.new do
+        Etc.passwd do |s|
+          Ractor.yield :sync
+          Ractor.yield s.name
+          break :done
+        end
+      end
+      ractor.take # =&gt; :sync
+      assert_raise RuntimeError, /parallel/ do
+        Etc.passwd {}
+      end
+      name = ractor.take # =&gt; first name
+      ractor.take # =&gt; :done
+      name2 = Etc.passwd do |s|
+        break s.name
+      end
+      assert_equal(name2, name)
+</span><span class="ruby-identifier">    RUBY</span>
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_sysconf" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_sysconf</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_sysconf-source">
+            <pre><span class="ruby-comment"># File test/etc/test_etc.rb, line 134</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_sysconf</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-constant">Etc</span>.<span class="ruby-identifier">sysconf</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">NotImplementedError</span>
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">ArgumentError</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">assert_kind_of</span>(<span class="ruby-constant">Integer</span>, <span class="ruby-constant">Etc</span>.<span class="ruby-identifier">sysconf</span>(<span class="ruby-constant">Etc</span><span class="ruby-operator">::</span><span class="ruby-constant">SC_CLK_TCK</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_uname" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_uname</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_uname-source">
+            <pre><span class="ruby-comment"># File test/etc/test_etc.rb, line 121</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_uname</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">uname</span> = <span class="ruby-constant">Etc</span>.<span class="ruby-identifier">uname</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">NotImplementedError</span>
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">assert_kind_of</span>(<span class="ruby-constant">Hash</span>, <span class="ruby-identifier">uname</span>)
+  [<span class="ruby-value">:sysname</span>, <span class="ruby-value">:nodename</span>, <span class="ruby-value">:release</span>, <span class="ruby-value">:version</span>, <span class="ruby-value">:machine</span>].<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">sym</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">assert_operator</span>(<span class="ruby-identifier">uname</span>, <span class="ruby-value">:has_key?</span>, <span class="ruby-identifier">sym</span>)
+    <span class="ruby-identifier">assert_kind_of</span>(<span class="ruby-constant">String</span>, <span class="ruby-identifier">uname</span>[<span class="ruby-identifier">sym</span>])
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

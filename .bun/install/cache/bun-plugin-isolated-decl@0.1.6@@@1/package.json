@@ -1,0 +1,49 @@
+{
+	"name": "bun-plugin-isolated-decl",
+	"type": "module",
+	"version": "0.1.6",
+	"author": "@ryoppippi",
+	"license": "ISC",
+	"homepage": "https://github.com/ryoppippi/bun-plugin-isolated-decl",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ryoppippi/bun-plugin-isolated-decl.git"
+	},
+	"keywords": [
+		"bun",
+		"oxc",
+		"dts",
+		"bun-plugin",
+		"bun-plugin-isolated-decl"
+	],
+	"exports": {
+		".": "./index.ts"
+	},
+	"module": "index.ts",
+	"files": [
+		"index.ts"
+	],
+	"scripts": {
+		"typecheck": "tsc --noEmit",
+		"test": "bun test",
+		"release": "nr test && nr typecheck && nlx bumpp && npm publish",
+		"lint": "eslint --cache .",
+		"format": "nr lint --fix",
+		"prepare": "nlx bunpare"
+	},
+	"peerDependencies": {
+		"typescript": "^5.6.2"
+	},
+	"dependencies": {
+		"is-glob": "^4.0.3",
+		"oxc-transform": "^0.30.0",
+		"unplugin-isolated-decl": "^0.4.7"
+	},
+	"devDependencies": {
+		"@antfu/ni": "^0.23.0",
+		"@ryoppippi/eslint-config": "npm:@jsr/ryoppippi__eslint-config",
+		"@types/bun": "latest",
+		"eslint": "^9.11.0",
+		"eslint-plugin-format": "^0.1.2"
+	}
+}

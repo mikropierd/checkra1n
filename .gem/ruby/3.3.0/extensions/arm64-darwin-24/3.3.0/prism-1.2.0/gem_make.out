@@ -1,0 +1,47 @@
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/prism-1.2.0/ext/prism
+/opt/homebrew/opt/ruby/bin/ruby extconf.rb
+checking for prism.h in /Users/checkra1n/.gem/ruby/3.3.0/gems/prism-1.2.0/include... yes
+checking for prism/extension.h in /Users/checkra1n/.gem/ruby/3.3.0/gems/prism-1.2.0/ext... yes
+checking for whether -fvisibility=hidden is accepted as CFLAGS... yes
+Running make build/libprism.a with {"SOEXT"=>"dylib", "MAKEDIRS"=>"mkdir -p", "RMALL"=>"rm -fr"}
+compiling build/static/diagnostic.o
+compiling build/static/encoding.o
+compiling build/static/node.o
+compiling build/static/options.o
+compiling build/static/pack.o
+compiling build/static/prettyprint.o
+compiling build/static/prism.o
+compiling build/static/regexp.o
+compiling build/static/serialize.o
+compiling build/static/static_literals.o
+compiling build/static/token_type.o
+compiling build/static/util/pm_buffer.o
+compiling build/static/util/pm_char.o
+compiling build/static/util/pm_constant_pool.o
+compiling build/static/util/pm_integer.o
+compiling build/static/util/pm_list.o
+compiling build/static/util/pm_memchr.o
+compiling build/static/util/pm_newline_list.o
+compiling build/static/util/pm_string.o
+compiling build/static/util/pm_strncasecmp.o
+compiling build/static/util/pm_strpbrk.o
+building build/libprism.a with ar
+ar: creating archive build/libprism.a
+creating Makefile
+
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/prism-1.2.0/ext/prism
+make DESTDIR\= sitearchdir\=./.gem.20241023-28367-maiau4 sitelibdir\=./.gem.20241023-28367-maiau4 clean
+
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/prism-1.2.0/ext/prism
+make DESTDIR\= sitearchdir\=./.gem.20241023-28367-maiau4 sitelibdir\=./.gem.20241023-28367-maiau4
+compiling api_node.c
+compiling api_pack.c
+compiling extension.c
+linking shared-object prism/prism.bundle
+
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/prism-1.2.0/ext/prism
+make DESTDIR\= sitearchdir\=./.gem.20241023-28367-maiau4 sitelibdir\=./.gem.20241023-28367-maiau4 install
+/usr/bin/install -c -m 0755 prism.bundle ./.gem.20241023-28367-maiau4/prism
+
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/prism-1.2.0/ext/prism
+make DESTDIR\= sitearchdir\=./.gem.20241023-28367-maiau4 sitelibdir\=./.gem.20241023-28367-maiau4 clean

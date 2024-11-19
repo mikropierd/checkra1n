@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>Options.java - nkf-0.2.0 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../../../../";
+  var index_rel_prefix = "../../../../../../";
+</script>
+
+<script src="../../../../../../js/navigation.js" defer></script>
+<script src="../../../../../../js/search.js" defer></script>
+<script src="../../../../../../js/search_index.js" defer></script>
+<script src="../../../../../../js/searcher.js" defer></script>
+<script src="../../../../../../js/darkfish.js" defer></script>
+
+<link href="../../../../../../css/fonts.css" rel="stylesheet">
+<link href="../../../../../../css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../../../../../ext/java/org/jruby/ext/nkf/Command_java.html">Command.java</a>
+  
+    <li><a href="../../../../../../ext/java/org/jruby/ext/nkf/CommandParser_java.html">CommandParser.java</a>
+  
+    <li><a href="../../../../../../ext/java/org/jruby/ext/nkf/NKFLibrary_java.html">NKFLibrary.java</a>
+  
+    <li><a href="../../../../../../ext/java/org/jruby/ext/nkf/Option_java.html">Option.java</a>
+  
+    <li><a href="../../../../../../ext/java/org/jruby/ext/nkf/Options_java.html">Options.java</a>
+  
+    <li><a href="../../../../../../ext/java/org/jruby/ext/nkf/RubyNKF_java.html">RubyNKF.java</a>
+  
+    <li><a href="../../../../../../ext/nkf/Makefile.html">Makefile</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page ext/java/org/jruby/ext/nkf/Options.java">
+
+<pre>     BEGIN LICENSE BLOCK *****
+ Version: EPL 2.0/LGPL 2.1
+
+ The contents of this file are subject to the Eclipse Public
+ License Version 2.0 (the &quot;License&quot;); you may not use this file
+ except in compliance with the License. You may obtain a copy of
+ the License at http://www.eclipse.org/legal/epl-v20.html
+
+ Software distributed under the License is distributed on an &quot;AS
+ IS&quot; basis, WITHOUT WARRANTY OF ANY KIND, either express or
+ implied. See the License for the specific language governing
+ rights and limitations under the License.
+
+ Copyright (C) 2011 Koichiro Ohba &lt;koichiro@meadowy.org&gt;
+
+ Alternatively, the contents of this file may be used under the terms of
+ the GNU Lesser General Public License Version 2.1 or later (the &quot;LGPL&quot;),
+ in which case the provisions of the LGPL are applicable instead
+ of those above. If you wish to allow use of your version of this file only
+ under the terms of either the LGPL, and not to allow others to
+ use your version of this file under the terms of the EPL, indicate your
+ decision by deleting the provisions above and replace them with the notice
+ and other provisions required by the LGPL. If you do not delete
+ the provisions above, a recipient may use your version of this file under
+ the terms of any one of the EPL, the LGPL.
+**** END LICENSE BLOCK</pre>
+
+<p>package org.jruby.ext.nkf;</p>
+
+<p>import java.util.Map; import java.util.LinkedHashMap; import java.util.regex.Matcher;</p>
+
+<p>public class Options {</p>
+
+<pre>private final Map&lt;String, Option&gt; shortOpts = new LinkedHashMap&lt;String, Option&gt;();
+private final Map&lt;String, Option&gt; longOpts = new LinkedHashMap&lt;String, Option&gt;();
+
+public Options addOption(String opt) {
+    return addOption(opt, null);
+}
+public Options addOption(String opt, String longOpt) {
+    return addOption(opt, longOpt, null);
+}
+public Options addOption(String opt, String longOpt, String pattern) {
+    return addOption(new Option(opt, longOpt, pattern));
+}
+public Options addOption(Option opt) {
+    if (opt.hasLongOpt()) {
+        longOpts.put(opt.getLongOpt(), opt);
+    }
+    if (opt.hasShortOpt()) {
+        shortOpts.put(opt.getOpt(), opt);
+    }
+    return this;
+}
+boolean hasShortOption(String opt) {
+    for (Map.Entry&lt;String , Option&gt; e : shortOpts.entrySet()) {
+        if (opt.startsWith(e.getKey())) {
+            return true;
+        }
+    }
+    return false;
+}
+public Option matchShortOption(String opt) {
+    // independent of opt length
+    for (Map.Entry&lt;String , Option&gt; e : shortOpts.entrySet()) {
+        //System.out.println(opt + &quot; = &quot; + e.getKey());
+        if (opt.startsWith(e.getKey())) {
+            //System.out.println(&quot;match[&quot; + e.getKey() + &quot;]&quot;);
+            Option cmd = e.getValue();
+            if (cmd.hasArg()) {
+                Matcher m = cmd.pattern().matcher(opt);
+                if (m.find()) {
+                    //System.out.println(&quot;regix[&quot; + m.group() + &quot;]&quot;);
+                    cmd.setValue(m.group());
+                }
+            }
+            return cmd;
+        }
+    }
+    return null;
+}
+boolean hasLongOption(String opt) {
+    for (Map.Entry&lt;String , Option&gt; e : longOpts.entrySet()) {
+        if (opt.startsWith(e.getKey())) {
+            return true;
+        }
+    }
+    return false;
+}
+Option matchLongOption(String opt) {
+    for (Map.Entry&lt;String , Option&gt; e : longOpts.entrySet()) {
+        //System.out.println(opt + &quot; = &quot; + e.getKey());
+        if (opt.startsWith(e.getKey())) {
+            //System.out.println(&quot;match[&quot; + e.getKey() + &quot;]&quot;);
+            Option cmd = e.getValue();
+            if (cmd.hasArg()) {
+                Matcher m = cmd.pattern().matcher(opt);
+                if (m.find()) {
+                    //System.out.println(&quot;regix[&quot; + m.group() + &quot;]&quot;);
+                    cmd.setValue(m.group(1));
+                }
+            }
+            return cmd;
+        }
+    }
+    return null;
+}</pre>
+
+<p>}</p>
+
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

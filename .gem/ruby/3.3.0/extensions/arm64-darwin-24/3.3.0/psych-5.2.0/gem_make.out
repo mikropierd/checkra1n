@@ -1,0 +1,32 @@
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/psych-5.2.0/ext/psych
+/opt/homebrew/Cellar/ruby/3.3.6/bin/ruby extconf.rb
+checking for pkg-config for yaml-0.1... ["-I/opt/homebrew/Cellar/libyaml/0.2.5/include ", "-L/opt/homebrew/Cellar/libyaml/0.2.5/lib", "-lyaml"]
+checking for yaml.h... yes
+checking for yaml_get_version() in -lyaml... yes
+creating Makefile
+
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/psych-5.2.0/ext/psych
+make DESTDIR\= sitearchdir\=./.gem.20241113-3992-m9s1jj sitelibdir\=./.gem.20241113-3992-m9s1jj clean
+cd libyaml && /Library/Developer/CommandLineTools/usr/bin/make clean
+/bin/sh: line 0: cd: libyaml: No such file or directory
+make: [clean-so] Error 1 (ignored)
+
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/psych-5.2.0/ext/psych
+make DESTDIR\= sitearchdir\=./.gem.20241113-3992-m9s1jj sitelibdir\=./.gem.20241113-3992-m9s1jj
+compiling psych.c
+compiling psych_emitter.c
+compiling psych_parser.c
+compiling psych_to_ruby.c
+compiling psych_yaml_tree.c
+linking shared-object psych.bundle
+ld: warning: ignoring duplicate libraries: '-lyaml'
+
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/psych-5.2.0/ext/psych
+make DESTDIR\= sitearchdir\=./.gem.20241113-3992-m9s1jj sitelibdir\=./.gem.20241113-3992-m9s1jj install
+/usr/bin/install -c -m 0755 psych.bundle ./.gem.20241113-3992-m9s1jj
+
+current directory: /Users/checkra1n/.gem/ruby/3.3.0/gems/psych-5.2.0/ext/psych
+make DESTDIR\= sitearchdir\=./.gem.20241113-3992-m9s1jj sitelibdir\=./.gem.20241113-3992-m9s1jj clean
+cd libyaml && /Library/Developer/CommandLineTools/usr/bin/make clean
+/bin/sh: line 0: cd: libyaml: No such file or directory
+make: [clean-so] Error 1 (ignored)

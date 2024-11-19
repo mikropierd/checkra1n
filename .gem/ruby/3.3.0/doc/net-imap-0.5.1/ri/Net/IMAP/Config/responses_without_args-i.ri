@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"responses_without_args:ETI"-Net::IMAP::Config#responses_without_args;TI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"&Alias for responses_without_block;T:
+@fileI"lib/net/imap/config.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Net::IMAP::Config;TcRDoc::NormalClass0

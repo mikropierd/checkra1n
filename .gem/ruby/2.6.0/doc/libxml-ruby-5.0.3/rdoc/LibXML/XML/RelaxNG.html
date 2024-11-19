@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class LibXML::XML::RelaxNG - libxml-ruby-5.0.3 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/navigation.js" defer></script>
+<script src="../../js/search.js" defer></script>
+<script src="../../js/search_index.js" defer></script>
+<script src="../../js/searcher.js" defer></script>
+<script src="../../js/darkfish.js" defer></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-document">::document</a>
+    
+    <li ><a href="#method-c-from_string">::from_string</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-LibXML::XML::RelaxNG">
+  <h1 id="class-LibXML::XML::RelaxNG" class="class">
+    class LibXML::XML::RelaxNG
+  </h1>
+
+  <section class="description">
+    
+<p>The <a href="RelaxNG.html"><code>XML::RelaxNG</code></a> class is used to prepare <a href="RelaxNG.html"><code>RelaxNG</code></a> schemas for validation of xml documents.</p>
+
+<p>Schemas can be created from <a href="../XML.html"><code>XML</code></a> documents, strings or URIs using the corresponding methods (new for URIs).</p>
+
+<p>Once a schema is prepared, an <a href="../XML.html"><code>XML</code></a> document can be validated by the <a href="Document.html#method-i-validate_relaxng"><code>XML::Document#validate_relaxng</code></a> method providing the <a href="RelaxNG.html"><code>XML::RelaxNG</code></a> object as parameter. The method will raise an exception if the document is not valid.</p>
+
+<p>Basic Usage:</p>
+
+<pre class="ruby"><span class="ruby-comment"># parse schema as xml document</span>
+<span class="ruby-identifier">relaxng_document</span> = <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>.<span class="ruby-identifier">file</span>(<span class="ruby-string">&#39;schema.rng&#39;</span>)
+
+<span class="ruby-comment"># prepare schema for validation</span>
+<span class="ruby-identifier">relaxng_schema</span> = <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">RelaxNG</span>.<span class="ruby-identifier">document</span>(<span class="ruby-identifier">relaxng_document</span>)
+
+<span class="ruby-comment"># parse xml document to be validated</span>
+<span class="ruby-identifier">instance</span> = <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>.<span class="ruby-identifier">file</span>(<span class="ruby-string">&#39;instance.xml&#39;</span>)
+
+<span class="ruby-comment"># validate</span>
+<span class="ruby-identifier">instance</span>.<span class="ruby-identifier">validate_relaxng</span>(<span class="ruby-identifier">relaxng_schema</span>)
+</pre>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-document" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            XML::RelaxNG.document(document) &rarr; relaxng
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Create a new relaxng from the specified document.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="document-source">
+            <pre>static VALUE rxml_relaxng_init_from_document(VALUE class, VALUE document)
+{
+  xmlDocPtr xdoc;
+  xmlRelaxNGPtr xrelaxng;
+  xmlRelaxNGParserCtxtPtr xparser;
+
+  Data_Get_Struct(document, xmlDoc, xdoc);
+
+  xparser = xmlRelaxNGNewDocParserCtxt(xdoc);
+  xrelaxng = xmlRelaxNGParse(xparser);
+  xmlRelaxNGFreeParserCtxt(xparser);
+
+  return Data_Wrap_Struct(cXMLRelaxNG, NULL, rxml_relaxng_free, xrelaxng);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-from_string" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            XML::RelaxNG.string(&quot;relaxng_data&quot;) &rarr; &quot;value&quot;
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Create a new relaxng using the specified string.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="from_string-source">
+            <pre>static VALUE rxml_relaxng_init_from_string(VALUE self, VALUE relaxng_str)
+{
+  xmlRelaxNGParserCtxtPtr xparser;
+  xmlRelaxNGPtr xrelaxng;
+
+  Check_Type(relaxng_str, T_STRING);
+
+  xparser = xmlRelaxNGNewMemParserCtxt(StringValuePtr(relaxng_str), (int)strlen(StringValuePtr(relaxng_str)));
+  xrelaxng = xmlRelaxNGParse(xparser);
+  xmlRelaxNGFreeParserCtxt(xparser);
+
+  return Data_Wrap_Struct(cXMLRelaxNG, NULL, rxml_relaxng_free, xrelaxng);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            XML::Relaxng.new(relaxng_uri) &rarr; relaxng
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Create a new relaxng from the specified URI.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre>static VALUE rxml_relaxng_init_from_uri(VALUE class, VALUE uri)
+{
+  xmlRelaxNGParserCtxtPtr xparser;
+  xmlRelaxNGPtr xrelaxng;
+
+  Check_Type(uri, T_STRING);
+
+  xparser = xmlRelaxNGNewParserCtxt(StringValuePtr(uri));
+  xrelaxng = xmlRelaxNGParse(xparser);
+  xmlRelaxNGFreeParserCtxt(xparser);
+
+  return Data_Wrap_Struct(cXMLRelaxNG, NULL, rxml_relaxng_free, xrelaxng);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

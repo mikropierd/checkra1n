@@ -1,0 +1,1 @@
+var search_data = {"index":{"searchIndex":["fcntl","makefile"],"longSearchIndex":["fcntl",""],"info":[["Fcntl","","Fcntl.html","",""],["Makefile","","ext/fcntl/Makefile.html","","<p>SHELL = /bin/sh\n<p># V=0 quiet, V=1 verbose.  other values don&#39;t work. V = 0 Q1 = $(V:1=) Q = $(Q1:0=@) …\n"]]}}

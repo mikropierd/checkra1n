@@ -1,0 +1,119 @@
+{
+  "name": "unplugin-isolated-decl",
+  "version": "0.4.7",
+  "description": "A blazing-fast tool for generating isolated declarations, powered by Oxc.",
+  "type": "module",
+  "keywords": [
+    "unplugin",
+    "rollup",
+    "vite",
+    "esbuild",
+    "webpack"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/unplugin/unplugin-isolated-decl#readme",
+  "bugs": {
+    "url": "https://github.com/unplugin/unplugin-isolated-decl/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unplugin/unplugin-isolated-decl.git"
+  },
+  "author": "三咲智子 <sxzz@sxzz.moe>",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
+    },
+    "./vite": {
+      "require": "./dist/vite.cjs",
+      "import": "./dist/vite.js"
+    },
+    "./rollup": {
+      "require": "./dist/rollup.cjs",
+      "import": "./dist/rollup.js"
+    },
+    "./rolldown": {
+      "require": "./dist/rolldown.cjs",
+      "import": "./dist/rolldown.js"
+    },
+    "./esbuild": {
+      "require": "./dist/esbuild.cjs",
+      "import": "./dist/esbuild.js"
+    },
+    "./api": {
+      "require": "./dist/api.cjs",
+      "import": "./dist/api.js"
+    },
+    "./*": [
+      "./*",
+      "./*.d.ts"
+    ]
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./*"
+      ]
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "@swc/core": "^1.6.6",
+    "typescript": "^5.5.2"
+  },
+  "peerDependenciesMeta": {
+    "@swc/core": {
+      "optional": true
+    },
+    "typescript": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "@rollup/pluginutils": "^5.1.0",
+    "oxc-parser": "^0.25.0",
+    "oxc-transform": "^0.24.3",
+    "unplugin": "^1.12.2"
+  },
+  "devDependencies": {
+    "@swc/core": "^1.7.11",
+    "@sxzz/eslint-config": "^3.17.2",
+    "@sxzz/prettier-config": "^2.0.2",
+    "@types/node": "^20.16.0",
+    "bumpp": "^9.5.1",
+    "esbuild": "^0.23.1",
+    "eslint": "^9.9.0",
+    "fast-glob": "^3.3.2",
+    "prettier": "^3.3.3",
+    "rolldown": "nightly",
+    "rollup": "^4.21.0",
+    "rollup-plugin-esbuild": "^6.1.1",
+    "tsdown": "^0.2.6",
+    "tsx": "^4.17.0",
+    "typescript": "^5.5.4",
+    "vite": "^5.4.1",
+    "vitest": "^2.0.5"
+  },
+  "engines": {
+    "node": ">=18.12.0"
+  },
+  "prettier": "@sxzz/prettier-config",
+  "scripts": {
+    "lint": "eslint --cache .",
+    "lint:fix": "pnpm run lint --fix",
+    "build": "tsdown",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit",
+    "release": "bumpp && pnpm publish"
+  }
+}

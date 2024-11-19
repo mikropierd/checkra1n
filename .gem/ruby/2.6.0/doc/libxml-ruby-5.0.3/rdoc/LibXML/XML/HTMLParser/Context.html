@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class LibXML::XML::HTMLParser::Context - libxml-ruby-5.0.3 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+  var index_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/navigation.js" defer></script>
+<script src="../../../js/search.js" defer></script>
+<script src="../../../js/search_index.js" defer></script>
+<script src="../../../js/searcher.js" defer></script>
+<script src="../../../js/darkfish.js" defer></script>
+
+<link href="../../../css/fonts.css" rel="stylesheet">
+<link href="../../../css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">cXMLParserContext
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-file">::file</a>
+    
+    <li ><a href="#method-c-io">::io</a>
+    
+    <li ><a href="#method-c-string">::string</a>
+    
+    <li ><a href="#method-i-close">#close</a>
+    
+    <li ><a href="#method-i-disable_cdata-3D">#disable_cdata=</a>
+    
+    <li ><a href="#method-i-options-3D">#options=</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-LibXML::XML::HTMLParser::Context">
+  <h1 id="class-LibXML::XML::HTMLParser::Context" class="class">
+    class LibXML::XML::HTMLParser::Context
+  </h1>
+
+  <section class="description">
+    
+<p>The <a href="Context.html"><code>XML::HTMLParser::Context</code></a> class provides in-depth control over how a document is parsed.</p>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-file" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            XML::HTMLParser::Context.file(file) &rarr; XML::HTMLParser::Context
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Creates a new parser context based on the specified file or uri.</p>
+
+<p>Parameters:</p>
+
+<pre>file - A filename or uri
+options - A or&#39;ed together list of LibXML::XML::HTMLParser::Options values</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="file-source">
+            <pre>static VALUE rxml_html_parser_context_file(int argc, VALUE* argv, VALUE klass)
+{
+  VALUE file, options;
+  rb_scan_args(argc, argv, &quot;11&quot;, &amp;file, &amp;options);
+
+  htmlParserCtxtPtr ctxt = htmlCreateFileParserCtxt(StringValuePtr(file), NULL);
+  if (!ctxt)
+    rxml_raise(xmlGetLastError());
+
+  /* This is annoying, but xmlInitParserCtxt (called indirectly above) and 
+     xmlCtxtUseOptionsInternal (called below) initialize slightly different
+     context options, in particular XML_PARSE_NODICT which xmlInitParserCtxt
+     sets to 0 and xmlCtxtUseOptionsInternal sets to 1.  So we have to call both. */
+  htmlCtxtUseOptions(ctxt, options == Qnil ? 0 : NUM2INT(options));
+
+  return rxml_html_parser_context_wrap(ctxt);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-io" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            XML::HTMLParser::Context.io(io) &rarr; XML::HTMLParser::Context
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Creates a new parser context based on the specified io object.</p>
+
+<p>Parameters:</p>
+
+<pre>io - A ruby IO object
+options - A or&#39;ed together list of LibXML::XML::HTMLParser::Options values</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="io-source">
+            <pre>static VALUE rxml_html_parser_context_io(int argc, VALUE* argv, VALUE klass)
+{
+  VALUE io, options;
+  rb_scan_args(argc, argv, &quot;11&quot;, &amp;io, &amp;options);
+
+  VALUE result;
+  htmlParserCtxtPtr ctxt;
+  xmlParserInputBufferPtr input;
+  xmlParserInputPtr stream;
+
+  if (NIL_P(io))
+    rb_raise(rb_eTypeError, &quot;Must pass in an IO object&quot;);
+
+  input = xmlParserInputBufferCreateIO((xmlInputReadCallback) rxml_read_callback, NULL,
+                                     (void*)io, XML_CHAR_ENCODING_NONE);
+
+  ctxt = htmlNewParserCtxt();
+  if (!ctxt)
+  {
+    xmlFreeParserInputBuffer(input);
+    rxml_raise(xmlGetLastError());
+  }
+
+  /* This is annoying, but xmlInitParserCtxt (called indirectly above) and 
+     xmlCtxtUseOptionsInternal (called below) initialize slightly different
+     context options, in particular XML_PARSE_NODICT which xmlInitParserCtxt
+     sets to 0 and xmlCtxtUseOptionsInternal sets to 1.  So we have to call both. */
+  htmlCtxtUseOptions(ctxt, options == Qnil ? 0 : NUM2INT(options));
+
+  stream = xmlNewIOInputStream(ctxt, input, XML_CHAR_ENCODING_NONE);
+
+  if (!stream)
+  {
+    xmlFreeParserInputBuffer(input);
+    xmlFreeParserCtxt(ctxt);
+    rxml_raise(xmlGetLastError());
+  }
+  inputPush(ctxt, stream);
+  result = rxml_html_parser_context_wrap(ctxt);
+
+  /* Attach io object to parser so it won&#39;t get freed.*/
+  rb_ivar_set(result, IO_ATTR, io);
+
+  return result;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-string" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            XML::HTMLParser::Context.string(string) &rarr; XML::HTMLParser::Context
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Creates a new parser context based on the specified string.</p>
+
+<p>Parameters:</p>
+
+<pre>string - A string that contains the data to parse
+options - A or&#39;ed together list of LibXML::XML::HTMLParser::Options values</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="string-source">
+            <pre>static VALUE rxml_html_parser_context_string(int argc, VALUE* argv, VALUE klass)
+{
+  VALUE string, options;
+  rb_scan_args(argc, argv, &quot;11&quot;, &amp;string, &amp;options);
+
+  Check_Type(string, T_STRING);
+
+  if (RSTRING_LEN(string) == 0)
+    rb_raise(rb_eArgError, &quot;Must specify a string with one or more characters&quot;);
+
+  htmlParserCtxtPtr ctxt = xmlCreateMemoryParserCtxt(StringValuePtr(string),
+                                   (int)RSTRING_LEN(string));
+  if (!ctxt)
+    rxml_raise(xmlGetLastError());
+
+  /* This is annoying, but xmlInitParserCtxt (called indirectly above) and 
+     xmlCtxtUseOptionsInternal (called below) initialize slightly different
+     context options, in particular XML_PARSE_NODICT which xmlInitParserCtxt
+     sets to 0 and xmlCtxtUseOptionsInternal sets to 1.  So we have to call both. */
+  htmlCtxtUseOptions(ctxt, options == Qnil ? 0 : NUM2INT(options));
+
+  // Setup sax handler
+  // TODO - there must be a better way? The sax handler is initialized for XML, but we want
+  // to use HTML
+  memset(ctxt-&gt;sax, 0, sizeof(xmlSAXHandler));
+  xmlSAX2InitHtmlDefaultSAXHandler(ctxt-&gt;sax);
+  
+  return rxml_html_parser_context_wrap(ctxt);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-close" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            close &rarr; nil
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Closes the underlying input streams.  This is useful when parsing a large amount of files and you want to close the files without relying on Ruby&#39;s garbage collector to run.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="close-source">
+            <pre>static VALUE rxml_html_parser_context_close(VALUE self)
+{
+  htmlParserCtxtPtr ctxt;
+  xmlParserInputPtr xinput;
+  Data_Get_Struct(self, htmlParserCtxt, ctxt);
+
+  while ((xinput = inputPop(ctxt)) != NULL)
+  {
+         xmlFreeInputStream(xinput);
+  }
+  return Qnil;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-disable_cdata-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            disable_cdata = (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Control whether the CDATA nodes will be created in this context.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="disable_cdata-3D-source">
+            <pre>static VALUE rxml_html_parser_context_disable_cdata_set(VALUE self, VALUE value)
+{
+  htmlParserCtxtPtr ctxt;
+  Data_Get_Struct(self, htmlParserCtxt, ctxt);
+
+  if (ctxt-&gt;sax == NULL)
+    rb_raise(rb_eRuntimeError, &quot;Sax handler is not yet set&quot;);
+
+  /* LibXML controls this internally with the default SAX handler. */ 
+  if (value)
+    ctxt-&gt;sax-&gt;cdataBlock = NULL;
+  else
+    ctxt-&gt;sax-&gt;cdataBlock = xmlSAX2CDataBlock;
+
+  return value;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-options-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            options = XML::Parser::Options::NOENT |
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            XML::Parser::Options::NOCDATA
+          </span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Provides control over the execution of a parser.  Valid values  are the constants defined on <a href="../Parser/Options.html"><code>XML::Parser::Options</code></a>.  Multiple options can be combined by using Bitwise OR (|).</p>
+          
+          
+
+          
+          <div class="method-source-code" id="options-3D-source">
+            <pre>static VALUE rxml_html_parser_context_options_set(VALUE self, VALUE options)
+{
+  int xml_options = NUM2INT(options);
+  htmlParserCtxtPtr ctxt;
+  Check_Type(options, T_FIXNUM);
+
+  Data_Get_Struct(self, htmlParserCtxt, ctxt);
+  htmlCtxtUseOptions(ctxt, xml_options);
+
+#if LIBXML_VERSION &gt;= 20707
+  /* Big hack here, but htmlCtxtUseOptions doens&#39;t support HTML_PARSE_NOIMPLIED.
+     So do it ourselves. There must be a better way??? */
+  if (xml_options &amp; HTML_PARSE_NOIMPLIED) 
+  {
+          ctxt-&gt;options |= HTML_PARSE_NOIMPLIED;
+  }
+#endif
+
+  return self;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class LibXML::XML::SaxParser - libxml-ruby-5.0.3 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/navigation.js" defer></script>
+<script src="../../js/search.js" defer></script>
+<script src="../../js/search_index.js" defer></script>
+<script src="../../js/searcher.js" defer></script>
+<script src="../../js/darkfish.js" defer></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-file">::file</a>
+    
+    <li ><a href="#method-c-io">::io</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-c-string">::string</a>
+    
+    <li ><a href="#method-i-parse">#parse</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-LibXML::XML::SaxParser">
+  <h1 id="class-LibXML::XML::SaxParser" class="class">
+    class LibXML::XML::SaxParser
+  </h1>
+
+  <section class="description">
+    
+<p><a href="SaxParser.html"><code>XML::SaxParser</code></a> provides a callback based API for parsing documents, in contrast to XML::Parser&#39;s tree based API and XML::Reader&#39;s stream based API.</p>
+
+<p>The <a href="SaxParser.html"><code>XML::SaxParser</code></a> API is fairly complex, not well standardized, and does not directly support validation making entity, namespace and base processing relatively hard.</p>
+
+<p>To use the <a href="SaxParser.html"><code>XML::SaxParser</code></a>, register a callback class via the <a href="SaxParser.html#attribute-i-callbacks"><code>XML::SaxParser#callbacks=</code></a>.  It is easiest to include the <a href="SaxParser/Callbacks.html"><code>XML::SaxParser::Callbacks</code></a> module in your class and override the methods as needed.</p>
+
+<p>Basic example:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">MyCallbacks</span>
+  <span class="ruby-identifier">include</span> <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">SaxParser</span><span class="ruby-operator">::</span><span class="ruby-constant">Callbacks</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_start_element</span>(<span class="ruby-identifier">element</span>, <span class="ruby-identifier">attributes</span>)
+    <span class="ruby-identifier">puts</span> <span class="ruby-comment">#Element started: #{element}&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">parser</span> = <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">SaxParser</span>.<span class="ruby-identifier">string</span>(<span class="ruby-identifier">my_string</span>)
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">callbacks</span> = <span class="ruby-constant">MyCallbacks</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parse</span>
+</pre>
+
+<p>You can also parse strings (see <a href="SaxParser.html#method-c-string"><code>XML::SaxParser.string</code></a>) and io objects (see <a href="SaxParser.html#method-c-io"><code>XML::SaxParser.io</code></a>).</p>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-callbacks" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">callbacks</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-file" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            XML::SaxParser.file(path) &rarr; XML::SaxParser
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Creates a new parser by parsing the specified file or uri.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="file-source">
+            <pre><span class="ruby-comment"># File lib/libxml/sax_parser.rb, line 10</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">file</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-identifier">context</span> = <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">Context</span>.<span class="ruby-identifier">file</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">context</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-io" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            XML::SaxParser.io(io) &rarr; XML::SaxParser
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            XML::SaxParser.io(io, :encoding =&gt; XML::Encoding::UTF_8) &rarr; XML::SaxParser
+          </span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Creates a new reader by parsing the specified io object.</p>
+
+<p>Parameters:</p>
+
+<pre>encoding - The document encoding, defaults to nil. Valid values
+           are the encoding constants defined on XML::Encoding.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="io-source">
+            <pre><span class="ruby-comment"># File lib/libxml/sax_parser.rb, line 25</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">io</span>(<span class="ruby-identifier">io</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">context</span> = <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">Context</span>.<span class="ruby-identifier">io</span>(<span class="ruby-identifier">io</span>)
+  <span class="ruby-identifier">context</span>.<span class="ruby-identifier">encoding</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:encoding</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:encoding</span>]
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">context</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            initialize(context) &rarr; XML::Parser
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Creates a new <a href="Parser.html"><code>XML::Parser</code></a> from the specified  <a href="Parser/Context.html"><code>XML::Parser::Context</code></a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre>static VALUE rxml_sax_parser_initialize(int argc, VALUE *argv, VALUE self)
+{
+  VALUE context = Qnil;
+
+  rb_scan_args(argc, argv, &quot;01&quot;, &amp;context);
+
+  if (context == Qnil)
+  {
+    rb_raise(rb_eArgError, &quot;An instance of a XML::Parser::Context must be passed to XML::SaxParser.new&quot;);
+  }
+
+  rb_ivar_set(self, CONTEXT_ATTR, context);
+  return self;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-string" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            XML::SaxParser.string(string)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Creates a new parser by parsing the specified string.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="string-source">
+            <pre><span class="ruby-comment"># File lib/libxml/sax_parser.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">string</span>(<span class="ruby-identifier">string</span>)
+  <span class="ruby-identifier">context</span> = <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">Context</span>.<span class="ruby-identifier">string</span>(<span class="ruby-identifier">string</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">context</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-parse" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            parse &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Parse the input <a href="../XML.html"><code>XML</code></a>, generating callbacks to the object registered via the <code>callbacks</code> attributesibute.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="parse-source">
+            <pre>static VALUE rxml_sax_parser_parse(VALUE self)
+{
+  VALUE context = rb_ivar_get(self, CONTEXT_ATTR);
+  xmlParserCtxtPtr ctxt;
+  Data_Get_Struct(context, xmlParserCtxt, ctxt);
+
+  ctxt-&gt;sax2 = 1;
+        ctxt-&gt;userData = (void*)rb_ivar_get(self, CALLBACKS_ATTR);
+  memcpy(ctxt-&gt;sax, &amp;rxml_sax_handler, sizeof(rxml_sax_handler));
+    
+  int status = xmlParseDocument(ctxt);
+
+  /* Now check the parsing result*/
+  if (status == -1 || !ctxt-&gt;wellFormed)
+  {
+    rxml_raise(&amp;ctxt-&gt;lastError);
+  }
+  return Qtrue;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

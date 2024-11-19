@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module LibXML::XML::XPath - libxml-ruby-5.0.3 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/navigation.js" defer></script>
+<script src="../../js/search.js" defer></script>
+<script src="../../js/search_index.js" defer></script>
+<script src="../../js/searcher.js" defer></script>
+<script src="../../js/darkfish.js" defer></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#module-LibXML::XML::XPath-label-Working+With+Default+Namespaces">Working With Default Namespaces</a>
+    <li><a href="#module-LibXML::XML::XPath-label-More+Complex+Namespace+Examples">More Complex Namespace Examples</a>
+  </ul>
+</div>
+
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-LibXML::XML::XPath">
+  <h1 id="module-LibXML::XML::XPath" class="module">
+    module LibXML::XML::XPath
+  </h1>
+
+  <section class="description">
+    
+<p>The <a href="XPath.html"><code>XML::XPath</code></a> module is used to query <a href="../XML.html"><code>XML</code></a> documents. It is usually accessed via the <a href="Document.html#method-i-find"><code>XML::Document#find</code></a> or <a href="Node.html#method-i-find"><code>XML::Node#find</code></a> methods.  For example:</p>
+
+<pre>document.find(&#39;/foo&#39;, namespaces) -&gt; XML::XPath::Object</pre>
+
+<p>The optional namespaces parameter can be a string, array or hash table.</p>
+
+<pre>document.find(&#39;/foo&#39;, &#39;xlink:http://www.w3.org/1999/xlink&#39;)
+document.find(&#39;/foo&#39;, [&#39;xlink:http://www.w3.org/1999/xlink&#39;,
+                       &#39;xi:http://www.w3.org/2001/XInclude&#39;)
+document.find(&#39;/foo&#39;, &#39;xlink&#39; =&gt; &#39;http://www.w3.org/1999/xlink&#39;,
+                          &#39;xi&#39; =&gt; &#39;http://www.w3.org/2001/XInclude&#39;)</pre>
+
+<h3 id="module-LibXML::XML::XPath-label-Working+With+Default+Namespaces">Working With Default <a href="Namespaces.html"><code>Namespaces</code></a><span><a href="#module-LibXML::XML::XPath-label-Working+With+Default+Namespaces">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Finding namespaced elements and attributes can be tricky. Lets work through an example of a document with a default namespace:</p>
+
+<pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;feed xmlns=&quot;http://www.w3.org/2005/Atom&quot;&gt;
+  &lt;title type=&quot;text&quot;&gt;Phil Bogle&#39;s Contacts&lt;/title&gt;
+&lt;/feed&gt;</pre>
+
+<p>To find nodes you must define the atom namespace for libxml.  One way to do this is:</p>
+
+<pre class="ruby"><span class="ruby-identifier">node</span> = <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">find</span>(<span class="ruby-string">&#39;atom:title&#39;</span>, <span class="ruby-string">&#39;atom:http://www.w3.org/2005/Atom&#39;</span>)
+</pre>
+
+<p>Alternatively, you can register the default namespace like this:</p>
+
+<pre class="ruby"><span class="ruby-identifier">doc</span>.<span class="ruby-identifier">root</span>.<span class="ruby-identifier">namespaces</span>.<span class="ruby-identifier">default_prefix</span> = <span class="ruby-string">&#39;atom&#39;</span>
+<span class="ruby-identifier">node</span> = <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">find</span>(<span class="ruby-string">&#39;atom:title&#39;</span>)
+</pre>
+
+<h3 id="module-LibXML::XML::XPath-label-More+Complex+Namespace+Examples">More Complex <a href="Namespace.html"><code>Namespace</code></a> Examples<span><a href="#module-LibXML::XML::XPath-label-More+Complex+Namespace+Examples">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Lets work through some more complex examples using the following xml document:</p>
+
+<pre>&lt;soap:Envelope xmlns:soap=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;
+  &lt;soap:Body&gt;
+    &lt;getManufacturerNamesResponse xmlns=&quot;http://services.somewhere.com&quot;&gt;
+      &lt;IDAndNameList xmlns=&quot;http://services.somewhere.com&quot;&gt;
+        &lt;ns1:IdAndName xmlns:ns1=&quot;http://domain.somewhere.com&quot;/&gt;
+      &lt;/IDAndNameList&gt;
+    &lt;/getManufacturerNamesResponse&gt;
+  &lt;/soap:Body&gt;
+&lt;/soap:Envelope&gt;
+
+# Since the soap namespace is defined on the root
+# node we can directly use it.
+doc.find(&#39;/soap:Envelope&#39;)
+
+# Since the ns1 namespace is not defined on the root node
+# we have to first register it with the xpath engine.
+doc.find(&#39;//ns1:IdAndName&#39;,
+         &#39;ns1:http://domain.somewhere.com&#39;)
+
+# Since the getManufacturerNamesResponse element uses a default
+# namespace we first have to give it a prefix and register
+# it with the xpath engine.
+doc.find(&#39;//ns:getManufacturerNamesResponse&#39;,
+          &#39;ns:http://services.somewhere.com&#39;)
+
+# Here is an example showing a complex namespace aware
+# xpath expression.
+doc.find(&#39;/soap:Envelope/soap:Body/ns0:getManufacturerNamesResponse/ns0:IDAndNameList/ns1:IdAndName&#39;,
+[&#39;ns0:http://services.somewhere.com&#39;, &#39;ns1:http://domain.somewhere.com&#39;])</pre>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="BOOLEAN">BOOLEAN
+        
+        <dd><p>A boolean value.</p>
+        
+      
+        <dt id="LOCATIONSET">LOCATIONSET
+        
+        <dd><p>An xpointer location set</p>
+        
+      
+        <dt id="NODESET">NODESET
+        
+        <dd><p>A nodeset, will be wrapped by <a href="XPath.html"><code>XPath</code></a> <a href="XPath/Object.html"><code>Object</code></a>.</p>
+        
+      
+        <dt id="NUMBER">NUMBER
+        
+        <dd><p>A numeric value.</p>
+        
+      
+        <dt id="POINT">POINT
+        
+        <dd><p>An xpointer point</p>
+        
+      
+        <dt id="RANGE">RANGE
+        
+        <dd><p>An xpointer range</p>
+        
+      
+        <dt id="STRING">STRING
+        
+        <dd><p>A string value.</p>
+        
+      
+        <dt id="UNDEFINED">UNDEFINED
+        
+        <dd><p>Undefined value.</p>
+        
+      
+        <dt id="USERS">USERS
+        
+        <dd><p><a href="XPath.html"><code>XPath</code></a> user type</p>
+        
+      
+        <dt id="XSLT_TREE">XSLT_TREE
+        
+        <dd><p>An XSLT value tree, non modifiable</p>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

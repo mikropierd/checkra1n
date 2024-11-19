@@ -1,0 +1,2460 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class LibXML::XML::Document - libxml-ruby-5.0.3 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/navigation.js" defer></script>
+<script src="../../js/search.js" defer></script>
+<script src="../../js/search_index.js" defer></script>
+<script src="../../js/searcher.js" defer></script>
+<script src="../../js/darkfish.js" defer></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-document">::document</a>
+    
+    <li ><a href="#method-c-file">::file</a>
+    
+    <li ><a href="#method-c-io">::io</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-c-string">::string</a>
+    
+    <li ><a href="#method-i-canonicalize">#canonicalize</a>
+    
+    <li ><a href="#method-i-child">#child</a>
+    
+    <li ><a href="#method-i-child-3F">#child?</a>
+    
+    <li ><a href="#method-i-compression">#compression</a>
+    
+    <li ><a href="#method-i-compression-3D">#compression=</a>
+    
+    <li ><a href="#method-i-compression-3F">#compression?</a>
+    
+    <li ><a href="#method-i-context">#context</a>
+    
+    <li ><a href="#method-i-debug">#debug</a>
+    
+    <li ><a href="#method-i-encoding">#encoding</a>
+    
+    <li ><a href="#method-i-encoding-3D">#encoding=</a>
+    
+    <li ><a href="#method-i-find">#find</a>
+    
+    <li ><a href="#method-i-find_first">#find_first</a>
+    
+    <li ><a href="#method-i-import">#import</a>
+    
+    <li ><a href="#method-i-last">#last</a>
+    
+    <li ><a href="#method-i-last-3F">#last?</a>
+    
+    <li ><a href="#method-i-next">#next</a>
+    
+    <li ><a href="#method-i-next-3F">#next?</a>
+    
+    <li ><a href="#method-i-node_type">#node_type</a>
+    
+    <li ><a href="#method-i-node_type_name">#node_type_name</a>
+    
+    <li ><a href="#method-i-order_elements-21">#order_elements!</a>
+    
+    <li ><a href="#method-i-parent">#parent</a>
+    
+    <li ><a href="#method-i-parent-3F">#parent?</a>
+    
+    <li ><a href="#method-i-prev">#prev</a>
+    
+    <li ><a href="#method-i-prev-3F">#prev?</a>
+    
+    <li ><a href="#method-i-rb_encoding">#rb_encoding</a>
+    
+    <li ><a href="#method-i-root">#root</a>
+    
+    <li ><a href="#method-i-root-3D">#root=</a>
+    
+    <li ><a href="#method-i-save">#save</a>
+    
+    <li ><a href="#method-i-standalone-3F">#standalone?</a>
+    
+    <li ><a href="#method-i-to_s">#to_s</a>
+    
+    <li ><a href="#method-i-url">#url</a>
+    
+    <li ><a href="#method-i-validate">#validate</a>
+    
+    <li ><a href="#method-i-validate_relaxng">#validate_relaxng</a>
+    
+    <li ><a href="#method-i-validate_schema">#validate_schema</a>
+    
+    <li ><a href="#method-i-version">#version</a>
+    
+    <li ><a href="#method-i-xhtml-3F">#xhtml?</a>
+    
+    <li ><a href="#method-i-xinclude">#xinclude</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-LibXML::XML::Document">
+  <h1 id="class-LibXML::XML::Document" class="class">
+    class LibXML::XML::Document
+  </h1>
+
+  <section class="description">
+    
+<p>The <a href="Document.html"><code>XML::Document</code></a> class provides a tree based API for working with xml documents.  You may directly create a document and manipulate it, or create a document from a data source by using an <a href="Parser.html"><code>XML::Parser</code></a> object.</p>
+
+<p>To read a document from a file:</p>
+
+<pre class="ruby"><span class="ruby-identifier">doc</span> = <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>.<span class="ruby-identifier">file</span>(<span class="ruby-string">&#39;my_file&#39;</span>)
+</pre>
+
+<p>To use a parser to read a document:</p>
+
+<pre class="ruby"><span class="ruby-identifier">parser</span> = <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Parser</span>.<span class="ruby-identifier">file</span>(<span class="ruby-string">&#39;my_file&#39;</span>)
+<span class="ruby-identifier">doc</span> = <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parse</span>
+</pre>
+
+<p>To create a document from scratch:</p>
+
+<pre class="ruby"><span class="ruby-identifier">doc</span> = <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>.<span class="ruby-identifier">new</span>()
+<span class="ruby-identifier">doc</span>.<span class="ruby-identifier">root</span> = <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Node</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;root_node&#39;</span>)
+<span class="ruby-identifier">doc</span>.<span class="ruby-identifier">root</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Node</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;elem1&#39;</span>)
+<span class="ruby-identifier">doc</span>.<span class="ruby-identifier">save</span>(<span class="ruby-identifier">filename</span>, <span class="ruby-value">:indent</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">:encoding</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF_8</span>)
+</pre>
+
+<p>To write a document to a file:</p>
+
+<pre class="ruby"><span class="ruby-identifier">doc</span> = <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>.<span class="ruby-identifier">new</span>()
+<span class="ruby-identifier">doc</span>.<span class="ruby-identifier">root</span> = <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Node</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;root_node&#39;</span>)
+<span class="ruby-identifier">root</span> = <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">root</span>
+
+<span class="ruby-identifier">root</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">elem1</span> = <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Node</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;elem1&#39;</span>)
+<span class="ruby-identifier">elem1</span>[<span class="ruby-string">&#39;attr1&#39;</span>] = <span class="ruby-string">&#39;val1&#39;</span>
+<span class="ruby-identifier">elem1</span>[<span class="ruby-string">&#39;attr2&#39;</span>] = <span class="ruby-string">&#39;val2&#39;</span>
+
+<span class="ruby-identifier">root</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">elem2</span> = <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Node</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;elem2&#39;</span>)
+<span class="ruby-identifier">elem2</span>[<span class="ruby-string">&#39;attr1&#39;</span>] = <span class="ruby-string">&#39;val1&#39;</span>
+<span class="ruby-identifier">elem2</span>[<span class="ruby-string">&#39;attr2&#39;</span>] = <span class="ruby-string">&#39;val2&#39;</span>
+
+<span class="ruby-identifier">root</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">elem3</span> = <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Node</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;elem3&#39;</span>)
+<span class="ruby-identifier">elem3</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">elem4</span> = <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Node</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;elem4&#39;</span>)
+<span class="ruby-identifier">elem3</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">elem5</span> = <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Node</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;elem5&#39;</span>)
+
+<span class="ruby-identifier">elem5</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">elem6</span> = <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Node</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;elem6&#39;</span>)
+<span class="ruby-identifier">elem6</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;Content for element 6&#39;</span>
+
+<span class="ruby-identifier">elem3</span>[<span class="ruby-string">&#39;attr&#39;</span>] = <span class="ruby-string">&#39;baz&#39;</span>
+
+<span class="ruby-identifier">doc</span>.<span class="ruby-identifier">save</span>(<span class="ruby-identifier">filename</span>, <span class="ruby-value">:indent</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">:encoding</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF_8</span>)
+</pre>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="XML_C14N_1_0">XML_C14N_1_0
+        
+        <dd><p>Original C14N 1.0 spec</p>
+        
+      
+        <dt id="XML_C14N_1_1">XML_C14N_1_1
+        
+        <dd><p>C14N 1.1 spec</p>
+        
+      
+        <dt id="XML_C14N_EXCLUSIVE_1_0">XML_C14N_EXCLUSIVE_1_0
+        
+        <dd><p>Exclusive C14N 1.0 spec</p>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-document" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            XML::Document.document(document) &rarr; XML::Document
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Creates a new document based on the specified document.</p>
+
+<p>Parameters:</p>
+
+<pre>document - A preparsed document.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="document-source">
+            <pre><span class="ruby-comment"># File lib/libxml/document.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">document</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-constant">Parser</span>.<span class="ruby-identifier">document</span>(<span class="ruby-identifier">value</span>).<span class="ruby-identifier">parse</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-file" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            XML::Document.file(path) &rarr; XML::Document
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            XML::Document.file(path, encoding: XML::Encoding::UTF_8,
+          </span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            options: XML::Parser::Options::NOENT) &rarr; XML::Document
+          </span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Creates a new document from the specified file or uri.</p>
+
+<p>Parameters:</p>
+
+<pre>path - Path to file
+encoding - The document encoding, defaults to nil. Valid values
+           are the encoding constants defined on XML::Encoding.
+options - Parser options.  Valid values are the constants defined on
+          XML::Parser::Options.  Mutliple options can be combined
+          by using Bitwise OR (|).</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="file-source">
+            <pre><span class="ruby-comment"># File lib/libxml/document.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">file</span>(<span class="ruby-identifier">path</span>, <span class="ruby-value">encoding:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">options:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-constant">Parser</span>.<span class="ruby-identifier">file</span>(<span class="ruby-identifier">path</span>, <span class="ruby-value">encoding:</span> <span class="ruby-identifier">encoding</span>, <span class="ruby-value">options:</span> <span class="ruby-identifier">options</span>).<span class="ruby-identifier">parse</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-io" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            XML::Document.io(io) &rarr; XML::Document
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            XML::Document.io(io, :encoding &rarr; XML::Encoding::UTF_8,
+          </span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            :options &rarr; XML::Parser::Options::NOENT
+          </span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            :base_uri=&quot;http://libxml.org&quot;) &rarr; XML::Document
+          </span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Creates a new document from the specified io object.</p>
+
+<p>Parameters:</p>
+
+<pre>io - io object that contains the xml to parser
+base_uri - The base url for the parsed document.
+encoding - The document encoding, defaults to nil. Valid values
+           are the encoding constants defined on XML::Encoding.
+options - Parser options.  Valid values are the constants defined on
+          XML::Parser::Options.  Mutliple options can be combined
+          by using Bitwise OR (|).</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="io-source">
+            <pre><span class="ruby-comment"># File lib/libxml/document.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">io</span>(<span class="ruby-identifier">io</span>, <span class="ruby-value">base_uri:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">encoding:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">options:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-constant">Parser</span>.<span class="ruby-identifier">io</span>(<span class="ruby-identifier">io</span>, <span class="ruby-value">base_uri:</span> <span class="ruby-identifier">base_uri</span>, <span class="ruby-value">encoding:</span> <span class="ruby-identifier">encoding</span>, <span class="ruby-value">options:</span> <span class="ruby-identifier">options</span>).<span class="ruby-identifier">parse</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            XML::Document.initialize(xml_version = 1.0) &rarr; document
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Initializes a new <a href="Document.html"><code>XML::Document</code></a>, optionally specifying the <a href="../XML.html"><code>XML</code></a> version.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre>static VALUE rxml_document_initialize(int argc, VALUE *argv, VALUE self)
+{
+  xmlDocPtr xdoc;
+  VALUE xmlver;
+
+  switch (argc)
+  {
+  case 0:
+    xmlver = rb_str_new2(&quot;1.0&quot;);
+    break;
+  case 1:
+    rb_scan_args(argc, argv, &quot;01&quot;, &amp;xmlver);
+    break;
+  default:
+    rb_raise(rb_eArgError, &quot;wrong number of arguments (need 0 or 1)&quot;);
+  }
+
+  Check_Type(xmlver, T_STRING);
+  xdoc = xmlNewDoc((xmlChar*) StringValuePtr(xmlver));
+
+  // Link the ruby object to the document and the document to the ruby object
+  RDATA(self)-&gt;data = xdoc;
+  xdoc-&gt;_private = (void*)self;
+
+  return self;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-string" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            XML::Document.string(string) &rarr; XML::Document
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            XML::Document.string(string, encoding: XML::Encoding::UTF_8,
+          </span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            options: XML::Parser::Options::NOENT
+          </span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            base_uri: &quot;http://libxml.org&quot;) &rarr; XML::Document
+          </span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Creates a new document from the specified string.</p>
+
+<p>Parameters:</p>
+
+<pre>string - String to parse
+base_uri - The base url for the parsed document.
+encoding - The document encoding, defaults to nil. Valid values
+           are the encoding constants defined on XML::Encoding.
+options  - Parser options.  Valid values are the constants defined on
+           XML::Parser::Options.  Mutliple options can be combined
+           by using Bitwise OR (|).</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="string-source">
+            <pre><span class="ruby-comment"># File lib/libxml/document.rb, line 75</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">string</span>(<span class="ruby-identifier">value</span>, <span class="ruby-value">base_uri:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">encoding:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">options:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-constant">Parser</span>.<span class="ruby-identifier">string</span>(<span class="ruby-identifier">value</span>, <span class="ruby-value">base_uri:</span> <span class="ruby-identifier">base_uri</span>, <span class="ruby-value">encoding:</span> <span class="ruby-identifier">encoding</span>, <span class="ruby-value">options:</span> <span class="ruby-identifier">options</span>).<span class="ruby-identifier">parse</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-canonicalize" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">canonicalize</span><span
+            class="method-args">(p1 = v1)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="canonicalize-source">
+            <pre>static VALUE
+rxml_document_canonicalize(int argc, VALUE *argv, VALUE self)
+{
+  VALUE result = Qnil;
+  xmlDocPtr xdoc;
+  xmlChar *buffer = NULL;
+  VALUE option_hash = Qnil;
+  VALUE o_nodes = Qnil;
+
+  // :comments option
+  int comments = 0;
+  // :mode option
+  int c14n_mode = XML_C14N_1_0;
+  // :inclusive_ns_prefixes option (ARRAY)
+
+  xmlChar * inc_ns_prefixes_ptr[C14N_NS_LIMIT];
+
+  // :nodes option (ARRAY)
+  xmlNodePtr  node_ptr_array[C14N_NODESET_LIMIT];
+  xmlNodeSet nodeset = {
+    0, C14N_NODESET_LIMIT, NULL
+  };
+
+  /* At least one NULL value must be defined in the array or the extension will
+   * segfault when using XML_C14N_EXCLUSIVE_1_0 mode.
+   * API docs: &quot;list of inclusive namespace prefixes ended with a NULL&quot;
+   */
+  inc_ns_prefixes_ptr[0] = NULL;
+
+  rb_scan_args(argc, argv, &quot;01&quot;, &amp;option_hash);
+  // Do stuff if ruby hash passed as argument
+  if (!NIL_P(option_hash)) 
+  {
+        VALUE o_comments = Qnil;
+        VALUE o_mode = Qnil;
+        VALUE o_i_ns_prefixes = Qnil;
+                
+    Check_Type(option_hash, T_HASH);
+
+    o_comments = rb_hash_aref(option_hash, ID2SYM(rb_intern(&quot;comments&quot;)));
+    comments = (RTEST(o_comments) ? 1 : 0);
+
+    o_mode = rb_hash_aref(option_hash, ID2SYM(rb_intern(&quot;mode&quot;)));
+    if (!NIL_P(o_mode)) 
+        {
+      Check_Type(o_mode, T_FIXNUM);
+      c14n_mode = NUM2INT(o_mode);
+      //TODO: clean this up
+      //if (c14n_mode &gt; 2) { c14n_mode = 0; }
+      //mode_int = (NUM2INT(o_mode) &gt; 2 ? 0 : NUM2INT(o_mode));
+    }
+
+    o_i_ns_prefixes = rb_hash_aref(option_hash, ID2SYM(rb_intern(&quot;inclusive_ns_prefixes&quot;)));
+    if (!NIL_P(o_i_ns_prefixes)) 
+        {
+      int i;
+      int p = 0; //pointer array index
+      VALUE *list_in = NULL;
+      long list_size = 0;
+
+          Check_Type(o_i_ns_prefixes, T_ARRAY);
+      list_in = RARRAY_PTR(o_i_ns_prefixes);
+      list_size = RARRAY_LEN(o_i_ns_prefixes);
+
+      if (list_size &gt; 0) 
+          {
+        for(i=0; i &lt; list_size; ++i) {
+          if (p &gt;= C14N_NS_LIMIT) { break; }
+
+          if (RTEST(list_in[i])) 
+                  {
+            if (TYPE(list_in[i]) == T_STRING) 
+                        {
+              inc_ns_prefixes_ptr[p] = (xmlChar *)StringValueCStr(list_in[i]);
+              p++;
+            }
+          }
+        }
+      }
+
+      // ensure p is not out of bound
+      p = (p &gt;= C14N_NS_LIMIT ? (C14N_NS_LIMIT-1) : p);
+
+      // API docs: &quot;list of inclusive namespace prefixes ended with a NULL&quot;
+      // Set last element to NULL
+      inc_ns_prefixes_ptr[p] = NULL;
+    }
+    //o_ns_prefixes will free at end of block
+
+    o_nodes = rb_hash_aref(option_hash, ID2SYM(rb_intern(&quot;nodes&quot;)));
+    if (!NIL_P(o_nodes)) 
+        {
+      int i;
+      int p = 0; // index of pointer array
+      VALUE * list_in = NULL;
+      long node_list_size = 0;
+
+          if (CLASS_OF(o_nodes) == cXMLXPathObject)
+          {
+                  o_nodes = rb_funcall(o_nodes, rb_intern(&quot;to_a&quot;), 0);
+          }
+          else
+          {
+                  Check_Type(o_nodes, T_ARRAY);
+          }
+      list_in = RARRAY_PTR(o_nodes);
+      node_list_size = RARRAY_LEN(o_nodes);
+
+      for (i=0; i &lt; node_list_size; ++i)
+          {
+        if (p &gt;= C14N_NODESET_LIMIT) { break; }
+
+        if (RTEST(list_in[i])) 
+                {
+          xmlNodePtr node_ptr;
+          Data_Get_Struct(list_in[i], xmlNode, node_ptr);
+          node_ptr_array[p] = node_ptr;
+          p++;
+        }
+      }
+
+      // Need to set values in nodeset struct
+      nodeset.nodeNr = (node_list_size &gt; C14N_NODESET_LIMIT ?
+                        C14N_NODESET_LIMIT :
+                        (int)node_list_size);
+      nodeset.nodeTab = node_ptr_array;
+    }
+  }//option_hash
+
+  Data_Get_Struct(self, xmlDoc, xdoc);
+  xmlC14NDocDumpMemory(xdoc,
+                       (nodeset.nodeNr == 0 ? NULL : &amp;nodeset),
+                       c14n_mode,
+                       inc_ns_prefixes_ptr,
+                       comments,
+                       &amp;buffer);
+
+  if (buffer)
+  {
+    result = rxml_new_cstr( buffer, NULL);
+    xmlFree(buffer);
+  }
+
+  return result;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-child" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            child &rarr; node
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Get this document&#39;s child node.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="child-source">
+            <pre>static VALUE rxml_document_child_get(VALUE self)
+{
+  xmlDocPtr xdoc;
+  Data_Get_Struct(self, xmlDoc, xdoc);
+
+  if (xdoc-&gt;children == NULL)
+    return (Qnil);
+
+  return rxml_node_wrap(xdoc-&gt;children);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-child-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            child? &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether this document has a child node.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="child-3F-source">
+            <pre>static VALUE rxml_document_child_q(VALUE self)
+{
+  xmlDocPtr xdoc;
+  Data_Get_Struct(self, xmlDoc, xdoc);
+
+  if (xdoc-&gt;children == NULL)
+    return (Qfalse);
+  else
+    return (Qtrue);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-compression" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            compression &rarr; num
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain this document&#39;s compression mode identifier.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="compression-source">
+            <pre>static VALUE rxml_document_compression_get(VALUE self)
+{
+#ifdef HAVE_ZLIB_H
+  xmlDocPtr xdoc;
+
+  int compmode;
+  Data_Get_Struct(self, xmlDoc, xdoc);
+
+  compmode = xmlGetDocCompressMode(xdoc);
+  if (compmode == -1)
+  return(Qnil);
+  else
+  return(INT2NUM(compmode));
+#else
+  rb_warn(&quot;libxml not compiled with zlib support&quot;);
+  return (Qfalse);
+#endif
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-compression-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            compression = num
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Set this document&#39;s compression mode.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="compression-3D-source">
+            <pre>static VALUE rxml_document_compression_set(VALUE self, VALUE num)
+{
+#ifdef HAVE_ZLIB_H
+  xmlDocPtr xdoc;
+
+  int compmode;
+  Check_Type(num, T_FIXNUM);
+  Data_Get_Struct(self, xmlDoc, xdoc);
+
+  if (xdoc == NULL)
+  {
+    return(Qnil);
+  }
+  else
+  {
+    xmlSetDocCompressMode(xdoc, NUM2INT(num));
+
+    compmode = xmlGetDocCompressMode(xdoc);
+    if (compmode == -1)
+    return(Qnil);
+    else
+    return(INT2NUM(compmode));
+  }
+#else
+  rb_warn(&quot;libxml compiled without zlib support&quot;);
+  return (Qfalse);
+#endif
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-compression-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            compression? &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether this document is compressed.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="compression-3F-source">
+            <pre>static VALUE rxml_document_compression_q(VALUE self)
+{
+#ifdef HAVE_ZLIB_H
+  xmlDocPtr xdoc;
+
+  Data_Get_Struct(self, xmlDoc, xdoc);
+
+  if (xdoc-&gt;compression != -1)
+  return(Qtrue);
+  else
+  return(Qfalse);
+#else
+  rb_warn(&quot;libxml compiled without zlib support&quot;);
+  return (Qfalse);
+#endif
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-context" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            context(namespaces=nil) &rarr; XPath::Context
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns a new XML::XPathContext for the document.</p>
+
+<p><a href="Namespaces.html"><code>Namespaces</code></a> is an optional array of XML::NS objects</p>
+          
+          
+
+          
+          <div class="method-source-code" id="context-source">
+            <pre><span class="ruby-comment"># File lib/libxml/document.rb, line 85</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">context</span>(<span class="ruby-identifier">nslist</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">context</span> = <span class="ruby-constant">XPath</span><span class="ruby-operator">::</span><span class="ruby-constant">Context</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
+  <span class="ruby-identifier">context</span>.<span class="ruby-identifier">node</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">root</span>
+  <span class="ruby-identifier">context</span>.<span class="ruby-identifier">register_namespaces_from_node</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">root</span>)
+  <span class="ruby-identifier">context</span>.<span class="ruby-identifier">register_namespaces</span>(<span class="ruby-identifier">nslist</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">nslist</span>
+  <span class="ruby-identifier">context</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-debug" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            debug &rarr; true|false
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Print libxml debugging information to stdout. Requires that libxml was compiled with debugging enabled.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="debug-source">
+            <pre>static VALUE rxml_document_debug(VALUE self)
+{
+#ifdef LIBXML_DEBUG_ENABLED
+  xmlDocPtr xdoc;
+  Data_Get_Struct(self, xmlDoc, xdoc);
+  xmlDebugDumpDocument(NULL, xdoc);
+  return Qtrue;
+#else
+  rb_warn(&quot;libxml was compiled without debugging support.&quot;);
+  return Qfalse;
+#endif
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-encoding" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            encoding &rarr; XML::Encoding::UTF_8
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns the <a href="../../LibXML.html"><code>LibXML</code></a> encoding constant specified by this document.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="encoding-source">
+            <pre>static VALUE rxml_document_encoding_get(VALUE self)
+{
+  xmlDocPtr xdoc;
+  const char *xencoding;
+  Data_Get_Struct(self, xmlDoc, xdoc);
+
+  xencoding = (const char*)xdoc-&gt;encoding;
+  return INT2NUM(xmlParseCharEncoding(xencoding));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-encoding-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            encoding = XML::Encoding::UTF_8
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Set the encoding for this document.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="encoding-3D-source">
+            <pre>static VALUE rxml_document_encoding_set(VALUE self, VALUE encoding)
+{
+  xmlDocPtr xdoc;
+  const char* xencoding = xmlGetCharEncodingName((xmlCharEncoding)NUM2INT(encoding));
+
+  Data_Get_Struct(self, xmlDoc, xdoc);
+
+  if (xdoc-&gt;encoding != NULL)
+    xmlFree((xmlChar *) xdoc-&gt;encoding);
+
+  xdoc-&gt;encoding = xmlStrdup((xmlChar *)xencoding);
+  return self;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-find" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            find(xpath, nslist=nil) &rarr; XML::XPath::Object
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Return the nodes matching the specified xpath expression,  optionally using the specified namespace.  For more  information about working with namespaces, please refer to the <a href="XPath.html"><code>XML::XPath</code></a> documentation.</p>
+
+<p>Parameters:</p>
+<ul><li>
+<p>xpath - The xpath expression as a string</p>
+</li><li>
+<p>namespaces - An optional list of namespaces (see <a href="XPath.html"><code>XML::XPath</code></a> for information).</p>
+</li></ul>
+
+<pre class="ruby"><span class="ruby-identifier">document</span>.<span class="ruby-identifier">find</span>(<span class="ruby-string">&#39;/foo&#39;</span>, <span class="ruby-string">&#39;xlink:http://www.w3.org/1999/xlink&#39;</span>)
+</pre>
+
+<p>IMPORTANT - The returned XML::Node::Set must be freed before its associated document.  In a running Ruby program this will happen automatically via Ruby&#39;s mark and sweep garbage collector. However, if the program exits, Ruby does not guarantee the order in which objects are freed (see <a href="http://blade.nagaokaut.ac.jp/cgi-bin/scat.rb/ruby/ruby-core/17700">blade.nagaokaut.ac.jp/cgi-bin/scat.rb/ruby/ruby-core/17700</a>). As a result, the associated document may be freed before the node list, which will cause a segmentation fault. To avoid this, use the following (non-ruby like) coding style:</p>
+
+<pre>nodes = doc.find(&#39;/header&#39;)
+nodes.each do |node|
+  ... do stuff ...
+end</pre>
+
+<p>#  nodes = nil #  GC.start</p>
+          
+          
+
+          
+          <div class="method-source-code" id="find-source">
+            <pre><span class="ruby-comment"># File lib/libxml/document.rb, line 122</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">find</span>(<span class="ruby-identifier">xpath</span>, <span class="ruby-identifier">nslist</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">context</span>(<span class="ruby-identifier">nslist</span>).<span class="ruby-identifier">find</span>(<span class="ruby-identifier">xpath</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-find_first" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find_first</span><span
+            class="method-args">(xpath, nslist = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return the first node matching the specified xpath expression. For more information, please refer to the documentation for <a href="Document.html#method-i-find"><code>XML::Document#find</code></a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="find_first-source">
+            <pre><span class="ruby-comment"># File lib/libxml/document.rb, line 129</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">find_first</span>(<span class="ruby-identifier">xpath</span>, <span class="ruby-identifier">nslist</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">find</span>(<span class="ruby-identifier">xpath</span>, <span class="ruby-identifier">nslist</span>).<span class="ruby-identifier">first</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-import" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            import(node) &rarr; XML::Node
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Creates a copy of the node that can be inserted into the current document.</p>
+
+<p>IMPORTANT - The returned node MUST be inserted into the document. This is because the returned node refereces internal <a href="../../LibXML.html"><code>LibXML</code></a> data structures owned by the document.  Therefore, if the document is is freed before the the node is freed a segmentation fault will occur.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="import-source">
+            <pre>static VALUE rxml_document_import(VALUE self, VALUE node)
+{
+  xmlDocPtr xdoc;
+  xmlNodePtr xnode, xresult;
+
+  Data_Get_Struct(self, xmlDoc, xdoc);
+  Data_Get_Struct(node, xmlNode, xnode);
+
+  xresult = xmlDocCopyNode(xnode, xdoc, 1);
+
+  if (xresult == NULL)
+    rxml_raise(xmlGetLastError());
+
+  return rxml_node_wrap(xresult);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-last" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            last &rarr; node
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain the last node.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="last-source">
+            <pre>static VALUE rxml_document_last_get(VALUE self)
+{
+  xmlDocPtr xdoc;
+
+  Data_Get_Struct(self, xmlDoc, xdoc);
+
+  if (xdoc-&gt;last == NULL)
+    return (Qnil);
+
+  return rxml_node_wrap(xdoc-&gt;last);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-last-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            last? &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether there is a last node.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="last-3F-source">
+            <pre>static VALUE rxml_document_last_q(VALUE self)
+{
+  xmlDocPtr xdoc;
+
+  Data_Get_Struct(self, xmlDoc, xdoc);
+
+  if (xdoc-&gt;last == NULL)
+    return (Qfalse);
+  else
+    return (Qtrue);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-next" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            next &rarr; node
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain the next node.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="next-source">
+            <pre>static VALUE rxml_document_next_get(VALUE self)
+{
+  xmlDocPtr xdoc;
+
+  Data_Get_Struct(self, xmlDoc, xdoc);
+
+  if (xdoc-&gt;next == NULL)
+    return (Qnil);
+
+  return rxml_node_wrap(xdoc-&gt;next);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-next-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            next? &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether there is a next node.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="next-3F-source">
+            <pre>static VALUE rxml_document_next_q(VALUE self)
+{
+  xmlDocPtr xdoc;
+
+  Data_Get_Struct(self, xmlDoc, xdoc);
+
+  if (xdoc-&gt;next == NULL)
+    return (Qfalse);
+  else
+    return (Qtrue);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-node_type" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            type &rarr; num
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain this node&#39;s type identifier.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="node_type-source">
+            <pre>static VALUE rxml_document_node_type(VALUE self)
+{
+  xmlNodePtr xnode;
+  Data_Get_Struct(self, xmlNode, xnode);
+  return (INT2NUM(xnode-&gt;type));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-node_type_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">node_type_name</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns this node&#39;s type name </p>
+          
+          
+
+          
+          <div class="method-source-code" id="node_type_name-source">
+            <pre><span class="ruby-comment"># File lib/libxml/document.rb, line 134</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">node_type_name</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">node_type</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Node</span><span class="ruby-operator">::</span><span class="ruby-constant">DOCUMENT_NODE</span>
+    <span class="ruby-string">&#39;document_xml&#39;</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Node</span><span class="ruby-operator">::</span><span class="ruby-constant">DOCB_DOCUMENT_NODE</span>
+    <span class="ruby-string">&#39;document_docbook&#39;</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Node</span><span class="ruby-operator">::</span><span class="ruby-constant">HTML_DOCUMENT_NODE</span>
+    <span class="ruby-string">&#39;document_html&#39;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span>(<span class="ruby-constant">UnknownType</span>, <span class="ruby-string">&quot;Unknown node type: %n&quot;</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">node_type</span>);
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-order_elements-21" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            order_elements!
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Call this routine to speed up <a href="XPath.html"><code>XPath</code></a> computation on static documents. This stamps all the element nodes with the document order.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="order_elements-21-source">
+            <pre>static VALUE rxml_document_order_elements(VALUE self)
+{
+  xmlDocPtr xdoc;
+
+  Data_Get_Struct(self, xmlDoc, xdoc);
+  return LONG2FIX(xmlXPathOrderDocElems(xdoc));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-parent" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            parent &rarr; node
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain the parent node.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="parent-source">
+            <pre>static VALUE rxml_document_parent_get(VALUE self)
+{
+  xmlDocPtr xdoc;
+
+  Data_Get_Struct(self, xmlDoc, xdoc);
+
+  if (xdoc-&gt;parent == NULL)
+    return (Qnil);
+
+  return rxml_node_wrap(xdoc-&gt;parent);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-parent-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            parent? &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether there is a parent node.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="parent-3F-source">
+            <pre>static VALUE rxml_document_parent_q(VALUE self)
+{
+  xmlDocPtr xdoc;
+
+  Data_Get_Struct(self, xmlDoc, xdoc);
+
+  if (xdoc-&gt;parent == NULL)
+    return (Qfalse);
+  else
+    return (Qtrue);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-prev" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            prev &rarr; node
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain the previous node.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="prev-source">
+            <pre>static VALUE rxml_document_prev_get(VALUE self)
+{
+  xmlDocPtr xdoc;
+
+  Data_Get_Struct(self, xmlDoc, xdoc);
+
+  if (xdoc-&gt;prev == NULL)
+    return (Qnil);
+
+  return rxml_node_wrap(xdoc-&gt;prev);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-prev-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            prev? &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether there is a previous node.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="prev-3F-source">
+            <pre>static VALUE rxml_document_prev_q(VALUE self)
+{
+  xmlDocPtr xdoc;
+
+  Data_Get_Struct(self, xmlDoc, xdoc);
+
+  if (xdoc-&gt;prev == NULL)
+    return (Qfalse);
+  else
+    return (Qtrue);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-rb_encoding" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            rb_encoding &rarr; Encoding
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns the Ruby encoding specified by this document (available on Ruby 1.9.x and higher).</p>
+          
+          
+
+          
+          <div class="method-source-code" id="rb_encoding-source">
+            <pre>static VALUE rxml_document_rb_encoding_get(VALUE self)
+{
+  xmlDocPtr xdoc;
+  rb_encoding* rbencoding;
+  Data_Get_Struct(self, xmlDoc, xdoc);
+
+  rbencoding = rxml_xml_encoding_to_rb_encoding(mXMLEncoding, xmlParseCharEncoding((const char*)xdoc-&gt;encoding));
+  return rb_enc_from_encoding(rbencoding);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-root" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            root &rarr; node
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain the root node.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="root-source">
+            <pre>static VALUE rxml_document_root_get(VALUE self)
+{
+  xmlDocPtr xdoc;
+  xmlNodePtr root;
+
+  Data_Get_Struct(self, xmlDoc, xdoc);
+  root = xmlDocGetRootElement(xdoc);
+
+  if (root == NULL)
+    return (Qnil);
+
+  return rxml_node_wrap(root);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-root-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            root = node
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Set the root node.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="root-3D-source">
+            <pre>static VALUE rxml_document_root_set(VALUE self, VALUE node)
+{
+  xmlDocPtr xdoc;
+  xmlNodePtr xnode;
+
+  if (rb_obj_is_kind_of(node, cXMLNode) == Qfalse)
+    rb_raise(rb_eTypeError, &quot;must pass an XML::Node type object&quot;);
+
+  Data_Get_Struct(self, xmlDoc, xdoc);
+  Data_Get_Struct(node, xmlNode, xnode);
+
+  if (xnode-&gt;doc != NULL &amp;&amp; xnode-&gt;doc != xdoc)
+    rb_raise(eXMLError, &quot;Nodes belong to different documents.  You must first import the node by calling LibXML::XML::Document.import&quot;);
+
+  xmlDocSetRootElement(xdoc, xnode);
+
+  // Ruby no longer manages this nodes memory
+  rxml_node_unmanage(xnode, node);
+
+  return node;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-save" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            save(filename) &rarr; int
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            save(filename, :indent =&gt; true, :encoding =&gt; XML::Encoding::UTF_8) &rarr; int
+          </span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Saves a document to a file.  You may provide an optional hash table to control how the string is generated.  Valid options are:</p>
+
+<p>:indent - Specifies if the string should be indented.  The default value is true.  Note that indentation is only added if both :indent is true and <a href="../XML.html#method-c-indent_tree_output"><code>XML.indent_tree_output</code></a> is true.  If :indent is set to false, then both indentation and line feeds are removed from the result.</p>
+
+<p>:encoding - Specifies the output encoding of the string.  It defaults to the original encoding of the document (see <a href="Document.html#method-i-encoding"><code>encoding</code></a>.  To override the orginal encoding, use one of the <a href="Encoding.html"><code>XML::Encoding</code></a> encoding constants.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="save-source">
+            <pre>static VALUE rxml_document_save(int argc, VALUE *argv, VALUE self)
+{
+  VALUE options = Qnil;
+  VALUE filename = Qnil;
+  xmlDocPtr xdoc;
+  int indent = 1;
+  const char *xfilename;
+  const xmlChar *xencoding;
+  int length;
+
+  rb_scan_args(argc, argv, &quot;11&quot;, &amp;filename, &amp;options);
+
+  Check_Type(filename, T_STRING);
+  xfilename = StringValuePtr(filename);
+
+  Data_Get_Struct(self, xmlDoc, xdoc);
+  xencoding = xdoc-&gt;encoding;
+
+  if (!NIL_P(options))
+  {
+    VALUE rencoding, rindent;
+    Check_Type(options, T_HASH);
+    rencoding = rb_hash_aref(options, ID2SYM(rb_intern(&quot;encoding&quot;)));
+    rindent = rb_hash_aref(options, ID2SYM(rb_intern(&quot;indent&quot;)));
+
+    if (rindent == Qfalse)
+      indent = 0;
+
+    if (rencoding != Qnil)
+    {
+      xencoding = (const xmlChar*)xmlGetCharEncodingName((xmlCharEncoding)NUM2INT(rencoding));
+      if (!xencoding)
+        rb_raise(rb_eArgError, &quot;Unknown encoding value: %d&quot;, NUM2INT(rencoding));
+    }
+  }
+
+  length = xmlSaveFormatFileEnc(xfilename, xdoc, (const char*)xencoding, indent);
+
+  if (length == -1)
+    rxml_raise(xmlGetLastError());
+
+  return (INT2NUM(length));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-standalone-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            standalone? &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether this is a standalone document.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="standalone-3F-source">
+            <pre>static VALUE rxml_document_standalone_q(VALUE self)
+{
+  xmlDocPtr xdoc;
+
+  Data_Get_Struct(self, xmlDoc, xdoc);
+  if (xdoc-&gt;standalone)
+    return (Qtrue);
+  else
+    return (Qfalse);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_s" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            to_s &rarr; &quot;string&quot;
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            to_s(:indent =&gt; true, :encoding =&gt; XML::Encoding::UTF_8) &rarr; &quot;string&quot;
+          </span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Converts a document, and all of its children, to a string representation. You may provide an optional hash table to control how the string is generated.  Valid options are:</p>
+
+<p>:indent - Specifies if the string should be indented.  The default value is true.  Note that indentation is only added if both :indent is true and <a href="../XML.html#method-c-indent_tree_output"><code>XML.indent_tree_output</code></a> is true.  If :indent is set to false, then both indentation and line feeds are removed from the result.</p>
+
+<p>:encoding - Specifies the output encoding of the string.  It defaults to XML::Encoding::UTF8.  To change it, use one of the <a href="Encoding.html"><code>XML::Encoding</code></a> encoding constants.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="to_s-source">
+            <pre>static VALUE rxml_document_to_s(int argc, VALUE *argv, VALUE self)
+{
+  VALUE result;
+  VALUE options = Qnil;
+  xmlDocPtr xdoc;
+  int indent = 1;
+  const xmlChar *xencoding = (const xmlChar*) &quot;UTF-8&quot;;
+  xmlChar *buffer;
+  int length;
+
+  rb_scan_args(argc, argv, &quot;01&quot;, &amp;options);
+
+  if (!NIL_P(options))
+  {
+    VALUE rencoding, rindent;
+    Check_Type(options, T_HASH);
+    rencoding = rb_hash_aref(options, ID2SYM(rb_intern(&quot;encoding&quot;)));
+    rindent = rb_hash_aref(options, ID2SYM(rb_intern(&quot;indent&quot;)));
+
+    if (rindent == Qfalse)
+      indent = 0;
+
+    if (rencoding != Qnil)
+    {
+      xencoding = (const xmlChar*)xmlGetCharEncodingName((xmlCharEncoding)NUM2INT(rencoding));
+      if (!xencoding)
+        rb_raise(rb_eArgError, &quot;Unknown encoding value: %d&quot;, NUM2INT(rencoding));
+    }
+  }
+
+  Data_Get_Struct(self, xmlDoc, xdoc);
+  xmlDocDumpFormatMemoryEnc(xdoc, &amp;buffer, &amp;length, (const char*)xencoding, indent);
+
+  result = rxml_new_cstr(buffer, xencoding);
+  xmlFree(buffer);
+  return result;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-url" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            url &rarr; &quot;url&quot;
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain this document&#39;s source URL, if any.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="url-source">
+            <pre>static VALUE rxml_document_url_get(VALUE self)
+{
+  xmlDocPtr xdoc;
+
+  Data_Get_Struct(self, xmlDoc, xdoc);
+  if (xdoc-&gt;URL == NULL)
+    return (Qnil);
+  else
+    return (rxml_new_cstr( xdoc-&gt;URL, NULL));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-validate" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            validate(dtd) &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Validate this document against the specified XML::DTD. If the document is valid the method returns true.  Otherwise an exception is raised with validation information.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="validate-source">
+            <pre>static VALUE rxml_document_validate_dtd(VALUE self, VALUE dtd)
+{
+  xmlValidCtxt ctxt;
+  xmlDocPtr xdoc;
+  xmlDtdPtr xdtd;
+
+  Data_Get_Struct(self, xmlDoc, xdoc);
+  Data_Get_Struct(dtd, xmlDtd, xdtd);
+
+  /* Setup context */
+  memset(&amp;ctxt, 0, sizeof(xmlValidCtxt));
+
+  if (xmlValidateDtd(&amp;ctxt, xdoc, xdtd))
+  {
+    return Qtrue;
+  }
+  else
+  {
+    rxml_raise(xmlGetLastError());
+    return Qfalse;
+  }
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-validate_relaxng" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            validate_relaxng(relaxng)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Validate this document against the specified <a href="RelaxNG.html"><code>XML::RelaxNG</code></a>. If the document is valid the method returns true.  Otherwise an exception is raised with validation information.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="validate_relaxng-source">
+            <pre>static VALUE rxml_document_validate_relaxng(VALUE self, VALUE relaxng)
+{
+  xmlRelaxNGValidCtxtPtr vptr;
+  xmlDocPtr xdoc;
+  xmlRelaxNGPtr xrelaxng;
+  int is_invalid;
+
+  Data_Get_Struct(self, xmlDoc, xdoc);
+  Data_Get_Struct(relaxng, xmlRelaxNG, xrelaxng);
+
+  vptr = xmlRelaxNGNewValidCtxt(xrelaxng);
+
+  is_invalid = xmlRelaxNGValidateDoc(vptr, xdoc);
+  xmlRelaxNGFreeValidCtxt(vptr);
+  if (is_invalid)
+  {
+    rxml_raise(xmlGetLastError());
+    return Qfalse;
+  }
+  else
+  {
+    return Qtrue;
+  }
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-validate_schema" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            validate_schema(schema)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Validate this document against the specified <a href="Schema.html"><code>XML::Schema</code></a>. If the document is valid the method returns true.  Otherwise an exception is raised with validation information.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="validate_schema-source">
+            <pre>static VALUE rxml_document_validate_schema(VALUE self, VALUE schema)
+{
+  xmlSchemaValidCtxtPtr vptr;
+  xmlDocPtr xdoc;
+  xmlSchemaPtr xschema;
+  int is_invalid;
+
+  Data_Get_Struct(self, xmlDoc, xdoc);
+  Data_Get_Struct(schema, xmlSchema, xschema);
+
+  vptr = xmlSchemaNewValidCtxt(xschema);
+
+  is_invalid = xmlSchemaValidateDoc(vptr, xdoc);
+  xmlSchemaFreeValidCtxt(vptr);
+  if (is_invalid)
+  {
+    rxml_raise(xmlGetLastError());
+    return Qfalse;
+  }
+  else
+  {
+    return Qtrue;
+  }
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-version" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            version &rarr; &quot;version&quot;
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain the <a href="../XML.html"><code>XML</code></a> version specified by this document.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="version-source">
+            <pre>static VALUE rxml_document_version_get(VALUE self)
+{
+  xmlDocPtr xdoc;
+
+  Data_Get_Struct(self, xmlDoc, xdoc);
+  if (xdoc-&gt;version == NULL)
+    return (Qnil);
+  else
+    return (rxml_new_cstr( xdoc-&gt;version, NULL));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-xhtml-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            xhtml? &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether this is an XHTML document.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="xhtml-3F-source">
+            <pre>static VALUE rxml_document_xhtml_q(VALUE self)
+{
+  xmlDocPtr xdoc;
+        xmlDtdPtr xdtd;
+  Data_Get_Struct(self, xmlDoc, xdoc);
+        xdtd = xmlGetIntSubset(xdoc);
+  if (xdtd != NULL &amp;&amp; xmlIsXHTML(xdtd-&gt;SystemID, xdtd-&gt;ExternalID) &gt; 0)
+    return (Qtrue);
+  else
+    return (Qfalse);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-xinclude" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            xinclude &rarr; num
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Process xinclude directives in this document.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="xinclude-source">
+            <pre>static VALUE rxml_document_xinclude(VALUE self)
+{
+#ifdef LIBXML_XINCLUDE_ENABLED
+  xmlDocPtr xdoc;
+
+  int ret;
+
+  Data_Get_Struct(self, xmlDoc, xdoc);
+  ret = xmlXIncludeProcess(xdoc);
+  if (ret &gt;= 0)
+  {
+    return(INT2NUM(ret));
+  }
+  else
+  {
+    rxml_raise(xmlGetLastError());
+    return Qnil;
+  }
+#else
+  rb_warn(
+      &quot;libxml was compiled without XInclude support.  Please recompile libxml and ruby-libxml&quot;);
+  return (Qfalse);
+#endif
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
