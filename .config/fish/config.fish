@@ -73,8 +73,6 @@ if status is-interactive
     end
 end
 
-set -gx GITHUB_TOKEN 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
-
 set -x HOMEBREW_NO_AUTO_UPDATE 1
 set -x HOMEBREW_NO_INSTALL_CLEANUP 1
 set -x HOMEBREW_NO_ANALYTICS 1
